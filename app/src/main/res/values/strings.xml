@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Assignment</string>
-    <string name="hyperlink"><a href="register.xml">Create</a></string>
+    <string name="hyperlink">Already Have An Account? <a href="register.xml">Login</a></string>
+    <string name="login">Don’t Have An Account? <a href="login.xml">Create One</a></string>
 </resources>
