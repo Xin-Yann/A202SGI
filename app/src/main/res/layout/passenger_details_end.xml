@@ -1,35 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/pdheader"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:background="#040f51"
-        android:padding="10dp"
-        android:text="Passenger Details"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp" />
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/closeBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:backgroundTint="#040f51"
-        android:text="X"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp" />
+        <TextView
+            android:id="@+id/pdheader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="#040f51"
+            android:padding="15dp"
+            android:text="Passenger Details"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/closeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:backgroundTint="#040f51"
+            android:text="X"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+    </RelativeLayout>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_gravity="top">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -40,7 +48,7 @@
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/border_round_corner"
                 android:padding="25dp">
 
@@ -57,7 +65,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="210dp"
-                    android:backgroundTint="#A2A2A2"
+                    android:backgroundTint="#040f51"
                     android:text="Clear"
                     android:textColor="#FFFFFF"
                     android:textSize="16sp" />
@@ -66,7 +74,7 @@
                     android:id="@+id/malaysianSwitch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp"
+                    android:layout_marginTop="35dp"
                     android:minHeight="48dp"
                     android:text="I'm not Malaysian"
                     android:textSize="16sp" />
@@ -81,7 +89,6 @@
                     android:textSize="16sp" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/inputName_layout"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
@@ -109,7 +116,6 @@
                     android:textSize="16sp" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/inputIcNumber_layout"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
@@ -148,7 +154,6 @@
                     android:textSize="16sp" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/inputPassportNumber_layout"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
@@ -194,7 +199,6 @@
                     android:textSize="16sp" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/inputGender_layout"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
@@ -222,7 +226,6 @@
                     android:textSize="16sp" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/inputContactNumber_layout"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
@@ -250,7 +253,6 @@
                     android:textSize="16sp" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/inputEmail_layout"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
@@ -290,7 +292,8 @@
                         style="@style/Widget.AppCompat.DropDownItem.Spinner"
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
-                        app:boxStrokeColor="@color/black" />
+                        app:boxStrokeColor="@color/black"
+                        tools:ignore="TouchTargetSizeCheck" />
                 </RelativeLayout>
 
                 <TextView
@@ -303,7 +306,6 @@
                     android:textSize="16sp" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/inputPromoCode_layout"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
@@ -325,8 +327,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="210dp"
-                    android:layout_marginTop="1075dp"
-                    android:backgroundTint="#A2A2A2"
+                    android:layout_marginTop="1085dp"
+                    android:backgroundTint="#040f51"
                     android:text="Apply"
                     android:textColor="#FFFFFF"
                     android:textSize="16sp" />
@@ -338,7 +340,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="1275dp"
+                android:layout_marginTop="1250dp"
                 android:background="#040f51"
                 android:padding="20dp"
                 android:text="CONFIRMATION"
@@ -351,7 +353,7 @@
                 android:layout_width="325dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="1375dp"
+                android:layout_marginTop="1350dp"
                 android:text="Please review your ticket details carefully and when ready, click on the 'Make Payment' button to proceed with the payment."
                 android:textAlignment="center"
                 android:textSize="16sp" />
@@ -361,11 +363,12 @@
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="1475dp"
-                android:backgroundTint="#A2A2A2"
+                android:layout_marginTop="1450dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="#040f51"
                 android:text="Make Payment"
                 android:textColor="#FFFFFF"
                 android:textSize="16sp" />
         </RelativeLayout>
     </ScrollView>
-</RelativeLayout>
+</LinearLayout>
