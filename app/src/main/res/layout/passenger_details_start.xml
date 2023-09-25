@@ -350,23 +350,23 @@
 
             <TextView
                 android:id="@+id/confirmationInfo"
-                android:layout_width="325dp"
+                android:layout_width="340dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="1350dp"
-                android:text="Please review your ticket details carefully and when ready, click on the 'Make Payment' button to proceed with the payment."
+                android:text="Please review your ticket details carefully and when ready, click on the 'Next Passenger' button to proceed with the next passenger details."
                 android:textAlignment="center"
                 android:textSize="16sp" />
 
             <Button
-                android:id="@+id/makePaymentBtn"
+                android:id="@+id/nextPassengerBtn"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="1450dp"
                 android:layout_marginBottom="20dp"
                 android:backgroundTint="#040f51"
-                android:text="Make Payment"
+                android:text="Next Passenger  ->"
                 android:textColor="#FFFFFF"
                 android:textSize="16sp" />
         </RelativeLayout>
