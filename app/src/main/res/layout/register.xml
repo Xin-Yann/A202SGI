@@ -6,9 +6,7 @@
     android:layout_height="match_parent"
     android:layout_marginTop="16dp"
     android:orientation="vertical"
-    android:gravity="center_horizontal"
-    tools:layout_editor_absoluteX="0dp"
-    tools:layout_editor_absoluteY="15dp">
+    android:gravity="center_horizontal">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -89,8 +87,6 @@
         android:layout_height="46dp"
         android:backgroundTint="#030F51"
         android:text="Register"
-        tools:layout_editor_absoluteX="101dp"
-        tools:layout_editor_absoluteY="528dp"
         android:layout_marginTop="20dp"/>
 
     <TextView

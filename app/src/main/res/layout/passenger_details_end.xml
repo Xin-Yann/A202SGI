@@ -1,30 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/pdheader"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:background="#040f51"
-        android:padding="10dp"
-        android:text="Passenger Details"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-    <ImageButton
-        android:id="@+id/closeBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginLeft="20dp"
-        android:background="none"
-        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel"/>
+        <TextView
+            android:id="@+id/pdheader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="#040f51"
+            android:padding="10dp"
+            android:text="Passenger Details"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#00FFFFFF"
+            android:text="X"
+            android:textColor="#FFFFFF"
+            android:textSize="16dp" />
+        </RelativeLayout>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -39,9 +46,9 @@
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="70dp"
                 android:background="@drawable/border_round_corner"
-                android:padding="25dp">
+                android:padding="25dp"
+                android:layout_marginTop="20dp">
 
                 <TextView
                     android:id="@+id/passengerAmount"
@@ -66,6 +73,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="50dp"
+                    android:minHeight="48dp"
                     android:text="I'm not Malaysian"
                     android:textSize="16sp" />
 
@@ -115,7 +123,7 @@
                     android:layout_marginTop="225dp"
                     android:textColor="#000000"
                     android:textSize="16sp"
-                    android:hint="MyKad Number"
+                    android:hint="XXXXXX-XX-XXXX"
                     app:hintEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -154,7 +162,7 @@
                     android:layout_marginTop="375dp"
                     android:textColor="#000000"
                     android:textSize="16sp"
-                    android:hint="Passport Number"
+                    android:hint="XXXXXXXXX"
                     app:hintEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -228,7 +236,7 @@
                     android:layout_marginTop="775dp"
                     android:textColor="#000000"
                     android:textSize="16sp"
-                    android:hint="Contact Number"
+                    android:hint="601X-XXXXXXXX"
                     app:hintEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -256,7 +264,7 @@
                     android:layout_marginTop="875dp"
                     android:textColor="#000000"
                     android:textSize="16sp"
-                    android:hint="Email"
+                    android:hint="example@domain.com"
                     app:hintEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -308,7 +316,7 @@
                     android:layout_marginTop="1075dp"
                     android:textColor="#000000"
                     android:textSize="16sp"
-                    android:hint="Promo Code"
+                    android:hint="XXXXXX"
                     app:hintEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -364,6 +372,7 @@
                 android:text="Make Payment"
                 android:textColor="#FFFFFF"
                 android:textSize="16sp" />
+
         </RelativeLayout>
     </ScrollView>
-</RelativeLayout>
+</LinearLayout>
