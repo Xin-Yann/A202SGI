@@ -18,13 +18,14 @@
         android:textColor="#FFFFFF"
         android:textSize="16sp" />
 
-    <ImageButton
+    <Button
         android:id="@+id/closeBtn"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_marginLeft="20dp"
-        android:background="none"
-        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel"/>
+        android:backgroundTint="#040f51"
+        android:text="X"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -66,6 +67,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="50dp"
+                    android:minHeight="48dp"
                     android:text="I'm not Malaysian"
                     android:textSize="16sp" />
 
@@ -115,7 +117,7 @@
                     android:layout_marginTop="225dp"
                     android:textColor="#000000"
                     android:textSize="16sp"
-                    android:hint="MyKad Number"
+                    android:hint="XXXXXX-XX-XXXX"
                     app:hintEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -154,7 +156,7 @@
                     android:layout_marginTop="375dp"
                     android:textColor="#000000"
                     android:textSize="16sp"
-                    android:hint="Passport Number"
+                    android:hint="XXXXXXXXX"
                     app:hintEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -228,7 +230,7 @@
                     android:layout_marginTop="775dp"
                     android:textColor="#000000"
                     android:textSize="16sp"
-                    android:hint="Contact Number"
+                    android:hint="601X-XXXXXXXX"
                     app:hintEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -256,7 +258,7 @@
                     android:layout_marginTop="875dp"
                     android:textColor="#000000"
                     android:textSize="16sp"
-                    android:hint="Email"
+                    android:hint="example@domain.com"
                     app:hintEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -308,7 +310,7 @@
                     android:layout_marginTop="1075dp"
                     android:textColor="#000000"
                     android:textSize="16sp"
-                    android:hint="Promo Code"
+                    android:hint="XXXXXX"
                     app:hintEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
