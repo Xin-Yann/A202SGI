@@ -25,7 +25,7 @@
             android:layout_centerHorizontal="true"
             android:background="#040f51"
             android:padding="15dp"
-            android:text="Select Depart Ticket"
+            android:text="Select Return Ticket"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
