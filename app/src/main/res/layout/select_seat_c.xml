@@ -23,7 +23,7 @@
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:background="#030F51"
+            android:background="#040F51"
             android:gravity="center"
             android:text="Select Seat"
             android:textAlignment="center"
@@ -305,7 +305,7 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="1"
             android:layout_gravity="top">
 
@@ -705,7 +705,7 @@
                 android:background="#ffffff"
                 android:onClick="clickImage3"
                 android:padding="5dp"
-                app:srcCompat="@drawable/user" />
+                app:srcCompat="@drawable/account" />
 
         </LinearLayout>
 

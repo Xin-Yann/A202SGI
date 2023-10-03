@@ -43,37 +43,37 @@
 
         <ImageView
             android:id="@+id/account1"
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="175dp"
-            android:layout_marginTop="55dp"
-            app:srcCompat="@drawable/account" />
+            android:layout_marginStart="185dp"
+            android:layout_marginTop="40dp"
+            app:srcCompat="@drawable/user"/>
 
         <TextView
             android:id="@+id/username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="160dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="5dp"
             android:gravity="top"
             android:text="Username"
             android:textColor="#000000"
             android:textSize="21sp" />
 
-        <ImageView
+        <View
             android:id="@+id/imageView6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="0dp"
+            android:layout_width="355dp"
+            android:layout_height="440dp"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="25dp"
-            app:srcCompat="@drawable/rectangle_10" />
+            android:background="#f2f2f2" />
 
         <TextView
             android:id="@+id/special_registration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="75dp"
-            android:layout_marginTop="-350dp"
+            android:layout_marginTop="-410dp"
             android:gravity="top"
             android:text="Special Registration"
             android:textColor="#000000"
@@ -84,26 +84,28 @@
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             app:srcCompat="@drawable/rectangle_15" />
 
-        <TextView
+        <EditText
             android:id="@+id/option"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="40dp"
             android:layout_marginStart="105dp"
-            android:layout_marginTop="-36dp"
+            android:layout_marginTop="-41dp"
             android:gravity="top"
-            android:text="MyRailLife OKU"
+            android:hint="MyRailLife OKU"
             android:textColor="#000000"
-            android:textSize="17sp" />
+            android:textSize="17sp"
+            style="@style/NoUnderlineEditTextStyle"
+            />
 
         <ImageView
             android:id="@+id/polygon1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="210dp"
-            android:layout_marginTop="-25dp"
+            android:layout_marginStart="195dp"
+            android:layout_marginTop="-32dp"
             app:srcCompat="@drawable/polygon_1" />
 
         <ImageView
@@ -111,45 +113,47 @@
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="40dp"
             app:srcCompat="@drawable/rectangle_15" />
 
-        <TextView
+        <EditText
             android:id="@+id/oku_card_number"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="40dp"
             android:layout_marginStart="105dp"
-            android:layout_marginTop="-36dp"
+            android:layout_marginTop="-40dp"
             android:gravity="top"
-            android:text="OKU Card Number"
+            android:hint="OKU Card Number"
             android:textColor="#000000"
-            android:textSize="17sp" />
+            android:textSize="17sp"
+            style="@style/NoUnderlineEditTextStyle"/>
 
         <ImageView
             android:id="@+id/rectangle_15three"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="20dp"
             app:srcCompat="@drawable/rectangle_15" />
 
         <TextView
             android:id="@+id/birth_date"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="40dp"
             android:layout_marginStart="105dp"
-            android:layout_marginTop="-36dp"
+            android:layout_marginTop="-45dp"
             android:gravity="top"
-            android:text="Birth Date"
+            android:hint="Birth Date"
             android:textColor="#000000"
-            android:textSize="17sp" />
+            android:textSize="17sp"
+            style="@style/NoUnderlineEditTextStyle"/>
 
         <TextView
             android:id="@+id/attachment"
             android:layout_width="wrap_content"
             android:layout_height="22dp"
             android:layout_marginStart="90dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:gravity="top"
             android:text="Attachment:"
             android:textColor="#000000"
@@ -185,9 +189,7 @@
             android:text="Upload Requirement Documents"
             android:textSize="12dp"
             android:textAlignment="textEnd"
-            tools:layout_editor_absoluteX="101dp"
-            tools:layout_editor_absoluteY="528dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:layout_marginStart="90dp" />
 
         <ImageView
@@ -195,7 +197,7 @@
             android:layout_width="wrap_content"
             android:layout_height="17dp"
             android:layout_marginStart="100dp"
-            android:layout_marginTop="-28dp"
+            android:layout_marginTop="-30dp"
             app:srcCompat="@drawable/upload_1" />
 
         <Button
@@ -212,5 +214,95 @@
             android:layout_marginStart="160dp" />
 
     </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/footer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#FEFAFD"
 
+        android:gravity="center_horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/image1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="88dp"
+                android:background="#ffff"
+                android:contentDescription="Image1"
+                android:onClick="clickImage1"
+                android:padding="5dp"
+                app:srcCompat="@drawable/home" />
+
+            <ImageButton
+                android:id="@+id/image2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="95dp"
+                android:background="#ffffff"
+                android:onClick="clickImage2"
+                app:srcCompat="@drawable/ticket" />
+
+
+            <ImageButton
+                android:id="@+id/image3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:onClick="clickImage3"
+                android:padding="5dp"
+                app:srcCompat="@drawable/account" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+
+            <TextView
+                android:id="@+id/home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="70dp"
+                android:gravity="top"
+                android:text="Home"
+                android:textColor="#000000"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/myTicket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="70dp"
+                android:gravity="top"
+                android:text="My Ticket"
+                android:textColor="#000000"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/account2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:text="Account"
+                android:textColor="#000000"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </RelativeLayout>
 </RelativeLayout>
