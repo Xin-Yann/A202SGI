@@ -179,7 +179,6 @@
                 android:layout_marginLeft="45dp"
                 android:layout_marginTop="630dp"
                 android:layout_marginBottom="20dp"
-                android:backgroundTint="#B55A5A"
                 android:text="Save as payment method"
                 android:textColor="#000000"
                 android:textSize="14sp" />
