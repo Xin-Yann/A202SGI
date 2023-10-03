@@ -16,18 +16,17 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.select_depart_ticket);
+        setContentView(R.layout.home);
 
 
-//        tabLayout = findViewById(R.id.tablayout);
-//        viewPager = findViewById(R.id.viewpager);
-//
-//        tabLayout.setupWithViewPager(viewPager);
-//
-//        VPAdapter vpAdapter = new VPAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-//        vpAdapter.addFragment(new fragment1(), "One-Way");
-//        vpAdapter.addFragment(new fragment2(), "Round Trip");
-//        viewPager.setAdapter(vpAdapter);
+       tabLayout = findViewById(R.id.tablayout);
+       viewPager = findViewById(R.id.viewpager);
+
+       tabLayout.setupWithViewPager(viewPager);
+       VPAdapter vpAdapter = new VPAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+       vpAdapter.addFragment(new fragment1(), "One-Way");
+       vpAdapter.addFragment(new fragment2(), "Round Trip");
+       viewPager.setAdapter(vpAdapter);
     }
 
 }
