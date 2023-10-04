@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="175dp"
             android:layout_marginTop="55dp"
-            app:srcCompat="@drawable/account" />
+            app:srcCompat="@drawable/user" />
 
         <TextView
             android:id="@+id/username"
@@ -179,9 +179,96 @@
             tools:layout_editor_absoluteY="528dp"
             android:layout_marginTop="30dp"
             android:layout_marginStart="140dp" />
-
-
-
     </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/footer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#FEFAFD"
 
+        android:gravity="center_horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/image1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="88dp"
+                android:background="#ffff"
+                android:contentDescription="Image1"
+                android:onClick="clickImage1"
+                android:padding="5dp"
+                app:srcCompat="@drawable/home" />
+
+            <ImageButton
+                android:id="@+id/image2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="95dp"
+                android:background="#ffffff"
+                android:onClick="clickImage2"
+                app:srcCompat="@drawable/ticket" />
+
+
+            <ImageButton
+                android:id="@+id/image3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:onClick="clickImage3"
+                android:padding="5dp"
+                app:srcCompat="@drawable/account" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+
+            <TextView
+                android:id="@+id/home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="70dp"
+                android:gravity="top"
+                android:text="Home"
+                android:textColor="#000000"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/myTicket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="70dp"
+                android:gravity="top"
+                android:text="My Ticket"
+                android:textColor="#000000"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/account2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:text="Account"
+                android:textColor="#000000"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </RelativeLayout>
 </RelativeLayout>

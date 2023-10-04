@@ -14,168 +14,170 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-    <RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:orientation="horizontal"
-        android:gravity="center_horizontal">
-
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Hello,"
-            android:layout_marginLeft="20dp"/>
-
-        <TextView
-            android:id="@+id/where"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Where Are You Going?"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="30dp"/>
-
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="30dp"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/account"
-            android:layout_marginLeft="330dp"
-            android:layout_marginBottom="20dp"/>
-
-
-
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tablayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="60dp">
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="One-Way" />
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Round Trip" />
-
-    </com.google.android.material.tabs.TabLayout>
-
-
-
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/viewpager"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintTop_toBottomOf="@+id/tablayout">
-
-        </androidx.viewpager.widget.ViewPager>
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="-30dp">
 
         <RelativeLayout
-            android:id="@+id/footer"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:background="#FEFAFD"
-            android:gravity="center_horizontal">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="60dp"
-                android:layout_gravity="center_horizontal"
-                android:orientation="horizontal"
-                android:layout_marginLeft="60dp">
-
-                <ImageButton
-                    android:id="@+id/image1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="#ffff"
-                    android:contentDescription="Image1"
-                    android:onClick="clickImage1"
-                    android:padding="5dp"
-                    app:srcCompat="@drawable/home"
-                    android:layout_marginRight="88dp"/>
-
-                <ImageButton
-                    android:id="@+id/image2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="#ffffff"
-                    android:onClick="clickImage2"
-                    app:srcCompat="@drawable/ticket"
-                    android:layout_marginRight="95dp"
-                    android:layout_marginLeft="5dp"/>
+            android:layout_marginTop="25dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
 
 
-                <ImageButton
-                    android:id="@+id/image3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="#ffffff"
-                    android:onClick="clickImage3"
-                    android:padding="5dp"
-                    app:srcCompat="@drawable/user" />
-
-            </LinearLayout>
-
-            <LinearLayout
+            <TextView
+                android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:orientation="horizontal"
-                android:padding="10dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginLeft="40dp"
+                android:text="Hello,"
+                android:textColor="#040f51" />
+
+            <TextView
+                android:id="@+id/where"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="30dp"
+                android:text="Where Are You Going?"
+                android:textColor="#040f51" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="25dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="330dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="20dp"
+                app:srcCompat="@drawable/user" />
+
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tablayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="One-Way" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Round Trip" />
+
+            </com.google.android.material.tabs.TabLayout>
+
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="109dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintTop_toBottomOf="@+id/tablayout"></androidx.viewpager.widget.ViewPager>
+
+            <RelativeLayout
+                android:id="@+id/footer"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="#FEFAFD"
+
                 android:gravity="center_horizontal">
 
-
-                <TextView
-                    android:id="@+id/home"
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="top"
-                    android:text="Home"
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    android:layout_marginRight="70dp"/>
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="60dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/myTicket"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="top"
-                    android:text="My Ticket"
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    android:layout_marginRight="70dp"
-                    android:layout_marginLeft="10dp"/>
+                    <ImageButton
+                        android:id="@+id/image1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="88dp"
+                        android:background="#ffff"
+                        android:contentDescription="Image1"
+                        android:onClick="clickImage1"
+                        android:padding="5dp"
+                        app:srcCompat="@drawable/home" />
 
-                <TextView
-                    android:id="@+id/account"
-                    android:layout_width="wrap_content"
+                    <ImageButton
+                        android:id="@+id/image2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="95dp"
+                        android:background="#ffffff"
+                        android:onClick="clickImage2"
+                        app:srcCompat="@drawable/ticket" />
+
+
+                    <ImageButton
+                        android:id="@+id/image3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#ffffff"
+                        android:onClick="clickImage3"
+                        android:padding="5dp"
+                        app:srcCompat="@drawable/account" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="top"
-                    android:text="Account"
-                    android:textColor="#000000"
-                    android:textSize="14sp" />
-            </LinearLayout>
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="30dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+
+                    <TextView
+                        android:id="@+id/home"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="70dp"
+                        android:gravity="top"
+                        android:text="Home"
+                        android:textColor="#000000"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/myTicket"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="70dp"
+                        android:gravity="top"
+                        android:text="My Ticket"
+                        android:textColor="#000000"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/account"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="top"
+                        android:text="Account"
+                        android:textColor="#000000"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </RelativeLayout>
         </RelativeLayout>
-    </RelativeLayout>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

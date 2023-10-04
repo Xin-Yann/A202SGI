@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="142dp"
         android:id="@+id/linearLayout2">
 
         <ImageView
@@ -25,25 +25,11 @@
             android:layout_marginLeft="80dp"/>
 
         <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Name"
-            android:layout_marginTop="50dp"/>
-
-        <EditText
-            android:id="@+id/editTextText2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"/>
-
-        <TextView
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="E-mail"
-            android:layout_marginTop="20dp"/>
+            android:text="Username or E-mail"
+            android:layout_marginTop="50dp"/>
 
         <EditText
             android:id="@+id/editTextTextEmailAddress"
@@ -70,15 +56,15 @@
             android:id="@+id/button"
             android:layout_width="210dp"
             android:layout_height="46dp"
-            android:backgroundTint="#040F51"
-            android:text="Register"
+            android:backgroundTint="#030F51"
+            android:text="Login"
             android:layout_marginTop="20dp"/>
 
         <TextView
             android:id="@+id/activity_main_link"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/hyperlink"
+            android:text="@string/login"
             android:textAlignment="center"
             android:textSize="14sp"
             android:layout_marginTop="20dp"/>
