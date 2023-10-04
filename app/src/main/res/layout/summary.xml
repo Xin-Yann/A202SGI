@@ -12,16 +12,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
 
         <TextView
-            android:id="@+id/summaryheader"
+            android:id="@+id/pdheader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:background="#040f51"
             android:padding="15dp"
-            android:text="Summary"
+            android:text="Select Return Ticket"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
@@ -32,140 +34,115 @@
             android:layout_height="20dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="-40dp"
-            android:layout_marginBottom="12dp"
             android:background="@drawable/left_chevron"
-            android:baselineAligned="false" />
+            android:baselineAligned="false"
+            android:layout_marginBottom="12dp"/>
 
-        <ImageView
-            android:id="@+id/rectangle_40"
-            android:layout_width="match_parent"
+        <RelativeLayout
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            app:srcCompat="@drawable/rectangle_40" />
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/border_round_corner"
+            android:padding="25dp"
+            android:gravity="center_horizontal">
 
-        <TextView
-            android:id="@+id/train"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="48dp"
-            android:layout_marginTop="-115dp"
-            android:gravity="top"
-            android:text="Train"
-            android:textColor="#000000"
-            android:textSize="14sp" />
-
-
-        <TextView
-            android:id="@+id/totalpax"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="305dp"
-            android:layout_marginTop="-21dp"
-            android:gravity="top"
-            android:text="Total pax"
-            android:textColor="#000000"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/depart_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="38dp"
-            android:layout_marginTop="10dp"
-            android:gravity="top"
-            android:text="Depart Time"
-            android:textColor="#000000"
-            android:textSize="18sp" />
+            <TextView
+                android:id="@+id/origin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="20dp"
+                android:gravity="top"
+                android:text="Origin"
+                android:textColor="#000000"
+                android:textSize="20sp" />
 
 
-        <TextView
-            android:id="@+id/origin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="68dp"
-            android:layout_marginTop="5dp"
-            android:gravity="top"
-            android:text="Origin"
-            android:textColor="#A2A2A2"
-            android:textSize="14sp" />
+            <TextView
+                android:id="@+id/depart_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="55dp"
+                android:layout_marginTop="50dp"
+                android:gravity="top"
+                android:text="Depart: time"
+                android:textColor="#A2A2A2"
+                android:textSize="12sp" />
 
-        <TextView
-            android:id="@+id/duration"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="180dp"
-            android:layout_marginTop="-58dp"
-            android:gravity="top"
-            android:text="Duration"
-            android:textColor="#000000"
-            android:textSize="14sp" />
+            <TextView
+                android:id="@+id/duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="180dp"
+                android:layout_marginTop="-70dp"
+                android:text="Duration"
+                android:textColor="#000000"
+                android:textSize="12sp" />
 
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="80dp"
-            android:layout_height="12dp"
-            android:layout_marginStart="118dp"
-            android:layout_marginTop="-2dp"
-            app:srcCompat="@drawable/new_moon_blue" />
 
-        <TextView
-            android:id="@+id/line"
-            android:layout_width="90dp"
-            android:layout_height="15dp"
-            android:layout_marginStart="162dp"
-            android:layout_marginTop="-17dp"
-            android:gravity="top"
-            android:text="---------------------------"
-            android:textColor="#000000"
-            android:textSize="14sp" />
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="80dp"
+                android:layout_height="12dp"
+                android:layout_marginStart="110dp"
+                android:layout_marginTop="10dp"
+                app:srcCompat="@drawable/new_moon_blue" />
 
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="80dp"
-            android:layout_height="12dp"
-            android:layout_marginStart="215dp"
-            android:layout_marginTop="-11dp"
-            app:srcCompat="@drawable/dry_clean" />
+            <TextView
+                android:id="@+id/line"
+                android:layout_width="95dp"
+                android:layout_height="12dp"
+                android:layout_marginStart="158dp"
+                android:layout_marginTop="-17dp"
+                android:gravity="top"
+                android:text="----------------------------"
+                android:textColor="#000000"
+                android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/arrival_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="275dp"
-            android:layout_marginTop="-24dp"
-            android:gravity="top"
-            android:text="Arrival Time"
-            android:textColor="#000000"
-            android:textSize="18sp" />
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="80dp"
+                android:layout_height="13dp"
+                android:layout_marginStart="215dp"
+                android:layout_marginTop="-9dp"
+                app:srcCompat="@drawable/dry_clean" />
 
-        <TextView
-            android:id="@+id/destination"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="285dp"
-            android:layout_marginTop="5dp"
-            android:gravity="top"
-            android:text="Destination"
-            android:textColor="#A2A2A2"
-            android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/ticket_type"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="290dp"
-            android:layout_marginTop="10dp"
-            android:gravity="top"
-            android:text="Ticket Type"
-            android:textColor="#000000"
-            android:textSize="14sp" />
+            <TextView
+                android:id="@+id/destination"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="270dp"
+                android:layout_marginTop="-16dp"
+                android:gravity="top"
+                android:text="Destination"
+                android:textColor="#000000"
+                android:textSize="20sp" />
 
-        <View
-            android:layout_width="fill_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="40dp"
-            android:background="@color/black" />
+            <TextView
+                android:id="@+id/arrive_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="290dp"
+                android:layout_marginTop="4dp"
+                android:gravity="top"
+                android:text="Arrive: time"
+                android:textColor="#A2A2A2"
+                android:textSize="12sp" />
 
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="310dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="top"
+                android:text="Total: Pax"
+                android:textColor="#000000"
+                android:textSize="14sp" />
+        </RelativeLayout>
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -288,6 +265,9 @@
                     android:textSize="16sp" />
             </LinearLayout>
         </ScrollView>
+
+
+
     </LinearLayout>
     <RelativeLayout
         android:id="@+id/footer"

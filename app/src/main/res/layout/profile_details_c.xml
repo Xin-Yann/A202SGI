@@ -114,16 +114,17 @@
             android:layout_marginTop="30dp"
             app:srcCompat="@drawable/rectangle_15" />
 
-        <TextView
+        <EditText
             android:id="@+id/birth_date"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="40dp"
             android:layout_marginStart="105dp"
-            android:layout_marginTop="-36dp"
+            android:layout_marginTop="-40dp"
             android:gravity="top"
-            android:text="Birth Date"
+            android:hint="Birth Date"
             android:textColor="#000000"
-            android:textSize="17sp" />
+            android:textSize="17sp"
+            style="@style/NoUnderlineEditTextStyle"/>
 
         <TextView
             android:id="@+id/attachment"
