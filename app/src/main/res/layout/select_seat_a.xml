@@ -603,7 +603,7 @@
                 android:background="#ffffff"
                 android:onClick="clickImage3"
                 android:padding="5dp"
-                app:srcCompat="@drawable/user" />
+                app:srcCompat="@drawable/account" />
 
         </LinearLayout>
 
