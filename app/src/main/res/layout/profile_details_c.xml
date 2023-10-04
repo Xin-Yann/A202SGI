@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="0dp"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="15dp">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/account"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="#030F51"
+            android:gravity="center"
+            android:text="Account"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="170dp"
+            tools:layout_editor_absoluteY="16dp" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="17dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="-35dp"
+            app:srcCompat="@drawable/left_arrow_white" />
+
+        <ImageView
+            android:id="@+id/account1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="185dp"
+            android:layout_marginTop="55dp"
+            app:srcCompat="@drawable/user" />
+
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="165dp"
+            android:layout_marginTop="20dp"
+            android:gravity="top"
+            android:text="Username"
+            android:textColor="#000000"
+            android:textSize="21sp" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="25dp"
+            app:srcCompat="@drawable/rectangle_10" />
+
+        <TextView
+            android:id="@+id/special_registration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="75dp"
+            android:layout_marginTop="-340dp"
+            android:gravity="top"
+            android:text="Special Registration"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/rectangle_15"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            app:srcCompat="@drawable/rectangle_15" />
+
+        <TextView
+            android:id="@+id/option"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginStart="105dp"
+            android:layout_marginTop="-36dp"
+            android:gravity="top"
+            android:text="MyRailLife Student"
+            android:textColor="#000000"
+            android:textSize="17sp" />
+
+        <ImageView
+            android:id="@+id/polygon1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="210dp"
+            android:layout_marginTop="-25dp"
+            app:srcCompat="@drawable/polygon_1" />
+
+        <ImageView
+            android:id="@+id/rectangle_15two"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="30dp"
+            app:srcCompat="@drawable/rectangle_15" />
+
+        <TextView
+            android:id="@+id/birth_date"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginStart="105dp"
+            android:layout_marginTop="-36dp"
+            android:gravity="top"
+            android:text="Birth Date"
+            android:textColor="#000000"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/attachment"
+            android:layout_width="wrap_content"
+            android:layout_height="22dp"
+            android:layout_marginStart="90dp"
+            android:layout_marginTop="20dp"
+            android:gravity="top"
+            android:text="Attachment:"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/content"
+            android:layout_width="wrap_content"
+            android:layout_height="22dp"
+            android:layout_marginStart="90dp"
+            android:layout_marginTop="0dp"
+            android:gravity="top"
+            android:text="1.MyKad"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:backgroundTint="#030F51"
+            android:text="Upload Requirement Documents"
+            android:textSize="12dp"
+            android:textAlignment="textEnd"
+            tools:layout_editor_absoluteX="101dp"
+            tools:layout_editor_absoluteY="528dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="90dp" />
+
+        <ImageView
+            android:id="@+id/upload1"
+            android:layout_width="wrap_content"
+            android:layout_height="17dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="-28dp"
+            app:srcCompat="@drawable/upload_1" />
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:backgroundTint="#030F51"
+            android:text="Submit"
+            android:textSize="12dp"
+            android:textAlignment="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="160dp" />
+
+    </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/footer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#FEFAFD"
+
+        android:gravity="center_horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/image1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="88dp"
+                android:background="#ffff"
+                android:contentDescription="Image1"
+                android:onClick="clickImage1"
+                android:padding="5dp"
+                app:srcCompat="@drawable/home" />
+
+            <ImageButton
+                android:id="@+id/image2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="95dp"
+                android:background="#ffffff"
+                android:onClick="clickImage2"
+                app:srcCompat="@drawable/ticket" />
+
+
+            <ImageButton
+                android:id="@+id/image3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:onClick="clickImage3"
+                android:padding="5dp"
+                app:srcCompat="@drawable/account" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+
+            <TextView
+                android:id="@+id/home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="70dp"
+                android:gravity="top"
+                android:text="Home"
+                android:textColor="#000000"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/myTicket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="70dp"
+                android:gravity="top"
+                android:text="My Ticket"
+                android:textColor="#000000"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/account2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:text="Account"
+                android:textColor="#000000"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>
