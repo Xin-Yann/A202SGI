@@ -320,9 +320,7 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_gravity="top">
+            android:layout_height="320dp">
 
             <LinearLayout
                 android:id="@+id/linearLayout3"
@@ -355,8 +353,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="124dp"
                     android:layout_marginTop="-61dp"
-                    android:text="1B"
-                    android:gravity="top" />
+                    android:gravity="top"
+                    android:text="1B" />
 
                 <View
                     android:id="@+id/normal_seat_1b"
@@ -372,8 +370,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="265dp"
                     android:layout_marginTop="-61dp"
-                    android:text="1C"
-                    android:gravity="top" />
+                    android:gravity="top"
+                    android:text="1C" />
 
                 <View
                     android:id="@+id/normal_seat_1c"
@@ -389,8 +387,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="324dp"
                     android:layout_marginTop="-61dp"
-                    android:text="1D"
-                    android:gravity="top" />
+                    android:gravity="top"
+                    android:text="1D" />
 
                 <View
                     android:id="@+id/normal_seat_1d"
@@ -423,8 +421,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="124dp"
                     android:layout_marginTop="-61dp"
-                    android:text="2B"
-                    android:gravity="top" />
+                    android:gravity="top"
+                    android:text="2B" />
 
                 <View
                     android:id="@+id/normal_seat_2b"
@@ -440,8 +438,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="265dp"
                     android:layout_marginTop="-61dp"
-                    android:text="2C"
-                    android:gravity="top" />
+                    android:gravity="top"
+                    android:text="2C" />
 
                 <View
                     android:id="@+id/normal_seat_2c"
@@ -457,8 +455,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="324dp"
                     android:layout_marginTop="-61dp"
-                    android:text="2D"
-                    android:gravity="top" />
+                    android:gravity="top"
+                    android:text="2D" />
 
                 <View
                     android:id="@+id/normal_seat_2d"
@@ -491,8 +489,8 @@
                     android:layout_height="18dp"
                     android:layout_marginStart="124dp"
                     android:layout_marginTop="-60dp"
-                    android:text="3B"
-                    android:gravity="top" />
+                    android:gravity="top"
+                    android:text="3B" />
 
                 <View
                     android:id="@+id/normal_seat_3b"
@@ -508,8 +506,8 @@
                     android:layout_height="18dp"
                     android:layout_marginStart="265dp"
                     android:layout_marginTop="-60dp"
-                    android:text="3C"
-                    android:gravity="top" />
+                    android:gravity="top"
+                    android:text="3C" />
 
                 <View
                     android:id="@+id/normal_seat_3c"
@@ -525,8 +523,8 @@
                     android:layout_height="18dp"
                     android:layout_marginStart="324dp"
                     android:layout_marginTop="-60dp"
-                    android:text="3D"
-                    android:gravity="top" />
+                    android:gravity="top"
+                    android:text="3D" />
 
                 <View
                     android:id="@+id/normal_seat_3d"
@@ -559,8 +557,8 @@
                     android:layout_height="18dp"
                     android:layout_marginStart="124dp"
                     android:layout_marginTop="-60dp"
-                    android:text="4B"
-                    android:gravity="top" />
+                    android:gravity="top"
+                    android:text="4B" />
 
                 <View
                     android:id="@+id/normal_seat_4b"
@@ -576,8 +574,8 @@
                     android:layout_height="18dp"
                     android:layout_marginStart="265dp"
                     android:layout_marginTop="-60dp"
-                    android:text="4C"
-                    android:gravity="top" />
+                    android:gravity="top"
+                    android:text="4C" />
 
                 <View
                     android:id="@+id/normal_seat_4c"
@@ -593,8 +591,8 @@
                     android:layout_height="18dp"
                     android:layout_marginStart="324dp"
                     android:layout_marginTop="-60dp"
-                    android:text="4D"
-                    android:gravity="top" />
+                    android:gravity="top"
+                    android:text="4D" />
 
                 <View
                     android:id="@+id/normal_seat_4d"
@@ -627,8 +625,8 @@
                     android:layout_height="18dp"
                     android:layout_marginStart="124dp"
                     android:layout_marginTop="-60dp"
-                    android:text="5B"
-                    android:gravity="top" />
+                    android:gravity="top"
+                    android:text="5B" />
 
                 <View
                     android:id="@+id/normal_seat_5b"
@@ -644,8 +642,8 @@
                     android:layout_height="18dp"
                     android:layout_marginStart="265dp"
                     android:layout_marginTop="-60dp"
-                    android:text="5C"
-                    android:gravity="top" />
+                    android:gravity="top"
+                    android:text="5C" />
 
                 <View
                     android:id="@+id/normal_seat_5c"
@@ -661,8 +659,8 @@
                     android:layout_height="18dp"
                     android:layout_marginStart="324dp"
                     android:layout_marginTop="-60dp"
-                    android:text="5D"
-                    android:gravity="top" />
+                    android:gravity="top"
+                    android:text="5D" />
 
                 <View
                     android:id="@+id/normal_seat_5d"
@@ -693,33 +691,37 @@
 
             <ImageButton
                 android:id="@+id/image1"
-                android:layout_width="wrap_content"
+                android:layout_width="48dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="-10dp"
+                android:layout_marginRight="80dp"
                 android:background="#ffff"
                 android:contentDescription="Image1"
                 android:onClick="clickImage1"
-                android:padding="5dp"
-                app:srcCompat="@drawable/home"
-                android:layout_marginRight="88dp"/>
+                android:padding="10dp"
+                app:srcCompat="@drawable/home" />
 
             <ImageButton
                 android:id="@+id/image2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:background="#ffffff"
                 android:onClick="clickImage2"
                 app:srcCompat="@drawable/ticket"
                 android:layout_marginRight="95dp"
-                android:layout_marginLeft="5dp"/>
+                android:layout_marginLeft="-5dp"
+                android:contentDescription="My Ticket"/>
 
 
             <ImageButton
                 android:id="@+id/image3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:background="#ffffff"
                 android:onClick="clickImage3"
                 android:padding="5dp"
+                android:layout_marginLeft="-12dp"
+                android:contentDescription="Account"
                 app:srcCompat="@drawable/account" />
 
         </LinearLayout>
@@ -742,6 +744,7 @@
                 android:text="Home"
                 android:textColor="#000000"
                 android:textSize="14sp"
+                android:layout_marginTop="5dp"
                 android:layout_marginRight="70dp"/>
 
             <TextView
@@ -752,6 +755,7 @@
                 android:text="My Ticket"
                 android:textColor="#000000"
                 android:textSize="14sp"
+                android:layout_marginTop="5dp"
                 android:layout_marginRight="70dp"
                 android:layout_marginLeft="10dp"/>
 
@@ -761,6 +765,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="top"
                 android:text="Account"
+                android:layout_marginTop="5dp"
                 android:textColor="#000000"
                 android:textSize="14sp" />
         </LinearLayout>

@@ -320,9 +320,7 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_gravity="top">
+            android:layout_height="320dp">
 
             <LinearLayout
                 android:id="@+id/linearLayout3"
@@ -692,33 +690,37 @@
 
             <ImageButton
                 android:id="@+id/image1"
-                android:layout_width="wrap_content"
+                android:layout_width="48dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="-10dp"
+                android:layout_marginRight="80dp"
                 android:background="#ffff"
                 android:contentDescription="Image1"
                 android:onClick="clickImage1"
-                android:padding="5dp"
-                app:srcCompat="@drawable/home"
-                android:layout_marginRight="88dp"/>
+                android:padding="10dp"
+                app:srcCompat="@drawable/home" />
 
             <ImageButton
                 android:id="@+id/image2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:background="#ffffff"
                 android:onClick="clickImage2"
                 app:srcCompat="@drawable/ticket"
                 android:layout_marginRight="95dp"
-                android:layout_marginLeft="5dp"/>
+                android:layout_marginLeft="-5dp"
+                android:contentDescription="My Ticket"/>
 
 
             <ImageButton
                 android:id="@+id/image3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:background="#ffffff"
                 android:onClick="clickImage3"
                 android:padding="5dp"
+                android:layout_marginLeft="-12dp"
+                android:contentDescription="Account"
                 app:srcCompat="@drawable/account" />
 
         </LinearLayout>
@@ -741,6 +743,7 @@
                 android:text="Home"
                 android:textColor="#000000"
                 android:textSize="14sp"
+                android:layout_marginTop="5dp"
                 android:layout_marginRight="70dp"/>
 
             <TextView
@@ -751,6 +754,7 @@
                 android:text="My Ticket"
                 android:textColor="#000000"
                 android:textSize="14sp"
+                android:layout_marginTop="5dp"
                 android:layout_marginRight="70dp"
                 android:layout_marginLeft="10dp"/>
 
@@ -760,6 +764,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="top"
                 android:text="Account"
+                android:layout_marginTop="5dp"
                 android:textColor="#000000"
                 android:textSize="14sp" />
         </LinearLayout>
