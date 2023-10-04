@@ -165,7 +165,7 @@
 
         <View
             android:id="@+id/line_1"
-            android:layout_width="393dp"
+            android:layout_width="395dp"
             android:layout_height="15dp"
             android:layout_marginTop="0dp"
             android:background="@drawable/line2" />

@@ -16,13 +16,13 @@
         android:gravity="center_horizontal">
 
         <TextView
-            android:id="@+id/summaryheader"
+            android:id="@+id/pdheader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:background="#040f51"
             android:padding="15dp"
-            android:text="Summary"
+            android:text="Select Return Ticket"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
@@ -33,9 +33,9 @@
             android:layout_height="20dp"
             android:layout_marginStart="-180dp"
             android:layout_marginTop="-40dp"
-            android:layout_marginBottom="12dp"
             android:background="@drawable/left_chevron"
-            android:baselineAligned="false" />
+            android:baselineAligned="false"
+            android:layout_marginBottom="12dp"/>
 
         <RelativeLayout
             android:layout_width="350dp"
@@ -168,7 +168,19 @@
             android:layout_height="1dp"
             android:layout_marginTop="30dp"
             android:background="@color/black" />
-
+      
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="310dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="top"
+                android:text="Total: Pax"
+                android:textColor="#000000"
+                android:textSize="14sp" />
+        </RelativeLayout>
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -476,6 +488,9 @@
                     android:textSize="16sp" />
             </LinearLayout>
         </ScrollView>
+
+
+
     </LinearLayout>
     <RelativeLayout
         android:id="@+id/footer"
