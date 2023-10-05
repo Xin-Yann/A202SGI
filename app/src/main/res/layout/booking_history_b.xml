@@ -6,7 +6,9 @@
     android:layout_height="match_parent"
     android:layout_marginTop="0dp"
     android:orientation="vertical"
-    android:gravity="center_horizontal">
+    android:gravity="center_horizontal"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="15dp">
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -20,7 +22,7 @@
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:background="#040F51"
+            android:background="#030F51"
             android:gravity="center"
             android:text="Booking History"
             android:textAlignment="center"
@@ -49,9 +51,9 @@
 
         <ImageView
             android:id="@+id/imageView7"
-            android:layout_width="140dp"
+            android:layout_width="110dp"
             android:layout_height="28dp"
-            android:layout_marginStart="80dp"
+            android:layout_marginStart="220dp"
             android:layout_marginTop="-33dp"
             app:srcCompat="@drawable/rectangle_42" />
 
@@ -477,4 +479,5 @@
                 android:textSize="14sp" />
         </LinearLayout>
     </RelativeLayout>
+
 </RelativeLayout>
