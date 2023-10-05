@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.select_seat_a);
 
 
+
        /*tabLayout = findViewById(R.id.tablayout);
        viewPager = findViewById(R.id.viewpager);
 

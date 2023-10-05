@@ -637,8 +637,8 @@
                 android:onClick="clickImage3"
                 android:padding="5dp"
                 android:layout_marginLeft="-12dp"
-                android:contentDescription="Account"
-                app:srcCompat="@drawable/account" />
+                android:contentDescription="Account"/>
+
 
         </LinearLayout>
 
