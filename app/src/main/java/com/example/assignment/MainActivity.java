@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.select_seat_a);
+        setContentView(R.layout.select_seat_b);
 
 
        /*tabLayout = findViewById(R.id.tablayout);
