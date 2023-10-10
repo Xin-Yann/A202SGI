@@ -8,8 +8,13 @@
 
 
     <!-- TODO: Update blank fragment layout -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_gravity="top">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -122,11 +127,13 @@
                     android:layout_height="wrap_content"
                     android:text="Search"
                     android:layout_marginTop="25dp"
+                    android:layout_marginBottom="120dp"
                     android:textColor="#FFFFFF"
                     android:backgroundTint="#040f51"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
         </RelativeLayout>
-    </LinearLayout>
+    </RelativeLayout>
+    </ScrollView>
  </FrameLayout>
