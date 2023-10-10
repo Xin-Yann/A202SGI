@@ -33,12 +33,14 @@
             tools:layout_editor_absoluteX="170dp"
             tools:layout_editor_absoluteY="16dp" />
 
-        <ImageView
-            android:id="@+id/imageView"
+        <ImageButton
+            android:id="@+id/home"
             android:layout_width="17dp"
             android:layout_height="20dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="-35dp"
+            android:backgroundTint="#00FFFFFF"
+            android:onClick="Home"
             app:srcCompat="@drawable/left_arrow_white" />
 
         <ImageView
@@ -61,7 +63,7 @@
             android:textSize="21sp" />
 
         <TextView
-            android:id="@+id/text2"
+            android:id="@+id/my_profile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="55dp"
@@ -69,7 +71,8 @@
             android:gravity="top"
             android:text="My Profile"
             android:textColor="#000000"
-            android:textSize="21sp" />
+            android:textSize="21sp"
+            android:onClick="my_profile"/>
 
         <ImageView
             android:id="@+id/line_7"
@@ -80,7 +83,7 @@
             android:background="@drawable/line_7" />
 
         <TextView
-            android:id="@+id/text4"
+            android:id="@+id/special_registration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="55dp"
@@ -88,7 +91,8 @@
             android:gravity="top"
             android:text="Special Registration"
             android:textColor="#000000"
-            android:textSize="21sp" />
+            android:textSize="21sp"
+            android:onClick="special_registration"/>
 
         <ImageView
             android:id="@+id/line_7two"
@@ -99,7 +103,7 @@
             android:background="@drawable/line_7" />
 
         <TextView
-            android:id="@+id/text3"
+            android:id="@+id/log_out"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="55dp"
@@ -116,9 +120,98 @@
             android:layout_marginStart="55dp"
             android:layout_marginTop="3dp"
             android:background="@drawable/line_7" />
-
-
-
     </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/footer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#FEFAFD"
+
+        android:gravity="center_horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/homePage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="88dp"
+                android:background="#ffff"
+                android:contentDescription="Image1"
+                android:padding="5dp"
+                app:srcCompat="@drawable/home"
+                android:onClick="toHomePage"/>
+
+            <ImageButton
+                android:id="@+id/booking_history"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="95dp"
+                android:background="#ffffff"
+                android:onClick="toBookingHistory"
+                app:srcCompat="@drawable/ticket" />
+
+
+            <ImageButton
+                android:id="@+id/profilePage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:onClick="toAccountPage"
+                android:padding="5dp"
+                app:srcCompat="@drawable/account" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+
+            <TextView
+                android:id="@+id/home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="70dp"
+                android:gravity="top"
+                android:text="Home"
+                android:textColor="#000000"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/myTicket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="70dp"
+                android:gravity="top"
+                android:text="My Ticket"
+                android:textColor="#000000"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/account2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:text="Account"
+                android:textColor="#000000"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </RelativeLayout>
 
 </RelativeLayout>

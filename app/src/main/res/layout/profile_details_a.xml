@@ -33,13 +33,15 @@
             tools:layout_editor_absoluteX="170dp"
             tools:layout_editor_absoluteY="16dp" />
 
-        <ImageView
-            android:id="@+id/imageView"
+        <ImageButton
+            android:id="@+id/profilePage1"
             android:layout_width="17dp"
             android:layout_height="20dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="-35dp"
-            app:srcCompat="@drawable/left_arrow_white" />
+            android:backgroundTint="#00FFFFFF"
+            app:srcCompat="@drawable/left_arrow_white"
+            android:onClick="Account"/>
 
         <ImageView
             android:id="@+id/account1"
@@ -85,7 +87,7 @@
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="50dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="25dp"
             android:textColor="#000000"
             android:textSize="16sp"
             android:hint="Name"
@@ -102,7 +104,7 @@
         <TextView
             android:id="@+id/edit1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:layout_marginStart="320dp"
             android:layout_marginTop="-38dp"
             android:gravity="top"

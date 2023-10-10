@@ -78,150 +78,59 @@
             android:text="History"
             android:textColor="#000000"
             android:textSize="14sp" />
-
-        <ImageView
-            android:id="@+id/rectangle_48"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
-            android:layout_marginStart="190dp"
-            android:layout_marginTop="120dp"
-            android:background="@drawable/rectangle_48" />
-
-        <ImageView
-            android:id="@+id/line_20"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
-            android:layout_marginStart="190dp"
-            android:layout_marginTop="-45dp"
-            android:background="@drawable/line_20" />
-
-        <ImageView
-            android:id="@+id/line_19"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
-            android:layout_marginStart="190dp"
-            android:layout_marginTop="-45dp"
-            android:background="@drawable/line_19" />
-
-        <TextView
-            android:id="@+id/text1"
-            android:layout_width="295dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="65dp"
-            android:layout_marginTop="30dp"
-            android:gravity="top"
-            android:text="There are no completed tickets"
-            android:textColor="#000000"
-            android:textSize="21sp" />
-
-        <TextView
-            android:id="@+id/text2"
-            android:layout_width="225dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="5dp"
-            android:gravity="center_horizontal|top"
-            android:text="Book train ticket and start enjoying your trip"
-            android:textColor="#A2A2A2"
-            android:textSize="14sp" />
-
     </LinearLayout>
 
-    <RelativeLayout
-        android:id="@+id/footer"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="#FEFAFD"
-        android:gravity="center_horizontal"
-        android:elevation="50dp">
+    <LinearLayout
+        android:id="@+id/linearLayout7"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:background="#DEEDF4"
+        android:orientation="vertical"
+        android:layout_marginTop="142dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:layout_gravity="center_horizontal"
-            android:orientation="horizontal"
-            android:layout_marginLeft="60dp">
-
-            <ImageButton
-                android:id="@+id/image1"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:background="#ffff"
-                android:contentDescription="Image1"
-                android:onClick="clickImage1"
-                android:padding="5dp"
-                app:srcCompat="@drawable/home"
-                android:layout_marginRight="88dp"
-                android:layout_marginStart="-11dp"
-                android:layout_marginTop="-10dp"/>
-
-            <ImageButton
-                android:id="@+id/image2"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:background="#ffffff"
-                android:onClick="clickImage2"
-                app:srcCompat="@drawable/ticket"
-                android:layout_marginRight="95dp"
-                android:layout_marginLeft="80dp"
-                android:layout_marginTop="-10dp"
-                android:contentDescription="My Ticket"/>
-
-            <ImageButton
-                android:id="@+id/image3"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:background="#ffffff"
-                android:onClick="clickImage3"
-                android:padding="5dp"
-                app:srcCompat="@drawable/account"
-                android:contentDescription="Account"
-                android:layout_marginStart="-15dp"
-                android:layout_marginTop="-10dp"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
+            android:orientation="vertical"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:orientation="horizontal"
-            android:padding="10dp"
-            android:layout_marginTop="20dp"
-            android:gravity="center_horizontal">
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="142dp"
+            android:id="@+id/linearLayout3">
 
-
-            <TextView
-                android:id="@+id/home"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="top"
-                android:text="Home"
-                android:textColor="#000000"
-                android:textSize="14sp"
-                android:layout_marginRight="62dp"/>
+            <ImageView
+                android:id="@+id/line_19"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginStart="68dp"
+                app:srcCompat="@drawable/train_ticket"
+                android:gravity="center_horizontal"/>
 
             <TextView
-                android:id="@+id/myTicket"
-                android:layout_width="wrap_content"
+                android:id="@+id/text1"
+                android:layout_width="295dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="65dp"
+                android:layout_marginTop="30dp"
                 android:gravity="top"
-                android:text="My Ticket"
+                android:text="There are no completed tickets"
                 android:textColor="#000000"
-                android:textSize="14sp"
-                android:layout_marginRight="70dp"
-                android:layout_marginLeft="18dp"/>
+                android:textSize="21sp" />
 
             <TextView
-                android:id="@+id/account"
-                android:layout_width="wrap_content"
+                android:id="@+id/text2"
+                android:layout_width="225dp"
                 android:layout_height="wrap_content"
-                android:gravity="top"
-                android:text="Account"
-                android:textColor="#000000"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center_horizontal|top"
+                android:text="Book train ticket and start enjoying your trip"
+                android:textColor="#A2A2A2"
                 android:textSize="14sp" />
         </LinearLayout>
-    </RelativeLayout>
+
+
+
+    </LinearLayout>
 
 </RelativeLayout>
