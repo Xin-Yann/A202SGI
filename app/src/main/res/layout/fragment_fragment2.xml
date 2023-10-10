@@ -8,12 +8,18 @@
 
 
     <!-- TODO: Update blank fragment layout -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_gravity="top">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:background="#DEEDF4">
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -34,7 +40,9 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:background="@drawable/border_round_corner"
+                    android:backgroundTint="@color/white"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -53,7 +61,9 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:background="@drawable/border_round_corner"
+                    android:backgroundTint="@color/white"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -79,7 +89,10 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:background="@drawable/border_round_corner"
+                    android:backgroundTint="@color/white"/>
+
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -95,7 +108,9 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:background="@drawable/border_round_corner"
+                    android:backgroundTint="@color/white"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -112,13 +127,16 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:background="@drawable/border_round_corner"
+                    android:backgroundTint="@color/white"/>
 
                 <Button
                     android:id="@+id/button2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Search"
+                    android:layout_marginBottom="120dp"
                     android:layout_marginTop="25dp"
                     android:textColor="#FFFFFF"
                     android:backgroundTint="#040f51"/>
@@ -126,5 +144,6 @@
             </com.google.android.material.textfield.TextInputLayout>
 
         </RelativeLayout>
-    </LinearLayout>
+    </RelativeLayout>
+    </ScrollView>
 </FrameLayout>

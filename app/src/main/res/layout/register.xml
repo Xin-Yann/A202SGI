@@ -75,12 +75,13 @@
             android:layout_marginTop="20dp"/>
 
         <TextView
-            android:id="@+id/activity_main_link"
+            android:id="@+id/login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/hyperlink"
             android:textAlignment="center"
             android:textSize="14sp"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="20dp"
+            android:onClick="toRegister"/>
     </LinearLayout>
 </RelativeLayout>

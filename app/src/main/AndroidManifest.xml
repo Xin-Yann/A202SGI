@@ -21,6 +21,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".login"></activity>
+        <activity android:name=".Profile_details_a" ></activity>
+        <activity android:name=".Register"></activity>
+        <activity android:name=".Account"></activity>
+        <activity android:name=".Profile_details_b" ></activity>
+        <activity android:name=".Booking_history" ></activity>
     </application>
 
 </manifest>
