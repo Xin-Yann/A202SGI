@@ -24,13 +24,16 @@
             android:textColor="#FFFFFF"
             android:textSize="16sp" />
 
-        <ImageView
-            android:id="@+id/imageView"
+        <ImageButton
+            android:id="@+id/profilePage"
             android:layout_width="17dp"
             android:layout_height="20dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="15dp"
-            app:srcCompat="@drawable/left_arrow_white" />
+            android:backgroundTint="#00FFFFFF"
+            app:srcCompat="@drawable/left_arrow_white"
+            android:onClick="Account"/>
+
     </RelativeLayout>
 
     <ScrollView

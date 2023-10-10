@@ -27,7 +27,7 @@
 
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/displayid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
@@ -44,13 +44,13 @@
                 android:textColor="#040f51" />
 
             <ImageView
-                android:id="@+id/imageView5"
+                android:id="@+id/login"
                 android:layout_width="25dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="330dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="20dp"
-                app:srcCompat="@drawable/user" />
+                android:layout_marginBottom="25dp"
+                app:srcCompat="@drawable/user"
+                android:onClick="toLoginPage"/>
 
 
             <com.google.android.material.tabs.TabLayout
@@ -104,33 +104,33 @@
                     android:orientation="horizontal">
 
                     <ImageButton
-                        android:id="@+id/image1"
+                        android:id="@+id/homePage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="88dp"
                         android:background="#ffff"
                         android:contentDescription="Image1"
-                        android:onClick="clickImage1"
                         android:padding="5dp"
-                        app:srcCompat="@drawable/home" />
+                        app:srcCompat="@drawable/home"
+                        android:onClick="toHomePage"/>
 
                     <ImageButton
-                        android:id="@+id/image2"
+                        android:id="@+id/booking_history"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="95dp"
                         android:background="#ffffff"
-                        android:onClick="clickImage2"
+                        android:onClick="toBookingHistory"
                         app:srcCompat="@drawable/ticket" />
 
 
                     <ImageButton
-                        android:id="@+id/image3"
+                        android:id="@+id/profilePage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="#ffffff"
-                        android:onClick="clickImage3"
+                        android:onClick="toAccountPage"
                         android:padding="5dp"
                         app:srcCompat="@drawable/account" />
 
