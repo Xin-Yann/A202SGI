@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void toBookingHistory(View view){
-        Intent intent = new Intent(this, Account.class);
+        Intent intent = new Intent(this, Booking_history.class);
         ImageButton toBookingHistory = findViewById(R.id.booking_history);
         startActivity(intent);
     }
