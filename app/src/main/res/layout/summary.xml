@@ -13,7 +13,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:orientation="vertical"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        >
 
         <TextView
             android:id="@+id/summaryheader"
@@ -179,7 +180,8 @@
                 android:layout_height="match_parent"
                 android:layout_alignParentTop="true"
                 android:orientation="vertical"
-                android:gravity="center_horizontal">
+                android:gravity="center_horizontal"
+                android:background="#DEEDF4">
 
                 <TextView
                     android:id="@+id/passengers"
@@ -198,7 +200,8 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/border_round_corner"
                     android:padding="15dp"
-                    android:gravity="center_horizontal">
+                    android:gravity="center_horizontal"
+                    android:backgroundTint="@color/white">
 
                     <TextView
                         android:id="@+id/passengername"
@@ -266,7 +269,8 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/border_round_corner"
                     android:padding="15dp"
-                    android:gravity="center_horizontal">
+                    android:gravity="center_horizontal"
+                    android:backgroundTint="@color/white">
 
                     <TextView
                         android:id="@+id/passengername2"
@@ -334,7 +338,8 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/border_round_corner"
                     android:padding="15dp"
-                    android:gravity="center_horizontal">
+                    android:gravity="center_horizontal"
+                    android:backgroundTint="@color/white">
 
                     <TextView
                         android:id="@+id/passengername3"
@@ -402,7 +407,8 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/border_round_corner"
                     android:padding="15dp"
-                    android:gravity="center_horizontal">
+                    android:gravity="center_horizontal"
+                    android:backgroundTint="@color/white">
 
                     <TextView
                         android:id="@+id/passengername4"

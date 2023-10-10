@@ -16,8 +16,8 @@
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_marginTop="-3dp"
-        android:orientation="vertical">
-
+        android:orientation="vertical"
+        >
 
         <TextView
             android:id="@+id/textView4"
@@ -698,8 +698,7 @@
                 android:padding="5dp"
                 android:layout_marginLeft="-12dp"
                 android:contentDescription="Account"
-                app:srcCompat="@drawable/account" />
-
+                app:srcCompat="@drawable/account"/>
 
         </LinearLayout>
 
