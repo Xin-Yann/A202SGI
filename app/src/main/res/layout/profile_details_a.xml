@@ -39,15 +39,15 @@
             android:layout_height="20dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="-35dp"
-            app:srcCompat="@drawable/left_arrow_white"
             android:backgroundTint="#00FFFFFF"
+            app:srcCompat="@drawable/left_arrow_white"
             android:onClick="Account"/>
 
         <ImageView
             android:id="@+id/account1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="175dp"
+            android:layout_marginStart="180dp"
             android:layout_marginTop="55dp"
             app:srcCompat="@drawable/user" />
 
@@ -81,91 +81,96 @@
             android:textColor="#000000"
             android:textSize="21sp" />
 
-        <ImageView
-            android:id="@+id/rectangle_15"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="-55dp"
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="50dp"
             android:layout_marginTop="25dp"
-            app:srcCompat="@drawable/rectangle_15" />
-
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="75dp"
-            android:layout_marginTop="-38dp"
-            android:gravity="top"
-            android:text="Name"
             android:textColor="#000000"
-            android:textSize="21sp" />
+            android:textSize="16sp"
+            android:hint="Name"
+            app:hintEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputName"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ffffff"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:id="@+id/edit1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:layout_marginStart="320dp"
-            android:layout_marginTop="-28dp"
+            android:layout_marginTop="-38dp"
             android:gravity="top"
             android:text="Edit"
             android:textColor="#000000"
             android:textSize="21sp" />
 
-        <ImageView
-            android:id="@+id/rectangle_15two"
-            android:layout_width="match_parent"
-            android:layout_height="47dp"
-            android:layout_marginStart="-55dp"
-            android:layout_marginTop="30dp"
-            app:srcCompat="@drawable/rectangle_15" />
 
-        <TextView
-            android:id="@+id/email"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginStart="75dp"
-            android:layout_marginTop="-40dp"
-            android:gravity="top"
-            android:text="Email"
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="25dp"
             android:textColor="#000000"
-            android:textSize="21sp" />
+            android:textSize="16sp"
+            android:hint="Email"
+            app:hintEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputEmail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ffffff"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:id="@+id/edit2"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_marginStart="320dp"
-            android:layout_marginTop="-28dp"
+            android:layout_marginTop="-38dp"
             android:gravity="top"
             android:text="Edit"
             android:textColor="#000000"
             android:textSize="21sp" />
 
-        <ImageView
-            android:id="@+id/rectangle_15three"
-            android:layout_width="match_parent"
-            android:layout_height="47dp"
-            android:layout_marginStart="-55dp"
-            android:layout_marginTop="30dp"
-            app:srcCompat="@drawable/rectangle_15" />
-
-        <TextView
-            android:id="@+id/password"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginStart="75dp"
-            android:layout_marginTop="-40dp"
-            android:gravity="top"
-            android:text="Password"
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="25dp"
             android:textColor="#000000"
-            android:textSize="21sp" />
+            android:textSize="16sp"
+            android:hint="Password"
+            app:hintEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputPassword"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ffffff"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <TextView
             android:id="@+id/edit3"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_marginStart="320dp"
-            android:layout_marginTop="-28dp"
+            android:layout_marginTop="-38dp"
             android:gravity="top"
             android:text="Edit"
             android:textColor="#000000"
@@ -174,7 +179,7 @@
         <Button
             android:id="@+id/button"
             android:layout_width="150dp"
-            android:layout_height="46dp"
+            android:layout_height="48dp"
             android:backgroundTint="#030F51"
             android:text="Save"
             tools:layout_editor_absoluteX="101dp"
@@ -182,53 +187,59 @@
             android:layout_marginTop="30dp"
             android:layout_marginStart="140dp" />
     </LinearLayout>
+
     <RelativeLayout
         android:id="@+id/footer"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="#FEFAFD"
-
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:elevation="50dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="60dp"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginLeft="60dp">
 
             <ImageButton
                 android:id="@+id/image1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="88dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:background="#ffff"
                 android:contentDescription="Image1"
                 android:onClick="clickImage1"
                 android:padding="5dp"
-                app:srcCompat="@drawable/home" />
+                app:srcCompat="@drawable/home"
+                android:layout_marginRight="88dp"
+                android:layout_marginStart="-11dp"
+                android:layout_marginTop="-10dp"/>
 
             <ImageButton
                 android:id="@+id/image2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="95dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:background="#ffffff"
                 android:onClick="clickImage2"
-                app:srcCompat="@drawable/ticket" />
-
+                app:srcCompat="@drawable/ticket"
+                android:layout_marginRight="95dp"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="-10dp"
+                android:contentDescription="My Ticket"/>
 
             <ImageButton
                 android:id="@+id/image3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:background="#ffffff"
                 android:onClick="clickImage3"
                 android:padding="5dp"
-                app:srcCompat="@drawable/account" />
+                app:srcCompat="@drawable/account"
+                android:contentDescription="Account"
+                android:layout_marginStart="-15dp"
+                android:layout_marginTop="-10dp"/>
 
         </LinearLayout>
 
@@ -236,32 +247,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"
-            android:gravity="center_horizontal"
             android:orientation="horizontal"
-            android:padding="10dp">
+            android:padding="10dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal">
 
 
             <TextView
                 android:id="@+id/home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="70dp"
                 android:gravity="top"
                 android:text="Home"
                 android:textColor="#000000"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:layout_marginRight="62dp"/>
 
             <TextView
                 android:id="@+id/myTicket"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="70dp"
                 android:gravity="top"
                 android:text="My Ticket"
                 android:textColor="#000000"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:layout_marginRight="70dp"
+                android:layout_marginLeft="18dp"/>
 
             <TextView
                 android:id="@+id/account2"
