@@ -17,7 +17,7 @@
         android:layout_marginTop="142dp"
         android:id="@+id/linearLayout2">
 
-        <ImageView
+    <ImageView
             android:id="@+id/imageView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
             android:layout_marginTop="50dp"/>
 
         <EditText
-            android:id="@+id/editTextTextEmailAddress"
+            android:id="@+id/nameid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -46,7 +46,7 @@
             android:layout_marginTop="20dp"/>
 
         <EditText
-            android:id="@+id/editTextTextPassword2"
+            android:id="@+id/passid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -57,14 +57,16 @@
             android:layout_width="210dp"
             android:layout_height="46dp"
             android:backgroundTint="#030F51"
+            android:onClick="sendMessage"
             android:text="Login"
             android:layout_marginTop="20dp"/>
 
         <TextView
-            android:id="@+id/activity_main_link"
+            android:id="@+id/register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/login"
+            android:onClick="toRegister"
             android:textAlignment="center"
             android:textSize="14sp"
             android:layout_marginTop="20dp"/>

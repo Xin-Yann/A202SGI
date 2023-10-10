@@ -16,8 +16,8 @@
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_marginTop="-3dp"
-        android:orientation="vertical">
-
+        android:orientation="vertical"
+        >
 
         <TextView
             android:id="@+id/textView4"
@@ -329,7 +329,8 @@
                 android:layout_height="match_parent"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="0dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:background="#DEEDF4">
 
                 <TextView
                     android:id="@+id/one_a"
@@ -637,7 +638,8 @@
                 android:onClick="clickImage3"
                 android:padding="5dp"
                 android:layout_marginLeft="-12dp"
-                android:contentDescription="Account"/>
+                android:contentDescription="Account"
+                app:srcCompat="@drawable/account"/>
 
 
         </LinearLayout>

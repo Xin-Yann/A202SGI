@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment1">
+    tools:context=".fragment2">
 
 
     <!-- TODO: Update blank fragment layout -->
@@ -14,126 +14,136 @@
         android:layout_weight="1"
         android:layout_gravity="top">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginTop="20dp"
-        android:gravity="center_horizontal">
-
-
         <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_horizontal">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:background="#DEEDF4">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/inputOrigin"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:textColor="#000000"
-                android:textSize="16sp"
-                android:hint="Origin">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/inputDes"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:textColor="#000000"
-                android:background="#ffffff"
-                android:textSize="16sp"
-                android:hint="Destination"
-                android:layout_marginTop="80dp">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                     />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <ImageView
-                android:id="@+id/image4"
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/arrow"
-                android:layout_marginTop="35dp"
-                android:layout_marginLeft="200dp"/>
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal">
 
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/inputDepart"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:textColor="#000000"
-                android:textSize="16sp"
-                android:hint="Departure"
-                android:layout_marginTop="160dp">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/inputArrival"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:textColor="#000000"
-                android:textSize="16sp"
-                android:hint="Arrival"
-                android:layout_marginTop="240dp">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/inputPax"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:textColor="#000000"
-                android:textSize="16sp"
-                android:hint="Pax"
-                android:layout_marginTop="320dp">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-
-                <Button
-                    android:id="@+id/button2"
-                    android:layout_width="match_parent"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputOrigin"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
-                    android:text="Search"
-                    android:layout_marginTop="25dp"
-                    android:layout_marginBottom="120dp"
-                    android:textColor="#FFFFFF"
-                    android:backgroundTint="#040f51"/>
+                    android:layout_centerHorizontal="true"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:hint="Origin">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/border_round_corner"
+                        android:backgroundTint="@color/white"/>
 
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputDes"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:hint="Destination"
+                    android:layout_marginTop="80dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/border_round_corner"
+                        android:backgroundTint="@color/white"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <ImageView
+                    android:id="@+id/image4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/arrow"
+                    android:layout_marginTop="35dp"
+                    android:layout_marginLeft="200dp"/>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputDepart"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:hint="Departure"
+                    android:layout_marginTop="160dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/border_round_corner"
+                        android:backgroundTint="@color/white"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputArrival"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:hint="Arrival"
+                    android:layout_marginTop="240dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/border_round_corner"
+                        android:backgroundTint="@color/white"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputPax"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:hint="Pax"
+                    android:layout_marginTop="320dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/border_round_corner"
+                        android:backgroundTint="@color/white"/>
+
+                    <Button
+                        android:id="@+id/button2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Search"
+                        android:layout_marginBottom="120dp"
+                        android:layout_marginTop="25dp"
+                        android:textColor="#FFFFFF"
+                        android:backgroundTint="#040f51"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </RelativeLayout>
         </RelativeLayout>
-    </RelativeLayout>
     </ScrollView>
- </FrameLayout>
+</FrameLayout>

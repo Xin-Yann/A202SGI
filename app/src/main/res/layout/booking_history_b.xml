@@ -81,20 +81,19 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_gravity="top">
+            android:layout_gravity="top"
+            android:layout_marginTop="30dp"
+            android:background="#DEEDF4">
 
             <LinearLayout
                 android:id="@+id/linearLayout7"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_alignParentTop="true"
-                android:layout_marginTop="40dp"
-                android:background="#DEEDF4"
                 android:orientation="vertical"
-                android:layout_above="@+id/footer"
-                android:elevation="10dp">
+                android:gravity="center_horizontal">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/roundedContainer"

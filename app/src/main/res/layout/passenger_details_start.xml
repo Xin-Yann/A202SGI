@@ -4,12 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+
+        >
 
         <TextView
             android:id="@+id/pdheader"
@@ -42,7 +45,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="#DEEDF4">
 
             <RelativeLayout
                 android:layout_width="350dp"
@@ -50,7 +54,9 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/border_round_corner"
-                android:padding="25dp">
+                android:padding="25dp"
+                android:backgroundTint="@color/white"
+                >
 
                 <TextView
                     android:id="@+id/passengerAmount"
@@ -371,4 +377,5 @@
                 android:textSize="16sp" />
         </RelativeLayout>
     </ScrollView>
+
 </LinearLayout>
