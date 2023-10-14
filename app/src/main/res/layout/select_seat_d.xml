@@ -33,13 +33,15 @@
             tools:layout_editor_absoluteX="170dp"
             tools:layout_editor_absoluteY="16dp" />
 
-        <View
+        <ImageButton
             android:id="@+id/vector_4"
             android:layout_width="17dp"
             android:layout_height="20dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="-35dp"
-            android:background="@drawable/left_chevron" />
+            android:background="@drawable/left_chevron"
+            android:contentDescription="back"
+            tools:ignore="TouchTargetSizeCheck"/>
 
         <TextView
             android:id="@+id/origin"
@@ -185,61 +187,75 @@
             android:layout_height="15dp"
             android:background="@drawable/line2" />
 
-        <View
+        <ImageButton
             android:id="@+id/left_chevron1"
             android:layout_width="17dp"
             android:layout_height="20dp"
             android:layout_marginStart="30dp"
             android:layout_marginTop="15dp"
-            android:background="@drawable/left_chevron1" />
+            android:background="@drawable/left_chevron1"
+            android:contentDescription="Left Chevron"
+            tools:ignore="TouchTargetSizeCheck"/>
 
-        <View
+        <ImageButton
             android:id="@+id/rectangle_1"
             android:layout_width="50dp"
             android:layout_height="35dp"
             android:layout_marginStart="60dp"
             android:layout_marginTop="-28dp"
-            android:background="@drawable/minus__blue" />
+            android:background="@drawable/minus__blue"
+            android:contentDescription="Rectangle 1"
+            tools:ignore="TouchTargetSizeCheck"/>
 
-        <View
+        <ImageButton
             android:id="@+id/rectangle_2"
             android:layout_width="50dp"
             android:layout_height="35dp"
             android:layout_marginStart="120dp"
             android:layout_marginTop="-35dp"
-            android:background="@drawable/minus__grey" />
+            android:background="@drawable/minus__grey"
+            android:contentDescription="Rectangle 2"
+            tools:ignore="TouchTargetSizeCheck"/>
 
-        <View
+        <ImageButton
             android:id="@+id/rectangle_3"
             android:layout_width="50dp"
             android:layout_height="35dp"
             android:layout_marginStart="180dp"
             android:layout_marginTop="-35dp"
-            android:background="@drawable/minus__grey" />
+            android:background="@drawable/minus__grey"
+            android:contentDescription="Rectangle 3"
+            tools:ignore="TouchTargetSizeCheck"/>
 
-        <View
+        <ImageButton
             android:id="@+id/rectangle_4"
             android:layout_width="50dp"
             android:layout_height="35dp"
             android:layout_marginStart="240dp"
             android:layout_marginTop="-35dp"
-            android:background="@drawable/minus__grey" />
+            android:background="@drawable/minus__grey"
+            android:contentDescription="Rectangle 4"
+            tools:ignore="TouchTargetSizeCheck"/>
 
-        <View
+        <ImageButton
             android:id="@+id/rectangle_5"
             android:layout_width="50dp"
             android:layout_height="35dp"
             android:layout_marginStart="300dp"
             android:layout_marginTop="-35dp"
-            android:background="@drawable/minus__grey" />
+            android:background="@drawable/minus__grey"
+            android:contentDescription="Rectangle 5"
+            tools:ignore="TouchTargetSizeCheck"/>
 
-        <View
+        <ImageButton
             android:id="@+id/right_chevron1"
             android:layout_width="17dp"
             android:layout_height="20dp"
             android:layout_marginStart="365dp"
             android:layout_marginTop="-27dp"
-            android:background="@drawable/right_chevron1" />
+            android:background="@drawable/right_chevron1"
+            android:contentDescription="Right Chevron"
+            tools:ignore="TouchTargetSizeCheck"/>
 
         <TextView
             android:id="@+id/coach_d"
@@ -254,7 +270,7 @@
             android:id="@+id/available_seat"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginStart="42dp"
+            android:layout_marginStart="47dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/available" />
 
@@ -262,7 +278,7 @@
             android:id="@+id/available"
             android:layout_width="wrap_content"
             android:layout_height="21dp"
-            android:layout_marginStart="73dp"
+            android:layout_marginStart="78dp"
             android:layout_marginTop="-23dp"
             android:gravity="top"
             android:text="Available" />
@@ -271,15 +287,15 @@
             android:id="@+id/premium_seat"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginStart="153dp"
-            android:layout_marginTop="-24dp"
+            android:layout_marginStart="158dp"
+            android:layout_marginTop="-22dp"
             android:background="@drawable/premium_seat" />
 
         <TextView
             android:id="@+id/premium"
             android:layout_width="wrap_content"
             android:layout_height="21dp"
-            android:layout_marginStart="186dp"
+            android:layout_marginStart="191dp"
             android:layout_marginTop="-23dp"
             android:gravity="top"
             android:text="Premium" />
@@ -288,15 +304,15 @@
             android:id="@+id/unavailable_seat"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginStart="262dp"
-            android:layout_marginTop="-24dp"
+            android:layout_marginStart="267dp"
+            android:layout_marginTop="-22dp"
             android:background="@drawable/unavailable_seat" />
 
         <TextView
             android:id="@+id/selected"
-            android:layout_width="75dp"
+            android:layout_width="wrap_content"
             android:layout_height="15dp"
-            android:layout_marginStart="293dp"
+            android:layout_marginStart="298dp"
             android:layout_marginTop="-23dp"
             android:gravity="top"
             android:text="Unavailable" />
@@ -309,10 +325,11 @@
             android:layout_marginTop="0dp"
             android:background="@drawable/line3" />
 
+
         <TextView
             android:id="@+id/forward"
-            android:layout_width="88dp"
-            android:layout_height="19dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="178dp"
             android:layout_marginTop="-10dp"
             android:gravity="top"
@@ -336,340 +353,400 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="65dp"
-                    android:layout_marginTop="0dp"
+                    android:layout_marginTop="6dp"
                     android:gravity="top"
                     android:text="1A" />
 
-                <View
-                    android:id="@+id/oku_seat_1a"
-                    android:layout_width="44dp"
-                    android:layout_height="39dp"
+                <ImageButton
+                    android:id="@+id/normal_seat_1a"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_marginStart="53dp"
                     android:layout_marginTop="3dp"
-                    android:background="@drawable/oku_seat" />
+                    android:background="@drawable/oku_seat"
+                    android:contentDescription="1A"
+                    android:onClick="normalSeatClicked"
+                    android:scaleType="fitCenter"/>
 
                 <TextView
                     android:id="@+id/one_b"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="124dp"
-                    android:layout_marginTop="-61dp"
+                    android:layout_marginTop="-71dp"
                     android:text="1B"
                     android:gravity="top" />
 
-                <View
-                    android:id="@+id/oku_seat_1b"
-                    android:layout_width="44dp"
-                    android:layout_height="39dp"
+                <ImageButton
+                    android:id="@+id/normal_seat_1b"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_marginStart="112dp"
                     android:layout_marginTop="3dp"
-                    android:background="@drawable/oku_seat" />
+                    android:background="@drawable/oku_seat"
+                    android:contentDescription="1B"
+                    android:onClick="normalSeatClicked"
+                    android:scaleType="fitCenter"/>
 
                 <TextView
                     android:id="@+id/one_c"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="265dp"
-                    android:layout_marginTop="-61dp"
+                    android:layout_marginTop="-71dp"
                     android:text="1C"
                     android:gravity="top" />
 
-                <View
-                    android:id="@+id/oku_seat_1c"
-                    android:layout_width="44dp"
-                    android:layout_height="39dp"
+                <ImageButton
+                    android:id="@+id/normal_seat_1c"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_marginStart="253dp"
                     android:layout_marginTop="3dp"
-                    android:background="@drawable/oku_seat" />
+                    android:background="@drawable/oku_seat"
+                    android:contentDescription="1C"
+                    android:onClick="normalSeatClicked"
+                    android:scaleType="fitCenter"/>
 
                 <TextView
                     android:id="@+id/one_d"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="324dp"
-                    android:layout_marginTop="-61dp"
+                    android:layout_marginTop="-71dp"
                     android:text="1D"
                     android:gravity="top" />
 
-                <View
-                    android:id="@+id/oku_seat_1d"
-                    android:layout_width="44dp"
-                    android:layout_height="39dp"
+                <ImageButton
+                    android:id="@+id/normal_seat_1d"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_marginStart="312dp"
                     android:layout_marginTop="3dp"
-                    android:background="@drawable/oku_seat" />
+                    android:background="@drawable/oku_seat"
+                    android:contentDescription="1D"
+                    android:onClick="normalSeatClicked"
+                    android:scaleType="fitCenter"/>
 
                 <TextView
                     android:id="@+id/two_a"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="65dp"
-                    android:layout_marginTop="25dp"
+                    android:layout_marginTop="16dp"
                     android:gravity="top"
                     android:text="2A" />
 
-                <View
+                <ImageButton
                     android:id="@+id/normal_seat_2a"
-                    android:layout_width="44dp"
-                    android:layout_height="39dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_marginStart="53dp"
                     android:layout_marginTop="3dp"
-                    android:background="@drawable/normal_seat_w" />
+                    android:background="@drawable/normal_seat_w"
+                    android:contentDescription="2A"
+                    android:onClick="normalSeatClicked"
+                    android:scaleType="fitCenter"/>
 
                 <TextView
                     android:id="@+id/two_b"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="124dp"
-                    android:layout_marginTop="-61dp"
+                    android:layout_marginTop="-69dp"
                     android:text="2B"
                     android:gravity="top" />
 
-                <View
+                <ImageButton
                     android:id="@+id/normal_seat_2b"
-                    android:layout_width="44dp"
-                    android:layout_height="39dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_marginStart="112dp"
                     android:layout_marginTop="3dp"
-                    android:background="@drawable/normal_seat_a" />
+                    android:background="@drawable/normal_seat_a"
+                    android:contentDescription="2B"
+                    android:onClick="normalSeatClicked"
+                    android:scaleType="fitCenter"/>
 
                 <TextView
                     android:id="@+id/two_c"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="265dp"
-                    android:layout_marginTop="-61dp"
+                    android:layout_marginTop="-69dp"
                     android:text="2C"
                     android:gravity="top" />
 
-                <View
+                <ImageButton
                     android:id="@+id/normal_seat_2c"
-                    android:layout_width="44dp"
-                    android:layout_height="39dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_marginStart="253dp"
                     android:layout_marginTop="3dp"
-                    android:background="@drawable/normal_seat_a" />
+                    android:background="@drawable/normal_seat_a"
+                    android:contentDescription="2C"
+                    android:onClick="normalSeatClicked"
+                    android:scaleType="fitCenter"/>
 
                 <TextView
                     android:id="@+id/two_d"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="324dp"
-                    android:layout_marginTop="-61dp"
+                    android:layout_marginTop="-69dp"
                     android:text="2D"
                     android:gravity="top" />
 
-                <View
+                <ImageButton
                     android:id="@+id/normal_seat_2d"
-                    android:layout_width="44dp"
-                    android:layout_height="39dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_marginStart="312dp"
                     android:layout_marginTop="3dp"
-                    android:background="@drawable/normal_seat_w" />
+                    android:background="@drawable/normal_seat_w"
+                    android:contentDescription="2D"
+                    android:onClick="normalSeatClicked"
+                    android:scaleType="fitCenter"/>
 
                 <TextView
                     android:id="@+id/three_a"
                     android:layout_width="wrap_content"
                     android:layout_height="18dp"
                     android:layout_marginStart="65dp"
-                    android:layout_marginTop="25dp"
+                    android:layout_marginTop="17dp"
                     android:gravity="top"
                     android:text="3A" />
 
-                <View
+                <ImageButton
                     android:id="@+id/normal_seat_3a"
-                    android:layout_width="44dp"
-                    android:layout_height="39dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_marginStart="53dp"
                     android:layout_marginTop="3dp"
-                    android:background="@drawable/normal_seat_w" />
+                    android:background="@drawable/normal_seat_w"
+                    android:contentDescription="3A"
+                    android:onClick="normalSeatClicked"
+                    android:scaleType="fitCenter"/>
 
                 <TextView
                     android:id="@+id/three_b"
                     android:layout_width="wrap_content"
                     android:layout_height="18dp"
                     android:layout_marginStart="124dp"
-                    android:layout_marginTop="-60dp"
+                    android:layout_marginTop="-69dp"
                     android:text="3B"
                     android:gravity="top" />
 
-                <View
+                <ImageButton
                     android:id="@+id/normal_seat_3b"
-                    android:layout_width="44dp"
-                    android:layout_height="39dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_marginStart="112dp"
                     android:layout_marginTop="3dp"
-                    android:background="@drawable/normal_seat_a" />
+                    android:background="@drawable/normal_seat_a"
+                    android:contentDescription="3B"
+                    android:onClick="normalSeatClicked"
+                    android:scaleType="fitCenter"/>
 
                 <TextView
                     android:id="@+id/three_c"
                     android:layout_width="wrap_content"
                     android:layout_height="18dp"
                     android:layout_marginStart="265dp"
-                    android:layout_marginTop="-60dp"
+                    android:layout_marginTop="-69dp"
                     android:text="3C"
                     android:gravity="top" />
 
-                <View
+                <ImageButton
                     android:id="@+id/normal_seat_3c"
-                    android:layout_width="44dp"
-                    android:layout_height="39dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_marginStart="253dp"
                     android:layout_marginTop="3dp"
-                    android:background="@drawable/normal_seat_a" />
+                    android:background="@drawable/normal_seat_a"
+                    android:contentDescription="3C"
+                    android:onClick="normalSeatClicked"
+                    android:scaleType="fitCenter"/>
 
                 <TextView
                     android:id="@+id/three_d"
                     android:layout_width="wrap_content"
                     android:layout_height="18dp"
                     android:layout_marginStart="324dp"
-                    android:layout_marginTop="-60dp"
+                    android:layout_marginTop="-69dp"
                     android:text="3D"
                     android:gravity="top" />
 
-                <View
+                <ImageButton
                     android:id="@+id/normal_seat_3d"
-                    android:layout_width="44dp"
-                    android:layout_height="39dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_marginStart="312dp"
                     android:layout_marginTop="3dp"
-                    android:background="@drawable/normal_seat_w" />
+                    android:background="@drawable/normal_seat_w"
+                    android:contentDescription="3D"
+                    android:onClick="normalSeatClicked"
+                    android:scaleType="fitCenter"/>
 
                 <TextView
                     android:id="@+id/four_a"
                     android:layout_width="wrap_content"
                     android:layout_height="18dp"
                     android:layout_marginStart="65dp"
-                    android:layout_marginTop="25dp"
+                    android:layout_marginTop="17dp"
                     android:gravity="top"
                     android:text="4A" />
 
-                <View
+                <ImageButton
                     android:id="@+id/normal_seat_4a"
-                    android:layout_width="44dp"
-                    android:layout_height="39dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_marginStart="53dp"
                     android:layout_marginTop="3dp"
-                    android:background="@drawable/normal_seat_w" />
+                    android:background="@drawable/normal_seat_w"
+                    android:contentDescription="4A"
+                    android:onClick="normalSeatClicked"
+                    android:scaleType="fitCenter"/>
 
                 <TextView
                     android:id="@+id/four_b"
                     android:layout_width="wrap_content"
                     android:layout_height="18dp"
                     android:layout_marginStart="124dp"
-                    android:layout_marginTop="-60dp"
+                    android:layout_marginTop="-69dp"
                     android:text="4B"
                     android:gravity="top" />
 
-                <View
+                <ImageButton
                     android:id="@+id/normal_seat_4b"
-                    android:layout_width="44dp"
-                    android:layout_height="39dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_marginStart="112dp"
                     android:layout_marginTop="3dp"
-                    android:background="@drawable/normal_seat_a" />
+                    android:background="@drawable/normal_seat_a"
+                    android:contentDescription="4B"
+                    android:onClick="normalSeatClicked"
+                    android:scaleType="fitCenter"/>
 
                 <TextView
                     android:id="@+id/four_c"
                     android:layout_width="wrap_content"
                     android:layout_height="18dp"
                     android:layout_marginStart="265dp"
-                    android:layout_marginTop="-60dp"
+                    android:layout_marginTop="-69dp"
                     android:text="4C"
                     android:gravity="top" />
 
-                <View
+                <ImageButton
                     android:id="@+id/normal_seat_4c"
-                    android:layout_width="44dp"
-                    android:layout_height="39dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_marginStart="253dp"
                     android:layout_marginTop="3dp"
-                    android:background="@drawable/normal_seat_a" />
+                    android:background="@drawable/normal_seat_a"
+                    android:contentDescription="4C"
+                    android:onClick="normalSeatClicked"
+                    android:scaleType="fitCenter"/>
 
                 <TextView
                     android:id="@+id/four_d"
                     android:layout_width="wrap_content"
                     android:layout_height="18dp"
                     android:layout_marginStart="324dp"
-                    android:layout_marginTop="-60dp"
+                    android:layout_marginTop="-69dp"
                     android:text="4D"
                     android:gravity="top" />
 
-                <View
+                <ImageButton
                     android:id="@+id/normal_seat_4d"
-                    android:layout_width="44dp"
-                    android:layout_height="39dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_marginStart="312dp"
                     android:layout_marginTop="3dp"
-                    android:background="@drawable/normal_seat_w" />
+                    android:background="@drawable/normal_seat_w"
+                    android:contentDescription="4D"
+                    android:onClick="normalSeatClicked"
+                    android:scaleType="fitCenter"/>
 
                 <TextView
                     android:id="@+id/five_a"
                     android:layout_width="wrap_content"
                     android:layout_height="18dp"
                     android:layout_marginStart="65dp"
-                    android:layout_marginTop="25dp"
+                    android:layout_marginTop="17dp"
                     android:gravity="top"
                     android:text="5A" />
 
-                <View
+                <ImageButton
                     android:id="@+id/normal_seat_5a"
-                    android:layout_width="44dp"
-                    android:layout_height="39dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_marginStart="53dp"
                     android:layout_marginTop="3dp"
-                    android:background="@drawable/normal_seat_w" />
+                    android:background="@drawable/normal_seat_w"
+                    android:contentDescription="%A"
+                    android:onClick="normalSeatClicked"
+                    android:scaleType="fitCenter"/>
 
                 <TextView
                     android:id="@+id/five_b"
                     android:layout_width="wrap_content"
                     android:layout_height="18dp"
                     android:layout_marginStart="124dp"
-                    android:layout_marginTop="-60dp"
+                    android:layout_marginTop="-69dp"
                     android:text="5B"
                     android:gravity="top" />
 
-                <View
+                <ImageButton
                     android:id="@+id/normal_seat_5b"
-                    android:layout_width="44dp"
-                    android:layout_height="39dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_marginStart="112dp"
                     android:layout_marginTop="3dp"
-                    android:background="@drawable/normal_seat_a" />
+                    android:background="@drawable/normal_seat_a"
+                    android:contentDescription="5B"
+                    android:onClick="normalSeatClicked"
+                    android:scaleType="fitCenter"/>
 
                 <TextView
                     android:id="@+id/five_c"
                     android:layout_width="wrap_content"
                     android:layout_height="18dp"
                     android:layout_marginStart="265dp"
-                    android:layout_marginTop="-60dp"
+                    android:layout_marginTop="-69dp"
                     android:text="5C"
                     android:gravity="top" />
 
-                <View
+                <ImageButton
                     android:id="@+id/normal_seat_5c"
-                    android:layout_width="44dp"
-                    android:layout_height="39dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_marginStart="253dp"
                     android:layout_marginTop="3dp"
-                    android:background="@drawable/normal_seat_a" />
+                    android:background="@drawable/normal_seat_a"
+                    android:contentDescription="5C"
+                    android:onClick="normalSeatClicked"
+                    android:scaleType="fitCenter"/>
 
                 <TextView
                     android:id="@+id/five_d"
                     android:layout_width="wrap_content"
                     android:layout_height="18dp"
                     android:layout_marginStart="324dp"
-                    android:layout_marginTop="-60dp"
+                    android:layout_marginTop="-69dp"
                     android:text="5D"
                     android:gravity="top" />
 
-                <View
+                <ImageButton
                     android:id="@+id/normal_seat_5d"
-                    android:layout_width="44dp"
-                    android:layout_height="39dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_marginStart="312dp"
                     android:layout_marginTop="3dp"
-                    android:background="@drawable/normal_seat_w" />
+                    android:background="@drawable/normal_seat_w"
+                    android:contentDescription="5D"
+                    android:onClick="normalSeatClicked"
+                    android:scaleType="fitCenter"/>
 
             </LinearLayout>
         </ScrollView>
