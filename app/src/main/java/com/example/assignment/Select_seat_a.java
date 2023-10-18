@@ -1,27 +1,25 @@
 package com.example.assignment;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-public class Profile_details_a extends AppCompatActivity {
-
+public class Select_seat_a extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.profile_details_a);
+        setContentView(R.layout.select_seat_a);
     }
-
-    public void Account(View view){
-        Intent intent = new Intent(this, Account.class);
-        ImageButton Account = findViewById(R.id.profilePage1);
+    public void toSeat_b(View view){
+        Intent intent = new Intent(this, Select_seat_b.class);
+        ImageButton toHomePage = findViewById(R.id.rectangle_2);
         startActivity(intent);
     }
+
+
 
     /*Footer*/
     public void toHomePage(View view){
@@ -41,5 +39,9 @@ public class Profile_details_a extends AppCompatActivity {
         ImageButton toAccountPage = findViewById(R.id.profilePage);
         startActivity(intent);
     }
+
+
+
+
 
 }
