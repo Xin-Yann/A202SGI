@@ -208,7 +208,8 @@
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="16dp"
                     app:cardCornerRadius="16dp"
-                    app:cardElevation="4dp">
+                    app:cardElevation="4dp"
+                    android:onClick="toSeat">
 
                     <TextView
                         android:id="@+id/duration1"
@@ -321,7 +322,8 @@
                     android:layout_gravity="center"
                     android:layout_margin="16dp"
                     app:cardCornerRadius="16dp"
-                    app:cardElevation="4dp">
+                    app:cardElevation="4dp"
+                    android:onClick="toSeat">
 
                     <TextView
                         android:id="@+id/duration2"
@@ -435,7 +437,8 @@
                     android:layout_gravity="center"
                     android:layout_margin="16dp"
                     app:cardCornerRadius="16dp"
-                    app:cardElevation="4dp">
+                    app:cardElevation="4dp"
+                    android:onClick="toSeat">
 
                     <TextView
                         android:id="@+id/duration3"
@@ -549,7 +552,8 @@
                     android:layout_gravity="center"
                     android:layout_margin="16dp"
                     app:cardCornerRadius="16dp"
-                    app:cardElevation="4dp">
+                    app:cardElevation="4dp"
+                    android:onClick="toSeat">
 
                     <TextView
                         android:id="@+id/duration4"
@@ -663,7 +667,8 @@
                     android:layout_gravity="center"
                     android:layout_margin="16dp"
                     app:cardCornerRadius="16dp"
-                    app:cardElevation="4dp">
+                    app:cardElevation="4dp"
+                    android:onClick="toSeat">
 
                     <TextView
                         android:id="@+id/duration5"
