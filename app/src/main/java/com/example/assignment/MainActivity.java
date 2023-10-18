@@ -67,6 +67,8 @@ public class MainActivity extends AppCompatActivity {
         textViewGreeting.setText("Hello, " + username);
     }
 
+
+
     /*Footer*/
     public void toHomePage(View view){
         Intent intent = new Intent(this, MainActivity.class);
