@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
        VPAdapter vpAdapter = new VPAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
        vpAdapter.addFragment(new fragment1(), "One-Way");
        vpAdapter.addFragment(new fragment2(), "Round Trip");
-
        viewPager.setAdapter(vpAdapter);
 
         ImageView login = findViewById(R.id.login);
@@ -67,6 +66,8 @@ public class MainActivity extends AppCompatActivity {
         TextView textViewGreeting = findViewById(R.id.displayid);
         textViewGreeting.setText("Hello, " + username);
     }
+
+
 
     /*Footer*/
     public void toHomePage(View view){
