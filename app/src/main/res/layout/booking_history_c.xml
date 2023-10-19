@@ -10,75 +10,6 @@
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="15dp">
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="0dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:background="#030F51"
-            android:gravity="center"
-            android:text="Booking History"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="170dp"
-            tools:layout_editor_absoluteY="16dp" />
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="17dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="-35dp"
-            app:srcCompat="@drawable/left_arrow_white" />
-
-        <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="-5dp"
-            android:layout_marginTop="50dp"
-            app:srcCompat="@drawable/rectangle_41" />
-
-        <ImageView
-            android:id="@+id/imageView7"
-            android:layout_width="110dp"
-            android:layout_height="28dp"
-            android:layout_marginStart="220dp"
-            android:layout_marginTop="-33dp"
-            app:srcCompat="@drawable/rectangle_42" />
-
-        <TextView
-            android:id="@+id/upcoming_trips"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="-25dp"
-            android:gravity="top"
-            android:text="Upcoming Trips"
-            android:textColor="#000000"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/history"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="255dp"
-            android:layout_marginTop="-20dp"
-            android:gravity="top"
-            android:text="History"
-            android:textColor="#000000"
-            android:textSize="14sp" />
-    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout7"
@@ -87,7 +18,7 @@
         android:layout_alignParentTop="true"
         android:background="#DEEDF4"
         android:orientation="vertical"
-        android:layout_marginTop="142dp">
+        android:layout_marginTop="1dp">
 
         <LinearLayout
             android:layout_width="wrap_content"

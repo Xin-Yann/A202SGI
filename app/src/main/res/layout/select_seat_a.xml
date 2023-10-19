@@ -13,7 +13,7 @@
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_marginTop="-3dp"
         android:orientation="vertical"
@@ -198,7 +198,7 @@
             tools:ignore="TouchTargetSizeCheck"/>
 
         <ImageButton
-            android:id="@+id/Coach_a"
+            android:id="@+id/rectangle_1"
             android:layout_width="50dp"
             android:layout_height="35dp"
             android:layout_marginStart="60dp"
@@ -208,7 +208,7 @@
             tools:ignore="TouchTargetSizeCheck"/>
 
         <ImageButton
-            android:id="@+id/Coach_b"
+            android:id="@+id/rectangle_2"
             android:layout_width="50dp"
             android:layout_height="35dp"
             android:layout_marginStart="120dp"
@@ -218,7 +218,7 @@
             tools:ignore="TouchTargetSizeCheck"/>
 
         <ImageButton
-            android:id="@+id/Coach_c"
+            android:id="@+id/rectangle_3"
             android:layout_width="50dp"
             android:layout_height="35dp"
             android:layout_marginStart="180dp"
@@ -228,7 +228,7 @@
             tools:ignore="TouchTargetSizeCheck"/>
 
         <ImageButton
-            android:id="@+id/Coach_d"
+            android:id="@+id/rectangle_4"
             android:layout_width="50dp"
             android:layout_height="35dp"
             android:layout_marginStart="240dp"
@@ -238,7 +238,7 @@
             tools:ignore="TouchTargetSizeCheck"/>
 
         <ImageButton
-            android:id="@+id/Coach_e"
+            android:id="@+id/rectangle_5"
             android:layout_width="50dp"
             android:layout_height="35dp"
             android:layout_marginStart="300dp"
@@ -337,14 +337,13 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="313dp"
+            android:layout_height="320dp"
             android:fillViewport="true">
 
             <LinearLayout
                 android:id="@+id/linearLayout3"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#DEEDF4"
+                android:layout_height="0dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -385,7 +384,7 @@
                     android:background="@drawable/premium_seat"
                     android:contentDescription="1B"
                     android:onClick="premiumSeatClicked"
-                    android:scaleType="fitCenter" />
+                    android:scaleType="fitCenter"/>
 
                 <TextView
                     android:id="@+id/one_c"
@@ -405,7 +404,7 @@
                     android:background="@drawable/premium_seat"
                     android:contentDescription="1C"
                     android:onClick="premiumSeatClicked"
-                    android:scaleType="fitCenter" />
+                    android:scaleType="fitCenter"/>
 
                 <TextView
                     android:id="@+id/two_a"
@@ -425,7 +424,7 @@
                     android:background="@drawable/premium_seat"
                     android:contentDescription="2A"
                     android:onClick="premiumSeatClicked"
-                    android:scaleType="fitCenter" />
+                    android:scaleType="fitCenter"/>
 
                 <TextView
                     android:id="@+id/two_b"
@@ -445,7 +444,7 @@
                     android:background="@drawable/premium_seat"
                     android:contentDescription="2B"
                     android:onClick="premiumSeatClicked"
-                    android:scaleType="fitCenter" />
+                    android:scaleType="fitCenter"/>
 
                 <TextView
                     android:id="@+id/two_c"
@@ -465,7 +464,7 @@
                     android:background="@drawable/premium_seat"
                     android:contentDescription="2C"
                     android:onClick="premiumSeatClicked"
-                    android:scaleType="fitCenter" />
+                    android:scaleType="fitCenter"/>
 
                 <TextView
                     android:id="@+id/three_a"
@@ -485,7 +484,7 @@
                     android:background="@drawable/premium_seat"
                     android:contentDescription="3A"
                     android:onClick="premiumSeatClicked"
-                    android:scaleType="fitCenter" />
+                    android:scaleType="fitCenter"/>
 
                 <TextView
                     android:id="@+id/three_b"
@@ -505,7 +504,7 @@
                     android:background="@drawable/premium_seat"
                     android:contentDescription="3B"
                     android:onClick="premiumSeatClicked"
-                    android:scaleType="fitCenter" />
+                    android:scaleType="fitCenter"/>
 
                 <TextView
                     android:id="@+id/three_c"
@@ -525,7 +524,7 @@
                     android:background="@drawable/premium_seat"
                     android:contentDescription="3C"
                     android:onClick="premiumSeatClicked"
-                    android:scaleType="fitCenter" />
+                    android:scaleType="fitCenter"/>
 
                 <TextView
                     android:id="@+id/four_a"
@@ -565,7 +564,7 @@
                     android:background="@drawable/premium_seat"
                     android:contentDescription="4B"
                     android:onClick="premiumSeatClicked"
-                    android:scaleType="fitCenter" />
+                    android:scaleType="fitCenter"/>
 
                 <TextView
                     android:id="@+id/four_c"
@@ -585,7 +584,7 @@
                     android:background="@drawable/premium_seat"
                     android:contentDescription="4C"
                     android:onClick="premiumSeatClicked"
-                    android:scaleType="fitCenter" />
+                    android:scaleType="fitCenter"/>
 
                 <TextView
                     android:id="@+id/five_a"
@@ -605,7 +604,7 @@
                     android:background="@drawable/premium_seat"
                     android:contentDescription="5A"
                     android:onClick="premiumSeatClicked"
-                    android:scaleType="fitCenter" />
+                    android:scaleType="fitCenter"/>
 
                 <TextView
                     android:id="@+id/five_b"
@@ -625,7 +624,7 @@
                     android:background="@drawable/premium_seat"
                     android:contentDescription="5B"
                     android:onClick="premiumSeatClicked"
-                    android:scaleType="fitCenter" />
+                    android:scaleType="fitCenter"/>
 
                 <TextView
                     android:id="@+id/five_c"
@@ -645,7 +644,7 @@
                     android:background="@drawable/premium_seat"
                     android:contentDescription="5C"
                     android:onClick="premiumSeatClicked"
-                    android:scaleType="fitCenter" />
+                    android:scaleType="fitCenter"/>
 
             </LinearLayout>
         </ScrollView>

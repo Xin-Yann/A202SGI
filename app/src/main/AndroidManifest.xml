@@ -27,6 +27,11 @@
         <activity android:name=".Account"></activity>
         <activity android:name=".Profile_details_b" ></activity>
         <activity android:name=".Booking_history" ></activity>
+        <activity android:name=".Select_depart_ticket"></activity>
+        <activity android:name=".Select_return_ticket"></activity>
+        <activity android:name=".Select_seat_a"></activity>
+        <activity android:name=".Select_seat_b"></activity>
+
     </application>
 
 </manifest>

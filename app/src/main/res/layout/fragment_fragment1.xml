@@ -132,14 +132,15 @@
                         android:backgroundTint="@color/white"/>
 
                     <Button
-                        android:id="@+id/button2"
+                        android:id="@+id/selectTicket"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Search"
                         android:layout_marginBottom="120dp"
                         android:layout_marginTop="25dp"
                         android:textColor="#FFFFFF"
-                        android:backgroundTint="#040f51"/>
+                        android:backgroundTint="#040f51"
+                        android:onClick="toTicket"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
