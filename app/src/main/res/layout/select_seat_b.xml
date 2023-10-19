@@ -198,7 +198,7 @@
             tools:ignore="TouchTargetSizeCheck"/>
 
         <ImageButton
-            android:id="@+id/rectangle_1"
+            android:id="@+id/Coach_a"
             android:layout_width="50dp"
             android:layout_height="35dp"
             android:layout_marginStart="60dp"
@@ -208,7 +208,7 @@
             tools:ignore="TouchTargetSizeCheck"/>
 
         <ImageButton
-            android:id="@+id/rectangle_2"
+            android:id="@+id/Coach_b"
             android:layout_width="50dp"
             android:layout_height="35dp"
             android:layout_marginStart="120dp"
@@ -218,7 +218,7 @@
             tools:ignore="TouchTargetSizeCheck"/>
 
         <ImageButton
-            android:id="@+id/rectangle_3"
+            android:id="@+id/Coach_c"
             android:layout_width="50dp"
             android:layout_height="35dp"
             android:layout_marginStart="180dp"
@@ -228,7 +228,7 @@
             tools:ignore="TouchTargetSizeCheck"/>
 
         <ImageButton
-            android:id="@+id/rectangle_4"
+            android:id="@+id/Coach_d"
             android:layout_width="50dp"
             android:layout_height="35dp"
             android:layout_marginStart="240dp"
@@ -238,7 +238,7 @@
             tools:ignore="TouchTargetSizeCheck"/>
 
         <ImageButton
-            android:id="@+id/rectangle_5"
+            android:id="@+id/Coach_e"
             android:layout_width="50dp"
             android:layout_height="35dp"
             android:layout_marginStart="300dp"
@@ -757,47 +757,49 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="#FEFAFD"
-
         android:gravity="center_horizontal">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="60dp"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginLeft="60dp">
 
             <ImageButton
                 android:id="@+id/image1"
-                android:layout_width="wrap_content"
+                android:layout_width="48dp"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="88dp"
+                android:layout_marginLeft="-10dp"
+                android:layout_marginRight="80dp"
                 android:background="#ffff"
                 android:contentDescription="Image1"
                 android:onClick="clickImage1"
-                android:padding="5dp"
+                android:padding="10dp"
                 app:srcCompat="@drawable/home" />
 
             <ImageButton
                 android:id="@+id/image2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="95dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:background="#ffffff"
                 android:onClick="clickImage2"
-                app:srcCompat="@drawable/ticket" />
+                app:srcCompat="@drawable/ticket"
+                android:layout_marginRight="95dp"
+                android:layout_marginLeft="-5dp"
+                android:contentDescription="My Ticket"/>
 
 
             <ImageButton
                 android:id="@+id/image3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:background="#ffffff"
                 android:onClick="clickImage3"
                 android:padding="5dp"
-                app:srcCompat="@drawable/account" />
+                android:layout_marginLeft="-12dp"
+                android:contentDescription="Account icon"
+                app:srcCompat="@drawable/account"/>
 
         </LinearLayout>
 
@@ -805,32 +807,34 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"
-            android:gravity="center_horizontal"
             android:orientation="horizontal"
-            android:padding="10dp">
+            android:padding="10dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal">
 
 
             <TextView
                 android:id="@+id/home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="70dp"
                 android:gravity="top"
                 android:text="Home"
                 android:textColor="#000000"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="70dp"/>
 
             <TextView
                 android:id="@+id/myTicket"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="70dp"
                 android:gravity="top"
                 android:text="My Ticket"
                 android:textColor="#000000"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="70dp"
+                android:layout_marginLeft="10dp"/>
 
             <TextView
                 android:id="@+id/account"
@@ -838,6 +842,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="top"
                 android:text="Account"
+                android:layout_marginTop="5dp"
                 android:textColor="#000000"
                 android:textSize="14sp" />
         </LinearLayout>
