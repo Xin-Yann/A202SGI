@@ -195,67 +195,74 @@
             android:layout_marginTop="15dp"
             android:background="@drawable/left_chevron1"
             android:contentDescription="Left Chevron"
-            tools:ignore="TouchTargetSizeCheck"/>
+            tools:ignore="TouchTargetSizeCheck"
+            android:onClick="toCoachB"/>
 
         <ImageButton
-            android:id="@+id/rectangle_1"
+            android:id="@+id/Coach_a"
             android:layout_width="50dp"
             android:layout_height="35dp"
             android:layout_marginStart="60dp"
             android:layout_marginTop="-28dp"
-            android:background="@drawable/minus__blue"
+            android:background="@drawable/minus__grey"
             android:contentDescription="Rectangle 1"
-            tools:ignore="TouchTargetSizeCheck"/>
+            tools:ignore="TouchTargetSizeCheck"
+            android:onClick="toSeat_a"/>
 
         <ImageButton
-            android:id="@+id/rectangle_2"
+            android:id="@+id/Coach_b"
             android:layout_width="50dp"
             android:layout_height="35dp"
             android:layout_marginStart="120dp"
             android:layout_marginTop="-35dp"
             android:background="@drawable/minus__grey"
             android:contentDescription="Rectangle 2"
-            tools:ignore="TouchTargetSizeCheck"/>
+            tools:ignore="TouchTargetSizeCheck"
+            android:onClick="toSeat_b"/>
 
         <ImageButton
-            android:id="@+id/rectangle_3"
+            android:id="@+id/Coach_c"
             android:layout_width="50dp"
             android:layout_height="35dp"
             android:layout_marginStart="180dp"
             android:layout_marginTop="-35dp"
-            android:background="@drawable/minus__grey"
+            android:background="@drawable/minus__blue"
             android:contentDescription="Rectangle 3"
-            tools:ignore="TouchTargetSizeCheck"/>
+            tools:ignore="TouchTargetSizeCheck"
+            android:onClick="toSeat_c"/>
 
         <ImageButton
-            android:id="@+id/rectangle_4"
+            android:id="@+id/Coach_d"
             android:layout_width="50dp"
             android:layout_height="35dp"
             android:layout_marginStart="240dp"
             android:layout_marginTop="-35dp"
             android:background="@drawable/minus__grey"
             android:contentDescription="Rectangle 4"
-            tools:ignore="TouchTargetSizeCheck"/>
+            tools:ignore="TouchTargetSizeCheck"
+            android:onClick="toSeat_d"/>
 
         <ImageButton
-            android:id="@+id/rectangle_5"
+            android:id="@+id/Coach_e"
             android:layout_width="50dp"
             android:layout_height="35dp"
             android:layout_marginStart="300dp"
             android:layout_marginTop="-35dp"
             android:background="@drawable/minus__grey"
             android:contentDescription="Rectangle 5"
-            tools:ignore="TouchTargetSizeCheck"/>
+            tools:ignore="TouchTargetSizeCheck"
+            android:onClick="toSeat_e"/>
 
         <ImageButton
             android:id="@+id/right_chevron1"
-            android:layout_width="17dp"
+            android:layout_width="15dp"
             android:layout_height="20dp"
             android:layout_marginStart="365dp"
             android:layout_marginTop="-27dp"
             android:background="@drawable/right_chevron1"
             android:contentDescription="Right Chevron"
-            tools:ignore="TouchTargetSizeCheck"/>
+            tools:ignore="TouchTargetSizeCheck"
+            android:onClick="toCoachD"/>
 
         <TextView
             android:id="@+id/coach_c"
