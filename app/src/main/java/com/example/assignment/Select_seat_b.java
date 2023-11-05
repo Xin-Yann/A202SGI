@@ -6,13 +6,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ScrollView;
+import android.content.Context;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.appcompat.app.AppCompatActivity;
 public class Select_seat_b extends AppCompatActivity {
 
     private List<String> selectedSeats = new ArrayList<>();
@@ -20,6 +22,12 @@ public class Select_seat_b extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.select_seat_b);
+
+        ScrollView scrollView = findViewById(R.id.scroll_view);
+
+        ScrollViewHelper scrollViewHelper = new ScrollViewHelper();
+        scrollViewHelper.setOnTouchListener(scrollView, this);
+
     }
 
     public void toSeat_a(View view){

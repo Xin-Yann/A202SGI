@@ -13,7 +13,7 @@
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginTop="-3dp"
         android:orientation="vertical"
@@ -332,25 +332,26 @@
             android:background="@drawable/line3" />
 
 
-                <TextView
-                    android:id="@+id/forward"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="178dp"
-                    android:layout_marginTop="-10dp"
-                    android:gravity="top"
-                    android:text="Forward" />
+            <TextView
+                android:id="@+id/forward"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="178dp"
+                android:layout_marginTop="-10dp"
+                android:gravity="top"
+                android:text="Forward" />
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="320dp"
+            android:layout_height="720dp"
             android:fillViewport="true">
 
             <LinearLayout
                 android:id="@+id/linearLayout3"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
                 android:background="#DEEDF4">
 
                 <TextView

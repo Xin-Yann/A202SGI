@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ScrollView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,6 +20,11 @@ public class Select_seat_d extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.select_seat_d);
+
+        ScrollView scrollView = findViewById(R.id.scroll_view);
+
+        ScrollViewHelper scrollViewHelper = new ScrollViewHelper();
+        scrollViewHelper.setOnTouchListener(scrollView, this);
     }
 
     public void toSeat_a(View view){
