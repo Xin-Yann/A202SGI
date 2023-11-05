@@ -31,6 +31,7 @@
         <activity android:name=".Select_return_ticket"></activity>
         <activity android:name=".Select_seat_a"></activity>
         <activity android:name=".Select_seat_b"></activity>
+        <activity android:name="fragment1"></activity>
 
     </application>
 

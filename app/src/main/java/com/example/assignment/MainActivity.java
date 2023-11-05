@@ -15,16 +15,24 @@ import android.widget.Toast;
 import android.content.SharedPreferences;
 
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
+
+    FirebaseAuth auth;
+    ImageButton logout;
+    TextView textView;
+    FirebaseUser user;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
+
 
 
        tabLayout = findViewById(R.id.tablayout);
@@ -36,35 +44,33 @@ public class MainActivity extends AppCompatActivity {
        vpAdapter.addFragment(new fragment2(), "Round Trip");
        viewPager.setAdapter(vpAdapter);
 
-        ImageView login = findViewById(R.id.login);
+        auth = FirebaseAuth.getInstance();
+        user = auth.getCurrentUser();
+        logout = findViewById(R.id.logout);
 
-        SharedPreferences preferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
-        boolean isLoginValid = preferences.getBoolean("isLoginValid", false);
+        /*display user email if user login */
+        if (user == null) {
+            Intent intent = new Intent(getApplicationContext(), login.class);
+            startActivity(intent);
+            finish();
+        } else {
+            /*TextView text= findViewById(R.id.user_details);
+            text.setText(user.getEmail());*/
+            TextView textView = findViewById(R.id.user_email);
+            textView.setText(user.getEmail());
+        }
 
-        login.setOnClickListener(new View.OnClickListener() {
+        /*logout*/
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
-
-                // Check if login information is correct (You can replace this with your own logic)
-                if (isLoginValid) {
-                    // After successful login, navigate to the ProfileActivity
-                    Intent profileIntent = new Intent(MainActivity.this, Account.class);
-                    startActivity(profileIntent);
-
-                } else {
-                    Intent Loginintent = new Intent(MainActivity.this, login.class);
-                    startActivity(Loginintent);
-                }
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getApplicationContext(), login.class);
+                startActivity(intent);
+                finish();
             }
         });
 
-
-        // Get the username from the intent
-        Intent intent = getIntent();
-        String username = intent.getStringExtra("username");
-
-        // Display the greeting message
-        TextView textViewGreeting = findViewById(R.id.displayid);
-        textViewGreeting.setText("Hello, " + username);
     }
 
 
