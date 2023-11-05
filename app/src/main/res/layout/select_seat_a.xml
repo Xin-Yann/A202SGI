@@ -13,7 +13,7 @@
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginTop="-3dp"
         android:orientation="vertical"
@@ -198,17 +198,18 @@
             tools:ignore="TouchTargetSizeCheck"/>
 
         <ImageButton
-            android:id="@+id/rectangle_1"
+            android:id="@+id/Coach_a"
             android:layout_width="50dp"
             android:layout_height="35dp"
             android:layout_marginStart="60dp"
             android:layout_marginTop="-28dp"
             android:background="@drawable/minus__blue"
             android:contentDescription="Rectangle 1"
-            tools:ignore="TouchTargetSizeCheck"/>
+            tools:ignore="TouchTargetSizeCheck"
+            android:onClick="toSeat_a"/>
 
         <ImageButton
-            android:id="@+id/rectangle_2"
+            android:id="@+id/Coach_b"
             android:layout_width="50dp"
             android:layout_height="35dp"
             android:layout_marginStart="120dp"
@@ -219,34 +220,37 @@
             android:onClick="toSeat_b"/>
 
         <ImageButton
-            android:id="@+id/rectangle_3"
+            android:id="@+id/Coach_c"
             android:layout_width="50dp"
             android:layout_height="35dp"
             android:layout_marginStart="180dp"
             android:layout_marginTop="-35dp"
             android:background="@drawable/minus__grey"
             android:contentDescription="Rectangle 3"
-            tools:ignore="TouchTargetSizeCheck"/>
+            tools:ignore="TouchTargetSizeCheck"
+            android:onClick="toSeat_c"/>
 
         <ImageButton
-            android:id="@+id/rectangle_4"
+            android:id="@+id/Coach_d"
             android:layout_width="50dp"
             android:layout_height="35dp"
             android:layout_marginStart="240dp"
             android:layout_marginTop="-35dp"
             android:background="@drawable/minus__grey"
             android:contentDescription="Rectangle 4"
-            tools:ignore="TouchTargetSizeCheck"/>
+            tools:ignore="TouchTargetSizeCheck"
+            android:onClick="toSeat_d"/>
 
         <ImageButton
-            android:id="@+id/rectangle_5"
+            android:id="@+id/Coach_e"
             android:layout_width="50dp"
             android:layout_height="35dp"
             android:layout_marginStart="300dp"
             android:layout_marginTop="-35dp"
             android:background="@drawable/minus__grey"
             android:contentDescription="Rectangle 5"
-            tools:ignore="TouchTargetSizeCheck"/>
+            tools:ignore="TouchTargetSizeCheck"
+            android:onClick="toSeat_e"/>
 
         <ImageButton
             android:id="@+id/right_chevron1"
@@ -256,7 +260,8 @@
             android:layout_marginTop="-27dp"
             android:background="@drawable/right_chevron1"
             android:contentDescription="Right Chevron"
-            tools:ignore="TouchTargetSizeCheck"/>
+            tools:ignore="TouchTargetSizeCheck"
+            android:onClick="toCoachB"/>
 
         <TextView
             android:id="@+id/coach_a"
@@ -307,8 +312,7 @@
             android:layout_height="24dp"
             android:layout_marginStart="267dp"
             android:layout_marginTop="-22dp"
-            android:background="@drawable/unavailable_seat"
-            android:onClick="unavailableSeat"/>
+            android:background="@drawable/unavailable_seat" />
 
         <TextView
             android:id="@+id/selected"
@@ -328,25 +332,26 @@
             android:background="@drawable/line3" />
 
 
-                <TextView
-                    android:id="@+id/forward"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="178dp"
-                    android:layout_marginTop="-10dp"
-                    android:gravity="top"
-                    android:text="Forward" />
+            <TextView
+                android:id="@+id/forward"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="178dp"
+                android:layout_marginTop="-10dp"
+                android:gravity="top"
+                android:text="Forward" />
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="320dp"
+            android:layout_height="720dp"
             android:fillViewport="true">
 
             <LinearLayout
                 android:id="@+id/linearLayout3"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
                 android:background="#DEEDF4">
 
                 <TextView
