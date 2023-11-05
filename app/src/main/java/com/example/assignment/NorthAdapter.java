@@ -35,7 +35,9 @@ public class NorthAdapter extends RecyclerView.Adapter<NorthAdapter.CardViewHold
     public void onBindViewHolder(@NonNull CardViewHolder holder, int position) {
         North data = dataList.get(position);
         String routeName = data.getName();
+        String Duration = data.getDuration();
         holder.nameTextView.setText(routeName);
+        holder.durationTextView.setText("Duration: " + Duration + " mins");
     }
 
     @Override
@@ -50,7 +52,7 @@ public class NorthAdapter extends RecyclerView.Adapter<NorthAdapter.CardViewHold
         public CardViewHolder(View itemView) {
             super(itemView);
             nameTextView = itemView.findViewById(R.id.name);
-            durationTextView = itemView.findViewById(R.id.duration); // Assuming you have a TextView with id 'duration' in your 'search_view' layout
+            durationTextView = itemView.findViewById(R.id.duration);
         }
     }
 }

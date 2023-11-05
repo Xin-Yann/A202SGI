@@ -39,8 +39,9 @@ public class Select_depart_ticket extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
 
-       fStore.collection("northbound")
-               .orderBy("id")
+
+        fStore.collection("northbound")
+                .orderBy("id")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -48,11 +49,13 @@ public class Select_depart_ticket extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             datalist.clear(); // Clear the existing data in datalist
 
+                            // Inside the onComplete method of your Firestore query
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 String stationName = document.getString("name");
+                                String stationDuration = document.getString("diffMin");
 
                                 // Create a 'North' object and add it to datalist
-                                North northStation = new North(stationName);
+                                North northStation = new North(stationName, stationDuration);
                                 datalist.add(northStation);
                             }
 
@@ -64,13 +67,25 @@ public class Select_depart_ticket extends AppCompatActivity {
                                 for (int j = i + 1; j < datalist.size(); j++) {
                                     North origin = datalist.get(i);
                                     North destination = datalist.get(j);
-                                    String pair = origin.getName() + " ---------- " + destination.getName();
 
-                                    if (uniquePairs.add(pair)) {
-                                        uniqueDatalist.add(new North(pair));
+                                    String forwardPair = origin.getName() + " ----------- " + destination.getName();
+                                    String reversePair = destination.getName() + " ---------- " + origin.getName();
+                                    double totalDuration = 0.0;
+
+                                    // Calculate the sum of diffMin for the elements in the pair
+                                    for (int k = i; k <= j; k++) {
+                                        totalDuration += Double.parseDouble(datalist.get(k).getDuration());
                                     }
+
+                                    // Add both the forward and reverse pairs along with total duration
+                                    uniquePairs.add(forwardPair);
+                                    uniquePairs.add(reversePair);
+
+                                    uniqueDatalist.add(new North(forwardPair, String.format("%.2f", totalDuration)));
+                                    uniqueDatalist.add(new North(reversePair, String.format("%.2f", totalDuration)));
                                 }
                             }
+
 
                             // Replace datalist with the uniqueDatalist
                             datalist.clear();
@@ -83,11 +98,14 @@ public class Select_depart_ticket extends AppCompatActivity {
                             // Handle the case where the query was not successful
                         }
                     }
-    });
-}
+                });
+
+    }
 
 
-    public void toSeat(View view) {
+
+
+        public void toSeat(View view) {
         Intent intent = new Intent(Select_depart_ticket.this, Select_seat_a.class);
         startActivity(intent);
     }

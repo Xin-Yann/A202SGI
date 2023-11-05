@@ -13,11 +13,11 @@ public class Select_seat_a extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.select_seat_a);
     }
-    public void toSeat_b(View view){
+   /* public void toSeat_b(View view){
         Intent intent = new Intent(this, Select_seat_b.class);
         ImageButton toHomePage = findViewById(R.id.rectangle_2);
         startActivity(intent);
-    }
+    }*/
 
 
 
