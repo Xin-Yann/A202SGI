@@ -39,6 +39,7 @@
                     android:hint="Origin">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/inputOriginText"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@drawable/border_round_corner"
@@ -84,7 +85,7 @@
                     android:layout_centerHorizontal="true"
                     android:textColor="#000000"
                     android:textSize="16sp"
-                    android:hint="Departure"
+                    android:hint="Departure Date"
                     android:layout_marginTop="160dp">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -93,17 +94,19 @@
                         android:background="@drawable/border_round_corner"
                         android:backgroundTint="@color/white"/>
 
+
                 </com.google.android.material.textfield.TextInputLayout>
 
+
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/inputArrival"
+                    android:id="@+id/inputReturn"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:textColor="#000000"
                     android:textSize="16sp"
-                    android:hint="Arrival"
+                    android:hint="Return Date"
                     android:layout_marginTop="240dp">
 
                     <com.google.android.material.textfield.TextInputEditText
