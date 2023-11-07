@@ -41,7 +41,7 @@ public class Select_depart_ticket extends AppCompatActivity {
 
 
         fStore.collection("northbound")
-                .orderBy("id")
+                .orderBy("id", Query.Direction.DESCENDING)  // Replace "customField" with the field you want to use for ordering
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -86,7 +86,6 @@ public class Select_depart_ticket extends AppCompatActivity {
                                 }
                             }
 
-
                             // Replace datalist with the uniqueDatalist
                             datalist.clear();
                             datalist.addAll(uniqueDatalist);
@@ -99,13 +98,13 @@ public class Select_depart_ticket extends AppCompatActivity {
                         }
                     }
                 });
-
     }
 
 
 
 
-        public void toSeat(View view) {
+
+    public void toSeat(View view) {
         Intent intent = new Intent(Select_depart_ticket.this, Select_seat_a.class);
         startActivity(intent);
     }

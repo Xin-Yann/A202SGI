@@ -6,7 +6,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
-import com.example.assignment.NorthAdapter.CardViewHolder;
 
 import java.util.List;
 
@@ -23,6 +22,12 @@ public class NorthAdapter extends RecyclerView.Adapter<NorthAdapter.CardViewHold
         dataList = newData;
         notifyDataSetChanged();
     }
+
+    public void setFilteredList(List<North> filteredList){
+        this.dataList = filteredList;
+        notifyDataSetChanged();
+    }
+
 
     @NonNull
     @Override
