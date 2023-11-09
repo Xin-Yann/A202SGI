@@ -25,7 +25,7 @@
             android:layout_height="45dp"
             android:background="#030F51"
             android:gravity="center"
-            android:text="Select Depart Seat"
+            android:text="Select Return Seat"
             android:textAlignment="center"
             android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"

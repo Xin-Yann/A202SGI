@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="-1dp"
         android:orientation="vertical">
 
 
@@ -25,7 +25,7 @@
             android:layout_height="45dp"
             android:background="#030F51"
             android:gravity="center"
-            android:text="Select Depart Seat"
+            android:text="Select Return Seat"
             android:textAlignment="center"
             android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
@@ -148,7 +148,7 @@
             android:background="@drawable/left_chevron1"
             android:contentDescription="Left Chevron"
             tools:ignore="TouchTargetSizeCheck"
-            android:onClick="toCoachD"/>
+            android:onClick="toCoachC"/>
 
         <ImageButton
             android:id="@+id/Coach_a"
@@ -189,7 +189,7 @@
             android:layout_height="35dp"
             android:layout_marginStart="240dp"
             android:layout_marginTop="-35dp"
-            android:background="@drawable/minus__grey"
+            android:background="@drawable/minus__blue"
             android:contentDescription="Rectangle 4"
             tools:ignore="TouchTargetSizeCheck"
             android:onClick="toSeat_d"/>
@@ -200,7 +200,7 @@
             android:layout_height="35dp"
             android:layout_marginStart="300dp"
             android:layout_marginTop="-35dp"
-            android:background="@drawable/minus__blue"
+            android:background="@drawable/minus__grey"
             android:contentDescription="Rectangle 5"
             tools:ignore="TouchTargetSizeCheck"
             android:onClick="toSeat_e"/>
@@ -213,16 +213,17 @@
             android:layout_marginTop="-27dp"
             android:background="@drawable/right_chevron1"
             android:contentDescription="Right Chevron"
-            tools:ignore="TouchTargetSizeCheck"/>
+            tools:ignore="TouchTargetSizeCheck"
+            android:onClick="toCoachE"/>
 
         <TextView
-            android:id="@+id/coach_e"
+            android:id="@+id/coach_d"
             android:layout_width="72dp"
             android:layout_height="15dp"
             android:layout_marginStart="174dp"
             android:layout_marginTop="10dp"
             android:gravity="top"
-            android:text="Coach_E" />
+            android:text="Coach_D" />
 
         <View
             android:id="@+id/available_seat"
@@ -323,7 +324,7 @@
                     android:layout_height="48dp"
                     android:layout_marginStart="53dp"
                     android:layout_marginTop="3dp"
-                    android:background="@drawable/normal_seat_w"
+                    android:background="@drawable/oku_seat"
                     android:contentDescription="1A"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
@@ -343,7 +344,7 @@
                     android:layout_height="48dp"
                     android:layout_marginStart="112dp"
                     android:layout_marginTop="3dp"
-                    android:background="@drawable/normal_seat_a"
+                    android:background="@drawable/oku_seat"
                     android:contentDescription="1B"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
@@ -363,7 +364,7 @@
                     android:layout_height="48dp"
                     android:layout_marginStart="253dp"
                     android:layout_marginTop="3dp"
-                    android:background="@drawable/normal_seat_a"
+                    android:background="@drawable/oku_seat"
                     android:contentDescription="1C"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
@@ -383,7 +384,7 @@
                     android:layout_height="48dp"
                     android:layout_marginStart="312dp"
                     android:layout_marginTop="3dp"
-                    android:background="@drawable/normal_seat_w"
+                    android:background="@drawable/oku_seat"
                     android:contentDescription="1D"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
@@ -711,6 +712,7 @@
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
+
     <RelativeLayout
         android:id="@+id/footer"
         android:layout_width="fill_parent"
