@@ -22,6 +22,8 @@ public class fragment2 extends Fragment {
         toTicket.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                AppData.isReturnTicketAllowed = true;
+                AppData.isDepartTicketSelected = true;
                 // Create an Intent to navigate to the Select_depart_ticket activity
                 Intent intent = new Intent(getActivity(), Select_depart_ticket.class);
                 startActivity(intent);

@@ -3,7 +3,10 @@ package com.example.assignment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -38,10 +41,14 @@ public class Select_depart_ticket extends AppCompatActivity {
         adapter = new NorthAdapter(this, datalist);
         recyclerView.setAdapter(adapter);
 
-
+        /*if (!AppData.searchButtonClicked) {
+            // Access denied, show an error message and finish the activity
+            Toast.makeText(this, "Access denied. Please click the search button in the first activity first.", Toast.LENGTH_SHORT).show();
+            finish();
+        }*/
 
         fStore.collection("northbound")
-                .orderBy("id", Query.Direction.DESCENDING)  // Replace "customField" with the field you want to use for ordering
+                .orderBy("id", Query.Direction.ASCENDING)  // Replace "customField" with the field you want to use for ordering
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -100,14 +107,25 @@ public class Select_depart_ticket extends AppCompatActivity {
                 });
     }
 
-
-
-
-
     public void toSeat(View view) {
         Intent intent = new Intent(Select_depart_ticket.this, Select_seat_a.class);
         startActivity(intent);
+
+        if (AppData.isDepartTicketSelected) {
+            Intent depart = new Intent(Select_depart_ticket.this, Select_seat_a.class);
+            startActivity(depart);
+
+        } else if (AppData.isReturnTicketAllowed) {
+            // Depart ticket has been selected and return ticket is allowed, start the return ticket selection activity
+            Intent returnIntent = new Intent(Select_depart_ticket.this, Select_return_ticket.class);
+            startActivity(returnIntent);
+        }
+
+// Optionally, set AppData.isReturnTicketAllowed and AppData.isDepartTicketSelected based on user actions.
+
+
     }
+
 
     /*Footer*/
     public void toHomePage(View view) {

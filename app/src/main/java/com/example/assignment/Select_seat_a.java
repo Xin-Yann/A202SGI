@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,7 +15,6 @@ import java.util.List;
 
 public class Select_seat_a extends AppCompatActivity {
     private List<String> selectedSeats = new ArrayList<>(); // List to store selected seats
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -106,18 +106,33 @@ public class Select_seat_a extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 // Handle seat confirmation (e.g., save the selected seat to a database)
-                // You can also navigate to a confirmation page/activity here
-                navigateToPassengerDetailsPage();
+
+                if (AppData.isReturnTicketAllowed) {
+                    Intent returnIntent = new Intent(Select_seat_a.this, Select_return_ticket.class);
+                    startActivity(returnIntent);
+                } else {
+                    navigateToPassengerDetailsPage();
+                }
             }
         });
+
+        // Add a negative button for "No"
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                // User chose not to confirm, do nothing or handle as needed
+                // Handle the case when the user doesn't confirm the seat selection
+                // You can add any specific logic here if needed
             }
         });
-        builder.create().show();
+
+        builder.show();
     }
+
+    private void navigateToPassengerDetailsPage() {
+        setContentView(R.layout.passenger_details_start); // Load the passenger_details_start.xml layout
+        // You may need to handle any other UI logic specific to this layout
+    }
+
 
     private void addSelectedSeat(String seatId) {
         // Implement your logic to add the selected seat to the list
@@ -125,8 +140,5 @@ public class Select_seat_a extends AppCompatActivity {
         selectedSeats.add(seatId);
     }
 
-    private void navigateToPassengerDetailsPage() {
-        setContentView(R.layout.passenger_details_start); // Load the passenger_details_start.xml layout
-        // You may need to handle any other UI logic specific to this layout
-    }
+
 }
