@@ -21,12 +21,14 @@
             android:gravity="center_horizontal"
             android:background="#DEEDF4">
 
+
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:orientation="horizontal"
                 android:gravity="center_horizontal">
+
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/inputOrigin"
@@ -61,10 +63,11 @@
                     android:layout_marginTop="80dp">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/inputDesText"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@drawable/border_round_corner"
-                        android:backgroundTint="@color/white"/>
+                        android:backgroundTint="@color/white" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -89,6 +92,7 @@
                     android:layout_marginTop="160dp">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/inputDepart1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@drawable/border_round_corner"
@@ -97,25 +101,6 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/inputReturn"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="300dp"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:textColor="#000000"
-                    android:textSize="16sp"
-                    android:hint="Return Date"
-                    android:layout_marginTop="240dp">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/border_round_corner"
-                        android:backgroundTint="@color/white"/>
-
-                </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/inputPax"
@@ -126,9 +111,10 @@
                     android:textColor="#000000"
                     android:textSize="16sp"
                     android:hint="Pax"
-                    android:layout_marginTop="320dp">
+                    android:layout_marginTop="240dp">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/inputPax1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@drawable/border_round_corner"
@@ -145,8 +131,15 @@
                         android:backgroundTint="#040f51"
                         android:onClick="toTicket"/>
 
+
                 </com.google.android.material.textfield.TextInputLayout>
 
+<!--                <androidx.appcompat.widget.SearchView-->
+<!--                    android:id="@+id/searchView"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="20dp"-->
+<!--                    android:layout_marginTop="400dp"/>-->
             </RelativeLayout>
         </RelativeLayout>
     </ScrollView>

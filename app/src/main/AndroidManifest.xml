@@ -34,6 +34,7 @@
         <activity android:name=".Select_seat_c"></activity>
         <activity android:name=".Select_seat_d"></activity>
         <activity android:name=".Select_seat_e"></activity>
+        <activity android:name=".passengerDetailsEnd"></activity>
 
     </application>
 

@@ -1,10 +1,13 @@
 package com.example.assignment;
 
+import static java.security.AccessController.getContext;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -29,6 +32,8 @@ public class Select_depart_ticket extends AppCompatActivity {
     ArrayList<North> datalist;
     NorthAdapter adapter;
 
+    TextView trainOri, trainDestination, trainD, trainP;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +45,32 @@ public class Select_depart_ticket extends AppCompatActivity {
         datalist = new ArrayList<>();
         adapter = new NorthAdapter(this, datalist);
         recyclerView.setAdapter(adapter);
+
+        Intent intent = getIntent();
+
+        if (intent.hasExtra("search_query")) {
+            String trainOrigin = intent.getStringExtra("search_query");
+            String trainDes = intent.getStringExtra("search_destination");
+            String trainDate = intent.getStringExtra("search_date");
+            String trainPax = intent.getStringExtra("search_pax");
+            // Now you have the trainName, you can use it as needed.
+
+            /*filterList(trainOrigin, trainDes);*/
+
+            // For example, you might want to update UI elements based on the trainName:
+            trainOri = findViewById(R.id.origin);
+            trainOri.setText(trainOrigin);
+
+            trainDestination = findViewById(R.id.destination);
+            trainDestination.setText(trainDes);
+
+            trainD = findViewById(R.id.date1);
+            trainD.setText(trainDate);
+
+            trainP = findViewById(R.id.pax);
+            trainP.setText("Total: "+ trainPax + " Pax");
+        }
+
 
         /*if (!AppData.searchButtonClicked) {
             // Access denied, show an error message and finish the activity
@@ -107,25 +138,55 @@ public class Select_depart_ticket extends AppCompatActivity {
                 });
     }
 
+
+
     public void toSeat(View view) {
-        Intent intent = new Intent(Select_depart_ticket.this, Select_seat_a.class);
-        startActivity(intent);
+            Intent intent = getIntent();
+            if (intent.hasExtra("search_query")) {
+                String trainOrigin = intent.getStringExtra("search_query");
+                String trainDes = intent.getStringExtra("search_destination");
+                String trainDate = intent.getStringExtra("search_date");
+                String trainPax = intent.getStringExtra("search_pax");
+                // Now you have the trainName, you can use it as needed.
 
-        if (AppData.isDepartTicketSelected) {
-            Intent depart = new Intent(Select_depart_ticket.this, Select_seat_a.class);
-            startActivity(depart);
+                Intent passDataIntent = new Intent(Select_depart_ticket.this, Select_seat_a.class);
+                passDataIntent.putExtra("search_query", trainOrigin);
+                passDataIntent.putExtra("search_destination", trainDes);
+                passDataIntent.putExtra("search_date", trainDate);
+                passDataIntent.putExtra("search_pax", trainPax);
+                startActivity(passDataIntent);
+            }
+    }
 
-        } else if (AppData.isReturnTicketAllowed) {
-            // Depart ticket has been selected and return ticket is allowed, start the return ticket selection activity
-            Intent returnIntent = new Intent(Select_depart_ticket.this, Select_return_ticket.class);
-            startActivity(returnIntent);
+
+   /* public void filterList(String origin, String destination) {
+        List<North> filteredList = new ArrayList<>();
+
+        if (origin.isEmpty() && destination.isEmpty()) {
+            // If both queries are empty, show all items
+            filteredList.addAll(datalist);
+        } else {
+            for (North north : datalist) {
+                // Check both origin and destination for a match
+                if (north.getName().toLowerCase().contains(origin.toLowerCase())
+                        && north.getName().toLowerCase().contains(destination.toLowerCase())) {
+                    filteredList.add(north);
+                }
+            }
         }
 
-// Optionally, set AppData.isReturnTicketAllowed and AppData.isDepartTicketSelected based on user actions.
+        // Update the adapter with the filtered or all items
+        adapter.setFilteredList(filteredList);
 
 
     }
-
+*/
+    public void back(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        ImageButton back = findViewById(R.id.back);
+        startActivity(intent);
+        finish();
+    }
 
     /*Footer*/
     public void toHomePage(View view) {
