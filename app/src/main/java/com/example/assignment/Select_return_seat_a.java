@@ -5,49 +5,47 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.firestore.FirebaseFirestore;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
-public class Select_seat_e extends AppCompatActivity {
-
-    private List<String> selectedSeats = new ArrayList<>();
+public class Select_return_seat_a extends AppCompatActivity {
+    private List<String> selectedSeats = new ArrayList<>(); // List to store selected seats
 
     private String originName;
     private String destinationName;
     private String totalDuration;
 
     private FirebaseFirestore db;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.select_seat_e);
+        setContentView(R.layout.select_return_seat_a);
 
-        ScrollView scrollView = findViewById(R.id.scroll_view);
 
-        ScrollViewHelper scrollViewHelper = new ScrollViewHelper();
-        scrollViewHelper.setOnTouchListener(scrollView, this);
+        Select_seat.handleSeatActivity(this);
+
         retrieveDataFromSharedPreferences();
         // Update UI with retrieved data
         updateUI();
         db = FirebaseFirestore.getInstance();
         calculateAndDisplayPrice();
         for (int i = 1; i <= 5; i++) {
-            for (char c = 'a'; c <= 'd'; c++) {
-                String seatId = "normal_seat_" + i + c;
+            for (char c = 'a'; c <= 'c'; c++) {
+                String seatId = "premium_seat_" + i + c;
                 int resourceId = getResources().getIdentifier(seatId, "id", getPackageName());
                 ImageButton seatButton = findViewById(resourceId);
 
@@ -82,70 +80,67 @@ public class Select_seat_e extends AppCompatActivity {
         durationTextView.setText(totalDuration);
     }
 
-    public void toSeat_a(View view){
-        Intent intent = new Intent(this, Select_seat_a.class);
+    public void toSeat_a(View view) {
+        Intent intent = new Intent(this, Select_return_seat_a.class);
         ImageButton toCoach_a = findViewById(R.id.Coach_a);
-        Select_seat.startNextSeatActivity(this, Select_seat_a.class, originName, destinationName, totalDuration);
+        Select_seat.startNextSeatActivity(this, Select_return_seat_a.class, originName, destinationName, totalDuration);
         startActivity(intent);
     }
 
-    public void toSeat_b(View view){
-        Intent intent = new Intent(this, Select_seat_b.class);
+    public void toSeat_b(View view) {
+        Intent intent = new Intent(this, Select_return_seat_b.class);
         ImageButton toCoach_b = findViewById(R.id.Coach_b);
-        Select_seat.startNextSeatActivity(this, Select_seat_b.class, originName, destinationName, totalDuration);
+        Select_seat.startNextSeatActivity(this, Select_return_seat_b.class, originName, destinationName, totalDuration);
         startActivity(intent);
     }
 
-    public void toSeat_c(View view){
-        Intent intent = new Intent(this, Select_seat_c.class);
+    public void toSeat_c(View view) {
+        Intent intent = new Intent(this, Select_return_seat_c.class);
         ImageButton toCoach_c = findViewById(R.id.Coach_c);
-        Select_seat.startNextSeatActivity(this, Select_seat_c.class, originName, destinationName, totalDuration);
+        Select_seat.startNextSeatActivity(this, Select_return_seat_c.class, originName, destinationName, totalDuration);
         startActivity(intent);
     }
 
-    public void toSeat_d(View view){
-        Intent intent = new Intent(this, Select_seat_d.class);
+    public void toSeat_d(View view) {
+        Intent intent = new Intent(this, Select_return_seat_d.class);
         ImageButton toCoach_d = findViewById(R.id.Coach_d);
-        Select_seat.startNextSeatActivity(this, Select_seat_d.class, originName, destinationName, totalDuration);
+        Select_seat.startNextSeatActivity(this, Select_return_seat_d.class, originName, destinationName, totalDuration);
         startActivity(intent);
     }
 
-    public void toSeat_e(View view){
-        Intent intent = new Intent(this, Select_seat_e.class);
+    public void toSeat_e(View view) {
+        Intent intent = new Intent(this, Select_return_seat_e.class);
         ImageButton toCoach_e = findViewById(R.id.Coach_e);
-        Select_seat.startNextSeatActivity(this, Select_seat_e.class, originName, destinationName, totalDuration);
+        Select_seat.startNextSeatActivity(this, Select_return_seat_e.class, originName, destinationName, totalDuration);
         startActivity(intent);
     }
 
-    public void toCoachD(View view) {
-        Intent intent = new Intent(this, Select_seat_d.class);
-        Select_seat.startNextSeatActivity(this, Select_seat_d.class, originName, destinationName, totalDuration);
+    public void toCoachB(View view) {
+        Intent intent = new Intent(this, Select_return_seat_b.class);
+        Select_seat.startNextSeatActivity(this, Select_return_seat_b.class, originName, destinationName, totalDuration);
         startActivity(intent);
     }
 
-
-
-    /*Footer*/
-    public void toHomePage(View view){
+    /* Footer */
+    public void toHomePage(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         ImageButton toHomePage = findViewById(R.id.homePage);
         startActivity(intent);
     }
 
-    public void toBookingHistory(View view){
+    public void toBookingHistory(View view) {
         Intent intent = new Intent(this, Booking_history.class);
         ImageButton toBookingHistory = findViewById(R.id.booking_history);
         startActivity(intent);
     }
 
-    public void toAccountPage(View view){
+    public void toAccountPage(View view) {
         Intent intent = new Intent(this, Account.class);
         ImageButton toAccountPage = findViewById(R.id.profilePage);
         startActivity(intent);
     }
 
-
-    public void normalSeatClicked(View view) {
+    public void premiumSeatClicked(View view) {
         ImageButton normalSeatButton = (ImageButton) view;
         String seatId = normalSeatButton.getContentDescription().toString();
 
@@ -163,15 +158,13 @@ public class Select_seat_e extends AppCompatActivity {
         }
     }
 
-
     private void checkAndDisplaySeatAvailability(final String seatId, final ImageButton normalSeatButton) {
-        Log.d("Seat_Id_Debug", "Seat_Id: " + seatId);
 
         // Extract seat ID from ImageButton content description
         String buttonSeatId = normalSeatButton.getContentDescription().toString();
 
         // Query the Firestore database to check if the seat is already reserved
-        db.collection("departseat")
+        db.collection("returnseat")
                 .whereEqualTo("seat_id", buttonSeatId)
                 .get()
                 .addOnSuccessListener(queryDocumentSnapshots -> {
@@ -184,7 +177,7 @@ public class Select_seat_e extends AppCompatActivity {
                 })
                 .addOnFailureListener(e -> {
                     // Handle the error
-                    Toast.makeText(Select_seat_e.this, "Error checking seat availability", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Select_return_seat_a.this, "Error checking seat availability", Toast.LENGTH_SHORT).show();
                 });
     }
 
@@ -206,7 +199,7 @@ public class Select_seat_e extends AppCompatActivity {
                 saveSelectedSeat(seatId);
 
                 if (AppData.isReturnTicketAllowed) {
-                    Intent returnIntent = new Intent(Select_seat_e.this, Select_return_ticket.class);
+                    Intent returnIntent = new Intent(Select_return_seat_a.this, Select_return_ticket.class);
                     startActivity(returnIntent);
                 } else {
                     navigateToPassengerDetailsPage();
@@ -240,15 +233,15 @@ public class Select_seat_e extends AppCompatActivity {
         seatData.put("seat_coach", seatCoach);
 
         // Save the seat data to the Firestore database
-        db.collection("departseat")
+        db.collection("returnseat")
                 .add(seatData)
                 .addOnSuccessListener(documentReference -> {
                     // Seat data added successfully
-                    Toast.makeText(Select_seat_e.this, "Seat data added to database", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Select_return_seat_a.this, "Seat data added to database", Toast.LENGTH_SHORT).show();
                 })
                 .addOnFailureListener(e -> {
                     // Handle the error
-                    Toast.makeText(Select_seat_e.this, "Error adding seat data to database", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Select_return_seat_a.this, "Error adding seat data to database", Toast.LENGTH_SHORT).show();
                 });
     }
 
@@ -311,6 +304,4 @@ public class Select_seat_e extends AppCompatActivity {
         setContentView(R.layout.passenger_details_start); // Load the passenger_details_start.xml layout
         // You may need to handle any other UI logic specific to this layout
     }
-
-
 }

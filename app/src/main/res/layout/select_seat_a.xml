@@ -25,7 +25,7 @@
             android:layout_height="45dp"
             android:background="#030F51"
             android:gravity="center"
-            android:text="Select Seat"
+            android:text="Select Depart Seat"
             android:textAlignment="center"
             android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
@@ -46,12 +46,13 @@
 
         <TextView
             android:id="@+id/origin"
-            android:layout_width="wrap_content"
+            android:layout_width="130dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="65dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="70dp"
-            android:gravity="top"
-            android:text="Origin"
+            android:paddingEnd="5dp"
+            android:gravity="end"
+            android:text=""
             android:textColor="#000000"
             android:textSize="20sp" />
 
@@ -71,10 +72,10 @@
             android:id="@+id/duration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="175dp"
+            android:layout_marginStart="142dp"
             android:layout_marginTop="-70dp"
             android:gravity="top"
-            android:text="Duration"
+            android:text=""
             android:textColor="#000000"
             android:textSize="12sp" />
 
@@ -112,7 +113,7 @@
             android:layout_marginStart="269dp"
             android:layout_marginTop="-22dp"
             android:gravity="top"
-            android:text="Destination"
+            android:text=""
             android:textColor="#000000"
             android:textSize="20sp" />
 
@@ -131,62 +132,13 @@
             android:id="@+id/price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="338dp"
+            android:layout_marginStart="300dp"
             android:layout_marginTop="10dp"
             android:gravity="top"
-            android:text="Price"
+            android:text=""
             android:textColor="#000000"
             android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/jan_sun"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="0dp"
-            android:gravity="top"
-            android:text="26 Jan, Sun"
-            android:textColor="#A2A2A2"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/jan_mon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="116dp"
-            android:layout_marginTop="-20dp"
-            android:gravity="top"
-            android:text="27 Jan, Mon"
-            android:textColor="#000000"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/feb_tue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="224dp"
-            android:layout_marginTop="-20dp"
-            android:gravity="top"
-            android:text="3 Feb, Tue"
-            android:textColor="#A2A2A2"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/feb_wed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="317dp"
-            android:layout_marginTop="-20dp"
-            android:gravity="top"
-            android:text="4 Feb, Wed"
-            android:textColor="#A2A2A2"
-            android:textSize="14sp" />
-
-        <View
-            android:id="@+id/line_1"
-            android:layout_width="wrap_content"
-            android:layout_height="15dp"
-            android:background="@drawable/line2" />
 
         <ImageButton
             android:id="@+id/left_chevron1"
@@ -371,7 +323,7 @@
                     android:layout_marginStart="55dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="1A"
+                    android:contentDescription="Coach A Seat 1A premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter" />
 
@@ -391,7 +343,7 @@
                     android:layout_marginStart="111dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="1B"
+                    android:contentDescription="Coach A Seat 1B premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -411,7 +363,7 @@
                     android:layout_marginStart="293dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="1C"
+                    android:contentDescription="Coach A Seat 1C premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -431,7 +383,7 @@
                     android:layout_marginStart="55dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="2A"
+                    android:contentDescription="Coach A Seat 2A premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -451,7 +403,7 @@
                     android:layout_marginStart="111dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="2B"
+                    android:contentDescription="Coach A Seat 2B premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -471,7 +423,7 @@
                     android:layout_marginStart="293dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="2C"
+                    android:contentDescription="Coach A Seat 2C premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -491,7 +443,7 @@
                     android:layout_marginStart="55dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="3A"
+                    android:contentDescription="Coach A Seat 3A premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -511,7 +463,7 @@
                     android:layout_marginStart="111dp"
                     android:layout_marginTop="0dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="3B"
+                    android:contentDescription="Coach A Seat 3B premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -531,7 +483,7 @@
                     android:layout_marginStart="293dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="3C"
+                    android:contentDescription="Coach A Seat 3C premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -551,7 +503,7 @@
                     android:layout_marginStart="55dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="4A"
+                    android:contentDescription="Coach A Seat 4A premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter" />
 
@@ -571,7 +523,7 @@
                     android:layout_marginStart="111dp"
                     android:layout_marginTop="0dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="4B"
+                    android:contentDescription="Coach A Seat 4B premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -591,7 +543,7 @@
                     android:layout_marginStart="293dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="4C"
+                    android:contentDescription="Coach A Seat 4C premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -611,7 +563,7 @@
                     android:layout_marginStart="55dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="5A"
+                    android:contentDescription="Coach A Seat 5A premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -631,7 +583,7 @@
                     android:layout_marginStart="111dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="5B"
+                    android:contentDescription="Coach A Seat 5B premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -651,7 +603,7 @@
                     android:layout_marginStart="293dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="5C"
+                    android:contentDescription="Coach A Seat 5C premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter"/>
 

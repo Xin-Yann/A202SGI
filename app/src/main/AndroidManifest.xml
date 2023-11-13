@@ -35,6 +35,12 @@
         <activity android:name=".Select_seat_d"></activity>
         <activity android:name=".Select_seat_e"></activity>
         <activity android:name=".passengerDetailsEnd"></activity>
+        <activity android:name=".Select_return_seat_a"></activity>
+        <activity android:name=".Select_return_seat_b"></activity>
+        <activity android:name=".Select_return_seat_c"></activity>
+        <activity android:name=".Select_return_seat_d"></activity>
+        <activity android:name=".Select_return_seat_e"></activity>
+        <activity android:name="fragment1"></activity>
 
     </application>
 
