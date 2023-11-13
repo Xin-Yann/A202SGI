@@ -45,12 +45,13 @@
 
         <TextView
             android:id="@+id/origin"
-            android:layout_width="wrap_content"
+            android:layout_width="130dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="65dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="70dp"
-            android:gravity="top"
-            android:text="Origin"
+            android:paddingEnd="5dp"
+            android:gravity="end"
+            android:text=""
             android:textColor="#000000"
             android:textSize="20sp" />
 
@@ -70,10 +71,10 @@
             android:id="@+id/duration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="175dp"
+            android:layout_marginStart="142dp"
             android:layout_marginTop="-70dp"
             android:gravity="top"
-            android:text="Duration"
+            android:text=""
             android:textColor="#000000"
             android:textSize="12sp" />
 
@@ -111,7 +112,7 @@
             android:layout_marginStart="269dp"
             android:layout_marginTop="-22dp"
             android:gravity="top"
-            android:text="Destination"
+            android:text=""
             android:textColor="#000000"
             android:textSize="20sp" />
 
@@ -130,10 +131,10 @@
             android:id="@+id/price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="338dp"
+            android:layout_marginStart="300dp"
             android:layout_marginTop="10dp"
             android:gravity="top"
-            android:text="Price"
+            android:text=""
             android:textColor="#000000"
             android:textSize="14sp" />
 
@@ -321,7 +322,7 @@
                     android:layout_marginStart="55dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="1A"
+                    android:contentDescription="Coach A Seat 1A premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter" />
 
@@ -341,7 +342,7 @@
                     android:layout_marginStart="111dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="1B"
+                    android:contentDescription="Coach A Seat 1B premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -361,7 +362,7 @@
                     android:layout_marginStart="293dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="1C"
+                    android:contentDescription="Coach A Seat 1C premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -381,7 +382,7 @@
                     android:layout_marginStart="55dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="2A"
+                    android:contentDescription="Coach A Seat 2A premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -401,7 +402,7 @@
                     android:layout_marginStart="111dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="2B"
+                    android:contentDescription="Coach A Seat 2B premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -421,7 +422,7 @@
                     android:layout_marginStart="293dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="2C"
+                    android:contentDescription="Coach A Seat 2C premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -441,7 +442,7 @@
                     android:layout_marginStart="55dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="3A"
+                    android:contentDescription="Coach A Seat 3A premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -461,7 +462,7 @@
                     android:layout_marginStart="111dp"
                     android:layout_marginTop="0dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="3B"
+                    android:contentDescription="Coach A Seat 3B premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -481,7 +482,7 @@
                     android:layout_marginStart="293dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="3C"
+                    android:contentDescription="Coach A Seat 3C premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -501,7 +502,7 @@
                     android:layout_marginStart="55dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="4A"
+                    android:contentDescription="Coach A Seat 4A premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter" />
 
@@ -521,7 +522,7 @@
                     android:layout_marginStart="111dp"
                     android:layout_marginTop="0dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="4B"
+                    android:contentDescription="Coach A Seat 4B premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -541,7 +542,7 @@
                     android:layout_marginStart="293dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="4C"
+                    android:contentDescription="Coach A Seat 4C premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -561,7 +562,7 @@
                     android:layout_marginStart="55dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="5A"
+                    android:contentDescription="Coach A Seat 5A premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -581,7 +582,7 @@
                     android:layout_marginStart="111dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="5B"
+                    android:contentDescription="Coach A Seat 5B premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -601,7 +602,7 @@
                     android:layout_marginStart="293dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="5C"
+                    android:contentDescription="Coach A Seat 5C premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter"/>
 

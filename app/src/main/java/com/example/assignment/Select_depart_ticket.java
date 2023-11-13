@@ -1,29 +1,33 @@
 package com.example.assignment;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import android.widget.EditText;
+import android.widget.TextView;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 public class Select_depart_ticket extends AppCompatActivity {
+
     RecyclerView recyclerView;
     FirebaseFirestore fStore;
     ArrayList<North> datalist;
@@ -41,32 +45,23 @@ public class Select_depart_ticket extends AppCompatActivity {
         adapter = new NorthAdapter(this, datalist);
         recyclerView.setAdapter(adapter);
 
-        /*if (!AppData.searchButtonClicked) {
-            // Access denied, show an error message and finish the activity
-            Toast.makeText(this, "Access denied. Please click the search button in the first activity first.", Toast.LENGTH_SHORT).show();
-            finish();
-        }*/
-
         fStore.collection("northbound")
-                .orderBy("id", Query.Direction.ASCENDING)  // Replace "customField" with the field you want to use for ordering
+                .orderBy("id", Query.Direction.ASCENDING)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
-                            datalist.clear(); // Clear the existing data in datalist
+                            datalist.clear();
 
-                            // Inside the onComplete method of your Firestore query
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 String stationName = document.getString("name");
                                 String stationDuration = document.getString("diffMin");
 
-                                // Create a 'North' object and add it to datalist
                                 North northStation = new North(stationName, stationDuration);
                                 datalist.add(northStation);
                             }
 
-                            // Create the unique station pairs and avoid duplicates
                             Set<String> uniquePairs = new HashSet<>();
                             List<North> uniqueDatalist = new ArrayList<>();
 
@@ -79,12 +74,10 @@ public class Select_depart_ticket extends AppCompatActivity {
                                     String reversePair = destination.getName() + " ---------- " + origin.getName();
                                     double totalDuration = 0.0;
 
-                                    // Calculate the sum of diffMin for the elements in the pair
                                     for (int k = i; k <= j; k++) {
                                         totalDuration += Double.parseDouble(datalist.get(k).getDuration());
                                     }
 
-                                    // Add both the forward and reverse pairs along with total duration
                                     uniquePairs.add(forwardPair);
                                     uniquePairs.add(reversePair);
 
@@ -93,11 +86,9 @@ public class Select_depart_ticket extends AppCompatActivity {
                                 }
                             }
 
-                            // Replace datalist with the uniqueDatalist
                             datalist.clear();
                             datalist.addAll(uniqueDatalist);
 
-                            // Update the adapter with the unique station pairs
                             adapter.updateData(datalist);
                             adapter.notifyDataSetChanged();
                         } else {
@@ -108,26 +99,47 @@ public class Select_depart_ticket extends AppCompatActivity {
     }
 
     public void toSeat(View view) {
-        Intent intent = new Intent(Select_depart_ticket.this, Select_seat_a.class);
-        startActivity(intent);
+        CardView clickedCard = (CardView) view;
+        TextView nameTextView = clickedCard.findViewById(R.id.name);
+        TextView durationTextView = clickedCard.findViewById(R.id.duration);
 
-        if (AppData.isDepartTicketSelected) {
-            Intent depart = new Intent(Select_depart_ticket.this, Select_seat_a.class);
-            startActivity(depart);
+        String stationName = nameTextView.getText().toString();
+        String totalDuration = durationTextView.getText().toString(); // Assuming total duration is displayed in the TextView
 
-        } else if (AppData.isReturnTicketAllowed) {
-            // Depart ticket has been selected and return ticket is allowed, start the return ticket selection activity
-            Intent returnIntent = new Intent(Select_depart_ticket.this, Select_return_ticket.class);
-            startActivity(returnIntent);
+        if (stationName.contains("-----------")) {
+            String[] names = stationName.split("-----------");
+
+            // Save data to SharedPreferences
+            saveDataToSharedPreferences(names[0].trim(), names[1].trim(), totalDuration);
+
+            // Start the seat activity
+            startSeatActivity(Select_seat_a.class);
+        } else if (stationName.contains("----------")) {
+            String[] names = stationName.split("----------");
+
+            // Save data to SharedPreferences
+            saveDataToSharedPreferences(names[0].trim(), names[1].trim(), totalDuration);
+
+            // Start the return seat activity
+            startSeatActivity(Select_return_seat_a.class);
         }
-
-// Optionally, set AppData.isReturnTicketAllowed and AppData.isDepartTicketSelected based on user actions.
-
-
     }
 
+    private void saveDataToSharedPreferences(String originName, String destinationName, String totalDuration) {
+        SharedPreferences preferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("originName", originName);
+        editor.putString("destinationName", destinationName);
+        editor.putString("totalDuration", totalDuration);
+        editor.apply();
+    }
 
-    /*Footer*/
+    private void startSeatActivity(Class<?> destinationClass) {
+        Intent intent = new Intent(this, destinationClass);
+        startActivity(intent);
+    }
+
+    /* Footer */
     public void toHomePage(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         ImageButton toHomePage = findViewById(R.id.homePage);
@@ -146,3 +158,4 @@ public class Select_depart_ticket extends AppCompatActivity {
         startActivity(intent);
     }
 }
+

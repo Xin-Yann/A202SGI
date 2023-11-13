@@ -45,12 +45,13 @@
 
         <TextView
             android:id="@+id/origin"
-            android:layout_width="wrap_content"
+            android:layout_width="130dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="65dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="70dp"
-            android:gravity="top"
-            android:text="Origin"
+            android:gravity="end"
+            android:paddingEnd="5dp"
+            android:text=""
             android:textColor="#000000"
             android:textSize="20sp" />
 
@@ -70,10 +71,10 @@
             android:id="@+id/duration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="175dp"
+            android:layout_marginStart="142dp"
             android:layout_marginTop="-70dp"
             android:gravity="top"
-            android:text="Duration"
+            android:text=""
             android:textColor="#000000"
             android:textSize="12sp" />
 
@@ -111,7 +112,7 @@
             android:layout_marginStart="269dp"
             android:layout_marginTop="-22dp"
             android:gravity="top"
-            android:text="Destination"
+            android:text=""
             android:textColor="#000000"
             android:textSize="20sp" />
 
@@ -130,10 +131,10 @@
             android:id="@+id/price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="338dp"
+            android:layout_marginStart="300dp"
             android:layout_marginTop="10dp"
             android:gravity="top"
-            android:text="Price"
+            android:text=""
             android:textColor="#000000"
             android:textSize="14sp" />
 
@@ -324,7 +325,7 @@
                     android:layout_marginStart="53dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/normal_seat_w"
-                    android:contentDescription="1A"
+                    android:contentDescription="Coach B Seat 1A normal seat"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -344,7 +345,7 @@
                     android:layout_marginStart="112dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/normal_seat_a"
-                    android:contentDescription="1B"
+                    android:contentDescription="Coach B Seat 1B normal seat"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -364,7 +365,7 @@
                     android:layout_marginStart="253dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/normal_seat_a"
-                    android:contentDescription="1C"
+                    android:contentDescription="Coach B Seat 1C normal seat"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -384,7 +385,7 @@
                     android:layout_marginStart="312dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/normal_seat_w"
-                    android:contentDescription="1D"
+                    android:contentDescription="Coach B Seat 1D normal seat"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -404,7 +405,7 @@
                     android:layout_marginStart="53dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/normal_seat_w"
-                    android:contentDescription="2A"
+                    android:contentDescription="Coach B Seat 2A normal seat"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -424,7 +425,7 @@
                     android:layout_marginStart="112dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/normal_seat_a"
-                    android:contentDescription="2B"
+                    android:contentDescription="Coach B Seat 2B normal seat"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -444,7 +445,7 @@
                     android:layout_marginStart="253dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/normal_seat_a"
-                    android:contentDescription="2C"
+                    android:contentDescription="Coach B Seat 2C normal seat"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -464,7 +465,7 @@
                     android:layout_marginStart="312dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/normal_seat_w"
-                    android:contentDescription="2D"
+                    android:contentDescription="Coach B Seat 2D normal seat"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -484,7 +485,7 @@
                     android:layout_marginStart="53dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/normal_seat_w"
-                    android:contentDescription="3A"
+                    android:contentDescription="Coach B Seat 3A normal seat"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -504,7 +505,7 @@
                     android:layout_marginStart="112dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/normal_seat_a"
-                    android:contentDescription="3B"
+                    android:contentDescription="Coach B Seat 3B normal seat"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -524,7 +525,7 @@
                     android:layout_marginStart="253dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/normal_seat_a"
-                    android:contentDescription="3C"
+                    android:contentDescription="Coach B Seat 3C normal seat"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -544,7 +545,7 @@
                     android:layout_marginStart="312dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/normal_seat_w"
-                    android:contentDescription="3D"
+                    android:contentDescription="Coach B Seat 3D normal seat"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -564,7 +565,7 @@
                     android:layout_marginStart="53dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/normal_seat_w"
-                    android:contentDescription="4A"
+                    android:contentDescription="Coach B Seat 4A normal seat"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -584,7 +585,7 @@
                     android:layout_marginStart="112dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/normal_seat_a"
-                    android:contentDescription="4B"
+                    android:contentDescription="Coach B Seat 4B normal seat"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -604,7 +605,7 @@
                     android:layout_marginStart="253dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/normal_seat_a"
-                    android:contentDescription="4C"
+                    android:contentDescription="Coach B Seat 4C normal seat"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -624,7 +625,7 @@
                     android:layout_marginStart="312dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/normal_seat_w"
-                    android:contentDescription="4D"
+                    android:contentDescription="Coach B Seat 4D normal seat"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -644,7 +645,7 @@
                     android:layout_marginStart="53dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/normal_seat_w"
-                    android:contentDescription="%A"
+                    android:contentDescription="Coach B Seat 5A normal seat"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -664,7 +665,7 @@
                     android:layout_marginStart="112dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/normal_seat_a"
-                    android:contentDescription="5B"
+                    android:contentDescription="Coach B Seat 5B normal seat"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -684,7 +685,7 @@
                     android:layout_marginStart="253dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/normal_seat_a"
-                    android:contentDescription="5C"
+                    android:contentDescription="Coach B Seat 5C normal seat"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -704,7 +705,7 @@
                     android:layout_marginStart="312dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/normal_seat_w"
-                    android:contentDescription="5D"
+                    android:contentDescription="Coach B Seat 5D normal seat"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
 
