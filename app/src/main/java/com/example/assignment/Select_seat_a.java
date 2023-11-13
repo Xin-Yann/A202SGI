@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -66,6 +67,12 @@ public class Select_seat_a extends AppCompatActivity {
         TextView priceTextView = findViewById(R.id.price);
         PriceCalculatorUtil.calculateAndDisplayPrice(originName, destinationName, priceTextView, db);
     }
+
+
+    public void premiumSeatClicked(View view) {
+        ImageButton premiumSeatButton = (ImageButton) view;
+        String seatId = premiumSeatButton.getContentDescription().toString();
+        AppData.isDepartTicketSelected = true;
 
     private void retrieveDataFromSharedPreferences() {
         SharedPreferences preferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
@@ -153,6 +160,7 @@ public class Select_seat_a extends AppCompatActivity {
         ImageButton normalSeatButton = (ImageButton) view;
         String seatId = normalSeatButton.getContentDescription().toString();
 
+
         // Check if the seat is already selected or not
         if (isSeatSelected(seatId)) {
             // Seat is already selected, show a confirmation dialog
@@ -205,14 +213,33 @@ public class Select_seat_a extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 // Handle seat confirmation (e.g., save the selected seat to a database)
+
+
                 saveSelectedSeat(seatId);
+
 
                 if (AppData.isReturnTicketAllowed) {
                     Intent returnIntent = new Intent(Select_seat_a.this, Select_return_ticket.class);
+
+                    // Get the data from the returnIntent
+                    Intent passDataIntent = getIntent();
+                    String trainOrigin = passDataIntent.getStringExtra("search_query");
+                    String trainDes = passDataIntent.getStringExtra("search_destination");
+                    String trainDate = passDataIntent.getStringExtra("search_date");
+                    String trainPax = passDataIntent.getStringExtra("search_pax");
+
+                    // Put the data into the returnIntent
+                    returnIntent.putExtra("search_query", trainOrigin);
+                    returnIntent.putExtra("search_destination", trainDes);
+                    returnIntent.putExtra("search_date", trainDate);
+                    returnIntent.putExtra("search_pax", trainPax);
+
                     startActivity(returnIntent);
                 } else {
                     navigateToPassengerDetailsPage();
                 }
+
+
             }
         });
 
@@ -307,6 +334,7 @@ public class Select_seat_a extends AppCompatActivity {
     private void navigateToPassengerDetailsPage() {
         setContentView(R.layout.passenger_details_start); // Load the passenger_details_start.xml layout
         // You may need to handle any other UI logic specific to this layout
+
     }
 
 
@@ -315,6 +343,15 @@ public class Select_seat_a extends AppCompatActivity {
         // You can use the selectedSeats list to track selected seats
         selectedSeats.add(seatId);
     }
+
+
+    /*public void back(View view) {
+        Intent intent = new Intent(this, Select_depart_ticket.class);
+        startActivity(intent);
+        finish(); // Close the current activity
+    }*/
+
+
 
 
 }

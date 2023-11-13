@@ -27,14 +27,15 @@
             android:textSize="16sp" />
 
         <ImageButton
-            android:id="@+id/vector_4"
+            android:id="@+id/back"
             android:layout_width="17dp"
             android:layout_height="20dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="-40dp"
             android:background="@drawable/left_chevron"
             android:baselineAligned="false"
-            android:layout_marginBottom="12dp"/>
+            android:layout_marginBottom="12dp"
+            android:onClick="back"/>
 
         <TextView
             android:id="@+id/origin"
@@ -59,7 +60,7 @@
             android:textColor="#A2A2A2"
             android:textSize="12sp" />-->
 
-        <TextView
+       <!-- <TextView
             android:id="@+id/duration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -67,7 +68,7 @@
             android:layout_marginTop="-45dp"
             android:text="Duration"
             android:textColor="#000000"
-            android:textSize="12sp" />
+            android:textSize="12sp" />-->
 
 
         <ImageView
@@ -75,7 +76,7 @@
             android:layout_width="80dp"
             android:layout_height="12dp"
             android:layout_marginStart="105dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="-17dp"
             app:srcCompat="@drawable/new_moon_blue" />
 
         <TextView
@@ -121,7 +122,7 @@
             android:textSize="12sp" />-->
 
         <TextView
-            android:id="@+id/price"
+            android:id="@+id/pax"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="310dp"
@@ -187,6 +188,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     />
+
 
             </LinearLayout>
         </ScrollView>

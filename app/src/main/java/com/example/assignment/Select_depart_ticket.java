@@ -1,10 +1,13 @@
 package com.example.assignment;
 
+import static java.security.AccessController.getContext;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,6 +36,8 @@ public class Select_depart_ticket extends AppCompatActivity {
     ArrayList<North> datalist;
     NorthAdapter adapter;
 
+    TextView trainOri, trainDestination, trainD, trainP;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +49,41 @@ public class Select_depart_ticket extends AppCompatActivity {
         datalist = new ArrayList<>();
         adapter = new NorthAdapter(this, datalist);
         recyclerView.setAdapter(adapter);
+
+
+        Intent intent = getIntent();
+
+        if (intent.hasExtra("search_query")) {
+            String trainOrigin = intent.getStringExtra("search_query");
+            String trainDes = intent.getStringExtra("search_destination");
+            String trainDate = intent.getStringExtra("search_date");
+            String trainPax = intent.getStringExtra("search_pax");
+            // Now you have the trainName, you can use it as needed.
+
+            /*filterList(trainOrigin, trainDes);*/
+
+            // For example, you might want to update UI elements based on the trainName:
+            trainOri = findViewById(R.id.origin);
+            trainOri.setText(trainOrigin);
+
+            trainDestination = findViewById(R.id.destination);
+            trainDestination.setText(trainDes);
+
+            trainD = findViewById(R.id.date1);
+            trainD.setText(trainDate);
+
+            trainP = findViewById(R.id.pax);
+            trainP.setText("Total: "+ trainPax + " Pax");
+        }
+
+
+        /*if (!AppData.searchButtonClicked) {
+            // Access denied, show an error message and finish the activity
+            Toast.makeText(this, "Access denied. Please click the search button in the first activity first.", Toast.LENGTH_SHORT).show();
+            finish();
+        }*/
+
+
 
         fStore.collection("northbound")
                 .orderBy("id", Query.Direction.ASCENDING)
@@ -98,7 +138,47 @@ public class Select_depart_ticket extends AppCompatActivity {
                 });
     }
 
+
+
     public void toSeat(View view) {
+
+            Intent intent = getIntent();
+            if (intent.hasExtra("search_query")) {
+                String trainOrigin = intent.getStringExtra("search_query");
+                String trainDes = intent.getStringExtra("search_destination");
+                String trainDate = intent.getStringExtra("search_date");
+                String trainPax = intent.getStringExtra("search_pax");
+                // Now you have the trainName, you can use it as needed.
+
+                Intent passDataIntent = new Intent(Select_depart_ticket.this, Select_seat_a.class);
+                passDataIntent.putExtra("search_query", trainOrigin);
+                passDataIntent.putExtra("search_destination", trainDes);
+                passDataIntent.putExtra("search_date", trainDate);
+                passDataIntent.putExtra("search_pax", trainPax);
+                startActivity(passDataIntent);
+            }
+    }
+
+
+   /* public void filterList(String origin, String destination) {
+        List<North> filteredList = new ArrayList<>();
+
+        if (origin.isEmpty() && destination.isEmpty()) {
+            // If both queries are empty, show all items
+            filteredList.addAll(datalist);
+        } else {
+            for (North north : datalist) {
+                // Check both origin and destination for a match
+                if (north.getName().toLowerCase().contains(origin.toLowerCase())
+                        && north.getName().toLowerCase().contains(destination.toLowerCase())) {
+                    filteredList.add(north);
+                }
+            }
+        }
+
+        // Update the adapter with the filtered or all items
+        adapter.setFilteredList(filteredList);
+
         CardView clickedCard = (CardView) view;
         TextView nameTextView = clickedCard.findViewById(R.id.name);
         TextView durationTextView = clickedCard.findViewById(R.id.duration);
@@ -117,6 +197,7 @@ public class Select_depart_ticket extends AppCompatActivity {
         } else if (stationName.contains("----------")) {
             String[] names = stationName.split("----------");
 
+
             // Save data to SharedPreferences
             saveDataToSharedPreferences(names[0].trim(), names[1].trim(), totalDuration);
 
@@ -134,9 +215,18 @@ public class Select_depart_ticket extends AppCompatActivity {
         editor.apply();
     }
 
+*/
+    public void back(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        ImageButton back = findViewById(R.id.back);
+        startActivity(intent);
+        finish();
+
+
     private void startSeatActivity(Class<?> destinationClass) {
         Intent intent = new Intent(this, destinationClass);
         startActivity(intent);
+
     }
 
     /* Footer */
