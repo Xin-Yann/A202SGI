@@ -32,11 +32,19 @@
             android:layout_marginTop="50dp"/>
 
         <EditText
-            android:id="@+id/nameid"
+            android:id="@+id/user_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textEmailAddress" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginLeft="80dp"
+            android:visibility="gone"/>
 
         <TextView
             android:id="@+id/textView8"
@@ -46,14 +54,14 @@
             android:layout_marginTop="20dp"/>
 
         <EditText
-            android:id="@+id/passid"
+            android:id="@+id/user_pass"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPassword"/>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btn_login"
             android:layout_width="210dp"
             android:layout_height="46dp"
             android:backgroundTint="#030F51"
