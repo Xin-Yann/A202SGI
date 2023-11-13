@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="10dp"
     android:orientation="vertical"
-    android:gravity="center_horizontal"
-    tools:layout_editor_absoluteX="0dp"
-    tools:layout_editor_absoluteY="15dp">
+    android:gravity="center_horizontal">
 
 
     <LinearLayout
@@ -25,12 +23,20 @@
             android:gravity="center_horizontal"
             android:orientation="horizontal">
 
-
             <TextView
-                android:id="@+id/displayid"
+                android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
+                android:text="Hello,"
+                android:textColor="#040f51" />
+
+
+            <TextView
+                android:id="@+id/user_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
                 android:text="Hello,"
                 android:textColor="#040f51" />
 
@@ -43,14 +49,15 @@
                 android:text="Where Are You Going?"
                 android:textColor="#040f51" />
 
-            <ImageView
-                android:id="@+id/login"
-                android:layout_width="25dp"
+            <ImageButton
+                android:id="@+id/logout"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@color/white"
                 android:layout_marginLeft="330dp"
                 android:layout_marginBottom="25dp"
-                app:srcCompat="@drawable/user"
-                android:onClick="toLoginPage"/>
+                />
+<!--            app:srcCompat="@drawable/logout"/>-->
 
 
             <com.google.android.material.tabs.TabLayout
@@ -180,4 +187,4 @@
         </RelativeLayout>
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
