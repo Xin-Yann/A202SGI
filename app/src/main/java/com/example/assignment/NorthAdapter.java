@@ -41,8 +41,12 @@ public class NorthAdapter extends RecyclerView.Adapter<NorthAdapter.CardViewHold
         North data = dataList.get(position);
         String routeName = data.getName();
         String Duration = data.getDuration();
+        String departureTime = data.getDepartureTime();
+        String arrivalTime = data.getArrivalTime();
         holder.nameTextView.setText(routeName);
-        holder.durationTextView.setText("Duration: " + Duration + " mins");
+        holder.durationTextView.setText("Duration: " + Duration );
+        holder.departTextView.setText(departureTime);
+        holder.arrivalTextView.setText(arrivalTime);
     }
 
     @Override
@@ -52,12 +56,14 @@ public class NorthAdapter extends RecyclerView.Adapter<NorthAdapter.CardViewHold
 
     static class CardViewHolder extends RecyclerView.ViewHolder {
         TextView nameTextView;
-        TextView durationTextView;
+        TextView durationTextView, departTextView, arrivalTextView;
 
         public CardViewHolder(View itemView) {
             super(itemView);
             nameTextView = itemView.findViewById(R.id.name);
             durationTextView = itemView.findViewById(R.id.duration);
+            departTextView =  itemView.findViewById(R.id.depart_time1);
+            arrivalTextView = itemView.findViewById(R.id.arrive_time1);
         }
     }
 }

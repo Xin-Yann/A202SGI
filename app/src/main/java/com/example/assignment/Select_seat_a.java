@@ -69,10 +69,11 @@ public class Select_seat_a extends AppCompatActivity {
     }
 
 
-    public void premiumSeatClicked(View view) {
+    /*public void premiumSeatClicked(View view) {
         ImageButton premiumSeatButton = (ImageButton) view;
         String seatId = premiumSeatButton.getContentDescription().toString();
         AppData.isDepartTicketSelected = true;
+    }*/
 
     private void retrieveDataFromSharedPreferences() {
         SharedPreferences preferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
