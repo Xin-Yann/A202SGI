@@ -10,12 +10,12 @@ import android.widget.FrameLayout;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -29,22 +29,23 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
-
-public class passengerDetailsEnd extends AppCompatActivity {
+//get pax
+//get data from database then show name let user choose previous pass
+public class passengerDetailsStart extends AppCompatActivity {
     FirebaseFirestore firestore;
     RadioGroup radioGroup;
     FrameLayout malaysianFragmentContainer;
     FrameLayout nonMalaysianFragmentContainer;
     Fragment currentFragment;
     Spinner selectTicketType;
-    Button makePaymentButton;
+    Button nextPassengerButton;
     AlertDialog.Builder builder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.passenger_details_end);
+        setContentView(R.layout.passenger_details_start);
 
         firestore = FirebaseFirestore.getInstance();
 
@@ -86,16 +87,16 @@ public class passengerDetailsEnd extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         selectTicketType.setAdapter(adapter);
 
-        makePaymentButton = findViewById(R.id.makePaymentBtn);
+        nextPassengerButton = findViewById(R.id.nextPassengerBtn);
         builder = new AlertDialog.Builder(this);
 
-        makePaymentButton.setOnClickListener(new View.OnClickListener() {
+        nextPassengerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Retrieve data from the FragmentMalaysian and save it
-                FragmentNonMalaysian fragmentnonMalaysian = (FragmentNonMalaysian) getSupportFragmentManager().findFragmentById(R.id.nonMalaysianFragmentContainer);
-                if (fragmentnonMalaysian != null) {
-                    Map<String, Object> passenger = fragmentnonMalaysian.getFragmentMalaysianData();
+                FragmentMalaysian fragmentMalaysian = (FragmentMalaysian) getSupportFragmentManager().findFragmentById(R.id.malaysianFragmentContainer);
+                if (fragmentMalaysian != null) {
+                    Map<String, Object> passenger = fragmentMalaysian.getFragmentMalaysianData();
                 }
 
                 builder.setTitle("Alert!")
