@@ -21,6 +21,8 @@ import java.util.Map;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class Select_return_seat_c extends AppCompatActivity {
@@ -30,6 +32,8 @@ public class Select_return_seat_c extends AppCompatActivity {
     private String originName;
     private String destinationName;
     private String totalDuration;
+    private String trainDate;
+    private String trainPax;
 
     private FirebaseFirestore db;
 
@@ -74,6 +78,8 @@ public class Select_return_seat_c extends AppCompatActivity {
         originName = preferences.getString("originName", "");
         destinationName = preferences.getString("destinationName", "");
         totalDuration = preferences.getString("totalDuration", "");
+        trainDate = preferences.getString("trainDate", "");
+        trainPax = preferences.getString("trainPax", "");
     }
 
     private void updateUI() {
@@ -91,47 +97,47 @@ public class Select_return_seat_c extends AppCompatActivity {
     public void toSeat_a(View view) {
         Intent intent = new Intent(this, Select_return_seat_a.class);
         ImageButton toCoach_a = findViewById(R.id.Coach_a);
-        Select_seat.startNextSeatActivity(this, Select_return_seat_a.class, originName, destinationName, totalDuration);
+        Select_seat.startNextSeatActivity(this, Select_return_seat_a.class, originName, destinationName, totalDuration, trainDate, trainPax);
         startActivity(intent);
     }
 
     public void toSeat_b(View view) {
         Intent intent = new Intent(this, Select_return_seat_b.class);
         ImageButton toCoach_b = findViewById(R.id.Coach_b);
-        Select_seat.startNextSeatActivity(this, Select_return_seat_b.class, originName, destinationName, totalDuration);
+        Select_seat.startNextSeatActivity(this, Select_return_seat_b.class, originName, destinationName, totalDuration, trainDate, trainPax);
         startActivity(intent);
     }
 
     public void toSeat_c(View view) {
         Intent intent = new Intent(this, Select_return_seat_c.class);
         ImageButton toCoach_c = findViewById(R.id.Coach_c);
-        Select_seat.startNextSeatActivity(this, Select_return_seat_c.class, originName, destinationName, totalDuration);
+        Select_seat.startNextSeatActivity(this, Select_return_seat_c.class, originName, destinationName, totalDuration, trainDate, trainPax);
         startActivity(intent);
     }
 
     public void toSeat_d(View view) {
         Intent intent = new Intent(this, Select_return_seat_d.class);
         ImageButton toCoach_d = findViewById(R.id.Coach_d);
-        Select_seat.startNextSeatActivity(this, Select_return_seat_d.class, originName, destinationName, totalDuration);
+        Select_seat.startNextSeatActivity(this, Select_return_seat_d.class, originName, destinationName, totalDuration, trainDate, trainPax);
         startActivity(intent);
     }
 
     public void toSeat_e(View view) {
         Intent intent = new Intent(this, Select_return_seat_e.class);
         ImageButton toCoach_e = findViewById(R.id.Coach_e);
-        Select_seat.startNextSeatActivity(this, Select_return_seat_e.class, originName, destinationName, totalDuration);
+        Select_seat.startNextSeatActivity(this, Select_return_seat_e.class, originName, destinationName, totalDuration, trainDate, trainPax);
         startActivity(intent);
     }
 
     public void toCoachB(View view) {
         Intent intent = new Intent(this, Select_return_seat_b.class);
-        Select_seat.startNextSeatActivity(this, Select_return_seat_b.class, originName, destinationName, totalDuration);
+        Select_seat.startNextSeatActivity(this, Select_return_seat_b.class, originName, destinationName, totalDuration, trainDate, trainPax);
         startActivity(intent);
     }
 
     public void toCoachD(View view) {
         Intent intent = new Intent(this, Select_return_seat_d.class);
-        Select_seat.startNextSeatActivity(this, Select_return_seat_d.class, originName, destinationName, totalDuration);
+        Select_seat.startNextSeatActivity(this, Select_return_seat_d.class, originName, destinationName, totalDuration, trainDate, trainPax);
         startActivity(intent);
     }
 
@@ -165,12 +171,17 @@ public class Select_return_seat_c extends AppCompatActivity {
             // Seat is already selected, show a confirmation dialog
             showSeatConfirmationDialog(seatId);
         } else {
-            // Seat is not selected, change the image and mark it as selected
-            normalSeatButton.setImageResource(R.drawable.selected_seat);
-            // Add the seat to the selected seats list
-            addSelectedSeat(seatId);
-            // Show the confirmation dialog immediately after selecting the seat
-            showSeatConfirmationDialog(seatId);
+            if (selectedSeats.size() <= Integer.parseInt(trainPax)) {
+                // Seat is not selected, change the image and mark it as selected
+                normalSeatButton.setImageResource(R.drawable.selected_seat);
+                // Add the seat to the selected seats list
+                addSelectedSeat(seatId);
+                // Show the confirmation dialog immediately after selecting the seat
+                showSeatConfirmationDialog(seatId);
+            } else {
+                // Maximum number of seats reached, notify the user
+                Toast.makeText(this, "You have already selected the maximum number of seats.", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
@@ -183,6 +194,7 @@ public class Select_return_seat_c extends AppCompatActivity {
 
         // Query the Firestore database to check if the seat is already reserved
         db.collection("returnseat")
+                .whereEqualTo("train_date", trainDate)
                 .whereEqualTo("seat_id", buttonSeatId)
                 .get()
                 .addOnSuccessListener(queryDocumentSnapshots -> {
@@ -220,7 +232,14 @@ public class Select_return_seat_c extends AppCompatActivity {
                     Intent returnIntent = new Intent(Select_return_seat_c.this, Select_return_ticket.class);
                     startActivity(returnIntent);
                 } else {
-                    navigateToPassengerDetailsPage();
+                    // Check if the required number of seats is selected
+                    if (selectedSeats.size() == Integer.parseInt(trainPax)) {
+                        // Navigate to the passenger details page
+                        navigateToPassengerDetailsPage();
+                    } else {
+                        // If not all seats are selected, continue seat selection
+                        // You might want to add additional logic here if needed
+                    }
                 }
             }
         });
@@ -243,12 +262,34 @@ public class Select_return_seat_c extends AppCompatActivity {
         String seatNo = extractSeatNo(seatId);
         String seatCoach = extractSeatCoach(seatId);
 
+        // Get the original price from the TextView
+        TextView priceTextView = findViewById(R.id.price);
+        String originalPriceStr = priceTextView.getText().toString();
+
+        // Extract the numeric part of the price string
+        String numericPart = originalPriceStr.replaceAll("[^\\d.]", "");
+
+        // Parse the numeric part to a double
+        double originalPrice = Double.parseDouble(numericPart);
+
+        // Double the price for premium seats
+        double doubledPrice = originalPrice;
+
+        // Convert the doubled price to a string
+        String seatPrice = String.valueOf(doubledPrice);
+
         // Create a Map to represent the seat data
         Map<String, Object> seatData = new HashMap<>();
         seatData.put("seat_id", seatId);
         seatData.put("seat_type", seatType);
         seatData.put("seat_no", seatNo);
         seatData.put("seat_coach", seatCoach);
+        seatData.put("train_date", trainDate);
+        seatData.put("user_email", getCurrentUserEmail());
+        seatData.put("seat_price", seatPrice);
+        seatData.put("origin_name", originName);
+        seatData.put("destination_name", destinationName);
+        seatData.put("total_duration", totalDuration);
 
         // Save the seat data to the Firestore database
         db.collection("returnseat")
@@ -261,6 +302,13 @@ public class Select_return_seat_c extends AppCompatActivity {
                     // Handle the error
                     Toast.makeText(Select_return_seat_c.this, "Error adding seat data to database", Toast.LENGTH_SHORT).show();
                 });
+    }
+
+    private String getCurrentUserEmail() {
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        FirebaseUser user = auth.getCurrentUser();
+
+        return user != null ? user.getEmail() : null;
     }
 
 
@@ -323,6 +371,10 @@ public class Select_return_seat_c extends AppCompatActivity {
         // You may need to handle any other UI logic specific to this layout
     }
 
-
+    public void back(View view) {
+        Intent intent = new Intent(this, Select_return_ticket.class);
+        ImageButton back = findViewById(R.id.back);
+        startActivity(intent);
+    }
 
 }

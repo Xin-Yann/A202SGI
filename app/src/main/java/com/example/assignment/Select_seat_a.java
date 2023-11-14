@@ -350,7 +350,7 @@ public class Select_seat_a extends AppCompatActivity {
         Intent intent = new Intent(this, Select_depart_ticket.class);
         startActivity(intent);
         finish(); // Close the current activity
-    }*/
+    }*/
 
 
 

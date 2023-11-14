@@ -304,6 +304,6 @@ public class Select_return_seat_a extends AppCompatActivity {
 
     private void navigateToPassengerDetailsPage() {
         setContentView(R.layout.passenger_details_start); // Load the passenger_details_start.xml layout
-        // You may need to handle any other UI logic specific to this layout
-    }
+        // You may need to handle any other UI logic specific to this layout
+    }
 }

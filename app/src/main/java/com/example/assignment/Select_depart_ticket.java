@@ -296,5 +296,5 @@ public class Select_depart_ticket extends AppCompatActivity {
             Intent intent = new Intent(this, Account.class);
             ImageButton toAccountPage = findViewById(R.id.profilePage);
             startActivity(intent);
-        }
-    }
+        }
+    }
