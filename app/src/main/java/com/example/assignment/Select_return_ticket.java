@@ -69,8 +69,6 @@ public class Select_return_ticket extends AppCompatActivity {
 
         }
 
-
-
         fStore.collection("northbound")
                 .orderBy("id", Query.Direction.ASCENDING)
                 .get()

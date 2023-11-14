@@ -47,10 +47,11 @@ public class fragment1 extends Fragment {
         inputLayout = view.findViewById(R.id.inputPax);
         inputPax = inputLayout.findViewById(R.id.inputPax1);
 
-        AppData.isReturnTicketAllowed = false;
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                AppData.isReturnTicketAllowed = false;
+                AppData.isDepartTicketSelected = true;
                 // Retrieve the train name entered by the user
                 String trainOrigin = inputOrigin.getText().toString();
                 String trainDes = inputDes.getText().toString();
