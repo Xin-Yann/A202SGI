@@ -198,12 +198,14 @@ public class Select_return_seat_a extends AppCompatActivity {
                 // Handle seat confirmation (e.g., save the selected seat to a database)
                 saveSelectedSeat(seatId);
 
-                if (AppData.isReturnTicketAllowed) {
-                    Intent returnIntent = new Intent(Select_return_seat_a.this, Select_return_ticket.class);
+                navigateToPassengerDetailsPage();
+
+                /*if (AppData.isReturnTicketAllowed) {
+                    Intent returnIntent = new Intent(Select_return_seat_a.this, passengerDetailsEnd.class);
                     startActivity(returnIntent);
                 } else {
                     navigateToPassengerDetailsPage();
-                }
+                }*/
             }
         });
 

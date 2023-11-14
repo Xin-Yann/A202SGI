@@ -176,7 +176,7 @@ public class Select_return_ticket extends AppCompatActivity {
 
 
     public void toSeat(View view){
-        Intent intent = new Intent(Select_return_ticket.this, Select_seat_a.class);
+        Intent intent = new Intent(Select_return_ticket.this, Select_return_seat_a.class);
         startActivity(intent);
     }
 
