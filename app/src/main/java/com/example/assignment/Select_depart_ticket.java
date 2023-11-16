@@ -1,20 +1,26 @@
 package com.example.assignment;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -25,6 +31,8 @@ public class Select_depart_ticket extends AppCompatActivity {
     FirebaseFirestore fStore;
     ArrayList<North> datalist;
     NorthAdapter adapter;
+
+    TextView trainOri, trainDestination, trainD, trainP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,25 +46,44 @@ public class Select_depart_ticket extends AppCompatActivity {
         adapter = new NorthAdapter(this, datalist);
         recyclerView.setAdapter(adapter);
 
+        Intent intent = getIntent();
 
-       fStore.collection("northbound")
-               .orderBy("id")
+        if (intent.hasExtra("search_query")) {
+            String trainOrigin = intent.getStringExtra("search_query");
+            String trainDes = intent.getStringExtra("search_destination");
+            String trainDate = intent.getStringExtra("search_date");
+            String trainPax = intent.getStringExtra("search_pax");
+
+            trainOri = findViewById(R.id.origin);
+            trainOri.setText(trainOrigin);
+
+            trainDestination = findViewById(R.id.destination);
+            trainDestination.setText(trainDes);
+
+            trainD = findViewById(R.id.date1);
+            trainD.setText(trainDate);
+
+            trainP = findViewById(R.id.pax);
+            trainP.setText("Total: " + trainPax + " Pax");
+        }
+
+        fStore.collection("northbound")
+                .orderBy("id", Query.Direction.ASCENDING)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
-                            datalist.clear(); // Clear the existing data in datalist
+                            datalist.clear();
 
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 String stationName = document.getString("name");
+                                String stationDuration = document.getString("diffMin");
 
-                                // Create a 'North' object and add it to datalist
-                                North northStation = new North(stationName);
+                                North northStation = new North(stationName, stationDuration);
                                 datalist.add(northStation);
                             }
 
-                            // Create the unique station pairs and avoid duplicates
                             Set<String> uniquePairs = new HashSet<>();
                             List<North> uniqueDatalist = new ArrayList<>();
 
@@ -64,35 +91,87 @@ public class Select_depart_ticket extends AppCompatActivity {
                                 for (int j = i + 1; j < datalist.size(); j++) {
                                     North origin = datalist.get(i);
                                     North destination = datalist.get(j);
-                                    String pair = origin.getName() + " ---------- " + destination.getName();
 
-                                    if (uniquePairs.add(pair)) {
-                                        uniqueDatalist.add(new North(pair));
+                                    String forwardPair = origin.getName() + " ----------- " + destination.getName();
+                                    String reversePair = destination.getName() + " ---------- " + origin.getName();
+                                    double totalDuration = 0.0;
+
+                                    for (int k = i; k <= j; k++) {
+                                        totalDuration += Double.parseDouble(datalist.get(k).getDuration());
                                     }
+
+                                    uniquePairs.add(forwardPair);
+                                    uniquePairs.add(reversePair);
+
+                                    uniqueDatalist.add(new North(forwardPair, String.format("%.2f", totalDuration)));
+                                    uniqueDatalist.add(new North(reversePair, String.format("%.2f", totalDuration)));
                                 }
                             }
 
-                            // Replace datalist with the uniqueDatalist
                             datalist.clear();
                             datalist.addAll(uniqueDatalist);
 
-                            // Update the adapter with the unique station pairs
                             adapter.updateData(datalist);
                             adapter.notifyDataSetChanged();
                         } else {
                             // Handle the case where the query was not successful
                         }
                     }
-    });
-}
+                });
+    }
 
 
     public void toSeat(View view) {
-        Intent intent = new Intent(Select_depart_ticket.this, Select_seat_a.class);
-        startActivity(intent);
+        Intent intent = getIntent();
+
+        if (intent.hasExtra("search_query")) {
+            String trainOrigin = intent.getStringExtra("search_query");
+            String trainDes = intent.getStringExtra("search_destination");
+            String trainDate = intent.getStringExtra("search_date");
+            String trainPax = intent.getStringExtra("search_pax");
+
+            String stationName = "";
+            String totalDuration = "";
+
+            // Check if the view is a CardView
+            if (view instanceof CardView) {
+                CardView clickedCard = (CardView) view;
+                TextView nameTextView = clickedCard.findViewById(R.id.name);
+                TextView durationTextView = clickedCard.findViewById(R.id.duration);
+
+                stationName = nameTextView.getText().toString();
+                totalDuration = durationTextView.getText().toString();
+            }
+
+            if (stationName.contains("-----------")) {
+                String[] names = stationName.split("-----------");
+
+                // Save data to SharedPreferences
+                saveDataToSharedPreferences(names[0].trim(), names[1].trim(), totalDuration, trainDate, trainPax);
+
+                // Start the seat activity
+                startSeatActivity(Select_seat_a.class);
+            } else if (stationName.contains("----------")) {
+                String[] names = stationName.split("----------");
+
+                // Save data to SharedPreferences
+                saveDataToSharedPreferences(names[0].trim(), names[1].trim(), totalDuration, trainDate, trainPax);
+
+                // Start the return seat activity
+                startSeatActivity(Select_return_seat_a.class);
+            }
+        }
     }
 
-    /*Footer*/
+
+    public void back(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        ImageButton back = findViewById(R.id.back);
+        startActivity(intent);
+        finish();
+    }
+
+    /* Footer */
     public void toHomePage(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         ImageButton toHomePage = findViewById(R.id.homePage);
@@ -110,4 +189,22 @@ public class Select_depart_ticket extends AppCompatActivity {
         ImageButton toAccountPage = findViewById(R.id.profilePage);
         startActivity(intent);
     }
+
+    private void saveDataToSharedPreferences(String originName, String destinationName, String totalDuration, String trainDate, String trainPax) {
+        SharedPreferences preferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("originName", originName);
+        editor.putString("destinationName", destinationName);
+        editor.putString("totalDuration", totalDuration);
+        editor.putString("trainDate", trainDate); // Add trainDate
+        editor.putString("trainPax", trainPax);   // Add trainPax
+        editor.apply();
+    }
+
+    private void startSeatActivity(Class<?> destinationClass) {
+        Intent intent = new Intent(this, destinationClass);
+        startActivity(intent);
+    }
 }
+
+

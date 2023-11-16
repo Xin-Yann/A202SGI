@@ -155,132 +155,17 @@
                     android:textSize="16sp" />
             </RadioGroup>
 
-            <TextView
-                android:id="@+id/cardNumber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="45dp"
-                android:layout_marginTop="335dp"
-                android:text="Card No."
-                android:textColor="#000000"
-                android:textSize="16sp" />
+            <FrameLayout
+                android:id="@+id/cardFragmentContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/radioGroup" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/inputCardNumber_layout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="320dp"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="360dp"
-                android:textColor="#000000"
-                android:textSize="16sp"
-                android:hint="XXXX-XXXX-XXXX-XXXX"
-                app:hintEnabled="true">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/inputCardNumber"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-                android:id="@+id/cardName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="45dp"
-                android:layout_marginTop="435dp"
-                android:text="Card Name"
-                android:textColor="#000000"
-                android:textSize="16sp" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/inputCardName_layout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="320dp"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="460dp"
-                android:textColor="#000000"
-                android:textSize="16sp"
-                android:hint="Full Name"
-                app:hintEnabled="true">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/inputCardName"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-                android:id="@+id/expiryDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="45dp"
-                android:layout_marginTop="535dp"
-                android:text="Expiry Date"
-                android:textColor="#000000"
-                android:textSize="16sp" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/inputExpiryDate_layout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="45dp"
-                android:layout_marginTop="560dp"
-                android:textColor="#000000"
-                android:textSize="16sp"
-                android:hint="XXXX-XX"
-                app:hintEnabled="true">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/inputExpiryDate"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:inputType="date" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-                android:id="@+id/CVV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="265dp"
-                android:layout_marginTop="535dp"
-                android:text="CVV"
-                android:textColor="#000000"
-                android:textSize="16sp" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/inputCVV_layout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="265dp"
-                android:layout_marginTop="560dp"
-                android:textColor="#000000"
-                android:textSize="16sp"
-                android:hint="XXX"
-                app:hintEnabled="true">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/inputCVV"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="45dp"
-                android:layout_marginTop="630dp"
-                android:layout_marginBottom="20dp"
-                android:text="Save as payment method"
-                android:textColor="#000000"
-                android:textSize="14sp" />
+            <FrameLayout
+                android:id="@+id/tngFragmentContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/radioGroup"/>
         </RelativeLayout>
     </ScrollView>
 

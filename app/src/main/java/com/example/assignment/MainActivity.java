@@ -21,7 +21,10 @@ import com.google.firebase.auth.FirebaseUser;
 public class MainActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
+/*    private int currentFragment = FRAGMENT1;
 
+    private static final int FRAGMENT1 = 1;
+    private static final int FRAGMENT2 = 2;*/
     FirebaseAuth auth;
     ImageButton logout;
     TextView textView;
@@ -73,6 +76,18 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /*public void toSeat(View view) {
+        // Check the current fragment to determine which activity to start
+        if (currentFragment == FRAGMENT1) {
+            // The user is on Fragment 1, navigate to Select_seat_a
+            Intent intent = new Intent(getApplicationContext(), Select_depart_ticket.class);
+            startActivity(intent);
+        } else if (currentFragment == FRAGMENT2) {
+            Intent intent = new Intent(getApplicationContext(), Select_depart_ticket.class);
+            startActivity(intent);
+        }
+    }*/
+
 
 
     /*Footer*/
@@ -94,6 +109,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
+   /* private void setCurrentFragment(int fragment) {
+        currentFragment = fragment;
+    }*/
 
 }

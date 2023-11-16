@@ -25,7 +25,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Select_seat_a extends AppCompatActivity {
+public class Select_return_seat_a extends AppCompatActivity {
     private List<String> selectedSeats = new ArrayList<>(); // List to store selected seats
     private String originName;
     private String destinationName;
@@ -40,7 +40,7 @@ public class Select_seat_a extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.select_seat_a);
+        setContentView(R.layout.select_return_seat_a);
 
         Select_seat.handleSeatActivity(this);
 
@@ -190,7 +190,7 @@ public class Select_seat_a extends AppCompatActivity {
         String buttonSeatId = normalSeatButton.getContentDescription().toString();
 
         // Query the Firestore database to check if the seat is already reserved for the specific seat ID and train date
-        db.collection("departseat")
+        db.collection("returnseat")
                 .whereEqualTo("train_date", trainDate)
                 .whereEqualTo("seat_id", buttonSeatId)
                 .get()
@@ -204,10 +204,9 @@ public class Select_seat_a extends AppCompatActivity {
                 })
                 .addOnFailureListener(e -> {
                     // Handle the error
-                    Toast.makeText(Select_seat_a.this, "Error checking seat availability", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Select_return_seat_a.this, "Error checking seat availability", Toast.LENGTH_SHORT).show();
                 });
     }
-
 
 
     private boolean isSeatSelected(String seatId) {
@@ -225,16 +224,8 @@ public class Select_seat_a extends AppCompatActivity {
                 // Handle seat confirmation (e.g., save the selected seat to a database)
                 saveSelectedSeat(seatId);
 
-                Intent intent;
-
                 if (selectedSeats.size() == Integer.parseInt(trainPax)) {
-                    // Check if return ticket is allowed
-                    if (AppData.isReturnTicketAllowed) {
-                        intent = new Intent(Select_seat_a.this, Select_return_ticket.class);
-                        startActivity(intent);
-                    } else {
-                        navigateToPassengerDetailsPage();
-                    }
+                    navigateToPassengerDetailsPage();
                 }
             }
         });
@@ -287,15 +278,15 @@ public class Select_seat_a extends AppCompatActivity {
         seatData.put("total_duration", totalDuration);
 
         // Save the seat data to the Firestore database
-        db.collection("departseat")
+        db.collection("returnseat")
                 .add(seatData)
                 .addOnSuccessListener(documentReference -> {
                     // Seat data added successfully
-                    Toast.makeText(Select_seat_a.this, "Seat data added to database", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Select_return_seat_a.this, "Seat data added to database", Toast.LENGTH_SHORT).show();
                 })
                 .addOnFailureListener(e -> {
                     // Handle the error
-                    Toast.makeText(Select_seat_a.this, "Error adding seat data to database", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Select_return_seat_a.this, "Error adding seat data to database", Toast.LENGTH_SHORT).show();
                 });
     }
 

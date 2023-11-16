@@ -13,7 +13,7 @@
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginTop="-3dp"
         android:orientation="vertical"
@@ -25,7 +25,7 @@
             android:layout_height="45dp"
             android:background="#030F51"
             android:gravity="center"
-            android:text="Select Seat"
+            android:text="Select Depart Seat"
             android:textAlignment="center"
             android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
@@ -34,23 +34,25 @@
             tools:layout_editor_absoluteY="16dp" />
 
         <ImageButton
-            android:id="@+id/vector_4"
+            android:id="@+id/back"
             android:layout_width="17dp"
             android:layout_height="20dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="-35dp"
             android:background="@drawable/left_chevron"
             android:contentDescription="back"
-            tools:ignore="TouchTargetSizeCheck"/>
+            tools:ignore="TouchTargetSizeCheck"
+            android:onClick="back"/>
 
         <TextView
             android:id="@+id/origin"
-            android:layout_width="wrap_content"
+            android:layout_width="130dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="65dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="70dp"
-            android:gravity="top"
-            android:text="Origin"
+            android:paddingEnd="5dp"
+            android:gravity="end"
+            android:text=""
             android:textColor="#000000"
             android:textSize="20sp" />
 
@@ -70,10 +72,10 @@
             android:id="@+id/duration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="175dp"
+            android:layout_marginStart="142dp"
             android:layout_marginTop="-70dp"
             android:gravity="top"
-            android:text="Duration"
+            android:text=""
             android:textColor="#000000"
             android:textSize="12sp" />
 
@@ -111,7 +113,7 @@
             android:layout_marginStart="269dp"
             android:layout_marginTop="-22dp"
             android:gravity="top"
-            android:text="Destination"
+            android:text=""
             android:textColor="#000000"
             android:textSize="20sp" />
 
@@ -130,62 +132,13 @@
             android:id="@+id/price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="338dp"
+            android:layout_marginStart="300dp"
             android:layout_marginTop="10dp"
             android:gravity="top"
-            android:text="Price"
+            android:text=""
             android:textColor="#000000"
             android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/jan_sun"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="0dp"
-            android:gravity="top"
-            android:text="26 Jan, Sun"
-            android:textColor="#A2A2A2"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/jan_mon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="116dp"
-            android:layout_marginTop="-20dp"
-            android:gravity="top"
-            android:text="27 Jan, Mon"
-            android:textColor="#000000"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/feb_tue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="224dp"
-            android:layout_marginTop="-20dp"
-            android:gravity="top"
-            android:text="3 Feb, Tue"
-            android:textColor="#A2A2A2"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/feb_wed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="317dp"
-            android:layout_marginTop="-20dp"
-            android:gravity="top"
-            android:text="4 Feb, Wed"
-            android:textColor="#A2A2A2"
-            android:textSize="14sp" />
-
-        <View
-            android:id="@+id/line_1"
-            android:layout_width="wrap_content"
-            android:layout_height="15dp"
-            android:background="@drawable/line2" />
 
         <ImageButton
             android:id="@+id/left_chevron1"
@@ -198,17 +151,18 @@
             tools:ignore="TouchTargetSizeCheck"/>
 
         <ImageButton
-            android:id="@+id/rectangle_1"
+            android:id="@+id/Coach_a"
             android:layout_width="50dp"
             android:layout_height="35dp"
             android:layout_marginStart="60dp"
             android:layout_marginTop="-28dp"
             android:background="@drawable/minus__blue"
             android:contentDescription="Rectangle 1"
-            tools:ignore="TouchTargetSizeCheck"/>
+            tools:ignore="TouchTargetSizeCheck"
+            android:onClick="toSeat_a"/>
 
         <ImageButton
-            android:id="@+id/rectangle_2"
+            android:id="@+id/Coach_b"
             android:layout_width="50dp"
             android:layout_height="35dp"
             android:layout_marginStart="120dp"
@@ -219,34 +173,37 @@
             android:onClick="toSeat_b"/>
 
         <ImageButton
-            android:id="@+id/rectangle_3"
+            android:id="@+id/Coach_c"
             android:layout_width="50dp"
             android:layout_height="35dp"
             android:layout_marginStart="180dp"
             android:layout_marginTop="-35dp"
             android:background="@drawable/minus__grey"
             android:contentDescription="Rectangle 3"
-            tools:ignore="TouchTargetSizeCheck"/>
+            tools:ignore="TouchTargetSizeCheck"
+            android:onClick="toSeat_c"/>
 
         <ImageButton
-            android:id="@+id/rectangle_4"
+            android:id="@+id/Coach_d"
             android:layout_width="50dp"
             android:layout_height="35dp"
             android:layout_marginStart="240dp"
             android:layout_marginTop="-35dp"
             android:background="@drawable/minus__grey"
             android:contentDescription="Rectangle 4"
-            tools:ignore="TouchTargetSizeCheck"/>
+            tools:ignore="TouchTargetSizeCheck"
+            android:onClick="toSeat_d"/>
 
         <ImageButton
-            android:id="@+id/rectangle_5"
+            android:id="@+id/Coach_e"
             android:layout_width="50dp"
             android:layout_height="35dp"
             android:layout_marginStart="300dp"
             android:layout_marginTop="-35dp"
             android:background="@drawable/minus__grey"
             android:contentDescription="Rectangle 5"
-            tools:ignore="TouchTargetSizeCheck"/>
+            tools:ignore="TouchTargetSizeCheck"
+            android:onClick="toSeat_e"/>
 
         <ImageButton
             android:id="@+id/right_chevron1"
@@ -256,7 +213,8 @@
             android:layout_marginTop="-27dp"
             android:background="@drawable/right_chevron1"
             android:contentDescription="Right Chevron"
-            tools:ignore="TouchTargetSizeCheck"/>
+            tools:ignore="TouchTargetSizeCheck"
+            android:onClick="toCoachB"/>
 
         <TextView
             android:id="@+id/coach_a"
@@ -307,8 +265,7 @@
             android:layout_height="24dp"
             android:layout_marginStart="267dp"
             android:layout_marginTop="-22dp"
-            android:background="@drawable/unavailable_seat"
-            android:onClick="unavailableSeat"/>
+            android:background="@drawable/unavailable_seat" />
 
         <TextView
             android:id="@+id/selected"
@@ -328,25 +285,26 @@
             android:background="@drawable/line3" />
 
 
-                <TextView
-                    android:id="@+id/forward"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="178dp"
-                    android:layout_marginTop="-10dp"
-                    android:gravity="top"
-                    android:text="Forward" />
+            <TextView
+                android:id="@+id/forward"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="178dp"
+                android:layout_marginTop="-10dp"
+                android:gravity="top"
+                android:text="Forward" />
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="320dp"
+            android:layout_height="720dp"
             android:fillViewport="true">
 
             <LinearLayout
                 android:id="@+id/linearLayout3"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
                 android:background="#DEEDF4">
 
                 <TextView
@@ -365,7 +323,7 @@
                     android:layout_marginStart="55dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="1A"
+                    android:contentDescription="Coach A Seat 1A premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter" />
 
@@ -385,7 +343,7 @@
                     android:layout_marginStart="111dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="1B"
+                    android:contentDescription="Coach A Seat 1B premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -405,7 +363,7 @@
                     android:layout_marginStart="293dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="1C"
+                    android:contentDescription="Coach A Seat 1C premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -425,7 +383,7 @@
                     android:layout_marginStart="55dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="2A"
+                    android:contentDescription="Coach A Seat 2A premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -445,7 +403,7 @@
                     android:layout_marginStart="111dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="2B"
+                    android:contentDescription="Coach A Seat 2B premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -465,7 +423,7 @@
                     android:layout_marginStart="293dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="2C"
+                    android:contentDescription="Coach A Seat 2C premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -485,7 +443,7 @@
                     android:layout_marginStart="55dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="3A"
+                    android:contentDescription="Coach A Seat 3A premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -505,7 +463,7 @@
                     android:layout_marginStart="111dp"
                     android:layout_marginTop="0dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="3B"
+                    android:contentDescription="Coach A Seat 3B premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -525,7 +483,7 @@
                     android:layout_marginStart="293dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="3C"
+                    android:contentDescription="Coach A Seat 3C premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -545,7 +503,7 @@
                     android:layout_marginStart="55dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="4A"
+                    android:contentDescription="Coach A Seat 4A premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter" />
 
@@ -565,7 +523,7 @@
                     android:layout_marginStart="111dp"
                     android:layout_marginTop="0dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="4B"
+                    android:contentDescription="Coach A Seat 4B premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -585,7 +543,7 @@
                     android:layout_marginStart="293dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="4C"
+                    android:contentDescription="Coach A Seat 4C premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -605,7 +563,7 @@
                     android:layout_marginStart="55dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="5A"
+                    android:contentDescription="Coach A Seat 5A premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -625,7 +583,7 @@
                     android:layout_marginStart="111dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="5B"
+                    android:contentDescription="Coach A Seat 5B premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -645,7 +603,7 @@
                     android:layout_marginStart="293dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/premium_seat"
-                    android:contentDescription="5C"
+                    android:contentDescription="Coach A Seat 5C premium seat"
                     android:onClick="premiumSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -669,23 +627,23 @@
             android:layout_marginLeft="60dp">
 
             <ImageButton
-                android:id="@+id/image1"
+                android:id="@+id/homePage"
                 android:layout_width="48dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="-10dp"
                 android:layout_marginRight="80dp"
                 android:background="#ffff"
                 android:contentDescription="Image1"
-                android:onClick="clickImage1"
                 android:padding="10dp"
-                app:srcCompat="@drawable/home" />
+                app:srcCompat="@drawable/home"
+                android:onClick="toHomePage"/>
 
             <ImageButton
-                android:id="@+id/image2"
+                android:id="@+id/booking_history"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:background="#ffffff"
-                android:onClick="clickImage2"
+                android:onClick="toBookingHistory"
                 app:srcCompat="@drawable/ticket"
                 android:layout_marginRight="95dp"
                 android:layout_marginLeft="-5dp"
@@ -693,11 +651,11 @@
 
 
             <ImageButton
-                android:id="@+id/image3"
+                android:id="@+id/profilePage"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:background="#ffffff"
-                android:onClick="clickImage3"
+                android:onClick="toAccountPage"
                 android:padding="5dp"
                 android:layout_marginLeft="-12dp"
                 android:contentDescription="Account"
@@ -724,7 +682,7 @@
                 android:textColor="#000000"
                 android:textSize="14sp"
                 android:layout_marginTop="5dp"
-                android:layout_marginRight="70dp"/>
+                android:layout_marginRight="70dp" />
 
             <TextView
                 android:id="@+id/myTicket"
@@ -736,7 +694,8 @@
                 android:textSize="14sp"
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="70dp"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginLeft="10dp"
+                android:onClick="toBookingHistory"/>
 
             <TextView
                 android:id="@+id/account"
@@ -746,7 +705,8 @@
                 android:text="Account"
                 android:layout_marginTop="5dp"
                 android:textColor="#000000"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:onClick="toAccountPage"/>
         </LinearLayout>
     </RelativeLayout>
 </RelativeLayout>
