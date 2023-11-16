@@ -77,10 +77,36 @@
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/nationality"
+                    android:id="@+id/prePassenger"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="40dp"
+                    android:text="Previous Passenger"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+
+                <RelativeLayout
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="60dp"
+                    android:textColor="#000000"
+                    android:textSize="16sp">
+
+                    <Spinner
+                        android:id="@+id/selectPrePassenger"
+                        style="@style/Widget.AppCompat.DropDownItem.Spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        app:boxStrokeColor="@color/black"
+                        tools:ignore="TouchTargetSizeCheck" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/nationality"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="110dp"
                     android:text="Nationallity"
                     android:textColor="#000000"
                     android:textSize="16sp" />
@@ -89,7 +115,7 @@
                     android:id="@+id/radioGroup"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="60dp"
+                    android:layout_marginTop="135dp"
                     android:checked="false"
                     android:orientation="horizontal">
 
@@ -113,42 +139,11 @@
                 </RadioGroup>
 
                 <FrameLayout
-                    android:id="@+id/malaysianFragmentContainer"
+                    android:id="@+id/fragmentContainer"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_below="@id/radioGroup" />
 
-                <FrameLayout
-                    android:id="@+id/nonMalaysianFragmentContainer"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_below="@id/radioGroup"/>
-
-                <TextView
-                    android:id="@+id/prePassenger"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="120dp"
-                    android:text="Previous Passenger"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
-
-                <RelativeLayout
-                    android:id="@+id/selectPrePassenger"
-                    android:layout_width="300dp"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="145dp"
-                    android:textColor="#000000"
-                    android:textSize="16sp">
-
-                    <Spinner
-                        style="@style/Widget.AppCompat.DropDownItem.Spinner"
-                        android:layout_width="match_parent"
-                        android:layout_height="45dp"
-                        app:boxStrokeColor="@color/black"
-                        tools:ignore="TouchTargetSizeCheck" />
-                </RelativeLayout>
 
                 <TextView
                     android:id="@+id/gender"
@@ -160,6 +155,7 @@
                     android:textSize="16sp" />
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputGenderLayout"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
@@ -187,6 +183,7 @@
                     android:textSize="16sp" />
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputContactNumberLayout"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
@@ -214,6 +211,7 @@
                     android:textSize="16sp" />
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputEmailLayout"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
@@ -241,7 +239,6 @@
                     android:textSize="16sp" />
 
                 <RelativeLayout
-                    android:id="@+id/selectTicketType"
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
@@ -250,6 +247,7 @@
                     android:textSize="16sp">
 
                     <Spinner
+                        android:id="@+id/selectTicketType"
                         style="@style/Widget.AppCompat.DropDownItem.Spinner"
                         android:layout_width="match_parent"
                         android:layout_height="45dp"

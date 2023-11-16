@@ -26,6 +26,7 @@ public class FragmentMalaysian extends Fragment {
     public Map<String, Object> getFragmentMalaysianData() {
         Map<String, Object> passenger = new HashMap<>();
         View view = getView();
+
         String passName = ((TextInputEditText) view.findViewById(R.id.inputName)).getText().toString();
         String passIcNumber = ((TextInputEditText) view.findViewById(R.id.inputIcNumber)).getText().toString();
 
@@ -34,5 +35,21 @@ public class FragmentMalaysian extends Fragment {
         passenger.put("pass_icNumber", passIcNumber);
 
         return passenger;
+    }
+
+    public void updateFragmentMalaysianData(Map<String, Object> selectedPassenger) {
+        if (getView() != null) {
+            // Update the data in FragmentMalaysian based on the selected passenger
+            String passName = (String) selectedPassenger.get("pass_name");
+            String passIcNumber = (String) selectedPassenger.get("pass_icNumber");
+
+            // Update the TextInputEditText fields in the fragment
+            TextInputEditText inputedName = getView().findViewById(R.id.inputName);
+            TextInputEditText inputedIcNumber = getView().findViewById(R.id.inputIcNumber);
+
+            // Set the values to the corresponding fields
+            inputedName.setText(passName);
+            inputedIcNumber.setText(passIcNumber);
+        }
     }
 }

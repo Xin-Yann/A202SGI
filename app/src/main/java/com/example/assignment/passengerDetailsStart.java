@@ -2,11 +2,18 @@ package com.example.assignment;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -24,23 +31,30 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-//get pax
-//get data from database then show name let user choose previous pass
+
 public class passengerDetailsStart extends AppCompatActivity {
     FirebaseFirestore firestore;
     RadioGroup radioGroup;
-    FrameLayout malaysianFragmentContainer;
-    FrameLayout nonMalaysianFragmentContainer;
     Fragment currentFragment;
     Spinner selectTicketType;
     Button nextPassengerButton;
+    Button clearButton;
     AlertDialog.Builder builder;
-
+    Spinner selectPrePassenger;
+    List<Map<String, Object>> passengers;
+    ArrayAdapter<String> adapterForTicketType;
+    private boolean isUserSelection = false;
+    private String trainPax;
+    private int passengerCount = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,9 +65,76 @@ public class passengerDetailsStart extends AppCompatActivity {
 
         FirebaseApp.initializeApp(this);
 
+        // Inside your onCreate method
+        selectPrePassenger = findViewById(R.id.selectPrePassenger);
+
+        // Fetch passengers from the database
+        fetchPassengersFromDatabase();
+
+        selectPrePassenger.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                // Retrieve the selected passenger's details
+                Map<String, Object> selectedPassenger = passengers.get(position);
+
+                // Check the radio button based on nationality
+                String nationality = (String) selectedPassenger.get("pass_nationality");
+                RadioButton radioButtonYes = findViewById(R.id.yes);
+                RadioButton radioButtonNo = findViewById(R.id.no);
+
+                radioButtonYes.setChecked("Yes".equals(nationality));
+                radioButtonNo.setChecked("No".equals(nationality));
+
+                // Populate UI fields with the selected passenger's information
+                String gender = (String) selectedPassenger.get("pass_gender");
+                String contactNumber = (String) selectedPassenger.get("pass_contact");
+                String email = (String) selectedPassenger.get("pass_email");
+                String ticketType = (String) selectedPassenger.get("pass_ticketType");
+
+                // Assuming you have TextInputEditText fields for gender, contactNumber, and email
+                TextInputEditText inputedGender = findViewById(R.id.inputGender);
+                TextInputEditText inputedContactNumber = findViewById(R.id.inputContactNumber);
+                TextInputEditText inputedEmail = findViewById(R.id.inputEmail);
+
+                // Set the values to the corresponding fields
+                inputedGender.setText(gender);
+                inputedContactNumber.setText(contactNumber);
+                inputedEmail.setText(email);
+
+                // Set the selected ticket type in the spinner
+                int ticketTypePosition = adapterForTicketType.getPosition(ticketType);
+                selectTicketType.setSelection(ticketTypePosition);
+
+                // Update Fragment data based on the selected passenger after a delay
+                new android.os.Handler().postDelayed(
+                        new Runnable() {
+                            public void run() {
+                                if (currentFragment instanceof FragmentNonMalaysian) {
+                                    ((FragmentNonMalaysian) currentFragment).updateFragmentNonMalaysianData(selectedPassenger);
+                                } else if (currentFragment instanceof FragmentMalaysian) {
+                                    ((FragmentMalaysian) currentFragment).updateFragmentMalaysianData(selectedPassenger);
+                                }
+                            }
+                        }, 500); // Adjust the delay as needed
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // Handle the case where nothing is selected (optional)
+            }
+        });
+
+        // Modify the spinner's onItemSelectedListener to set the flag when the user makes a selection
+        selectPrePassenger.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                // Set the flag when the user interacts with the spinner
+                isUserSelection = true;
+                return false;
+            }
+        });
+
         radioGroup = findViewById(R.id.radioGroup);
-        malaysianFragmentContainer = findViewById(R.id.malaysianFragmentContainer);
-        nonMalaysianFragmentContainer = findViewById(R.id.nonMalaysianFragmentContainer);
 
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -68,24 +149,123 @@ public class passengerDetailsStart extends AppCompatActivity {
 
                 // Check which radio button is selected
                 if (checkedId == R.id.yes) {
-                    currentFragment = new FragmentCard();
-                    transaction.replace(R.id.malaysianFragmentContainer, currentFragment);
+                    currentFragment = new FragmentMalaysian();
                 } else if (checkedId == R.id.no) {
-                    currentFragment = new FragmentTng();
-                    transaction.replace(R.id.nonMalaysianFragmentContainer, currentFragment);
+                    currentFragment = new FragmentNonMalaysian();
                 } else {
                     currentFragment = null;
                 }
 
+                // Replace the fragmentContainer with the new fragment
+                transaction.replace(R.id.fragmentContainer, currentFragment);
+
+                // Commit the transaction
                 transaction.commit();
+
+                // Adjust the layout of elements below the RadioGroup
+                if (checkedId == R.id.yes || checkedId == R.id.no) {
+                    adjustLayoutForFragment(true,
+                            1050,
+                            1110,
+                            1300,
+                            1360,
+                            1550,
+                            1610,
+                            1800,
+                            470,
+                            2200,
+                            2450,
+                            2700,
+                            R.id.gender, R.id.inputGenderLayout,
+                            R.id.contactNumber, R.id.inputContactNumberLayout,
+                            R.id.email, R.id.inputEmailLayout, R.id.ticketType,
+                            R.id.selectTicketType, R.id.confirmation,
+                            R.id.confirmationInfo, R.id.nextPassengerBtn);
+                } else {
+                    adjustLayoutForFragment(false,
+                            500,
+                            560,
+                            750,
+                            810,
+                            1000,
+                            1060,
+                            1250,
+                            -45,
+                            1700,
+                            1950,
+                            2200,
+                            R.id.gender, R.id.inputGenderLayout,
+                            R.id.contactNumber, R.id.inputContactNumberLayout,
+                            R.id.email, R.id.inputEmailLayout, R.id.ticketType,
+                            R.id.selectTicketType, R.id.confirmation,
+                            R.id.confirmationInfo, R.id.nextPassengerBtn);
+                }
             }
         });
 
+        clearButton = findViewById(R.id.clearBtn);
+        clearButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Clear text input fields
+                TextInputEditText inputedGender = findViewById(R.id.inputGender);
+                TextInputEditText inputedContactNumber = findViewById(R.id.inputContactNumber);
+                TextInputEditText inputedEmail = findViewById(R.id.inputEmail);
+
+                inputedGender.getText().clear();
+                inputedContactNumber.getText().clear();
+                inputedEmail.getText().clear();
+
+                // Clear radio btn and fragment
+                RadioButton radioButtonYes = findViewById(R.id.yes);
+                RadioButton radioButtonNo = findViewById(R.id.no);
+
+                radioButtonYes.setChecked(false);
+                radioButtonNo.setChecked(false);
+
+                if (currentFragment != null) {
+                    FragmentManager fragmentManager = getSupportFragmentManager();
+                    FragmentTransaction transaction = fragmentManager.beginTransaction();
+                    transaction.remove(currentFragment);
+                    transaction.commit();
+                    currentFragment = null;
+
+                    // Reset the layout parameters to their original state
+                    adjustLayoutForFragment(false,
+                            500,
+                            560,
+                            750,
+                            810,
+                            1000,
+                            1060,
+                            1250,
+                            -45,
+                            1700,
+                            1950,
+                            2200,
+                            R.id.gender, R.id.inputGenderLayout,
+                            R.id.contactNumber, R.id.inputContactNumberLayout,
+                            R.id.email, R.id.inputEmailLayout, R.id.ticketType,
+                            R.id.selectTicketType, R.id.confirmation,
+                            R.id.confirmationInfo, R.id.nextPassengerBtn);
+                }
+            }
+        });
+
+        // Inside your onCreate method
         selectTicketType = findViewById(R.id.selectTicketType);
-        String[] selectionOptions = {"Adult", "Child", "Premium"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, selectionOptions);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        selectTicketType.setAdapter(adapter);
+        String[] selectionOptions = {"Choose your ticket type","Adult", "Child", "Premium"};
+        adapterForTicketType = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, selectionOptions);
+        adapterForTicketType.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        selectTicketType.setAdapter(adapterForTicketType);
+
+        // Retrieve the trainPax value from SharedPreferences
+        retrieveDataFromSharedPreferences();
+
+        passengerCount = getIntent().getIntExtra("passengerCount", 1);
+
+        // Update the passengerAmountTextView with the new trainPax value
+        updatePassengerCount();
 
         nextPassengerButton = findViewById(R.id.nextPassengerBtn);
         builder = new AlertDialog.Builder(this);
@@ -93,35 +273,170 @@ public class passengerDetailsStart extends AppCompatActivity {
         nextPassengerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Retrieve data from the FragmentMalaysian and save it
-                FragmentMalaysian fragmentMalaysian = (FragmentMalaysian) getSupportFragmentManager().findFragmentById(R.id.malaysianFragmentContainer);
-                if (fragmentMalaysian != null) {
-                    Map<String, Object> passenger = fragmentMalaysian.getFragmentMalaysianData();
+                if (passengerCount < Integer.parseInt(trainPax)) {
+                    // If there are more passengers to add, show a confirmation dialog
+                    showConfirmationDialog();
+                } else {
+                    // If all passengers are added or trainPax is not a valid integer, show confirmation dialog
+                    showConfirmationDialog();
                 }
-
-                builder.setTitle("Alert!")
-                        .setMessage("Do you want to save passenger details?")
-                        .setCancelable(true)
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                addPassenger();
-                                finish();
-                            }
-                        })
-                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                dialogInterface.cancel();
-                            }
-                        })
-                        .show();
             }
         });
     }
 
-    private void addPassenger() {
-        Map<String, Object> passenger = new HashMap<>();
+    private void fetchPassengersFromDatabase() {
+        firestore.collection("passengers").get()
+                .addOnSuccessListener(queryDocumentSnapshots -> {
+                    passengers = new ArrayList<>();
+
+                    // Add a default hint option
+                    Map<String, Object> hintPassenger = new HashMap<>();
+                    hintPassenger.put("pass_name", "Choose a previous passenger");
+                    passengers.add(hintPassenger);
+
+                    for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
+                        Map<String, Object> passengerData = document.getData();
+                        passengers.add(passengerData);
+                    }
+
+                    // Populate the spinner with passenger names
+                    List<String> passengerNames = getPassengerNames();
+                    ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, passengerNames);
+                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    selectPrePassenger.setAdapter(adapter);
+                })
+                .addOnFailureListener(e -> {
+                    Log.e("Firestore", "Failed to fetch passengers", e);
+                    Toast.makeText(this, "Failed to fetch passengers", Toast.LENGTH_LONG).show();
+                });
+    }
+
+    private List<String> getPassengerNames() {
+        List<String> passengerNames = new ArrayList<>();
+        for (Map<String, Object> passenger : passengers) {
+            String name = (String) passenger.get("pass_name"); // Change "pass_name" to the actual key in your passenger data
+            passengerNames.add(name);
+        }
+        return passengerNames;
+    }
+
+    private void adjustLayoutForFragment(boolean fragmentVisible, int marginTopGender, int marginTopInputGender,
+                                         int marginTopContactNumber, int marginTopContactNumberLayout,
+                                         int marginTopEmail, int marginTopEmailLayout,
+                                         int marginTopTicketType, int marginTopSelectTicketType,
+                                         int marginTopConfirmation, int marginTopConfirmationInfo,
+                                         int marginTopNextPassengerBtn, int... viewIds) {
+        for (int viewId : viewIds) {
+            View view = findViewById(viewId);
+            if (view != null) {
+                ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
+
+                // Set different marginTop values based on the viewId
+                if (viewId == R.id.gender) {
+                    layoutParams.topMargin = marginTopGender;
+                } else if (viewId == R.id.inputGenderLayout) {
+                    layoutParams.topMargin = marginTopInputGender;
+                } else if (viewId == R.id.contactNumber) {
+                    layoutParams.topMargin = marginTopContactNumber;
+                } else if (viewId == R.id.inputContactNumberLayout) {
+                    layoutParams.topMargin = marginTopContactNumberLayout;
+                } else if (viewId == R.id.email) {
+                    layoutParams.topMargin = marginTopEmail;
+                } else if (viewId == R.id.inputEmailLayout) {
+                    layoutParams.topMargin = marginTopEmailLayout;
+                } else if (viewId == R.id.ticketType) {
+                    layoutParams.topMargin = marginTopTicketType;
+                } else if (viewId == R.id.selectTicketType) {
+                    layoutParams.topMargin = marginTopSelectTicketType;
+                } else if (viewId == R.id.confirmation) {
+                    layoutParams.topMargin = marginTopConfirmation;
+                } else if (viewId == R.id.confirmationInfo) {
+                    layoutParams.topMargin = marginTopConfirmationInfo;
+                } else if (viewId == R.id.nextPassengerBtn) {
+                    layoutParams.topMargin = marginTopNextPassengerBtn;
+                }
+
+                view.setLayoutParams(layoutParams);
+            }
+        }
+    }
+
+    private void showConfirmationDialog() {
+        int selectedPosition = selectPrePassenger.getSelectedItemPosition();
+
+        builder.setTitle("Alert!")
+                .setMessage("Do you want to save passenger details?")
+                .setCancelable(true)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        // Check if a previous passenger is selected
+                        if (selectedPosition > 0) {
+                            // If the user clicks "Yes" and a previous passenger is selected, do not save
+                            Toast.makeText(passengerDetailsStart.this, "Passenger details not saved for a previous passenger.", Toast.LENGTH_SHORT).show();
+                        } else {
+                            // If the user clicks "Yes" and a new passenger is entered, save passenger details
+                            savePassengerDetails();
+                        }
+
+                        updatePassengerCount();
+
+                        if (passengerCount == Integer.parseInt(trainPax) - 1) {
+                            launchPassengerDetailsEnd();
+                        } else if (passengerCount != Integer.parseInt(trainPax)) {
+                            launchPassengerDetailsStart();
+                        }
+
+                        // Finish the current activity
+                        finish();
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        // If the user clicks "No", simply dismiss the dialog
+                        dialogInterface.dismiss();
+                    }
+                })
+                .show();
+        }
+
+    private void savePassengerDetails() {
+        // If a new passenger is entered, save passenger details to the database
+
+        if (currentFragment instanceof FragmentNonMalaysian) {
+            // Retrieve data from FragmentNonMalaysian
+            Map<String, Object> passenger = ((FragmentNonMalaysian) currentFragment).getFragmentNonMalaysianData();
+
+            // Add passenger data to the database
+            addPassenger(passenger);
+        } else if (currentFragment instanceof FragmentMalaysian) {
+            // Retrieve data from FragmentMalaysian
+            Map<String, Object> passenger = ((FragmentMalaysian) currentFragment).getFragmentMalaysianData();
+
+            // Add passenger data to the database
+            addPassenger(passenger);
+        }
+    }
+
+
+    private void retrieveDataFromSharedPreferences() {
+        SharedPreferences preferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        trainPax = preferences.getString("trainPax", "");
+
+        // Update the passengerAmountTextView with the new trainPax value
+        updatePassengerCount();
+    }
+
+    private void updatePassengerCount() {
+        // Assuming passengerAmountTextView is the ID of your TextView in the XML layout
+        TextView passengerAmountTextView = findViewById(R.id.passengerAmount);
+
+        // Update the passenger count and display it
+        passengerAmountTextView.setText("Passenger " + passengerCount + "/" + trainPax);
+    }
+
+    private void addPassenger(Map<String, Object> passenger) {
         // Get data from user input
         String passGender = ((TextInputEditText) findViewById(R.id.inputGender)).getText().toString();
         String passContact = ((TextInputEditText) findViewById(R.id.inputContactNumber)).getText().toString();
@@ -159,5 +474,30 @@ public class passengerDetailsStart extends AppCompatActivity {
         } else {
             return "Unknown";
         }
+    }
+
+    private void launchPassengerDetailsStart() {
+        // If there are more passengers to add, launch a new instance of passengerDetailsStart
+        Intent intent = new Intent(this, passengerDetailsStart.class);
+
+        // Pass the updated trainPax and increment passengerCount
+        intent.putExtra("trainPax", trainPax);
+        intent.putExtra("passengerCount", ++passengerCount); // Increment passengerCount
+
+        startActivity(intent);
+        finish(); // Finish the current activity to prevent going back to it
+    }
+
+
+    private void launchPassengerDetailsEnd() {
+        Intent intent = new Intent(this, passengerDetailsEnd.class);
+        startActivity(intent);
+        finish(); // Finish the current activity to prevent going back to it
+    }
+
+    public void back(View view) {
+        Intent intent = new Intent(this, Select_depart_ticket.class);
+        ImageButton back = findViewById(R.id.back);
+        startActivity(intent);
     }
 }

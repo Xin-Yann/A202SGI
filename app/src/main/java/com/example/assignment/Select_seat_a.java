@@ -71,7 +71,7 @@ public class Select_seat_a extends AppCompatActivity {
 
     private void calculateAndDisplayPrice() {
         // Calculate and display the price using the utility method
-        TextView priceTextView = findViewById(R.id.price);
+        priceTextView = findViewById(R.id.price);
         PriceCalculatorUtil.calculateAndDisplayPrice(originName, destinationName, priceTextView, db);
     }
 
@@ -258,7 +258,7 @@ public class Select_seat_a extends AppCompatActivity {
         String seatCoach = extractSeatCoach(seatId);
 
         // Get the original price from the TextView
-        TextView priceTextView = findViewById(R.id.price);
+        priceTextView = findViewById(R.id.price);
         String originalPriceStr = priceTextView.getText().toString();
 
         // Extract the numeric part of the price string
@@ -282,6 +282,9 @@ public class Select_seat_a extends AppCompatActivity {
         seatData.put("train_date", trainDate);
         seatData.put("user_email", getCurrentUserEmail());
         seatData.put("seat_price", seatPrice); // Save the doubled price
+        seatData.put("origin_name", originName);
+        seatData.put("destination_name", destinationName);
+        seatData.put("total_duration", totalDuration);
 
         // Save the seat data to the Firestore database
         db.collection("departseat")
@@ -353,12 +356,25 @@ public class Select_seat_a extends AppCompatActivity {
         return "unknown coach";
     }
 
-
     private void navigateToPassengerDetailsPage() {
-        setContentView(R.layout.passenger_details_start); // Load the passenger_details_start.xml layout
-        // You may need to handle any other UI logic specific to this layout
+        if ("1".equals(trainPax)) {
+            launchPassengerDetailsEnd();
+        } else {
+            launchPassengerDetailsStart();
+        }
     }
 
+    private void launchPassengerDetailsStart() {
+        Intent intent = new Intent(this, passengerDetailsStart.class);
+        startActivity(intent);
+        finish();
+    }
+
+    private void launchPassengerDetailsEnd() {
+        Intent intent = new Intent(this, passengerDetailsEnd.class);
+        startActivity(intent);
+        finish();
+    }
 
     private void addSelectedSeat(String seatId) {
         // Implement your logic to add the selected seat to the list
