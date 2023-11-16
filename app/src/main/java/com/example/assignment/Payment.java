@@ -25,7 +25,8 @@ public class Payment extends AppCompatActivity {
     FrameLayout cardFragmentContainer;
     FrameLayout tngFragmentContainer;
     Fragment currentFragment;
-    TextView textView;
+    TextView ticket;
+    Button payBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,5 +62,11 @@ public class Payment extends AppCompatActivity {
                 transaction.commit();
             }
         });
+    }
+
+    public void toPayment3(View view) {
+        Intent intent = new Intent(this, Payment3.class);
+        payBtn = findViewById(R.id.payBtn);
+        startActivity(intent);
     }
 }
