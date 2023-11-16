@@ -67,7 +67,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="-5dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="25dp"
             app:srcCompat="@drawable/rectangle_10" />
 
         <TextView
@@ -84,7 +84,7 @@
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="250dp"
-            android:layout_height="50dp"
+            android:layout_height="56dp"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="50dp"
             android:layout_marginTop="25dp"
@@ -97,29 +97,31 @@
                 android:id="@+id/inputName"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#ffffff"/>
+                android:editable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:background="#e6e6e6"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:id="@+id/edit1"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginStart="320dp"
-            android:layout_marginTop="-38dp"
-            android:gravity="top"
-            android:text="Edit"
-            android:textColor="#000000"
-            android:textSize="21sp" />
-
+<!--        <TextView-->
+<!--            android:id="@+id/edit1"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:layout_marginStart="320dp"-->
+<!--            android:layout_marginTop="-38dp"-->
+<!--            android:gravity="top"-->
+<!--            android:text="Edit"-->
+<!--            android:textColor="#000000"-->
+<!--            android:textSize="21sp" />-->
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="250dp"
-            android:layout_height="50dp"
+            android:layout_height="56dp"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="50dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="20dp"
             android:textColor="#000000"
             android:textSize="16sp"
             android:hint="Email"
@@ -133,24 +135,24 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:id="@+id/edit2"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginStart="320dp"
-            android:layout_marginTop="-38dp"
-            android:gravity="top"
-            android:text="Edit"
-            android:textColor="#000000"
-            android:textSize="21sp" />
+<!--        <TextView-->
+<!--            android:id="@+id/edit2"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:layout_marginStart="320dp"-->
+<!--            android:layout_marginTop="-38dp"-->
+<!--            android:gravity="top"-->
+<!--            android:text="Edit"-->
+<!--            android:textColor="#000000"-->
+<!--            android:textSize="21sp" />-->
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="250dp"
-            android:layout_height="50dp"
+            android:layout_height="56dp"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="50dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="20dp"
             android:textColor="#000000"
             android:textSize="16sp"
             android:hint="Password"
@@ -165,26 +167,24 @@
         </com.google.android.material.textfield.TextInputLayout>
 
 
-        <TextView
-            android:id="@+id/edit3"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginStart="320dp"
-            android:layout_marginTop="-38dp"
-            android:gravity="top"
-            android:text="Edit"
-            android:textColor="#000000"
-            android:textSize="21sp" />
+<!--        <TextView-->
+<!--            android:id="@+id/edit3"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:layout_marginStart="320dp"-->
+<!--            android:layout_marginTop="-38dp"-->
+<!--            android:gravity="top"-->
+<!--            android:text="Edit"-->
+<!--            android:textColor="#000000"-->
+<!--            android:textSize="21sp" />-->
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/saveBtn"
             android:layout_width="150dp"
             android:layout_height="48dp"
             android:backgroundTint="#030F51"
             android:text="Save"
-            tools:layout_editor_absoluteX="101dp"
-            tools:layout_editor_absoluteY="528dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="18dp"
             android:layout_marginStart="140dp" />
     </LinearLayout>
 
@@ -210,7 +210,7 @@
                 android:layout_height="48dp"
                 android:background="#ffff"
                 android:contentDescription="Image1"
-                android:onClick="clickImage1"
+                android:onClick="toHomePage"
                 android:padding="5dp"
                 app:srcCompat="@drawable/home"
                 android:layout_marginRight="88dp"
