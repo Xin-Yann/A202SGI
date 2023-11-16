@@ -290,7 +290,8 @@ public class Select_return_seat_b extends AppCompatActivity {
         seatData.put("seat_coach", seatCoach);
         seatData.put("train_date", trainDate);
         seatData.put("user_email", getCurrentUserEmail());
-        seatData.put("seat_price", seatPrice); // Save the doubled price
+      
+        seatData.put("seat_price", seatPrice); 
         seatData.put("origin_name", originName);
         seatData.put("destination_name", destinationName);
         seatData.put("total_duration", totalDuration);

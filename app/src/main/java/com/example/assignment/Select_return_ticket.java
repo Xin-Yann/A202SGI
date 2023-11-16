@@ -70,25 +70,22 @@ public class Select_return_ticket extends AppCompatActivity {
         }
 
         fStore.collection("northbound")
-                .orderBy("id", Query.Direction.ASCENDING)  // Replace "customField" with the field you want to use for ordering
+                .orderBy("id", Query.Direction.ASCENDING)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
-                            datalist.clear(); // Clear the existing data in datalist
+                            datalist.clear();
 
-                            // Inside the onComplete method of your Firestore query
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 String stationName = document.getString("name");
                                 String stationDuration = document.getString("diffMin");
 
-                                // Create a 'North' object and add it to datalist
                                 North northStation = new North(stationName, stationDuration);
                                 datalist.add(northStation);
                             }
 
-                            // Create the unique station pairs and avoid duplicates
                             Set<String> uniquePairs = new HashSet<>();
                             List<North> uniqueDatalist = new ArrayList<>();
 
@@ -97,29 +94,32 @@ public class Select_return_ticket extends AppCompatActivity {
                                     North origin = datalist.get(i);
                                     North destination = datalist.get(j);
 
-                                    String forwardPair = origin.getName() + " ----------- " + destination.getName();
-                                    String reversePair = destination.getName() + " ---------- " + origin.getName();
+                                    String forwardPair = origin.getName() + " ---> " + destination.getName();
+                                    String reversePair = destination.getName() + " ---> " + origin.getName();
                                     double totalDuration = 0.0;
 
-                                    // Calculate the sum of diffMin for the elements in the pair
-                                    for (int k = i; k <= j; k++) {
+                                    String initialDepartureTime = "08:00";
+                                    String departureTime = calculateArrivalTime(initialDepartureTime, totalDuration);
+
+                                    for (int k = i + 1; k <= j; k++) {
                                         totalDuration += Double.parseDouble(datalist.get(k).getDuration());
                                     }
 
-                                    // Add both the forward and reverse pairs along with total duration
+                                    String arrivalTime = calculateArrivalTime(departureTime, totalDuration);
+                                    String formattedDuration = formattedDuration(totalDuration);
+
                                     uniquePairs.add(forwardPair);
                                     uniquePairs.add(reversePair);
 
-                                    uniqueDatalist.add(new North(forwardPair, String.format("%.2f", totalDuration)));
-                                    uniqueDatalist.add(new North(reversePair, String.format("%.2f", totalDuration)));
+                                    uniqueDatalist.add(new North(forwardPair, formattedDuration, departureTime, arrivalTime));
+                                    uniqueDatalist.add(new North(reversePair, formattedDuration, departureTime, arrivalTime));
                                 }
                             }
 
-                            // Replace datalist with the uniqueDatalist
+
                             datalist.clear();
                             datalist.addAll(uniqueDatalist);
 
-                            // Update the adapter with the unique station pairs
                             adapter.updateData(datalist);
                             adapter.notifyDataSetChanged();
                         } else {
@@ -127,8 +127,51 @@ public class Select_return_ticket extends AppCompatActivity {
                         }
                     }
                 });
-
     }
+    private String calculateArrivalTime(String initialDepartureTime, double totalDuration) {
+        int initialDepartureMinutes = convertToMinutes(initialDepartureTime);
+
+        // Calculate total minutes
+        int totalMinutes = initialDepartureMinutes + (int) totalDuration;
+
+        // Calculate hours and remaining minutes
+        int hours = totalMinutes / 60;
+        int remainingMinutes = totalMinutes % 60;
+
+        // Return the formatted string
+        return String.format("%02d:%02d", hours, remainingMinutes);
+    }
+
+    private String formattedDuration(double totalDuration) {
+        // Calculate total minutes
+        int totalMinutes = (int) totalDuration;
+
+        // Calculate hours and remaining minutes
+        int hours = totalMinutes / 60;
+        int remainingMinutes = totalMinutes % 60;
+
+        // Return the formatted string
+        if (hours > 0) {
+            return String.format("%d hrs %02d mins", hours, remainingMinutes);
+        }else{
+            return String.format("%02d mins", remainingMinutes);
+        }
+    }
+
+    private int convertToMinutes(String time) {
+        String[] parts = time.split(":");
+        int hours = Integer.parseInt(parts[0]);
+        int minutes = Integer.parseInt(parts[1]);
+        return hours * 60 + minutes;
+    }
+
+    private String convertToTimeFormat(int minutes) {
+        int hours = minutes / 60;
+        int remainingMinutes = minutes % 60;
+
+        return String.format("%02d:%02d", hours, remainingMinutes);
+    }
+
 
     public void toSeat(View view){
         Intent intent = new Intent(Select_return_ticket.this, Select_return_seat_a.class);
