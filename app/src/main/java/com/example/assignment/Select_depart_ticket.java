@@ -206,5 +206,3 @@ public class Select_depart_ticket extends AppCompatActivity {
         startActivity(intent);
     }
 }
-
-

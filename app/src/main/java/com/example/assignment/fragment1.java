@@ -2,6 +2,7 @@ package com.example.assignment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,10 +47,11 @@ public class fragment1 extends Fragment {
         inputLayout = view.findViewById(R.id.inputPax);
         inputPax = inputLayout.findViewById(R.id.inputPax1);
 
-        AppData.isReturnTicketAllowed = false;
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                AppData.isReturnTicketAllowed = false;
+                AppData.isDepartTicketSelected = true;
                 // Retrieve the train name entered by the user
                 String trainOrigin = inputOrigin.getText().toString();
                 String trainDes = inputDes.getText().toString();
@@ -86,7 +88,7 @@ public class fragment1 extends Fragment {
                     filteredList.add(north);
                 }
             }
-        }
+        } 
 
         // Update the adapter with the filtered or all items
         adapter.setFilteredList(filteredList);
