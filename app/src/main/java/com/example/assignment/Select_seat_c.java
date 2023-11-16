@@ -37,6 +37,8 @@ public class Select_seat_c extends AppCompatActivity {
 
 
     private FirebaseFirestore db;
+
+    private TextView priceTextView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +70,7 @@ public class Select_seat_c extends AppCompatActivity {
 
     private void calculateAndDisplayPrice() {
         // Calculate and display the price using the utility method
-        TextView priceTextView = findViewById(R.id.price);
+        priceTextView = findViewById(R.id.price);
         PriceCalculatorUtil.calculateAndDisplayPrice(originName, destinationName, priceTextView, db);
     }
 
@@ -225,17 +227,15 @@ public class Select_seat_c extends AppCompatActivity {
                 // Handle seat confirmation (e.g., save the selected seat to a database)
                 saveSelectedSeat(seatId);
 
-                if (AppData.isReturnTicketAllowed) {
-                    Intent returnIntent = new Intent(Select_seat_c.this, Select_return_ticket.class);
-                    startActivity(returnIntent);
-                } else {
-                    // Check if the required number of seats is selected
-                    if (selectedSeats.size() == Integer.parseInt(trainPax)) {
-                        // Navigate to the passenger details page
-                        navigateToPassengerDetailsPage();
+                Intent intent;
+
+                if (selectedSeats.size() == Integer.parseInt(trainPax)) {
+                    // Check if return ticket is allowed
+                    if (AppData.isReturnTicketAllowed) {
+                        intent = new Intent(Select_seat_c.this, Select_return_ticket.class);
+                        startActivity(intent);
                     } else {
-                        // If not all seats are selected, continue seat selection
-                        // You might want to add additional logic here if needed
+                        navigateToPassengerDetailsPage();
                     }
                 }
             }
@@ -260,7 +260,7 @@ public class Select_seat_c extends AppCompatActivity {
         String seatCoach = extractSeatCoach(seatId);
 
         // Get the original price from the TextView
-        TextView priceTextView = findViewById(R.id.price);
+        priceTextView = findViewById(R.id.price);
         String originalPriceStr = priceTextView.getText().toString();
 
         // Extract the numeric part of the price string
@@ -284,6 +284,9 @@ public class Select_seat_c extends AppCompatActivity {
         seatData.put("train_date", trainDate);
         seatData.put("user_email", getCurrentUserEmail());
         seatData.put("seat_price", seatPrice); // Save the doubled price
+        seatData.put("origin_name", originName);
+        seatData.put("destination_name", destinationName);
+        seatData.put("total_duration", totalDuration);
 
         // Save the seat data to the Firestore database
         db.collection("departseat")
@@ -362,8 +365,23 @@ public class Select_seat_c extends AppCompatActivity {
     }
 
     private void navigateToPassengerDetailsPage() {
-        setContentView(R.layout.passenger_details_start); // Load the passenger_details_start.xml layout
-        // You may need to handle any other UI logic specific to this layout
+        if ("1".equals(trainPax)) {
+            launchPassengerDetailsEnd();
+        } else {
+            launchPassengerDetailsStart();
+        }
+    }
+
+    private void launchPassengerDetailsStart() {
+        Intent intent = new Intent(this, passengerDetailsStart.class);
+        startActivity(intent);
+        finish();
+    }
+
+    private void launchPassengerDetailsEnd() {
+        Intent intent = new Intent(this, passengerDetailsEnd.class);
+        startActivity(intent);
+        finish();
     }
 
     public void back(View view) {
