@@ -40,7 +40,7 @@ public class Select_depart_ticket extends AppCompatActivity {
         setContentView(R.layout.select_depart_ticket);
 
         fStore = FirebaseFirestore.getInstance();
-        recyclerView = findViewById(R.id.depart);
+        recyclerView = findViewById(R.id.searchResultsRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         datalist = new ArrayList<>();
         adapter = new NorthAdapter(this, datalist);
@@ -65,7 +65,6 @@ public class Select_depart_ticket extends AppCompatActivity {
 
             trainP = findViewById(R.id.pax);
             trainP.setText("Total: " + trainPax + " Pax");
-        }
 
         fStore.collection("northbound")
                 .orderBy("id", Query.Direction.ASCENDING)
@@ -113,11 +112,15 @@ public class Select_depart_ticket extends AppCompatActivity {
 
                             adapter.updateData(datalist);
                             adapter.notifyDataSetChanged();
+
+                            retrieveFilteredData(trainOrigin, trainDes);
                         } else {
                             // Handle the case where the query was not successful
                         }
                     }
                 });
+        retrieveFilteredData(trainOrigin, trainDes);
+    }
     }
 
 
@@ -160,9 +163,30 @@ public class Select_depart_ticket extends AppCompatActivity {
                 // Start the return seat activity
                 startSeatActivity(Select_return_seat_a.class);
             }
+
+            Intent passDataIntent = new Intent(Select_depart_ticket.this, Select_seat_a.class);
+            passDataIntent.putExtra("search_query", trainOrigin);
+            passDataIntent.putExtra("search_destination", trainDes);
+            passDataIntent.putExtra("search_date", trainDate);
+            passDataIntent.putExtra("search_pax", trainPax);
+            startActivity(passDataIntent);
+
         }
     }
 
+    private void retrieveFilteredData(String originName, String destinationName) {
+        // Filter your original data list (datalist) based on the provided information
+        List<North> filteredDataList = new ArrayList<>();
+
+        for (North north : datalist) {
+            if (north.getName().contains(originName) && north.getName().contains(destinationName)) {
+                filteredDataList.add(north);
+            }
+        }
+
+        // Set the filtered data to the adapter
+        adapter.setFilteredList(filteredDataList);
+    }
 
     public void back(View view) {
         Intent intent = new Intent(this, MainActivity.class);

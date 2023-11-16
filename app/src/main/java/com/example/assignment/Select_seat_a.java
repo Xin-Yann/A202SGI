@@ -230,8 +230,23 @@ public class Select_seat_a extends AppCompatActivity {
                 if (selectedSeats.size() == Integer.parseInt(trainPax)) {
                     // Check if return ticket is allowed
                     if (AppData.isReturnTicketAllowed) {
-                        intent = new Intent(Select_seat_a.this, Select_return_ticket.class);
-                        startActivity(intent);
+                        Intent returnIntent = new Intent(Select_seat_a.this, Select_return_ticket.class);
+
+
+                        // Get the data from the returnIntent
+                        Intent passDataIntent = getIntent();
+                        String trainOrigin = passDataIntent.getStringExtra("search_query");
+                        String trainDes = passDataIntent.getStringExtra("search_destination");
+                        String trainDate = passDataIntent.getStringExtra("search_date");
+                        String trainPax = passDataIntent.getStringExtra("search_pax");
+
+                        // Put the data into the returnIntent
+                        returnIntent.putExtra("search_query", trainOrigin);
+                        returnIntent.putExtra("search_destination", trainDes);
+                        returnIntent.putExtra("search_date", trainDate);
+                        returnIntent.putExtra("search_pax", trainPax);
+
+                        startActivity(returnIntent);
                     } else {
                         navigateToPassengerDetailsPage();
                     }
