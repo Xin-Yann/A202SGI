@@ -10,7 +10,7 @@
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:orientation="vertical">
 
@@ -27,14 +27,15 @@
             android:textSize="16sp" />
 
         <ImageButton
-            android:id="@+id/vector_4"
+            android:id="@+id/back"
             android:layout_width="17dp"
-            android:layout_height="20dp"
+            android:layout_height="13dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="-40dp"
+            android:layout_marginBottom="12dp"
             android:background="@drawable/left_chevron"
             android:baselineAligned="false"
-            android:layout_marginBottom="12dp"/>
+            android:onClick="back" />
 
         <TextView
             android:id="@+id/origin"
@@ -47,42 +48,42 @@
             android:textColor="#000000"
             android:textSize="20sp" />
 
+        <!--
+                <TextView
+                    android:id="@+id/depart_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="55dp"
+                    android:layout_marginTop="5dp"
+                    android:gravity="top"
+                    android:text="Depart: time"
+                    android:textColor="#A2A2A2"
+                    android:textSize="12sp" />-->
 
-        <TextView
-            android:id="@+id/depart_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="55dp"
-            android:layout_marginTop="5dp"
-            android:gravity="top"
-            android:text="Depart: time"
-            android:textColor="#A2A2A2"
-            android:textSize="12sp" />
-
-        <TextView
-            android:id="@+id/duration"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="180dp"
-            android:layout_marginTop="-70dp"
-            android:text="Duration"
-            android:textColor="#000000"
-            android:textSize="12sp" />
+        <!-- <TextView
+             android:id="@+id/duration"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginStart="175dp"
+             android:layout_marginTop="-45dp"
+             android:text="Duration"
+             android:textColor="#000000"
+             android:textSize="12sp" />-->
 
 
         <ImageView
             android:id="@+id/imageView1"
             android:layout_width="80dp"
             android:layout_height="12dp"
-            android:layout_marginStart="110dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginStart="105dp"
+            android:layout_marginTop="-17dp"
             app:srcCompat="@drawable/new_moon_blue" />
 
         <TextView
             android:id="@+id/line"
             android:layout_width="95dp"
             android:layout_height="12dp"
-            android:layout_marginStart="158dp"
+            android:layout_marginStart="150dp"
             android:layout_marginTop="-17dp"
             android:gravity="top"
             android:text="----------------------------"
@@ -93,7 +94,7 @@
             android:id="@+id/imageView2"
             android:layout_width="80dp"
             android:layout_height="13dp"
-            android:layout_marginStart="215dp"
+            android:layout_marginStart="210dp"
             android:layout_marginTop="-9dp"
             app:srcCompat="@drawable/dry_clean" />
 
@@ -103,25 +104,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="270dp"
-            android:layout_marginTop="-16dp"
+            android:layout_marginTop="-23dp"
             android:gravity="top"
             android:text="Destination"
             android:textColor="#000000"
             android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/arrive_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="290dp"
-            android:layout_marginTop="4dp"
-            android:gravity="top"
-            android:text="Arrive: time"
-            android:textColor="#A2A2A2"
-            android:textSize="12sp" />
+        <!-- <TextView
+             android:id="@+id/arrive_time"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginStart="290dp"
+             android:layout_marginTop="4dp"
+             android:gravity="top"
+             android:text="Arrive: time"
+             android:textColor="#A2A2A2"
+             android:textSize="12sp" />-->
 
         <TextView
-            android:id="@+id/price"
+            android:id="@+id/pax"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="310dp"
@@ -132,646 +133,66 @@
             android:textColor="#000000"
             android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/jan_sun"
+
+        <LinearLayout
+            android:id="@+id/dateLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:gravity="top"
-            android:text="26 Jan, Sun"
-            android:textColor="#A2A2A2"
-            android:textSize="14sp" />
+            android:layout_alignParentTop="true"
+            android:orientation="horizontal"
+            android:layout_above="@+id/footer"
+            android:elevation="10dp">
 
-        <TextView
-            android:id="@+id/jan_mon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="106dp"
-            android:layout_marginTop="-20dp"
-            android:gravity="top"
-            android:text="27 Jan, Mon"
-            android:textColor="#000000"
-            android:textSize="14sp" />
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="top"
+                android:text="Date"
+                android:textColor="#000000"
+                android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/feb_tue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="214dp"
-            android:layout_marginTop="-20dp"
-            android:gravity="top"
-            android:text="3 Feb, Tue"
-            android:textColor="#A2A2A2"
-            android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/feb_wed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="307dp"
-            android:layout_marginTop="-20dp"
-            android:gravity="top"
-            android:text="4 Feb, Wed"
-            android:textColor="#A2A2A2"
-            android:textSize="14sp" />
-
-        <View
-            android:id="@+id/line_1"
-            android:layout_width="wrap_content"
-            android:layout_height="15dp"
-            android:background="@drawable/line2" />
+            <TextView
+                android:id="@+id/date1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="top"
+                android:text="4/2/2023"
+                android:textColor="#000000"
+                android:textSize="14sp" />
+        </LinearLayout>
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="top">
 
             <LinearLayout
                 android:id="@+id/linearLayout7"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:background="#DEEDF4"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_above="@+id/footer"
+                android:elevation="10dp">
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/roundedContainer"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/return_ticket"
                     android:layout_width="match_parent"
-                    android:layout_height="125dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="16dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="16dp"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="4dp"
-                    android:onClick="toSeat">
+                    android:layout_height="match_parent"
+                    />
 
-                    <TextView
-                        android:id="@+id/duration1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="155dp"
-                        android:layout_marginTop="14dp"
-                        android:gravity="top"
-                        android:text="Duration"
-                        android:textColor="#000000"
-                        android:textSize="12sp" />
 
-                    <RelativeLayout
-                        android:id="@+id/linearLayout"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="20dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/origin1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="25dp"
-                            android:gravity="top"
-                            android:text="Origin"
-                            android:textColor="#000000"
-                            android:textSize="20sp" />
-
-
-                        <TextView
-                            android:id="@+id/depart_time1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginTop="30dp"
-                            android:gravity="top"
-                            android:text="Depart: time"
-                            android:textColor="#A2A2A2"
-                            android:textSize="12sp" />
-
-                        <ImageView
-                            android:id="@+id/imageView3"
-                            android:layout_width="80dp"
-                            android:layout_height="12dp"
-                            android:layout_marginStart="85dp"
-                            android:layout_marginTop="10dp"
-                            app:srcCompat="@drawable/new_moon_blue" />
-
-                        <TextView
-                            android:id="@+id/line1"
-                            android:layout_width="93dp"
-                            android:layout_height="15dp"
-                            android:layout_marginStart="120dp"
-                            android:layout_marginTop="5dp"
-                            android:gravity="top"
-                            android:text="---------------------------"
-                            android:textColor="#000000"
-                            android:textSize="15sp" />
-
-                        <ImageView
-                            android:id="@+id/imageView4"
-                            android:layout_width="80dp"
-                            android:layout_height="15dp"
-                            android:layout_marginStart="180dp"
-                            android:layout_marginTop="10dp"
-                            app:srcCompat="@drawable/dry_clean" />
-
-                        <TextView
-                            android:id="@+id/destination1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="244dp"
-                            android:gravity="top"
-                            android:text="Destination"
-                            android:textColor="#000000"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/arrive_time1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="265dp"
-                            android:layout_marginTop="30dp"
-                            android:gravity="top"
-                            android:text="Arrive: time"
-                            android:textColor="#A2A2A2"
-                            android:textSize="12sp" />
-
-                        <TextView
-                            android:id="@+id/price1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="280dp"
-                            android:layout_marginTop="60dp"
-                            android:gravity="top"
-                            android:text="Total: Pax"
-                            android:textColor="#000000"
-                            android:textSize="14sp" />
-                    </RelativeLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/roundedContainer2"
-                    android:layout_width="match_parent"
-                    android:layout_height="125dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="16dp"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="4dp"
-                    android:onClick="toSeat">
-
-                    <TextView
-                        android:id="@+id/duration2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="155dp"
-                        android:layout_marginTop="14dp"
-                        android:gravity="top"
-                        android:text="Duration"
-                        android:textColor="#000000"
-                        android:textSize="12sp" />
-
-                    <RelativeLayout
-                        android:id="@+id/linearLayout3"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="20dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/origin2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="25dp"
-                            android:gravity="top"
-                            android:text="Origin"
-                            android:textColor="#000000"
-                            android:textSize="20sp" />
-
-
-                        <TextView
-                            android:id="@+id/depart_time2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginTop="30dp"
-                            android:gravity="top"
-                            android:text="Depart: time"
-                            android:textColor="#A2A2A2"
-                            android:textSize="12sp" />
-
-                        <ImageView
-                            android:id="@+id/imageView5"
-                            android:layout_width="80dp"
-                            android:layout_height="12dp"
-                            android:layout_marginStart="85dp"
-                            android:layout_marginTop="10dp"
-                            app:srcCompat="@drawable/new_moon_blue" />
-
-
-                        <TextView
-                            android:id="@+id/line2"
-                            android:layout_width="93dp"
-                            android:layout_height="15dp"
-                            android:layout_marginStart="120dp"
-                            android:layout_marginTop="5dp"
-                            android:gravity="top"
-                            android:text="---------------------------"
-                            android:textColor="#000000"
-                            android:textSize="15sp" />
-
-                        <ImageView
-                            android:id="@+id/imageView6"
-                            android:layout_width="80dp"
-                            android:layout_height="15dp"
-                            android:layout_marginStart="180dp"
-                            android:layout_marginTop="10dp"
-                            app:srcCompat="@drawable/dry_clean" />
-
-                        <TextView
-                            android:id="@+id/destination2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="244dp"
-                            android:gravity="top"
-                            android:text="Destination"
-                            android:textColor="#000000"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/arrive_time2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="265dp"
-                            android:layout_marginTop="30dp"
-                            android:gravity="top"
-                            android:text="Arrive: time"
-                            android:textColor="#A2A2A2"
-                            android:textSize="12sp" />
-
-                        <TextView
-                            android:id="@+id/price2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="280dp"
-                            android:layout_marginTop="60dp"
-                            android:gravity="top"
-                            android:text="Total: Pax"
-                            android:textColor="#000000"
-                            android:textSize="14sp" />
-                    </RelativeLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/roundedContainer3"
-                    android:layout_width="match_parent"
-                    android:layout_height="125dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="16dp"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="4dp"
-                    android:onClick="toSeat">
-
-                    <TextView
-                        android:id="@+id/duration3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="155dp"
-                        android:layout_marginTop="14dp"
-                        android:gravity="top"
-                        android:text="Duration"
-                        android:textColor="#000000"
-                        android:textSize="12sp" />
-
-                    <RelativeLayout
-                        android:id="@+id/linearLayout4"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="20dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/origin3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="25dp"
-                            android:gravity="top"
-                            android:text="Origin"
-                            android:textColor="#000000"
-                            android:textSize="20sp" />
-
-
-                        <TextView
-                            android:id="@+id/depart_time3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginTop="30dp"
-                            android:gravity="top"
-                            android:text="Depart: time"
-                            android:textColor="#A2A2A2"
-                            android:textSize="12sp" />
-
-                        <ImageView
-                            android:id="@+id/imageView7"
-                            android:layout_width="80dp"
-                            android:layout_height="12dp"
-                            android:layout_marginStart="85dp"
-                            android:layout_marginTop="10dp"
-                            app:srcCompat="@drawable/new_moon_blue" />
-
-
-                        <TextView
-                            android:id="@+id/line3"
-                            android:layout_width="93dp"
-                            android:layout_height="15dp"
-                            android:layout_marginStart="120dp"
-                            android:layout_marginTop="5dp"
-                            android:gravity="top"
-                            android:text="---------------------------"
-                            android:textColor="#000000"
-                            android:textSize="15sp" />
-
-                        <ImageView
-                            android:id="@+id/imageView8"
-                            android:layout_width="80dp"
-                            android:layout_height="15dp"
-                            android:layout_marginStart="180dp"
-                            android:layout_marginTop="10dp"
-                            app:srcCompat="@drawable/dry_clean" />
-
-                        <TextView
-                            android:id="@+id/destination3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="244dp"
-                            android:gravity="top"
-                            android:text="Destination"
-                            android:textColor="#000000"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/arrive_time3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="265dp"
-                            android:layout_marginTop="30dp"
-                            android:gravity="top"
-                            android:text="Arrive: time"
-                            android:textColor="#A2A2A2"
-                            android:textSize="12sp" />
-
-                        <TextView
-                            android:id="@+id/price3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="280dp"
-                            android:layout_marginTop="60dp"
-                            android:gravity="top"
-                            android:text="Total: Pax"
-                            android:textColor="#000000"
-                            android:textSize="14sp" />
-                    </RelativeLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/roundedContainer4"
-                    android:layout_width="match_parent"
-                    android:layout_height="125dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="16dp"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="4dp"
-                    android:onClick="toSeat">
-
-                    <TextView
-                        android:id="@+id/duration4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="155dp"
-                        android:layout_marginTop="14dp"
-                        android:gravity="top"
-                        android:text="Duration"
-                        android:textColor="#000000"
-                        android:textSize="12sp" />
-
-                    <RelativeLayout
-                        android:id="@+id/linearLayout5"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="20dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/origin4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="25dp"
-                            android:gravity="top"
-                            android:text="Origin"
-                            android:textColor="#000000"
-                            android:textSize="20sp" />
-
-
-                        <TextView
-                            android:id="@+id/depart_time4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginTop="30dp"
-                            android:gravity="top"
-                            android:text="Depart: time"
-                            android:textColor="#A2A2A2"
-                            android:textSize="12sp" />
-
-                        <ImageView
-                            android:id="@+id/imageView9"
-                            android:layout_width="80dp"
-                            android:layout_height="12dp"
-                            android:layout_marginStart="85dp"
-                            android:layout_marginTop="10dp"
-                            app:srcCompat="@drawable/new_moon_blue" />
-
-
-                        <TextView
-                            android:id="@+id/line4"
-                            android:layout_width="93dp"
-                            android:layout_height="15dp"
-                            android:layout_marginStart="120dp"
-                            android:layout_marginTop="5dp"
-                            android:gravity="top"
-                            android:text="---------------------------"
-                            android:textColor="#000000"
-                            android:textSize="15sp" />
-
-                        <ImageView
-                            android:id="@+id/imageView10"
-                            android:layout_width="80dp"
-                            android:layout_height="15dp"
-                            android:layout_marginStart="180dp"
-                            android:layout_marginTop="10dp"
-                            app:srcCompat="@drawable/dry_clean" />
-
-                        <TextView
-                            android:id="@+id/destination4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="244dp"
-                            android:gravity="top"
-                            android:text="Destination"
-                            android:textColor="#000000"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/arrive_time4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="265dp"
-                            android:layout_marginTop="30dp"
-                            android:gravity="top"
-                            android:text="Arrive: time"
-                            android:textColor="#A2A2A2"
-                            android:textSize="12sp" />
-
-                        <TextView
-                            android:id="@+id/price4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="280dp"
-                            android:layout_marginTop="60dp"
-                            android:gravity="top"
-                            android:text="Total: Pax"
-                            android:textColor="#000000"
-                            android:textSize="14sp" />
-                    </RelativeLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/roundedContainer5"
-                    android:layout_width="match_parent"
-                    android:layout_height="125dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="16dp"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="4dp"
-                    android:onClick="toSeat">
-
-                    <TextView
-                        android:id="@+id/duration5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="155dp"
-                        android:layout_marginTop="14dp"
-                        android:gravity="top"
-                        android:text="Duration"
-                        android:textColor="#000000"
-                        android:textSize="12sp" />
-
-                    <RelativeLayout
-                        android:id="@+id/linearLayout6"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="20dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/origin5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="25dp"
-                            android:gravity="top"
-                            android:text="Origin"
-                            android:textColor="#000000"
-                            android:textSize="20sp" />
-
-
-                        <TextView
-                            android:id="@+id/depart_time5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginTop="30dp"
-                            android:gravity="top"
-                            android:text="Depart: time"
-                            android:textColor="#A2A2A2"
-                            android:textSize="12sp" />
-
-                        <ImageView
-                            android:id="@+id/imageView11"
-                            android:layout_width="80dp"
-                            android:layout_height="12dp"
-                            android:layout_marginStart="85dp"
-                            android:layout_marginTop="10dp"
-                            app:srcCompat="@drawable/new_moon_blue" />
-
-
-                        <TextView
-                            android:id="@+id/line5"
-                            android:layout_width="93dp"
-                            android:layout_height="15dp"
-                            android:layout_marginStart="120dp"
-                            android:layout_marginTop="5dp"
-                            android:gravity="top"
-                            android:text="---------------------------"
-                            android:textColor="#000000"
-                            android:textSize="15sp" />
-
-                        <ImageView
-                            android:id="@+id/imageView12"
-                            android:layout_width="80dp"
-                            android:layout_height="15dp"
-                            android:layout_marginStart="180dp"
-                            android:layout_marginTop="10dp"
-                            app:srcCompat="@drawable/dry_clean" />
-
-                        <TextView
-                            android:id="@+id/destination5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="244dp"
-                            android:gravity="top"
-                            android:text="Destination"
-                            android:textColor="#000000"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/arrive_time5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="265dp"
-                            android:layout_marginTop="30dp"
-                            android:gravity="top"
-                            android:text="Arrive: time"
-                            android:textColor="#A2A2A2"
-                            android:textSize="12sp" />
-
-                        <TextView
-                            android:id="@+id/price5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="280dp"
-                            android:layout_marginTop="60dp"
-                            android:gravity="top"
-                            android:text="Total: Pax"
-                            android:textColor="#000000"
-                            android:textSize="14sp" />
-                    </RelativeLayout>
-
-                </androidx.cardview.widget.CardView>
             </LinearLayout>
         </ScrollView>
+
     </LinearLayout>
     <RelativeLayout
         android:id="@+id/footer"
@@ -779,35 +200,37 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="#FEFAFD"
+
         android:gravity="center_horizontal">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
-            android:orientation="horizontal"
-            android:layout_marginLeft="60dp">
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
 
             <ImageButton
                 android:id="@+id/image1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="88dp"
                 android:background="#ffff"
                 android:contentDescription="Image1"
                 android:onClick="clickImage1"
                 android:padding="5dp"
-                app:srcCompat="@drawable/home"
-                android:layout_marginRight="88dp"/>
+                app:srcCompat="@drawable/home" />
 
             <ImageButton
                 android:id="@+id/image2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="95dp"
                 android:background="#ffffff"
                 android:onClick="clickImage2"
-                app:srcCompat="@drawable/ticket"
-                android:layout_marginRight="95dp"
-                android:layout_marginLeft="5dp"/>
+                app:srcCompat="@drawable/ticket" />
 
 
             <ImageButton
@@ -825,32 +248,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:gravity="center_horizontal"
             android:orientation="horizontal"
-            android:padding="10dp"
-            android:layout_marginTop="20dp"
-            android:gravity="center_horizontal">
+            android:padding="10dp">
 
 
             <TextView
                 android:id="@+id/home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="70dp"
                 android:gravity="top"
                 android:text="Home"
                 android:textColor="#000000"
-                android:textSize="14sp"
-                android:layout_marginRight="70dp"/>
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/myTicket"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="70dp"
                 android:gravity="top"
                 android:text="My Ticket"
                 android:textColor="#000000"
-                android:textSize="14sp"
-                android:layout_marginRight="70dp"
-                android:layout_marginLeft="10dp"/>
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/account"

@@ -27,14 +27,15 @@
             android:textSize="16sp" />
 
         <ImageButton
-            android:id="@+id/vector_4"
+            android:id="@+id/back"
             android:layout_width="17dp"
             android:layout_height="20dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="-40dp"
             android:background="@drawable/left_chevron"
             android:baselineAligned="false"
-            android:layout_marginBottom="12dp"/>
+            android:layout_marginBottom="12dp"
+            android:onClick="back"/>
 
         <TextView
             android:id="@+id/origin"
@@ -47,7 +48,7 @@
             android:textColor="#000000"
             android:textSize="20sp" />
 
-
+<!--
         <TextView
             android:id="@+id/depart_time"
             android:layout_width="wrap_content"
@@ -57,32 +58,32 @@
             android:gravity="top"
             android:text="Depart: time"
             android:textColor="#A2A2A2"
-            android:textSize="12sp" />
+            android:textSize="12sp" />-->
 
-        <TextView
+       <!-- <TextView
             android:id="@+id/duration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="180dp"
-            android:layout_marginTop="-70dp"
+            android:layout_marginStart="175dp"
+            android:layout_marginTop="-45dp"
             android:text="Duration"
             android:textColor="#000000"
-            android:textSize="12sp" />
+            android:textSize="12sp" />-->
 
 
         <ImageView
             android:id="@+id/imageView1"
             android:layout_width="80dp"
             android:layout_height="12dp"
-            android:layout_marginStart="110dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginStart="105dp"
+            android:layout_marginTop="-17dp"
             app:srcCompat="@drawable/new_moon_blue" />
 
         <TextView
             android:id="@+id/line"
             android:layout_width="95dp"
             android:layout_height="12dp"
-            android:layout_marginStart="158dp"
+            android:layout_marginStart="150dp"
             android:layout_marginTop="-17dp"
             android:gravity="top"
             android:text="----------------------------"
@@ -93,7 +94,7 @@
             android:id="@+id/imageView2"
             android:layout_width="80dp"
             android:layout_height="13dp"
-            android:layout_marginStart="215dp"
+            android:layout_marginStart="210dp"
             android:layout_marginTop="-9dp"
             app:srcCompat="@drawable/dry_clean" />
 
@@ -103,13 +104,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="270dp"
-            android:layout_marginTop="-16dp"
+            android:layout_marginTop="-23dp"
             android:gravity="top"
             android:text="Destination"
             android:textColor="#000000"
             android:textSize="20sp" />
 
-        <TextView
+       <!-- <TextView
             android:id="@+id/arrive_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -118,10 +119,10 @@
             android:gravity="top"
             android:text="Arrive: time"
             android:textColor="#A2A2A2"
-            android:textSize="12sp" />
+            android:textSize="12sp" />-->
 
         <TextView
-            android:id="@+id/price"
+            android:id="@+id/pax"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="310dp"
@@ -132,54 +133,39 @@
             android:textColor="#000000"
             android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/jan_sun"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:gravity="top"
-            android:text="26 Jan, Sun"
-            android:textColor="#A2A2A2"
-            android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/jan_mon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="106dp"
-            android:layout_marginTop="-20dp"
-            android:gravity="top"
-            android:text="27 Jan, Mon"
-            android:textColor="#000000"
-            android:textSize="14sp" />
+        <LinearLayout
+        android:id="@+id/dateLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal"
+        android:layout_above="@+id/footer"
+        android:elevation="10dp">
 
-        <TextView
-            android:id="@+id/feb_tue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="214dp"
-            android:layout_marginTop="-20dp"
-            android:gravity="top"
-            android:text="3 Feb, Tue"
-            android:textColor="#A2A2A2"
-            android:textSize="14sp" />
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="top"
+                android:text="Date"
+                android:textColor="#000000"
+                android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/feb_wed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="307dp"
-            android:layout_marginTop="-20dp"
-            android:gravity="top"
-            android:text="4 Feb, Wed"
-            android:textColor="#A2A2A2"
-            android:textSize="14sp" />
 
-        <View
-            android:id="@+id/line_1"
-            android:layout_width="wrap_content"
-            android:layout_height="15dp"
-            android:background="@drawable/line2" />
+            <TextView
+                android:id="@+id/date1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="top"
+                android:text="4/2/2023"
+                android:textColor="#000000"
+                android:textSize="14sp" />
+        </LinearLayout>
 
         <ScrollView
             android:layout_width="match_parent"
@@ -202,6 +188,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     />
+
 
             </LinearLayout>
         </ScrollView>

@@ -51,21 +51,14 @@
 
             <ImageButton
                 android:id="@+id/logout"
-                android:layout_width="100dp"
-                android:layout_height="35dp"
-                android:layout_marginLeft="300dp"
-                android:layout_marginTop="25dp"
-                android:backgroundTint="#030F51"
-                android:text="Logout" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_marginLeft="330dp"
+                android:layout_marginBottom="25dp"
+                app:srcCompat="@drawable/logout"/>
 
-<!--            <Button-->
-<!--                android:id="@+id/logout"-->
-<!--                android:layout_width="100dp"-->
-<!--                android:layout_height="45dp"-->
-<!--                android:backgroundTint="#030F51"-->
-<!--                android:text="Logout"-->
-<!--                android:layout_marginTop="18dp"-->
-<!--                android:layout_marginStart="300dp" />-->
+          
 
 
             <com.google.android.material.tabs.TabLayout

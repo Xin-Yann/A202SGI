@@ -25,7 +25,7 @@
             android:layout_height="45dp"
             android:background="#040F51"
             android:gravity="center"
-            android:text="Select Seat"
+            android:text="Select Depart Seat"
             android:textAlignment="center"
             android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
@@ -45,12 +45,13 @@
 
         <TextView
             android:id="@+id/origin"
-            android:layout_width="wrap_content"
+            android:layout_width="130dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="65dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="70dp"
-            android:gravity="top"
-            android:text="Origin"
+            android:paddingEnd="5dp"
+            android:gravity="end"
+            android:text=""
             android:textColor="#000000"
             android:textSize="20sp" />
 
@@ -70,10 +71,10 @@
             android:id="@+id/duration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="175dp"
+            android:layout_marginStart="142dp"
             android:layout_marginTop="-70dp"
             android:gravity="top"
-            android:text="Duration"
+            android:text=""
             android:textColor="#000000"
             android:textSize="12sp" />
 
@@ -111,7 +112,7 @@
             android:layout_marginStart="269dp"
             android:layout_marginTop="-22dp"
             android:gravity="top"
-            android:text="Destination"
+            android:text=""
             android:textColor="#000000"
             android:textSize="20sp" />
 
@@ -130,62 +131,15 @@
             android:id="@+id/price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="338dp"
+            android:layout_marginStart="300dp"
             android:layout_marginTop="10dp"
             android:gravity="top"
-            android:text="Price"
+            android:text=""
             android:textColor="#000000"
             android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/jan_sun"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="0dp"
-            android:gravity="top"
-            android:text="26 Jan, Sun"
-            android:textColor="#A2A2A2"
-            android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/jan_mon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="116dp"
-            android:layout_marginTop="-20dp"
-            android:gravity="top"
-            android:text="27 Jan, Mon"
-            android:textColor="#000000"
-            android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/feb_tue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="224dp"
-            android:layout_marginTop="-20dp"
-            android:gravity="top"
-            android:text="3 Feb, Tue"
-            android:textColor="#A2A2A2"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/feb_wed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="317dp"
-            android:layout_marginTop="-20dp"
-            android:gravity="top"
-            android:text="4 Feb, Wed"
-            android:textColor="#A2A2A2"
-            android:textSize="14sp" />
-
-        <View
-            android:id="@+id/line_1"
-            android:layout_width="wrap_content"
-            android:layout_height="15dp"
-            android:background="@drawable/line2" />
 
         <ImageButton
             android:id="@+id/left_chevron1"
@@ -195,67 +149,74 @@
             android:layout_marginTop="15dp"
             android:background="@drawable/left_chevron1"
             android:contentDescription="Left Chevron"
-            tools:ignore="TouchTargetSizeCheck"/>
+            tools:ignore="TouchTargetSizeCheck"
+            android:onClick="toCoachB"/>
 
         <ImageButton
-            android:id="@+id/rectangle_1"
+            android:id="@+id/Coach_a"
             android:layout_width="50dp"
             android:layout_height="35dp"
             android:layout_marginStart="60dp"
             android:layout_marginTop="-28dp"
-            android:background="@drawable/minus__blue"
+            android:background="@drawable/minus__grey"
             android:contentDescription="Rectangle 1"
-            tools:ignore="TouchTargetSizeCheck"/>
+            tools:ignore="TouchTargetSizeCheck"
+            android:onClick="toSeat_a"/>
 
         <ImageButton
-            android:id="@+id/rectangle_2"
+            android:id="@+id/Coach_b"
             android:layout_width="50dp"
             android:layout_height="35dp"
             android:layout_marginStart="120dp"
             android:layout_marginTop="-35dp"
             android:background="@drawable/minus__grey"
             android:contentDescription="Rectangle 2"
-            tools:ignore="TouchTargetSizeCheck"/>
+            tools:ignore="TouchTargetSizeCheck"
+            android:onClick="toSeat_b"/>
 
         <ImageButton
-            android:id="@+id/rectangle_3"
+            android:id="@+id/Coach_c"
             android:layout_width="50dp"
             android:layout_height="35dp"
             android:layout_marginStart="180dp"
             android:layout_marginTop="-35dp"
-            android:background="@drawable/minus__grey"
+            android:background="@drawable/minus__blue"
             android:contentDescription="Rectangle 3"
-            tools:ignore="TouchTargetSizeCheck"/>
+            tools:ignore="TouchTargetSizeCheck"
+            android:onClick="toSeat_c"/>
 
         <ImageButton
-            android:id="@+id/rectangle_4"
+            android:id="@+id/Coach_d"
             android:layout_width="50dp"
             android:layout_height="35dp"
             android:layout_marginStart="240dp"
             android:layout_marginTop="-35dp"
             android:background="@drawable/minus__grey"
             android:contentDescription="Rectangle 4"
-            tools:ignore="TouchTargetSizeCheck"/>
+            tools:ignore="TouchTargetSizeCheck"
+            android:onClick="toSeat_d"/>
 
         <ImageButton
-            android:id="@+id/rectangle_5"
+            android:id="@+id/Coach_e"
             android:layout_width="50dp"
             android:layout_height="35dp"
             android:layout_marginStart="300dp"
             android:layout_marginTop="-35dp"
             android:background="@drawable/minus__grey"
             android:contentDescription="Rectangle 5"
-            tools:ignore="TouchTargetSizeCheck"/>
+            tools:ignore="TouchTargetSizeCheck"
+            android:onClick="toSeat_e"/>
 
         <ImageButton
             android:id="@+id/right_chevron1"
-            android:layout_width="17dp"
+            android:layout_width="15dp"
             android:layout_height="20dp"
             android:layout_marginStart="365dp"
             android:layout_marginTop="-27dp"
             android:background="@drawable/right_chevron1"
             android:contentDescription="Right Chevron"
-            tools:ignore="TouchTargetSizeCheck"/>
+            tools:ignore="TouchTargetSizeCheck"
+            android:onClick="toCoachD"/>
 
         <TextView
             android:id="@+id/coach_c"
@@ -336,15 +297,16 @@
             android:text="Forward" />
 
         <ScrollView
+            android:id="@+id/scroll_view"
             android:layout_width="match_parent"
-            android:layout_height="320dp">
+            android:layout_height="320dp"
+            android:background="#DEEDF4">
 
             <LinearLayout
                 android:id="@+id/linearLayout3"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="0dp"
+                android:layout_height="wrap_content"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
                 android:orientation="vertical"
                 android:background="#DEEDF4">
 
@@ -364,7 +326,7 @@
                     android:layout_marginStart="53dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/normal_seat_w"
-                    android:contentDescription="1A"
+                    android:contentDescription="Coach C Seat 1A normal seat"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -384,7 +346,7 @@
                     android:layout_marginStart="112dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/normal_seat_a"
-                    android:contentDescription="1B"
+                    android:contentDescription="Coach C Seat 1B normal seat"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -404,7 +366,7 @@
                     android:layout_marginStart="253dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/normal_seat_a"
-                    android:contentDescription="1C"
+                    android:contentDescription="Coach C Seat 1C normal seat"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -424,7 +386,7 @@
                     android:layout_marginStart="312dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/normal_seat_w"
-                    android:contentDescription="1D"
+                    android:contentDescription="Coach C Seat 1D normal seat"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -444,7 +406,7 @@
                     android:layout_marginStart="53dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/normal_seat_w"
-                    android:contentDescription="2A"
+                    android:contentDescription="Coach C Seat 2A normal seat"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -464,7 +426,7 @@
                     android:layout_marginStart="112dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/normal_seat_a"
-                    android:contentDescription="2B"
+                    android:contentDescription="Coach C Seat 2B normal seat"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -484,7 +446,7 @@
                     android:layout_marginStart="253dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/normal_seat_a"
-                    android:contentDescription="2C"
+                    android:contentDescription="Coach C Seat 2C normal seat"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -504,7 +466,7 @@
                     android:layout_marginStart="312dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/normal_seat_w"
-                    android:contentDescription="2D"
+                    android:contentDescription="Coach C Seat 2D normal seat"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -524,7 +486,7 @@
                     android:layout_marginStart="53dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/normal_seat_w"
-                    android:contentDescription="3A"
+                    android:contentDescription="Coach C Seat 3A normal seat"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -544,7 +506,7 @@
                     android:layout_marginStart="112dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/normal_seat_a"
-                    android:contentDescription="3B"
+                    android:contentDescription="Coach C Seat 3B normal seat"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -564,7 +526,7 @@
                     android:layout_marginStart="253dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/normal_seat_a"
-                    android:contentDescription="3C"
+                    android:contentDescription="Coach C Seat 3C normal seat"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -584,7 +546,7 @@
                     android:layout_marginStart="312dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/normal_seat_w"
-                    android:contentDescription="3D"
+                    android:contentDescription="Coach C Seat 3D normal seat"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -604,7 +566,7 @@
                     android:layout_marginStart="53dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/normal_seat_w"
-                    android:contentDescription="4A"
+                    android:contentDescription="Coach C Seat 4A normal seat"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -624,7 +586,7 @@
                     android:layout_marginStart="112dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/normal_seat_a"
-                    android:contentDescription="4B"
+                    android:contentDescription="Coach C Seat 4B normal seat"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -644,7 +606,7 @@
                     android:layout_marginStart="253dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/normal_seat_a"
-                    android:contentDescription="4C"
+                    android:contentDescription="Coach C Seat 4C normal seat"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -664,7 +626,7 @@
                     android:layout_marginStart="312dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/normal_seat_w"
-                    android:contentDescription="4D"
+                    android:contentDescription="Coach C Seat 4D normal seat"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -684,7 +646,7 @@
                     android:layout_marginStart="53dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/normal_seat_w"
-                    android:contentDescription="%A"
+                    android:contentDescription="Coach C Seat 5A normal seat"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -704,7 +666,7 @@
                     android:layout_marginStart="112dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/normal_seat_a"
-                    android:contentDescription="5B"
+                    android:contentDescription="Coach C Seat 5B normal seat"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -724,7 +686,7 @@
                     android:layout_marginStart="253dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/normal_seat_a"
-                    android:contentDescription="5C"
+                    android:contentDescription="Coach C Seat 5C normal seat"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
 
@@ -744,7 +706,7 @@
                     android:layout_marginStart="312dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/normal_seat_w"
-                    android:contentDescription="5D"
+                    android:contentDescription="Coach C Seat 5D normal seat"
                     android:onClick="normalSeatClicked"
                     android:scaleType="fitCenter"/>
 
