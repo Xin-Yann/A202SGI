@@ -41,7 +41,6 @@ public class fragment1 extends Fragment {
 
         // Find the search button and set an OnClickListener
         Button searchButton = view.findViewById(R.id.selectTicket);
-        AppData.isDepartTicketSelected = true;
 
         // Find the TextInputEditText within the fragment's view
         inputLayout = view.findViewById(R.id.inputOrigin);
@@ -142,8 +141,6 @@ public class fragment1 extends Fragment {
             Log.d("Filtering", "Filtered Station Name: " + north.getName());
         }
     }
-
-
 }
 
 

@@ -66,63 +66,116 @@ public class Select_depart_ticket extends AppCompatActivity {
             trainP = findViewById(R.id.pax);
             trainP.setText("Total: " + trainPax + " Pax");
 
-        fStore.collection("northbound")
-                .orderBy("id", Query.Direction.ASCENDING)
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            datalist.clear();
+            fStore.collection("northbound")
+                    .orderBy("id", Query.Direction.ASCENDING)
+                    .get()
+                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if (task.isSuccessful()) {
+                                datalist.clear();
 
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                String stationName = document.getString("name");
-                                String stationDuration = document.getString("diffMin");
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+                                    String stationName = document.getString("name");
+                                    String stationDuration = document.getString("diffMin");
 
-                                North northStation = new North(stationName, stationDuration);
-                                datalist.add(northStation);
-                            }
-
-                            Set<String> uniquePairs = new HashSet<>();
-                            List<North> uniqueDatalist = new ArrayList<>();
-
-                            for (int i = 0; i < datalist.size(); i++) {
-                                for (int j = i + 1; j < datalist.size(); j++) {
-                                    North origin = datalist.get(i);
-                                    North destination = datalist.get(j);
-
-                                    String forwardPair = origin.getName() + " ----------- " + destination.getName();
-                                    String reversePair = destination.getName() + " ---------- " + origin.getName();
-                                    double totalDuration = 0.0;
-
-                                    for (int k = i; k <= j; k++) {
-                                        totalDuration += Double.parseDouble(datalist.get(k).getDuration());
-                                    }
-
-                                    uniquePairs.add(forwardPair);
-                                    uniquePairs.add(reversePair);
-
-                                    uniqueDatalist.add(new North(forwardPair, String.format("%.2f", totalDuration)));
-                                    uniqueDatalist.add(new North(reversePair, String.format("%.2f", totalDuration)));
+                                    North northStation = new North(stationName, stationDuration);
+                                    datalist.add(northStation);
                                 }
+
+                                Set<String> uniquePairs = new HashSet<>();
+                                List<North> uniqueDatalist = new ArrayList<>();
+
+                                for (int i = 0; i < datalist.size(); i++) {
+                                    for (int j = i + 1; j < datalist.size(); j++) {
+                                        North origin = datalist.get(i);
+                                        North destination = datalist.get(j);
+
+                                        String forwardPair = origin.getName() + " ----------- " + destination.getName();
+                                        String reversePair = destination.getName() + " ---------- " + origin.getName();
+
+                                        double totalDuration = 0.0;
+                                        String initialDepartureTime = "08:00";
+                                        String departureTime = calculateArrivalTime(initialDepartureTime, totalDuration);
+
+
+                                        for (int k = i; k <= j; k++) {
+                                            totalDuration += Double.parseDouble(datalist.get(k).getDuration());
+                                        }
+
+                                        String arrivalTime = calculateArrivalTime(departureTime, totalDuration);
+                                        String formattedDuration = formattedDuration(totalDuration);
+
+
+                                        uniquePairs.add(forwardPair);
+                                        uniquePairs.add(reversePair);
+
+                                        uniqueDatalist.add(new North(forwardPair, formattedDuration, departureTime, arrivalTime));
+                                        uniqueDatalist.add(new North(reversePair, formattedDuration, departureTime, arrivalTime));
+
+                                    }
+                                }
+
+                                datalist.clear();
+                                datalist.addAll(uniqueDatalist);
+
+                                adapter.updateData(datalist);
+                                adapter.notifyDataSetChanged();
+
+                                retrieveFilteredData(trainOrigin, trainDes);
+                            } else {
+                                // Handle the case where the query was not successful
                             }
-
-                            datalist.clear();
-                            datalist.addAll(uniqueDatalist);
-
-                            adapter.updateData(datalist);
-                            adapter.notifyDataSetChanged();
-
-                            retrieveFilteredData(trainOrigin, trainDes);
-                        } else {
-                            // Handle the case where the query was not successful
                         }
-                    }
-                });
-        retrieveFilteredData(trainOrigin, trainDes);
-    }
+                    });
+            /*retrieveFilteredData(trainOrigin, trainDes);*/
+        }
     }
 
+    private String calculateArrivalTime(String initialDepartureTime, double totalDuration) {
+        int initialDepartureMinutes = convertToMinutes(initialDepartureTime);
+
+        // Calculate total minutes
+        int totalMinutes = initialDepartureMinutes + (int) totalDuration;
+
+        // Calculate hours and remaining minutes
+        int hours = totalMinutes / 60;
+        int remainingMinutes = totalMinutes % 60;
+
+        // Return the formatted string
+        return String.format("%02d:%02d", hours, remainingMinutes);
+    }
+
+    private String formattedDuration(double totalDuration) {
+        // Calculate total minutes
+        int totalMinutes = (int) totalDuration;
+
+        // Calculate hours and remaining minutes
+        int hours = totalMinutes / 60;
+        int remainingMinutes = totalMinutes % 60;
+
+        // Return the formatted string
+        if (remainingMinutes > 0) {
+            return String.format("%d hrs %02d mins", hours, remainingMinutes);
+        } else {
+            return String.format("%02d hrs", hours);
+        }
+    }
+
+
+    private int convertToMinutes(String time) {
+        String[] parts = time.split(":");
+        int hours = Integer.parseInt(parts[0]);
+        int minutes = Integer.parseInt(parts[1]);
+        return hours * 60 + minutes;
+    }
+
+    private String convertToTimeFormat(int minutes) {
+        int hours = minutes / 60;
+        int remainingMinutes = minutes % 60;
+
+        return String.format("%02d:%02d", hours, remainingMinutes);
+    }
 
     public void toSeat(View view) {
         Intent intent = getIntent();
