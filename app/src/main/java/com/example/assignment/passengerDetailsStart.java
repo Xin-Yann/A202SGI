@@ -41,12 +41,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class passengerDetailsEnd extends AppCompatActivity {
+public class passengerDetailsStart extends AppCompatActivity {
     FirebaseFirestore firestore;
     RadioGroup radioGroup;
     Fragment currentFragment;
     Spinner selectTicketType;
-    Button makePaymentButton;
+    Button nextPassengerButton;
     Button clearButton;
     AlertDialog.Builder builder;
     Spinner selectPrePassenger;
@@ -54,12 +54,12 @@ public class passengerDetailsEnd extends AppCompatActivity {
     ArrayAdapter<String> adapterForTicketType;
     private boolean isUserSelection = false;
     private String trainPax;
-
+    private int passengerCount = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.passenger_details_end);
+        setContentView(R.layout.passenger_details_start);
 
         firestore = FirebaseFirestore.getInstance();
 
@@ -180,7 +180,7 @@ public class passengerDetailsEnd extends AppCompatActivity {
                             R.id.contactNumber, R.id.inputContactNumberLayout,
                             R.id.email, R.id.inputEmailLayout, R.id.ticketType,
                             R.id.selectTicketType, R.id.confirmation,
-                            R.id.confirmationInfo, R.id.makePaymentBtn);
+                            R.id.confirmationInfo, R.id.nextPassengerBtn);
                 } else {
                     adjustLayoutForFragment(false,
                             500,
@@ -198,7 +198,7 @@ public class passengerDetailsEnd extends AppCompatActivity {
                             R.id.contactNumber, R.id.inputContactNumberLayout,
                             R.id.email, R.id.inputEmailLayout, R.id.ticketType,
                             R.id.selectTicketType, R.id.confirmation,
-                            R.id.confirmationInfo, R.id.makePaymentBtn);
+                            R.id.confirmationInfo, R.id.nextPassengerBtn);
                 }
             }
         });
@@ -247,7 +247,7 @@ public class passengerDetailsEnd extends AppCompatActivity {
                             R.id.contactNumber, R.id.inputContactNumberLayout,
                             R.id.email, R.id.inputEmailLayout, R.id.ticketType,
                             R.id.selectTicketType, R.id.confirmation,
-                            R.id.confirmationInfo, R.id.makePaymentBtn);
+                            R.id.confirmationInfo, R.id.nextPassengerBtn);
                 }
             }
         });
@@ -262,13 +262,24 @@ public class passengerDetailsEnd extends AppCompatActivity {
         // Retrieve the trainPax value from SharedPreferences
         retrieveDataFromSharedPreferences();
 
-        makePaymentButton = findViewById(R.id.makePaymentBtn);
+        passengerCount = getIntent().getIntExtra("passengerCount", 1);
+
+        // Update the passengerAmountTextView with the new trainPax value
+        updatePassengerCount();
+
+        nextPassengerButton = findViewById(R.id.nextPassengerBtn);
         builder = new AlertDialog.Builder(this);
 
-        makePaymentButton.setOnClickListener(new View.OnClickListener() {
+        nextPassengerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showConfirmationDialog();
+                if (passengerCount < Integer.parseInt(trainPax)) {
+                    // If there are more passengers to add, show a confirmation dialog
+                    showConfirmationDialog();
+                } else {
+                    // If all passengers are added or trainPax is not a valid integer, show confirmation dialog
+                    showConfirmationDialog();
+                }
             }
         });
     }
@@ -314,7 +325,7 @@ public class passengerDetailsEnd extends AppCompatActivity {
                                          int marginTopEmail, int marginTopEmailLayout,
                                          int marginTopTicketType, int marginTopSelectTicketType,
                                          int marginTopConfirmation, int marginTopConfirmationInfo,
-                                         int marginTopMakePaymentBtn, int... viewIds) {
+                                         int marginTopNextPassengerBtn, int... viewIds) {
         for (int viewId : viewIds) {
             View view = findViewById(viewId);
             if (view != null) {
@@ -341,8 +352,8 @@ public class passengerDetailsEnd extends AppCompatActivity {
                     layoutParams.topMargin = marginTopConfirmation;
                 } else if (viewId == R.id.confirmationInfo) {
                     layoutParams.topMargin = marginTopConfirmationInfo;
-                } else if (viewId == R.id.makePaymentBtn) {
-                    layoutParams.topMargin = marginTopMakePaymentBtn;
+                } else if (viewId == R.id.nextPassengerBtn) {
+                    layoutParams.topMargin = marginTopNextPassengerBtn;
                 }
 
                 view.setLayoutParams(layoutParams);
@@ -362,11 +373,18 @@ public class passengerDetailsEnd extends AppCompatActivity {
                         // Check if a previous passenger is selected
                         if (selectedPosition > 0) {
                             // If the user clicks "Yes" and a previous passenger is selected, do not save
-                            Toast.makeText(passengerDetailsEnd.this, "Passenger details not saved for a previous passenger.", Toast.LENGTH_SHORT).show();
-                            launchPayment();
+                            Toast.makeText(passengerDetailsStart.this, "Passenger details not saved for a previous passenger.", Toast.LENGTH_SHORT).show();
                         } else {
                             // If the user clicks "Yes" and a new passenger is entered, save passenger details
                             savePassengerDetails();
+                        }
+
+                        updatePassengerCount();
+
+                        if (passengerCount == Integer.parseInt(trainPax) - 1) {
+                            launchPassengerDetailsEnd();
+                        } else if (passengerCount != Integer.parseInt(trainPax)) {
+                            launchPassengerDetailsStart();
                         }
 
                         // Finish the current activity
@@ -381,7 +399,7 @@ public class passengerDetailsEnd extends AppCompatActivity {
                     }
                 })
                 .show();
-    }
+        }
 
     private void savePassengerDetails() {
         // If a new passenger is entered, save passenger details to the database
@@ -392,14 +410,12 @@ public class passengerDetailsEnd extends AppCompatActivity {
 
             // Add passenger data to the database
             addPassenger(passenger);
-            launchPayment();
         } else if (currentFragment instanceof FragmentMalaysian) {
             // Retrieve data from FragmentMalaysian
             Map<String, Object> passenger = ((FragmentMalaysian) currentFragment).getFragmentMalaysianData();
 
             // Add passenger data to the database
             addPassenger(passenger);
-            launchPayment();
         }
     }
 
@@ -417,11 +433,10 @@ public class passengerDetailsEnd extends AppCompatActivity {
         TextView passengerAmountTextView = findViewById(R.id.passengerAmount);
 
         // Update the passenger count and display it
-        passengerAmountTextView.setText("Passenger " + trainPax + "/" + trainPax);
+        passengerAmountTextView.setText("Passenger " + passengerCount + "/" + trainPax);
     }
 
     private void addPassenger(Map<String, Object> passenger) {
-        //Map<String, Object> passenger = new HashMap<>();
         // Get data from user input
         String passGender = ((TextInputEditText) findViewById(R.id.inputGender)).getText().toString();
         String passContact = ((TextInputEditText) findViewById(R.id.inputContactNumber)).getText().toString();
@@ -461,8 +476,21 @@ public class passengerDetailsEnd extends AppCompatActivity {
         }
     }
 
-    private void launchPayment() {
-        Intent intent = new Intent(this, Payment.class);
+    private void launchPassengerDetailsStart() {
+        // If there are more passengers to add, launch a new instance of passengerDetailsStart
+        Intent intent = new Intent(this, passengerDetailsStart.class);
+
+        // Pass the updated trainPax and increment passengerCount
+        intent.putExtra("trainPax", trainPax);
+        intent.putExtra("passengerCount", ++passengerCount); // Increment passengerCount
+
+        startActivity(intent);
+        finish(); // Finish the current activity to prevent going back to it
+    }
+
+
+    private void launchPassengerDetailsEnd() {
+        Intent intent = new Intent(this, passengerDetailsEnd.class);
         startActivity(intent);
         finish(); // Finish the current activity to prevent going back to it
     }
