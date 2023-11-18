@@ -26,12 +26,21 @@ public class North {
         return duration;
     }
 
+    public String getArrivalTime() {
+        return arrivalTime;
+    }
+
+    public void setArrivalTime(String arrivalTime) {
+        this.arrivalTime = arrivalTime;
+    }
+
     public String getDepartureTime() {
         return departureTime;
     }
 
-    public String getArrivalTime() {
-        return arrivalTime;
+    public void setDepartureTime(String departureTime) {
+        this.departureTime = departureTime;
     }
+
 
 }

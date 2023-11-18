@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_marginTop="0dp"
     android:orientation="vertical"
     android:gravity="center_horizontal">
@@ -11,7 +11,7 @@
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginTop="-30dp"
         android:orientation="vertical">
@@ -63,44 +63,33 @@
                         android:id="@+id/completed"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="255dp"
+                        android:layout_marginStart="245dp"
                         android:layout_marginTop="15dp"
                         android:gravity="top"
                         android:text="Completed"
                         android:textColor="#000000"
                         android:textSize="14sp" />
 
+
                     <TextView
-                        android:id="@+id/depart_time"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/originName"
+                        android:layout_width="60dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
+                        android:layout_marginStart="40dp"
                         android:layout_marginTop="40dp"
                         android:gravity="top"
-                        android:text="Depart Time"
-                        android:textColor="#000000"
-                        android:textSize="18sp" />
-
-
-                    <TextView
-                        android:id="@+id/origin"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="45dp"
-                        android:layout_marginTop="65dp"
-                        android:gravity="top"
                         android:text="Origin"
-                        android:textColor="#A2A2A2"
-                        android:textSize="14sp" />
+                        android:textColor="#000000"
+                        android:textSize="17sp" />
 
                     <TextView
-                        android:id="@+id/duration"
+                        android:id="@+id/date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="180dp"
-                        android:layout_marginTop="-58dp"
-                        android:gravity="top"
-                        android:text="Duration"
+                        android:layout_marginStart="138dp"
+                        android:layout_marginTop="90dp"
+                        android:gravity="top|center_horizontal"
+                        android:text="Date"
                         android:textColor="#000000"
                         android:textSize="14sp" />
 
@@ -108,7 +97,7 @@
                         android:id="@+id/blue_dot"
                         android:layout_width="80dp"
                         android:layout_height="13dp"
-                        android:layout_marginStart="90dp"
+                        android:layout_marginStart="80dp"
                         android:layout_marginTop="48dp"
                         app:srcCompat="@drawable/new_moon_blue" />
 
@@ -116,7 +105,7 @@
                         android:id="@+id/line"
                         android:layout_width="92dp"
                         android:layout_height="18dp"
-                        android:layout_marginStart="135dp"
+                        android:layout_marginStart="125dp"
                         android:layout_marginTop="44dp"
                         android:gravity="top"
                         android:text="---------------------------"
@@ -127,176 +116,23 @@
                         android:id="@+id/white_dot"
                         android:layout_width="80dp"
                         android:layout_height="13dp"
-                        android:layout_marginStart="190dp"
-                        android:layout_marginTop="48dp"
-                        app:srcCompat="@drawable/dry_clean" />
-
-                    <TextView
-                        android:id="@+id/arrival_time"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="245dp"
-                        android:layout_marginTop="40dp"
-                        android:gravity="top"
-                        android:text="Arrival Time"
-                        android:textColor="#000000"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:id="@+id/destination"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="255dp"
-                        android:layout_marginTop="65dp"
-                        android:gravity="top"
-                        android:text="Destination"
-                        android:textColor="#A2A2A2"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/ticket_type"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="90dp"
-                        android:gravity="top"
-                        android:text="Ticket Type"
-                        android:textColor="#000000"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/seats"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="275dp"
-                        android:layout_marginTop="90dp"
-                        android:gravity="top"
-                        android:text="Seats"
-                        android:textColor="#000000"
-                        android:textSize="14sp" />
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/roundedContainer2"
-                    android:layout_width="match_parent"
-                    android:layout_height="125dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="30dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="16dp"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="4dp">
-
-                    <TextView
-                        android:id="@+id/train2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="45dp"
-                        android:layout_marginTop="15dp"
-                        android:gravity="top"
-                        android:text="Train"
-                        android:textColor="#000000"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/completed2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="255dp"
-                        android:layout_marginTop="15dp"
-                        android:gravity="top"
-                        android:text="Completed"
-                        android:textColor="#000000"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/depart_time2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginTop="40dp"
-                        android:gravity="top"
-                        android:text="Depart Time"
-                        android:textColor="#000000"
-                        android:textSize="18sp" />
-
-
-                    <TextView
-                        android:id="@+id/origin2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="45dp"
-                        android:layout_marginTop="65dp"
-                        android:gravity="top"
-                        android:text="Origin"
-                        android:textColor="#A2A2A2"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/duration2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:layout_marginStart="180dp"
-                        android:layout_marginTop="-58dp"
-                        android:gravity="top"
-                        android:text="Duration"
-                        android:textColor="#000000"
-                        android:textSize="14sp" />
-
-                    <ImageView
-                        android:id="@+id/blue_dot2"
-                        android:layout_width="80dp"
-                        android:layout_height="13dp"
-                        android:layout_marginStart="90dp"
-                        android:layout_marginTop="48dp"
-                        app:srcCompat="@drawable/new_moon_blue" />
-
-                    <TextView
-                        android:id="@+id/line2"
-                        android:layout_width="92dp"
-                        android:layout_height="18dp"
-                        android:layout_marginStart="135dp"
-                        android:layout_marginTop="44dp"
-                        android:gravity="top"
-                        android:text="---------------------------"
-                        android:textColor="#000000"
-                        android:textSize="14sp" />
-
-                    <ImageView
-                        android:id="@+id/white_dot2"
-                        android:layout_width="80dp"
-                        android:layout_height="13dp"
-                        android:layout_marginStart="190dp"
                         android:layout_marginTop="48dp"
                         app:srcCompat="@drawable/dry_clean" />
 
                     <TextView
-                        android:id="@+id/arrival_time2"
+                        android:id="@+id/destinationName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="245dp"
                         android:layout_marginTop="40dp"
                         android:gravity="top"
-                        android:text="Arrival Time"
-                        android:textColor="#000000"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:id="@+id/destination2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="255dp"
-                        android:layout_marginTop="65dp"
-                        android:gravity="top"
                         android:text="Destination"
-                        android:textColor="#A2A2A2"
-                        android:textSize="14sp" />
+                        android:textColor="#000000"
+                        android:textSize="17sp" />
 
                     <TextView
-                        android:id="@+id/ticket_type2"
+                        android:id="@+id/ticketType"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="30dp"
@@ -307,10 +143,21 @@
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/seats2"
+                        android:id="@+id/coach"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="275dp"
+                        android:layout_marginStart="250dp"
+                        android:layout_marginTop="90dp"
+                        android:gravity="top"
+                        android:text="Coach"
+                        android:textColor="#000000"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/seatNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="310dp"
                         android:layout_marginTop="90dp"
                         android:gravity="top"
                         android:text="Seats"

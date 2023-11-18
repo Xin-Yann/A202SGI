@@ -64,30 +64,24 @@ public class login extends AppCompatActivity {
                     return;
                 }
 
-                boolean isAdmin = email.endsWith("@admin.com");
 
                 mAuth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(Task<AuthResult> task) {
                                 progressBar.setVisibility(View.GONE);
-                                /*if (task.isSuccessful()) {
-                                    if (isAdmin) {
-                                        // Admin login successful, redirect to admin activity
-                                        Intent adminIntent = new Intent(getApplicationContext(), Admin_home.class);
-                                        startActivity(adminIntent);
-                                        finish();
-                                    } else {
+                                if (task.isSuccessful()) {
+
                                         // Regular user login successful, redirect to main activity
                                         Intent userIntent = new Intent(getApplicationContext(), MainActivity.class);
                                         startActivity(userIntent);
                                         finish();
-                                    }
+
 
                                 } else {
                                     // If sign in fails, display a message to the user.
                                     Toast.makeText(login.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
-                                }*/
+                                }
                             }
                         });
             }

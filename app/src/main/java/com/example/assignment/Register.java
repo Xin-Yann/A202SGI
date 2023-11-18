@@ -82,7 +82,7 @@ public class Register extends AppCompatActivity {
                     return;
                 }
 
-                boolean isAdmin = email.endsWith("@admin.com");
+                /*boolean isAdmin = email.endsWith("@admin.com");*/
 
                 mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -107,30 +107,6 @@ public class Register extends AppCompatActivity {
                                         // Get a reference to Firestore
                                         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-
-                                        if (isAdmin) {
-                                            // Save admin data in the "admins" collection
-                                            db.collection("admins")
-                                                    .document(firebaseUser.getUid())
-                                                    .set(userData)
-                                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                        @Override
-                                                        public void onSuccess(Void aVoid) {
-                                                            Toast.makeText(Register.this, "Admin data saved.", Toast.LENGTH_SHORT).show();
-
-                                                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                                                            startActivity(intent);
-                                                            finish();
-                                                        }
-                                                    })
-                                                    .addOnFailureListener(new OnFailureListener() {
-                                                        @Override
-                                                        public void onFailure(@NonNull Exception e) {
-                                                            Toast.makeText(Register.this, "Failed to save admin data.", Toast.LENGTH_SHORT).show();
-                                                        }
-                                                    });
-                                        }else{
-
                                             // Create a new document in the "users" collection with the user's UID as the document ID
                                             db.collection("users")
                                                     .document(firebaseUser.getUid())
@@ -153,7 +129,6 @@ public class Register extends AppCompatActivity {
                                                             Toast.makeText(Register.this, "Failed to save user data.", Toast.LENGTH_SHORT).show();
                                                         }
                                                     });
-                                        }
 
 
                                     }
