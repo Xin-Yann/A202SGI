@@ -255,7 +255,7 @@ public class passengerDetailsStart extends AppCompatActivity {
 
         // Inside your onCreate method
         selectTicketType = findViewById(R.id.selectTicketType);
-        String[] selectionOptions = {"Choose your ticket type","Adult", "Child", "Premium"};
+        String[] selectionOptions = {"Choose your ticket type","Adult (free mineral water)", "Child (free orange juice)", "Premium (free soft drink)"};
         adapterForTicketType = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, selectionOptions);
         adapterForTicketType.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         selectTicketType.setAdapter(adapterForTicketType);
