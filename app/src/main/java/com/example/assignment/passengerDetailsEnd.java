@@ -31,6 +31,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -254,7 +255,7 @@ public class passengerDetailsEnd extends AppCompatActivity {
 
         // Inside your onCreate method
         selectTicketType = findViewById(R.id.selectTicketType);
-        String[] selectionOptions = {"Choose your ticket type","Adult", "Child", "Premium"};
+        String[] selectionOptions = {"Choose your ticket type","Adult (free mineral water)", "Child (free orange juice)", "Premium (free soft drink)"};
         adapterForTicketType = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, selectionOptions);
         adapterForTicketType.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         selectTicketType.setAdapter(adapterForTicketType);
@@ -273,31 +274,43 @@ public class passengerDetailsEnd extends AppCompatActivity {
         });
     }
 
+    private String getCurrentUserEmail() {
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        FirebaseUser user = auth.getCurrentUser();
+
+        return user != null ? user.getEmail() : null;
+    }
+
     private void fetchPassengersFromDatabase() {
-        firestore.collection("passengers").get()
-                .addOnSuccessListener(queryDocumentSnapshots -> {
-                    passengers = new ArrayList<>();
+        String currentUserEmail = getCurrentUserEmail();
 
-                    // Add a default hint option
-                    Map<String, Object> hintPassenger = new HashMap<>();
-                    hintPassenger.put("pass_name", "Choose a previous passenger");
-                    passengers.add(hintPassenger);
+        if (currentUserEmail != null) {
+            firestore.collection("passengers")
+                    .whereEqualTo("user_email", currentUserEmail)
+                    .get()
+                    .addOnSuccessListener(queryDocumentSnapshots -> {
+                        passengers = new ArrayList<>();
 
-                    for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
-                        Map<String, Object> passengerData = document.getData();
-                        passengers.add(passengerData);
-                    }
+                        // Add a default hint option
+                        Map<String, Object> hintPassenger = new HashMap<>();
+                        hintPassenger.put("pass_name", "Choose a previous passenger");
+                        passengers.add(hintPassenger);
 
-                    // Populate the spinner with passenger names
-                    List<String> passengerNames = getPassengerNames();
-                    ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, passengerNames);
-                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                    selectPrePassenger.setAdapter(adapter);
-                })
-                .addOnFailureListener(e -> {
-                    Log.e("Firestore", "Failed to fetch passengers", e);
-                    Toast.makeText(this, "Failed to fetch passengers", Toast.LENGTH_LONG).show();
-                });
+                        for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
+                            Map<String, Object> passengerData = document.getData();
+                            passengers.add(passengerData);
+                        }
+
+                        // Populate the spinner with passenger names
+                        List<String> passengerNames = getPassengerNames();
+                        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, passengerNames);
+                        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        selectPrePassenger.setAdapter(adapter);
+                    })
+                    .addOnFailureListener(e -> {
+                        Toast.makeText(this, "Failed to fetch passengers", Toast.LENGTH_LONG).show();
+                    });
+        }
     }
 
     private List<String> getPassengerNames() {
@@ -437,6 +450,7 @@ public class passengerDetailsEnd extends AppCompatActivity {
         passenger.put("pass_contact", passContact);
         passenger.put("pass_email", passEmail);
         passenger.put("pass_ticketType", passTicketType);
+        passenger.put("user_email", getCurrentUserEmail());
 
         firestore.collection("passengers").add(passenger).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override

@@ -26,7 +26,8 @@
         android:text="View Your Ticket"
         android:backgroundTint="#040f51"
         android:textColor="#FFFFFF"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:onClick="toBookingHistory"/>
 
     <Button
         android:id="@+id/backToHomeBtn"
@@ -39,7 +40,8 @@
         android:textColor="#000000"
         android:textSize="16sp"
         app:strokeColor="#000000"
-        app:strokeWidth="1dp" />
+        app:strokeWidth="1dp"
+        android:onClick="toHomePage"/>
 
     <ImageView
         android:id="@+id/imageView"
