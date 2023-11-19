@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,6 +35,9 @@ public class Select_depart_ticket extends AppCompatActivity {
 
     TextView trainOri, trainDestination, trainD, trainP;
 
+    private String departureTime;
+    private String arrivalTime;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +57,7 @@ public class Select_depart_ticket extends AppCompatActivity {
             String trainDes = intent.getStringExtra("search_destination");
             String trainDate = intent.getStringExtra("search_date");
             String trainPax = intent.getStringExtra("search_pax");
+
 
             trainOri = findViewById(R.id.origin);
             trainOri.setText(trainOrigin);
@@ -96,14 +101,14 @@ public class Select_depart_ticket extends AppCompatActivity {
 
                                         double totalDuration = 0.0;
                                         String initialDepartureTime = "08:00";
-                                        String departureTime = calculateArrivalTime(initialDepartureTime, totalDuration);
+                                        departureTime = calculateArrivalTime(initialDepartureTime, totalDuration);
 
 
                                         for (int k = i; k <= j; k++) {
                                             totalDuration += Double.parseDouble(datalist.get(k).getDuration());
                                         }
 
-                                        String arrivalTime = calculateArrivalTime(departureTime, totalDuration);
+                                        arrivalTime = calculateArrivalTime(departureTime, totalDuration);
                                         String formattedDuration = formattedDuration(totalDuration);
 
 
@@ -203,7 +208,7 @@ public class Select_depart_ticket extends AppCompatActivity {
                 String[] names = stationName.split("-----------");
 
                 // Save data to SharedPreferences
-                saveDataToSharedPreferences(names[0].trim(), names[1].trim(), totalDuration, trainDate, trainPax);
+                saveDataToSharedPreferences(names[0].trim(), names[1].trim(), totalDuration, trainDate, trainPax, departureTime, arrivalTime);
 
                 // Start the seat activity
                 startSeatActivity(Select_seat_a.class);
@@ -211,7 +216,7 @@ public class Select_depart_ticket extends AppCompatActivity {
                 String[] names = stationName.split("----------");
 
                 // Save data to SharedPreferences
-                saveDataToSharedPreferences(names[0].trim(), names[1].trim(), totalDuration, trainDate, trainPax);
+                saveDataToSharedPreferences(names[0].trim(), names[1].trim(), totalDuration, trainDate, trainPax,departureTime, arrivalTime);
 
                 // Start the return seat activity
                 startSeatActivity(Select_return_seat_a.class);
@@ -222,6 +227,8 @@ public class Select_depart_ticket extends AppCompatActivity {
             passDataIntent.putExtra("search_destination", trainDes);
             passDataIntent.putExtra("search_date", trainDate);
             passDataIntent.putExtra("search_pax", trainPax);
+            passDataIntent.putExtra("departureTime", departureTime);
+            passDataIntent.putExtra("arrivalTime", arrivalTime);
             startActivity(passDataIntent);
 
         }
@@ -267,14 +274,19 @@ public class Select_depart_ticket extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void saveDataToSharedPreferences(String originName, String destinationName, String totalDuration, String trainDate, String trainPax) {
+    private void saveDataToSharedPreferences(String originName, String destinationName, String totalDuration, String trainDate, String trainPax, String departureTime, String arrivalTime) {
+        Log.d("Select_depart_ticket", "Saving data to SharedPreferences");
+
+        // Save data to SharedPreferences
         SharedPreferences preferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("originName", originName);
         editor.putString("destinationName", destinationName);
         editor.putString("totalDuration", totalDuration);
-        editor.putString("trainDate", trainDate); // Add trainDate
-        editor.putString("trainPax", trainPax);   // Add trainPax
+        editor.putString("trainDate", trainDate);
+        editor.putString("trainPax", trainPax);
+        editor.putString("departureTime", departureTime);
+        editor.putString("arrivalTime", arrivalTime);
         editor.apply();
     }
 
