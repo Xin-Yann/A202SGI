@@ -13,7 +13,7 @@ public class ScrollViewHelper {
 
     public void setOnTouchListener(ScrollView scrollView, Context context) {
         this.context = context;
-        maxScrollY = dpToPx(200); // Set the maximum scroll position to 200dp
+        maxScrollY = dpToPx(200);
 
         scrollView.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -29,15 +29,12 @@ public class ScrollViewHelper {
                     case MotionEvent.ACTION_MOVE:
                         float deltaY = currentTouchY - lastTouchY;
 
-                        // Invert the scroll delta to reverse the scrolling direction
                         deltaY *= -1;
 
-                        // Limit the scroll delta to prevent exceeding the maximum scroll position
                         if ((scrollY + deltaY) > maxScrollY) {
                             deltaY = maxScrollY - scrollY;
                         }
 
-                        // Scroll the ScrollView by the limited deltaY
                         v.scrollBy(0, (int) deltaY);
 
                         lastTouchY = currentTouchY;
@@ -47,7 +44,7 @@ public class ScrollViewHelper {
                         break;
                 }
 
-                return true; // Consume the event to prevent further scrolling
+                return true;
             }
         });
     }

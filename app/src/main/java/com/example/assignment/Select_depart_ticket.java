@@ -129,37 +129,34 @@ public class Select_depart_ticket extends AppCompatActivity {
 
                                 retrieveFilteredData(trainOrigin, trainDes);
                             } else {
-                                // Handle the case where the query was not successful
+
                             }
                         }
                     });
-            /*retrieveFilteredData(trainOrigin, trainDes);*/
         }
     }
 
     private String calculateArrivalTime(String initialDepartureTime, double totalDuration) {
         int initialDepartureMinutes = convertToMinutes(initialDepartureTime);
 
-        // Calculate total minutes
+
         int totalMinutes = initialDepartureMinutes + (int) totalDuration;
 
-        // Calculate hours and remaining minutes
+
         int hours = totalMinutes / 60;
         int remainingMinutes = totalMinutes % 60;
 
-        // Return the formatted string
+
         return String.format("%02d:%02d", hours, remainingMinutes);
     }
 
     private String formattedDuration(double totalDuration) {
-        // Calculate total minutes
+
         int totalMinutes = (int) totalDuration;
 
-        // Calculate hours and remaining minutes
         int hours = totalMinutes / 60;
         int remainingMinutes = totalMinutes % 60;
 
-        // Return the formatted string
         if (remainingMinutes > 0) {
             return String.format("%d hrs %02d mins", hours, remainingMinutes);
         } else {
@@ -194,7 +191,7 @@ public class Select_depart_ticket extends AppCompatActivity {
             String stationName = "";
             String totalDuration = "";
 
-            // Check if the view is a CardView
+
             if (view instanceof CardView) {
                 CardView clickedCard = (CardView) view;
                 TextView nameTextView = clickedCard.findViewById(R.id.name);
@@ -235,7 +232,7 @@ public class Select_depart_ticket extends AppCompatActivity {
     }
 
     private void retrieveFilteredData(String originName, String destinationName) {
-        // Filter your original data list (datalist) based on the provided information
+
         List<North> filteredDataList = new ArrayList<>();
 
         for (North north : datalist) {
@@ -244,7 +241,7 @@ public class Select_depart_ticket extends AppCompatActivity {
             }
         }
 
-        // Set the filtered data to the adapter
+
         adapter.setFilteredList(filteredDataList);
     }
 
