@@ -31,12 +31,6 @@ public class Account  extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void special_registration(View view){
-        Intent intent = new Intent(this, Profile_details_b.class);
-        TextView special_registration = findViewById(R.id.special_registration);
-        startActivity(intent);
-    }
-
     /*Footer*/
     public void toHomePage(View view){
         Intent intent = new Intent(this, MainActivity.class);

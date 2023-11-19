@@ -729,23 +729,23 @@
             android:layout_marginLeft="60dp">
 
             <ImageButton
-                android:id="@+id/image1"
+                android:id="@+id/homePage"
                 android:layout_width="48dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="-10dp"
                 android:layout_marginRight="80dp"
                 android:background="#ffff"
                 android:contentDescription="Image1"
-                android:onClick="clickImage1"
+                android:onClick="toHomePage"
                 android:padding="10dp"
                 app:srcCompat="@drawable/home" />
 
             <ImageButton
-                android:id="@+id/image2"
+                android:id="@+id/booking_history"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:background="#ffffff"
-                android:onClick="clickImage2"
+                android:onClick="toBookingHistory"
                 app:srcCompat="@drawable/ticket"
                 android:layout_marginRight="95dp"
                 android:layout_marginLeft="-5dp"
@@ -753,11 +753,11 @@
 
 
             <ImageButton
-                android:id="@+id/image3"
+                android:id="@+id/profilePage"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:background="#ffffff"
-                android:onClick="clickImage3"
+                android:onClick="toAccountPage"
                 android:padding="5dp"
                 android:layout_marginLeft="-12dp"
                 android:contentDescription="Account icon"
