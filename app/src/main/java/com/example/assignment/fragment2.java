@@ -1,4 +1,5 @@
 package com.example.assignment;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,7 +25,6 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class fragment2 extends Fragment {
 
     TextInputLayout inputLayout;
@@ -32,6 +32,7 @@ public class fragment2 extends Fragment {
     NorthAdapter adapter;
     FirebaseFirestore fStore;
     TextInputEditText inputOrigin, inputDes, inputDate, inputArrDate, inputPax;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -42,8 +43,6 @@ public class fragment2 extends Fragment {
         adapter = new NorthAdapter(getContext(), datalist);
         fStore = FirebaseFirestore.getInstance();
 
-
-        // Find the TextInputEditText within the fragment's view
         TextInputLayout inputLayoutOrigin = view.findViewById(R.id.inputOrigin);
         inputOrigin = inputLayoutOrigin.findViewById(R.id.inputOriginText);
 
@@ -59,8 +58,6 @@ public class fragment2 extends Fragment {
         TextInputLayout inputLayoutPax = view.findViewById(R.id.inputPax);
         inputPax = inputLayoutPax.findViewById(R.id.inputPax1);
 
-
-        // Find the button and set an OnClickListener
         Button toTicket = view.findViewById(R.id.selectTicket);
         toTicket.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,10 +72,8 @@ public class fragment2 extends Fragment {
                 String trainPax = inputPax.getText().toString();
 
                 // Perform a search based on the train name
-                /*filterList(trainOrigin, trainDes);*/
                 fetchAndFilterData(trainOrigin, trainDes, trainDate, trainPax);
 
-                // Start the Select_depart_ticket activity
                 Intent intent = new Intent(getContext(), Select_depart_ticket.class);
                 intent.putExtra("search_query", trainOrigin);
                 intent.putExtra("search_destination", trainDes);
@@ -86,13 +81,8 @@ public class fragment2 extends Fragment {
                 intent.putExtra("search_arr", trainArr);
                 intent.putExtra("search_pax", trainPax);
                 startActivity(intent);
-
-                // Create an Intent to navigate to the Select_depart_ticket activity
-                /*Intent intent = new Intent(getActivity(), Select_depart_ticket.class);
-                startActivity(intent);*/
             }
         });
-
         return view;
     }
 
@@ -115,7 +105,7 @@ public class fragment2 extends Fragment {
                                 datalist.add(northStation);
                             }
 
-                            // Now that datalist is populated, call filterList
+                            // Datalist is populated, call filterList
                             filterList(trainOrigin, trainDes);
 
                             // Start the Select_depart_ticket activity
@@ -127,7 +117,6 @@ public class fragment2 extends Fragment {
                             startActivity(intent);
 
                         } else {
-                            // Handle the case where the query was not successful
                             Log.e("Fragment1", "Error getting documents: ", task.getException());
                         }
                     }

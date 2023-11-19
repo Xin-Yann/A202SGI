@@ -87,7 +87,6 @@
             android:ems="10"
             android:inputType="textPassword" />
 
-
         <Button
             android:id="@+id/btn_register"
             android:layout_width="210dp"

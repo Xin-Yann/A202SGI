@@ -32,9 +32,7 @@ public class Select_depart_ticket extends AppCompatActivity {
     FirebaseFirestore fStore;
     ArrayList<North> datalist;
     NorthAdapter adapter;
-
     TextView trainOri, trainDestination, trainD, trainP;
-
     private String departureTime;
     private String arrivalTime;
 
@@ -117,10 +115,8 @@ public class Select_depart_ticket extends AppCompatActivity {
 
                                         uniqueDatalist.add(new North(forwardPair, formattedDuration, departureTime, arrivalTime));
                                         uniqueDatalist.add(new North(reversePair, formattedDuration, departureTime, arrivalTime));
-
                                     }
                                 }
-
                                 datalist.clear();
                                 datalist.addAll(uniqueDatalist);
 
@@ -163,7 +159,6 @@ public class Select_depart_ticket extends AppCompatActivity {
             return String.format("%02d hrs", hours);
         }
     }
-
 
     private int convertToMinutes(String time) {
         String[] parts = time.split(":");

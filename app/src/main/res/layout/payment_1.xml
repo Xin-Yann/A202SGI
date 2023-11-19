@@ -25,13 +25,14 @@
             android:textSize="16sp" />
 
         <Button
-            android:id="@+id/backBtn"
+            android:id="@+id/back"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:backgroundTint="#040f51"
             android:text="X"
             android:textColor="#FFFFFF"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:onClick="back"/>
     </RelativeLayout>
 
     <ScrollView
@@ -48,7 +49,7 @@
             android:layout_below="@id/paymentheader">
 
             <RelativeLayout
-                android:layout_width="wrap_content"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="30dp"
@@ -57,65 +58,106 @@
                 android:padding="15dp">
 
                 <TextView
-                    android:id="@+id/ticket"
+                    android:id="@+id/premium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Ticket"
+                    android:text="Premium Seat"
                     android:textColor="#000000"
                     android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/ticketAmount"
+                    android:id="@+id/premiumTicketWord"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="240dp"
+                    android:layout_marginTop="30dp"
+                    android:text="Ticket Amount"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/premiumTicketAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="30dp"
+                    android:text="0"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/premiumTicketPriceWord"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="60dp"
+                    android:text="Ticket Price"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/premiumTicketPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="60dp"
                     android:text="0.00"
                     android:textColor="#000000"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="150dp"
+                android:background="@drawable/border_round_corner"
+                android:backgroundTint="#F1F1F1"
+                android:padding="15dp">
 
                 <TextView
-                    android:id="@+id/discount"
+                    android:id="@+id/normal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
-                    android:text="Discount"
+                    android:text="Normal Seat"
                     android:textColor="#000000"
                     android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/discountAmount"
+                    android:id="@+id/normalTicketWord"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="240dp"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="30dp"
+                    android:text="Ticket Amount"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/normalTicketAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="30dp"
+                    android:text="0"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/normalTicketPriceWord"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="60dp"
+                    android:text="Ticket Price"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/normalTicketPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="60dp"
                     android:text="0.00"
                     android:textColor="#000000"
-                    android:textSize="20sp" />
-
-                <View
-                    android:layout_width="290dp"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="80dp"
-                    android:background="@color/black" />
-
-                <TextView
-                    android:id="@+id/total"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="105dp"
-                    android:text="Total"
-                    android:textColor="#000000"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/totalAmount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="240dp"
-                    android:layout_marginTop="105dp"
-                    android:text="0.00"
-                    android:textColor="#000000"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
             </RelativeLayout>
 
             <TextView
@@ -123,7 +165,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="45dp"
-                android:layout_marginTop="210dp"
+                android:layout_marginTop="280dp"
                 android:text="Payment Method"
                 android:textColor="#000000"
                 android:textSize="16sp" />
@@ -133,7 +175,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="45dp"
-                android:layout_marginTop="235dp"
+                android:layout_marginTop="300dp"
                 android:checked="false">
 
                 <RadioButton
@@ -214,6 +256,7 @@
             android:backgroundTint="#040f51"
             android:text="Pay"
             android:textColor="#FFFFFF"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:onClick="toPayment3"/>
     </RelativeLayout>
 </LinearLayout>

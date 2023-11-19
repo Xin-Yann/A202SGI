@@ -108,9 +108,6 @@ public class Select_seat_a extends AppCompatActivity {
         arriveTextView.setText(arrivalTime);
     }
 
-
-
-
     public void toSeat_a(View view){
         Intent intent = new Intent(this, Select_seat_a.class);
         ImageButton toCoach_a = findViewById(R.id.Coach_a);
@@ -149,6 +146,12 @@ public class Select_seat_a extends AppCompatActivity {
     public void toCoachB(View view) {
         Intent intent = new Intent(this, Select_seat_b.class);
         Select_seat.startNextSeatActivity(this, Select_seat_b.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime);
+        startActivity(intent);
+    }
+
+    public void toCoachE(View view) {
+        Intent intent = new Intent(this, Select_seat_e.class);
+        Select_seat.startNextSeatActivity(this, Select_seat_e.class, originName, destinationName, totalDuration, trainDate, trainPax);
         startActivity(intent);
     }
 

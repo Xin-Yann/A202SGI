@@ -20,6 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class login extends AppCompatActivity {
+
     Button Loginbtn;
     EditText userEmail, userPass, userId;
     FirebaseAuth mAuth;
@@ -64,29 +65,24 @@ public class login extends AppCompatActivity {
                     return;
                 }
 
-
                 mAuth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(Task<AuthResult> task) {
                                 progressBar.setVisibility(View.GONE);
                                 if (task.isSuccessful()) {
-
                                         // Regular user login successful, redirect to main activity
                                         Intent userIntent = new Intent(getApplicationContext(), MainActivity.class);
                                         startActivity(userIntent);
                                         finish();
-
-
                                 } else {
-                                    // If sign in fails, display a message to the user.
+                                    // If user login fails, display a message to the user.
                                     Toast.makeText(login.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
             }
         });
-
 
         TextView register = findViewById(R.id.register);
 

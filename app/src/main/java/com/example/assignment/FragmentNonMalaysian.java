@@ -17,7 +17,6 @@ import java.util.Locale;
 import java.util.Map;
 
 public class FragmentNonMalaysian extends Fragment {
-    DateFormat datePicker;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,7 +34,6 @@ public class FragmentNonMalaysian extends Fragment {
         String passName = ((TextInputEditText) view.findViewById(R.id.inputName)).getText().toString();
         String passPassportNumber = ((TextInputEditText) view.findViewById(R.id.inputPassportNumber)).getText().toString();
 
-        // Add the data to the map
         passenger.put("pass_name", passName);
         passenger.put("pass_passportNumber", passPassportNumber);
 
@@ -44,15 +42,14 @@ public class FragmentNonMalaysian extends Fragment {
 
     public void updateFragmentNonMalaysianData(Map<String, Object> selectedPassenger) {
         if (getView() != null) {
-            // Update the data in FragmentNonMalaysian based on the selected passenger
+            // Update the data in based on the selected passenger
             String passName = (String) selectedPassenger.get("pass_name");
             String passPassportNumber = (String) selectedPassenger.get("pass_passportNumber");
 
-            // Update the TextInputEditText fields in the fragment
+            // Update the TextInput fields
             TextInputEditText inputedName = getView().findViewById(R.id.inputName);
             TextInputEditText inputedPassportNumber = getView().findViewById(R.id.inputPassportNumber);
 
-            // Set the values to the corresponding fields
             inputedName.setText(passName);
             inputedPassportNumber.setText(passPassportNumber);
         }

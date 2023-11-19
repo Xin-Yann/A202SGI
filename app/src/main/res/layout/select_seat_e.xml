@@ -215,7 +215,8 @@
             android:layout_marginTop="-27dp"
             android:background="@drawable/right_chevron1"
             android:contentDescription="Right Chevron"
-            tools:ignore="TouchTargetSizeCheck"/>
+            tools:ignore="TouchTargetSizeCheck"
+            android:onClick="toCoachA"/>
 
         <TextView
             android:id="@+id/coach_e"
