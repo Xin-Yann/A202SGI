@@ -54,4 +54,6 @@ public class History {
     public String getSeat_coach() { return seat_coach; }
 
     public void setSeat_coach(String seat_coach) { this.seat_coach = seat_coach; }
+
+
 }
