@@ -19,33 +19,27 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
+
     private TabLayout tabLayout;
     private ViewPager viewPager;
-/*    private int currentFragment = FRAGMENT1;
-
-    private static final int FRAGMENT1 = 1;
-    private static final int FRAGMENT2 = 2;*/
     FirebaseAuth auth;
     ImageButton logout;
     TextView textView;
     FirebaseUser user;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
 
+        tabLayout = findViewById(R.id.tablayout);
+        viewPager = findViewById(R.id.viewpager);
 
-
-       tabLayout = findViewById(R.id.tablayout);
-       viewPager = findViewById(R.id.viewpager);
-
-       tabLayout.setupWithViewPager(viewPager);
-       VPAdapter vpAdapter = new VPAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-       vpAdapter.addFragment(new fragment1(), "One-Way");
-       vpAdapter.addFragment(new fragment2(), "Round Trip");
-       viewPager.setAdapter(vpAdapter);
+        tabLayout.setupWithViewPager(viewPager);
+        VPAdapter vpAdapter = new VPAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        vpAdapter.addFragment(new fragment1(), "One-Way");
+        vpAdapter.addFragment(new fragment2(), "Round Trip");
+        viewPager.setAdapter(vpAdapter);
 
         auth = FirebaseAuth.getInstance();
         user = auth.getCurrentUser();
@@ -57,8 +51,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         } else {
-            /*TextView text= findViewById(R.id.user_details);
-            text.setText(user.getEmail());*/
             TextView textView = findViewById(R.id.user_email);
             textView.setText(user.getEmail());
         }
@@ -75,20 +67,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-
-    /*public void toSeat(View view) {
-        // Check the current fragment to determine which activity to start
-        if (currentFragment == FRAGMENT1) {
-            // The user is on Fragment 1, navigate to Select_seat_a
-            Intent intent = new Intent(getApplicationContext(), Select_depart_ticket.class);
-            startActivity(intent);
-        } else if (currentFragment == FRAGMENT2) {
-            Intent intent = new Intent(getApplicationContext(), Select_depart_ticket.class);
-            startActivity(intent);
-        }
-    }*/
-
-
 
     /*Footer*/
     public void toHomePage(View view){
@@ -108,9 +86,4 @@ public class MainActivity extends AppCompatActivity {
         ImageButton toAccountPage = findViewById(R.id.profilePage);
         startActivity(intent);
     }
-
-   /* private void setCurrentFragment(int fragment) {
-        currentFragment = fragment;
-    }*/
-
 }

@@ -11,13 +11,12 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.tabs.TabLayout;
 
-
 public class Booking_history extends AppCompatActivity {
 
     public static final String name="";
-
     private TabLayout tabLayout;
     private ViewPager viewPager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

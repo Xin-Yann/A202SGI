@@ -18,8 +18,7 @@ public class Select_seat {
             String departureTime = intent.getStringExtra("departureTime");
             String arrivalTime = intent.getStringExtra("arrivalTime");
 
-            // Update your UI with originName, destinationName, totalDuration, trainDate, and trainPax as needed
-            // For example, you can set the text of TextViews
+
             TextView originTextView = activity.findViewById(R.id.origin);
             TextView destinationTextView = activity.findViewById(R.id.destination);
             TextView durationTextView = activity.findViewById(R.id.duration);
@@ -33,7 +32,7 @@ public class Select_seat {
             departTextView.setText(departureTime);
             arriveTextView.setText(arrivalTime);
 
-            // Use trainDate and trainPax as needed
+
         }
     }
 

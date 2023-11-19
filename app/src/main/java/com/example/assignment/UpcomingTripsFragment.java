@@ -10,6 +10,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -52,7 +54,12 @@ public class UpcomingTripsFragment extends Fragment {
     }
 
     private void EventChangeListener(String collectionName) {
-        db.collection(collectionName).orderBy("train_date", Query.Direction.DESCENDING)
+
+        String userEmail = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+
+        db.collection(collectionName)
+                .whereEqualTo("user_email", userEmail)
+                .orderBy("train_date", Query.Direction.DESCENDING)
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
@@ -70,9 +77,7 @@ public class UpcomingTripsFragment extends Fragment {
                         for (DocumentChange dc : value.getDocumentChanges()) {
 
                             if (dc.getType() == DocumentChange.Type.ADDED) {
-
                                 historyArrayList.add(dc.getDocument().toObject(History.class));
-
                             }
 
                             historyAdapter.notifyDataSetChanged();

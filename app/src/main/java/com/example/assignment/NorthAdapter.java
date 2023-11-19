@@ -49,7 +49,6 @@ public class NorthAdapter extends RecyclerView.Adapter<NorthAdapter.CardViewHold
         holder.arrivalTextView.setText(arrivalTime);
     }
 
-
     @Override
     public int getItemCount() {
         return dataList.size();

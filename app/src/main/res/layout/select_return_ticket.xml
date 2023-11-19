@@ -41,35 +41,12 @@
             android:id="@+id/origin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="40dp"
             android:gravity="top"
             android:text="Origin"
             android:textColor="#000000"
             android:textSize="20sp" />
-
-        <!--
-                <TextView
-                    android:id="@+id/depart_time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="55dp"
-                    android:layout_marginTop="5dp"
-                    android:gravity="top"
-                    android:text="Depart: time"
-                    android:textColor="#A2A2A2"
-                    android:textSize="12sp" />-->
-
-        <!-- <TextView
-             android:id="@+id/duration"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_marginStart="175dp"
-             android:layout_marginTop="-45dp"
-             android:text="Duration"
-             android:textColor="#000000"
-             android:textSize="12sp" />-->
-
 
         <ImageView
             android:id="@+id/imageView1"
@@ -162,7 +139,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginBottom="20dp"
                 android:gravity="top"
-                android:text="4/2/2023"
+                android:text="20/11/2023"
                 android:textColor="#000000"
                 android:textSize="14sp" />
         </LinearLayout>

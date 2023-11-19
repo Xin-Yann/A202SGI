@@ -66,10 +66,8 @@ public class passengerDetailsEnd extends AppCompatActivity {
 
         FirebaseApp.initializeApp(this);
 
-        // Inside your onCreate method
         selectPrePassenger = findViewById(R.id.selectPrePassenger);
 
-        // Fetch passengers from the database
         fetchPassengersFromDatabase();
 
         selectPrePassenger.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -86,27 +84,23 @@ public class passengerDetailsEnd extends AppCompatActivity {
                 radioButtonYes.setChecked("Yes".equals(nationality));
                 radioButtonNo.setChecked("No".equals(nationality));
 
-                // Populate UI fields with the selected passenger's information
                 String gender = (String) selectedPassenger.get("pass_gender");
                 String contactNumber = (String) selectedPassenger.get("pass_contact");
                 String email = (String) selectedPassenger.get("pass_email");
                 String ticketType = (String) selectedPassenger.get("pass_ticketType");
 
-                // Assuming you have TextInputEditText fields for gender, contactNumber, and email
                 TextInputEditText inputedGender = findViewById(R.id.inputGender);
                 TextInputEditText inputedContactNumber = findViewById(R.id.inputContactNumber);
                 TextInputEditText inputedEmail = findViewById(R.id.inputEmail);
 
-                // Set the values to the corresponding fields
                 inputedGender.setText(gender);
                 inputedContactNumber.setText(contactNumber);
                 inputedEmail.setText(email);
 
-                // Set the selected ticket type in the spinner
                 int ticketTypePosition = adapterForTicketType.getPosition(ticketType);
                 selectTicketType.setSelection(ticketTypePosition);
 
-                // Update Fragment data based on the selected passenger after a delay
+                // Update Fragment data based on the selected passenger
                 new android.os.Handler().postDelayed(
                         new Runnable() {
                             public void run() {
@@ -116,16 +110,15 @@ public class passengerDetailsEnd extends AppCompatActivity {
                                     ((FragmentMalaysian) currentFragment).updateFragmentMalaysianData(selectedPassenger);
                                 }
                             }
-                        }, 500); // Adjust the delay as needed
+                        }, 500);
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
-                // Handle the case where nothing is selected (optional)
+                // Handle the case where nothing is selected
             }
         });
 
-        // Modify the spinner's onItemSelectedListener to set the flag when the user makes a selection
         selectPrePassenger.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -160,7 +153,6 @@ public class passengerDetailsEnd extends AppCompatActivity {
                 // Replace the fragmentContainer with the new fragment
                 transaction.replace(R.id.fragmentContainer, currentFragment);
 
-                // Commit the transaction
                 transaction.commit();
 
                 // Adjust the layout of elements below the RadioGroup
@@ -208,7 +200,7 @@ public class passengerDetailsEnd extends AppCompatActivity {
         clearButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Clear text input fields
+                // Clear
                 TextInputEditText inputedGender = findViewById(R.id.inputGender);
                 TextInputEditText inputedContactNumber = findViewById(R.id.inputContactNumber);
                 TextInputEditText inputedEmail = findViewById(R.id.inputEmail);
@@ -217,7 +209,6 @@ public class passengerDetailsEnd extends AppCompatActivity {
                 inputedContactNumber.getText().clear();
                 inputedEmail.getText().clear();
 
-                // Clear radio btn and fragment
                 RadioButton radioButtonYes = findViewById(R.id.yes);
                 RadioButton radioButtonNo = findViewById(R.id.no);
 
@@ -231,7 +222,6 @@ public class passengerDetailsEnd extends AppCompatActivity {
                     transaction.commit();
                     currentFragment = null;
 
-                    // Reset the layout parameters to their original state
                     adjustLayoutForFragment(false,
                             500,
                             560,
@@ -253,7 +243,6 @@ public class passengerDetailsEnd extends AppCompatActivity {
             }
         });
 
-        // Inside your onCreate method
         selectTicketType = findViewById(R.id.selectTicketType);
         String[] selectionOptions = {"Choose your ticket type","Adult (free mineral water)", "Child (free orange juice)", "Premium (free soft drink)"};
         adapterForTicketType = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, selectionOptions);
@@ -291,7 +280,6 @@ public class passengerDetailsEnd extends AppCompatActivity {
                     .addOnSuccessListener(queryDocumentSnapshots -> {
                         passengers = new ArrayList<>();
 
-                        // Add a default hint option
                         Map<String, Object> hintPassenger = new HashMap<>();
                         hintPassenger.put("pass_name", "Choose a previous passenger");
                         passengers.add(hintPassenger);
@@ -333,7 +321,6 @@ public class passengerDetailsEnd extends AppCompatActivity {
             if (view != null) {
                 ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
 
-                // Set different marginTop values based on the viewId
                 if (viewId == R.id.gender) {
                     layoutParams.topMargin = marginTopGender;
                 } else if (viewId == R.id.inputGenderLayout) {
@@ -382,14 +369,12 @@ public class passengerDetailsEnd extends AppCompatActivity {
                             savePassengerDetails();
                         }
 
-                        // Finish the current activity
                         finish();
                     }
                 })
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        // If the user clicks "No", simply dismiss the dialog
                         dialogInterface.dismiss();
                     }
                 })
@@ -397,25 +382,20 @@ public class passengerDetailsEnd extends AppCompatActivity {
     }
 
     private void savePassengerDetails() {
-        // If a new passenger is entered, save passenger details to the database
-
         if (currentFragment instanceof FragmentNonMalaysian) {
             // Retrieve data from FragmentNonMalaysian
             Map<String, Object> passenger = ((FragmentNonMalaysian) currentFragment).getFragmentNonMalaysianData();
 
-            // Add passenger data to the database
             addPassenger(passenger);
             launchPayment();
         } else if (currentFragment instanceof FragmentMalaysian) {
             // Retrieve data from FragmentMalaysian
             Map<String, Object> passenger = ((FragmentMalaysian) currentFragment).getFragmentMalaysianData();
 
-            // Add passenger data to the database
             addPassenger(passenger);
             launchPayment();
         }
     }
-
 
     private void retrieveDataFromSharedPreferences() {
         SharedPreferences preferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
@@ -426,16 +406,13 @@ public class passengerDetailsEnd extends AppCompatActivity {
     }
 
     private void updatePassengerCount() {
-        // Assuming passengerAmountTextView is the ID of your TextView in the XML layout
         TextView passengerAmountTextView = findViewById(R.id.passengerAmount);
 
-        // Update the passenger count and display it
+        // Update the passenger count
         passengerAmountTextView.setText("Passenger " + trainPax + "/" + trainPax);
     }
 
     private void addPassenger(Map<String, Object> passenger) {
-        //Map<String, Object> passenger = new HashMap<>();
-        // Get data from user input
         String passGender = ((TextInputEditText) findViewById(R.id.inputGender)).getText().toString();
         String passContact = ((TextInputEditText) findViewById(R.id.inputContactNumber)).getText().toString();
         String passEmail = ((TextInputEditText) findViewById(R.id.inputEmail)).getText().toString();
@@ -444,7 +421,6 @@ public class passengerDetailsEnd extends AppCompatActivity {
         int selectedRadioButtonId = radioGroup.getCheckedRadioButtonId();
         String nationality = getNationality(selectedRadioButtonId);
 
-        // Create menu object with the added data
         passenger.put("pass_nationality", nationality);
         passenger.put("pass_gender", passGender);
         passenger.put("pass_contact", passContact);
@@ -478,7 +454,7 @@ public class passengerDetailsEnd extends AppCompatActivity {
     private void launchPayment() {
         Intent intent = new Intent(this, Payment.class);
         startActivity(intent);
-        finish(); // Finish the current activity to prevent going back to it
+        finish();
     }
 
     public void back(View view) {

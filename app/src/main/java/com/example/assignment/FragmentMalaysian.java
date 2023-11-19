@@ -30,7 +30,6 @@ public class FragmentMalaysian extends Fragment {
         String passName = ((TextInputEditText) view.findViewById(R.id.inputName)).getText().toString();
         String passIcNumber = ((TextInputEditText) view.findViewById(R.id.inputIcNumber)).getText().toString();
 
-        // Add the data to the map
         passenger.put("pass_name", passName);
         passenger.put("pass_icNumber", passIcNumber);
 
@@ -39,15 +38,14 @@ public class FragmentMalaysian extends Fragment {
 
     public void updateFragmentMalaysianData(Map<String, Object> selectedPassenger) {
         if (getView() != null) {
-            // Update the data in FragmentMalaysian based on the selected passenger
+            // Update the data in based on the selected passenger
             String passName = (String) selectedPassenger.get("pass_name");
             String passIcNumber = (String) selectedPassenger.get("pass_icNumber");
 
-            // Update the TextInputEditText fields in the fragment
+            // Update the TextInput fields
             TextInputEditText inputedName = getView().findViewById(R.id.inputName);
             TextInputEditText inputedIcNumber = getView().findViewById(R.id.inputIcNumber);
 
-            // Set the values to the corresponding fields
             inputedName.setText(passName);
             inputedIcNumber.setText(passIcNumber);
         }

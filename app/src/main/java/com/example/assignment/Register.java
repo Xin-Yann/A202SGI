@@ -59,7 +59,7 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 progressBar.setVisibility(View.VISIBLE);
-                String email, password, id, name,contact;
+                String email, password, id, name, contact;
                 email = String.valueOf(userEmail.getText());
                 password = String.valueOf(userPass.getText());
                 name = String.valueOf(userName.getText());
@@ -82,8 +82,6 @@ public class Register extends AppCompatActivity {
                     return;
                 }
 
-                /*boolean isAdmin = email.endsWith("@admin.com");*/
-
                 mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
@@ -100,39 +98,36 @@ public class Register extends AppCompatActivity {
                                         // Create a map to store user data
                                         Map<String, Object> userData = new HashMap<>();
                                         userData.put("name", name);
-                                        userData.put("email",email);
+                                        userData.put("email", email);
                                         userData.put("password", password);
                                         userData.put("contact", contact);
 
                                         // Get a reference to Firestore
                                         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-                                            // Create a new document in the "users" collection with the user's UID as the document ID
-                                            db.collection("users")
-                                                    .document(firebaseUser.getUid())
-                                                    .set(userData)
-                                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                        @Override
-                                                        public void onSuccess(Void aVoid) {
-                                                            // User data successfully saved in Firestore
-                                                            Toast.makeText(Register.this, "User data saved.", Toast.LENGTH_SHORT).show();
+                                        // Create a new document in the "users" collection with the user's UID as the document ID
+                                        db.collection("users")
+                                                .document(firebaseUser.getUid())
+                                                .set(userData)
+                                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                    @Override
+                                                    public void onSuccess(Void aVoid) {
+                                                        // User data successfully saved in Firestore
+                                                        Toast.makeText(Register.this, "User data saved.", Toast.LENGTH_SHORT).show();
 
-                                                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                                                            startActivity(intent);
-                                                            finish();
-                                                        }
-                                                    })
-                                                    .addOnFailureListener(new OnFailureListener() {
-                                                        @Override
-                                                        public void onFailure(@NonNull Exception e) {
-                                                            // Failed to save user data in Firestore
-                                                            Toast.makeText(Register.this, "Failed to save user data.", Toast.LENGTH_SHORT).show();
-                                                        }
-                                                    });
-
-
+                                                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                                        startActivity(intent);
+                                                        finish();
+                                                    }
+                                                })
+                                                .addOnFailureListener(new OnFailureListener() {
+                                                    @Override
+                                                    public void onFailure(@NonNull Exception e) {
+                                                        // Failed to save user data in Firestore
+                                                        Toast.makeText(Register.this, "Failed to save user data.", Toast.LENGTH_SHORT).show();
+                                                    }
+                                                });
                                     }
-
                                 } else {
                                     // Registration failed
                                     Toast.makeText(Register.this, "Authentication failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
@@ -141,7 +136,5 @@ public class Register extends AppCompatActivity {
                         });
             }
         });
-
-        // Other UI elements and click listeners
     }
 }

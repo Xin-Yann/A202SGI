@@ -24,7 +24,6 @@ public class Account  extends AppCompatActivity {
         startActivity(intent);
     }
 
-
     public void my_profile(View view){
         Intent intent = new Intent(this, Profile_details_a.class);
         TextView my_profile = findViewById(R.id.my_profile);
