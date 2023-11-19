@@ -6,8 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".fragment2">
 
-
-    <!-- TODO: Update blank fragment layout -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -47,8 +45,6 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-
-
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/inputDes"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -86,7 +82,7 @@
                 android:layout_centerHorizontal="true"
                 android:textColor="#000000"
                 android:textSize="16sp"
-                android:hint="Departure Date"
+                android:hint="Departure Date (DD/MM/YYYY)"
                 android:layout_marginTop="160dp">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -106,7 +102,7 @@
                 android:layout_centerHorizontal="true"
                 android:textColor="#000000"
                 android:textSize="16sp"
-                android:hint="Return Date"
+                android:hint="Return Date (DD/MM/YYYY)"
                 android:layout_marginTop="240dp">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -148,7 +144,6 @@
                     android:onClick="toTicket"/>
 
             </com.google.android.material.textfield.TextInputLayout>
-
         </RelativeLayout>
     </RelativeLayout>
     </ScrollView>

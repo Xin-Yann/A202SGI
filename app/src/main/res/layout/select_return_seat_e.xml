@@ -34,14 +34,15 @@
             tools:layout_editor_absoluteY="16dp" />
 
         <ImageButton
-            android:id="@+id/vector_4"
+            android:id="@+id/back"
             android:layout_width="17dp"
             android:layout_height="20dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="-35dp"
             android:background="@drawable/left_chevron"
             android:contentDescription="back"
-            tools:ignore="TouchTargetSizeCheck"/>
+            tools:ignore="TouchTargetSizeCheck"
+            android:onClick="back"/>
 
         <TextView
             android:id="@+id/origin"
@@ -214,7 +215,8 @@
             android:layout_marginTop="-27dp"
             android:background="@drawable/right_chevron1"
             android:contentDescription="Right Chevron"
-            tools:ignore="TouchTargetSizeCheck"/>
+            tools:ignore="TouchTargetSizeCheck"
+            android:onClick="toCoachA"/>
 
         <TextView
             android:id="@+id/coach_e"

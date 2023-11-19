@@ -48,7 +48,7 @@ public class Select_return_ticket extends AppCompatActivity {
         Intent returnIntent = getIntent();
 
         if (returnIntent.hasExtra("search_query")) {
-            String trainOrigin =returnIntent.getStringExtra("search_query");
+            String trainOrigin = returnIntent.getStringExtra("search_query");
             String trainDes = returnIntent.getStringExtra("search_destination");
             String trainDate = returnIntent.getStringExtra("search_date");
             String trainPax = returnIntent.getStringExtra("search_pax");
@@ -65,69 +65,81 @@ public class Select_return_ticket extends AppCompatActivity {
             trainD.setText(trainDate);
 
             trainP = findViewById(R.id.pax);
-            trainP.setText("Total: "+ trainPax + " Pax");
+            trainP.setText("Total: " + trainPax + " Pax");
 
-        }
+            fStore.collection("northbound")
+                    .orderBy("id", Query.Direction.ASCENDING)  // Replace "customField" with the field you want to use for ordering
+                    .get()
+                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if (task.isSuccessful()) {
+                                datalist.clear(); // Clear the existing data in datalist
 
-        fStore.collection("northbound")
-                .orderBy("id", Query.Direction.ASCENDING)  // Replace "customField" with the field you want to use for ordering
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            datalist.clear(); // Clear the existing data in datalist
+                                // Inside the onComplete method of your Firestore query
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+                                    String stationName = document.getString("name");
+                                    String stationDuration = document.getString("diffMin");
 
-                            // Inside the onComplete method of your Firestore query
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                String stationName = document.getString("name");
-                                String stationDuration = document.getString("diffMin");
-
-                                // Create a 'North' object and add it to datalist
-                                North northStation = new North(stationName, stationDuration);
-                                datalist.add(northStation);
-                            }
-
-                            // Create the unique station pairs and avoid duplicates
-                            Set<String> uniquePairs = new HashSet<>();
-                            List<North> uniqueDatalist = new ArrayList<>();
-
-                            for (int i = 0; i < datalist.size(); i++) {
-                                for (int j = i + 1; j < datalist.size(); j++) {
-                                    North origin = datalist.get(i);
-                                    North destination = datalist.get(j);
-
-                                    String forwardPair = origin.getName() + " ----------- " + destination.getName();
-                                    String reversePair = destination.getName() + " ---------- " + origin.getName();
-                                    double totalDuration = 0.0;
-
-                                    // Calculate the sum of diffMin for the elements in the pair
-                                    for (int k = i; k <= j; k++) {
-                                        totalDuration += Double.parseDouble(datalist.get(k).getDuration());
-                                    }
-
-                                    // Add both the forward and reverse pairs along with total duration
-                                    uniquePairs.add(forwardPair);
-                                    uniquePairs.add(reversePair);
-
-                                    uniqueDatalist.add(new North(forwardPair, String.format("%.2f", totalDuration)));
-                                    uniqueDatalist.add(new North(reversePair, String.format("%.2f", totalDuration)));
+                                    // Create a 'North' object and add it to datalist
+                                    North northStation = new North(stationName, stationDuration);
+                                    datalist.add(northStation);
                                 }
+
+                                // Create the unique station pairs and avoid duplicates
+                                Set<String> uniquePairs = new HashSet<>();
+                                List<North> uniqueDatalist = new ArrayList<>();
+
+                                for (int i = 0; i < datalist.size(); i++) {
+                                    for (int j = i + 1; j < datalist.size(); j++) {
+                                        North origin = datalist.get(i);
+                                        North destination = datalist.get(j);
+
+                                        String forwardPair = origin.getName() + " ----------- " + destination.getName();
+                                        String reversePair = destination.getName() + " ---------- " + origin.getName();
+                                        double totalDuration = 0.0;
+
+                                        // Calculate the sum of diffMin for the elements in the pair
+                                        for (int k = i; k <= j; k++) {
+                                            totalDuration += Double.parseDouble(datalist.get(k).getDuration());
+                                        }
+
+                                        // Add both the forward and reverse pairs along with total duration
+                                        uniquePairs.add(forwardPair);
+                                        uniquePairs.add(reversePair);
+
+                                        uniqueDatalist.add(new North(forwardPair, String.format("%.2f", totalDuration)));
+                                        uniqueDatalist.add(new North(reversePair, String.format("%.2f", totalDuration)));
+                                    }
+                                }
+
+                                // Replace datalist with the uniqueDatalist
+                                datalist.clear();
+                                datalist.addAll(uniqueDatalist);
+
+                                // Update the adapter with the unique station pairs
+                                adapter.updateData(datalist);
+                                adapter.notifyDataSetChanged();
+                                retrieveFilteredData(trainOrigin, trainDes);
+                            } else {
+                                // Handle the case where the query was not successful
                             }
-
-                            // Replace datalist with the uniqueDatalist
-                            datalist.clear();
-                            datalist.addAll(uniqueDatalist);
-
-                            // Update the adapter with the unique station pairs
-                            adapter.updateData(datalist);
-                            adapter.notifyDataSetChanged();
-                        } else {
-                            // Handle the case where the query was not successful
                         }
-                    }
-                });
+                    });
+            retrieveFilteredData(trainOrigin, trainDes);
+        }
+    }
+    private void retrieveFilteredData(String originName, String destinationName) {
+        // Filter original datalist based on the provided information
+        List<North> filteredDataList = new ArrayList<>();
 
+        for (North north : datalist) {
+            if (north.getName().contains(originName) && north.getName().contains(destinationName)) {
+                filteredDataList.add(north);
+            }
+        }
+        // Set the filtered data to the adapter
+        adapter.setFilteredList(filteredDataList);
     }
 
     public void toSeat(View view){

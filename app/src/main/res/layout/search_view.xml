@@ -14,104 +14,61 @@
     app:cardElevation="4dp"
     android:onClick="toSeat">
 
-    <TextView
-        android:id="@+id/duration"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="155dp"
-        android:layout_marginTop="14dp"
-        android:gravity="top"
-        android:text="Duration"
-        android:textColor="#000000"
-        android:textSize="12sp" />
-
     <RelativeLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_centerHorizontal="true"
         android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="135dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="top"
+            android:text="Duration"
+            android:textColor="#000000"
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="45dp"
+            android:layout_marginTop="60px"
+            android:layout_centerHorizontal="true"
             android:text="Origin"
             android:textColor="#000000"
-            android:textSize="20sp"/>
-
+            android:textSize="18sp"/>
 
         <TextView
             android:id="@+id/depart_time1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="30px"
             android:gravity="top"
             android:text="Depart: time"
             android:textColor="#A2A2A2"
             android:textSize="12sp" />
 
-       <!-- <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="80dp"
-            android:layout_height="12dp"
-            android:layout_marginStart="85dp"
-            android:layout_marginTop="10dp"
-            app:srcCompat="@drawable/new_moon_blue" />
-
-        <TextView
-            android:id="@+id/line1"
-            android:layout_width="93dp"
-            android:layout_height="15dp"
-            android:layout_marginStart="120dp"
-            android:gravity="top"
-            android:text="-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;"
-            android:textColor="#000000"
-            android:textSize="15sp" />
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="80dp"
-            android:layout_height="15dp"
-            android:layout_marginStart="180dp"
-            android:layout_marginTop="10dp"
-            app:srcCompat="@drawable/dry_clean" />
-
-        <TextView
-            android:id="@+id/name1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="244dp"
-            android:gravity="top"
-            android:text="Destination"
-            android:textColor="#000000"
-            android:textSize="20sp" />-->
-
         <TextView
             android:id="@+id/arrive_time1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="265dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30px"
             android:gravity="top"
             android:text="Arrive: time"
             android:textColor="#A2A2A2"
             android:textSize="12sp" />
-
-        <TextView
-            android:id="@+id/price1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="280dp"
-            android:layout_marginTop="60dp"
-            android:gravity="top"
-            android:text="Total: Pax"
-            android:textColor="#000000"
-            android:textSize="14sp" />
     </RelativeLayout>
-
 </androidx.cardview.widget.CardView>

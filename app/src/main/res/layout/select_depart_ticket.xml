@@ -41,35 +41,12 @@
             android:id="@+id/origin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="40dp"
             android:gravity="top"
             android:text="Origin"
             android:textColor="#000000"
             android:textSize="20sp" />
-
-<!--
-        <TextView
-            android:id="@+id/depart_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="55dp"
-            android:layout_marginTop="5dp"
-            android:gravity="top"
-            android:text="Depart: time"
-            android:textColor="#A2A2A2"
-            android:textSize="12sp" />-->
-
-       <!-- <TextView
-            android:id="@+id/duration"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="175dp"
-            android:layout_marginTop="-45dp"
-            android:text="Duration"
-            android:textColor="#000000"
-            android:textSize="12sp" />-->
-
 
         <ImageView
             android:id="@+id/imageView1"
@@ -98,7 +75,6 @@
             android:layout_marginTop="-9dp"
             app:srcCompat="@drawable/dry_clean" />
 
-
         <TextView
             android:id="@+id/destination"
             android:layout_width="wrap_content"
@@ -109,17 +85,6 @@
             android:text="Destination"
             android:textColor="#000000"
             android:textSize="20sp" />
-
-       <!-- <TextView
-            android:id="@+id/arrive_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="290dp"
-            android:layout_marginTop="4dp"
-            android:gravity="top"
-            android:text="Arrive: time"
-            android:textColor="#A2A2A2"
-            android:textSize="12sp" />-->
 
         <TextView
             android:id="@+id/pax"
@@ -132,7 +97,6 @@
             android:text="Total: Pax"
             android:textColor="#000000"
             android:textSize="14sp" />
-
 
         <LinearLayout
         android:id="@+id/dateLayout"
@@ -162,7 +126,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginBottom="20dp"
                 android:gravity="top"
-                android:text="4/2/2023"
+                android:text="DD/MM/YYYY"
                 android:textColor="#000000"
                 android:textSize="14sp" />
         </LinearLayout>
@@ -176,7 +140,7 @@
             <LinearLayout
                 android:id="@+id/linearLayout7"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_alignParentTop="true"
                 android:background="#DEEDF4"
                 android:orientation="vertical"
@@ -184,23 +148,20 @@
                 android:elevation="10dp">
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/depart"
+                    android:id="@+id/searchResultsRecyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     />
-
-
             </LinearLayout>
         </ScrollView>
-
     </LinearLayout>
+
     <RelativeLayout
         android:id="@+id/footer"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="#FEFAFD"
-
         android:gravity="center_horizontal">
 
         <LinearLayout
@@ -232,7 +193,6 @@
                 android:onClick="toBookingHistory"
                 app:srcCompat="@drawable/ticket" />
 
-
             <ImageButton
                 android:id="@+id/profilePage"
                 android:layout_width="wrap_content"
@@ -241,7 +201,6 @@
                 android:onClick="toAccountPage"
                 android:padding="5dp"
                 app:srcCompat="@drawable/account" />
-
         </LinearLayout>
 
         <LinearLayout
@@ -252,7 +211,6 @@
             android:gravity="center_horizontal"
             android:orientation="horizontal"
             android:padding="10dp">
-
 
             <TextView
                 android:id="@+id/home"

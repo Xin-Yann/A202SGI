@@ -64,7 +64,7 @@
             android:layout_marginStart="58dp"
             android:layout_marginTop="5dp"
             android:gravity="top"
-            android:text="Depart: time"
+            android:text=""
             android:textColor="#A2A2A2"
             android:textSize="12sp" />
 
@@ -124,7 +124,7 @@
             android:layout_marginStart="290dp"
             android:layout_marginTop="4dp"
             android:gravity="top"
-            android:text="Arrive: time"
+            android:text=""
             android:textColor="#A2A2A2"
             android:textSize="12sp" />
 
@@ -148,7 +148,8 @@
             android:layout_marginTop="15dp"
             android:background="@drawable/left_chevron1"
             android:contentDescription="Left Chevron"
-            tools:ignore="TouchTargetSizeCheck"/>
+            tools:ignore="TouchTargetSizeCheck"
+            android:onClick="toCoachE"/>
 
         <ImageButton
             android:id="@+id/Coach_a"

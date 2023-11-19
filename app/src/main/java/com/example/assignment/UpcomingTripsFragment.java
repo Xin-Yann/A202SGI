@@ -77,9 +77,7 @@ public class UpcomingTripsFragment extends Fragment {
                         for (DocumentChange dc : value.getDocumentChanges()) {
 
                             if (dc.getType() == DocumentChange.Type.ADDED) {
-
                                 historyArrayList.add(dc.getDocument().toObject(History.class));
-
                             }
 
                             historyAdapter.notifyDataSetChanged();

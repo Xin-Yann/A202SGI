@@ -34,6 +34,9 @@ public class Select_return_seat_d extends AppCompatActivity {
     private String totalDuration;
     private String trainDate;
     private String trainPax;
+    private String departureTime;
+
+    private String arrivalTime;
 
     private FirebaseFirestore db;
 
@@ -83,64 +86,68 @@ public class Select_return_seat_d extends AppCompatActivity {
         totalDuration = preferences.getString("totalDuration", "");
         trainDate = preferences.getString("trainDate", "");
         trainPax = preferences.getString("trainPax", "");
+        departureTime = preferences.getString("departureTime", "");
+        arrivalTime = preferences.getString("arrivalTime", "");
     }
 
     private void updateUI() {
-        // Update your UI with originName, destinationName, and totalDuration as needed
-        // For example, you can set the text of TextViews
         TextView originTextView = findViewById(R.id.origin);
         TextView destinationTextView = findViewById(R.id.destination);
         TextView durationTextView = findViewById(R.id.duration);
+        TextView departTextView = findViewById(R.id.depart_time);
+        TextView arriveTextView = findViewById(R.id.arrive_time);
 
         originTextView.setText(originName);
         destinationTextView.setText(destinationName);
         durationTextView.setText(totalDuration);
+        departTextView.setText(departureTime);
+        arriveTextView.setText(arrivalTime);
     }
 
     public void toSeat_a(View view) {
         Intent intent = new Intent(this, Select_return_seat_a.class);
         ImageButton toCoach_a = findViewById(R.id.Coach_a);
-        Select_seat.startNextSeatActivity(this, Select_return_seat_a.class, originName, destinationName, totalDuration, trainDate, trainPax);
+        Select_seat.startNextSeatActivity(this, Select_return_seat_a.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime);
         startActivity(intent);
     }
 
     public void toSeat_b(View view) {
         Intent intent = new Intent(this, Select_return_seat_b.class);
         ImageButton toCoach_b = findViewById(R.id.Coach_b);
-        Select_seat.startNextSeatActivity(this, Select_return_seat_b.class, originName, destinationName, totalDuration, trainDate, trainPax);
+        Select_seat.startNextSeatActivity(this, Select_return_seat_b.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime);
         startActivity(intent);
     }
 
     public void toSeat_c(View view) {
         Intent intent = new Intent(this, Select_return_seat_c.class);
         ImageButton toCoach_c = findViewById(R.id.Coach_c);
-        Select_seat.startNextSeatActivity(this, Select_return_seat_c.class, originName, destinationName, totalDuration, trainDate, trainPax);
+        Select_seat.startNextSeatActivity(this, Select_return_seat_c.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime);
         startActivity(intent);
     }
 
     public void toSeat_d(View view) {
         Intent intent = new Intent(this, Select_return_seat_d.class);
         ImageButton toCoach_d = findViewById(R.id.Coach_d);
-        Select_seat.startNextSeatActivity(this, Select_return_seat_d.class, originName, destinationName, totalDuration, trainDate, trainPax);
+        Select_seat.startNextSeatActivity(this, Select_return_seat_d.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime);
         startActivity(intent);
     }
 
     public void toSeat_e(View view) {
         Intent intent = new Intent(this, Select_return_seat_e.class);
         ImageButton toCoach_e = findViewById(R.id.Coach_e);
-        Select_seat.startNextSeatActivity(this, Select_return_seat_e.class, originName, destinationName, totalDuration, trainDate, trainPax);
+        Select_seat.startNextSeatActivity(this, Select_return_seat_e.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime);
         startActivity(intent);
     }
 
     public void toCoachC(View view) {
         Intent intent = new Intent(this, Select_return_seat_c.class);
-        Select_seat.startNextSeatActivity(this, Select_return_seat_c.class, originName, destinationName, totalDuration, trainDate, trainPax);
+        Select_seat.startNextSeatActivity(this, Select_return_seat_c.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime);
         startActivity(intent);
     }
 
     public void toCoachE(View view) {
         Intent intent = new Intent(this, Select_return_seat_e.class);
-        Select_seat.startNextSeatActivity(this, Select_return_seat_e.class, originName, destinationName, totalDuration, trainDate, trainPax);
+        Select_seat.startNextSeatActivity(this, Select_return_seat_e.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime);
         startActivity(intent);
     }
 
@@ -170,20 +177,19 @@ public class Select_return_seat_d extends AppCompatActivity {
         ImageButton normalSeatButton = (ImageButton) view;
         String seatId = normalSeatButton.getContentDescription().toString();
 
-        // Check if the seat is already selected or not
+
         if (isSeatSelected(seatId)) {
-            // Seat is already selected, show a confirmation dialog
             showSeatConfirmationDialog(seatId);
         } else {
             if (selectedSeats.size() <= Integer.parseInt(trainPax)) {
-                // Seat is not selected, change the image and mark it as selected
+
                 normalSeatButton.setImageResource(R.drawable.selected_seat);
-                // Add the seat to the selected seats list
+
                 addSelectedSeat(seatId);
-                // Show the confirmation dialog immediately after selecting the seat
+
                 showSeatConfirmationDialog(seatId);
             } else {
-                // Maximum number of seats reached, notify the user
+
                 Toast.makeText(this, "You have already selected the maximum number of seats.", Toast.LENGTH_SHORT).show();
             }
         }
@@ -193,7 +199,7 @@ public class Select_return_seat_d extends AppCompatActivity {
     private void checkAndDisplaySeatAvailability(final String seatId, final ImageButton normalSeatButton) {
         Log.d("Seat_Id_Debug", "Seat_Id: " + seatId);
 
-        // Extract seat ID from ImageButton content description
+
         String buttonSeatId = normalSeatButton.getContentDescription().toString();
 
         // Query the Firestore database to check if the seat is already reserved
@@ -202,7 +208,7 @@ public class Select_return_seat_d extends AppCompatActivity {
                 .whereEqualTo("seat_id", buttonSeatId)
                 .get()
                 .addOnSuccessListener(queryDocumentSnapshots -> {
-                    // If the seat is already reserved, update UI accordingly
+
                     if (!queryDocumentSnapshots.isEmpty()) {
                         // Seat is reserved, update UI to show it as unavailable
                         normalSeatButton.setImageResource(R.drawable.unavailable_seat);
@@ -210,7 +216,7 @@ public class Select_return_seat_d extends AppCompatActivity {
                     }
                 })
                 .addOnFailureListener(e -> {
-                    // Handle the error
+
                     Toast.makeText(Select_return_seat_d.this, "Error checking seat availability", Toast.LENGTH_SHORT).show();
                 });
     }
@@ -218,8 +224,7 @@ public class Select_return_seat_d extends AppCompatActivity {
 
 
     private boolean isSeatSelected(String seatId) {
-        // Implement your logic to check if the seat is already selected
-        // You can use the selectedSeats list to track selected seats
+
         return selectedSeats.contains(seatId);
     }
 
@@ -229,7 +234,7 @@ public class Select_return_seat_d extends AppCompatActivity {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                // Handle seat confirmation (e.g., save the selected seat to a database)
+
                 saveSelectedSeat(seatId);
 
                 if (AppData.isReturnTicketAllowed) {
@@ -248,7 +253,7 @@ public class Select_return_seat_d extends AppCompatActivity {
             }
         });
 
-        // Add a negative button for "No"
+
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -261,7 +266,7 @@ public class Select_return_seat_d extends AppCompatActivity {
     }
 
     private void saveSelectedSeat(String seatId) {
-        // Extract seat details from seatId
+
         String seatType = extractSeatType(seatId);
         String seatNo = extractSeatNo(seatId);
         String seatCoach = extractSeatCoach(seatId);
@@ -270,19 +275,19 @@ public class Select_return_seat_d extends AppCompatActivity {
         priceTextView = findViewById(R.id.price);
         String originalPriceStr = priceTextView.getText().toString();
 
-        // Extract the numeric part of the price string
+
         String numericPart = originalPriceStr.replaceAll("[^\\d.]", "");
 
-        // Parse the numeric part to a double
+
         double originalPrice = Double.parseDouble(numericPart);
 
-        // Double the price for premium seats
+
         double doubledPrice = originalPrice;
 
-        // Convert the doubled price to a string
+
         String seatPrice = String.valueOf(doubledPrice);
 
-        // Create a Map to represent the seat data
+
         Map<String, Object> seatData = new HashMap<>();
         seatData.put("seat_id", seatId);
         seatData.put("seat_type", seatType);
@@ -290,10 +295,12 @@ public class Select_return_seat_d extends AppCompatActivity {
         seatData.put("seat_coach", seatCoach);
         seatData.put("train_date", trainDate);
         seatData.put("user_email", getCurrentUserEmail());
-        seatData.put("seat_price", seatPrice); // Save the doubled price
+        seatData.put("seat_price", seatPrice);
         seatData.put("origin_name", originName);
         seatData.put("destination_name", destinationName);
         seatData.put("total_duration", totalDuration);
+        seatData.put("depart_time", departureTime);
+        seatData.put("arrival_time", arrivalTime);
 
         // Save the seat data to the Firestore database
         db.collection("returnseat")
@@ -317,8 +324,7 @@ public class Select_return_seat_d extends AppCompatActivity {
 
 
     private String extractSeatNo(String seatId) {
-        // Extract seat number directly from seatId
-        // Assuming seat number is part of the seat_id
+
         String[] parts = seatId.split(" ");
 
         // Find and return the seat number part
@@ -328,29 +334,27 @@ public class Select_return_seat_d extends AppCompatActivity {
             }
         }
 
-        // Return a default value or handle the case when the seat number cannot be determined
+
         return "unknown";
     }
 
     private String extractSeatType(String seatId) {
-        // Extract seat type directly from seatId
-        // Assuming seat type is part of the seat_id
+
         String[] parts = seatId.split(" ");
 
-        // Find and return the seat type part
+
         for (String part : parts) {
             if (part.equalsIgnoreCase("normal") || part.equalsIgnoreCase("oku") || part.equalsIgnoreCase("premium")) {
                 return part.toLowerCase() + " seat";
             }
         }
 
-        // Return a default value or handle the case when the seat type cannot be determined
+
         return "unknown type";
     }
 
     private String extractSeatCoach(String seatId) {
-        // Extract coach information directly from seatId
-        // Assuming coach information is part of the seat_id
+
         String[] parts = seatId.split(" ");
 
         // Find and return the coach information part
@@ -360,13 +364,12 @@ public class Select_return_seat_d extends AppCompatActivity {
             }
         }
 
-        // Return a default value or handle the case when the coach information cannot be determined
+
         return "unknown coach";
     }
 
     private void addSelectedSeat(String seatId) {
-        // Implement your logic to add the selected seat to the list
-        // You can use the selectedSeats list to track selected seats
+
         selectedSeats.add(seatId);
     }
 

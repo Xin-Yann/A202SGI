@@ -1,12 +1,12 @@
 package com.example.assignment;
+
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import android.content.Context;
-
 import java.util.List;
 
 public class NorthAdapter extends RecyclerView.Adapter<NorthAdapter.CardViewHolder> {
@@ -23,11 +23,10 @@ public class NorthAdapter extends RecyclerView.Adapter<NorthAdapter.CardViewHold
         notifyDataSetChanged();
     }
 
-    public void setFilteredList(List<North> filteredList){
+    public void setFilteredList(List<North> filteredList) {
         this.dataList = filteredList;
         notifyDataSetChanged();
     }
-
 
     @NonNull
     @Override
@@ -40,9 +39,14 @@ public class NorthAdapter extends RecyclerView.Adapter<NorthAdapter.CardViewHold
     public void onBindViewHolder(@NonNull CardViewHolder holder, int position) {
         North data = dataList.get(position);
         String routeName = data.getName();
-        String Duration = data.getDuration();
+        String duration = data.getDuration();
+        String departureTime = data.getDepartureTime();
+        String arrivalTime = data.getArrivalTime();
+
         holder.nameTextView.setText(routeName);
-        holder.durationTextView.setText("Duration: " + Duration + " mins");
+        holder.durationTextView.setText("Duration: " + duration);
+        holder.departTextView.setText(departureTime);
+        holder.arrivalTextView.setText(arrivalTime);
     }
 
     @Override
@@ -52,12 +56,14 @@ public class NorthAdapter extends RecyclerView.Adapter<NorthAdapter.CardViewHold
 
     static class CardViewHolder extends RecyclerView.ViewHolder {
         TextView nameTextView;
-        TextView durationTextView;
+        TextView durationTextView, departTextView, arrivalTextView;
 
         public CardViewHolder(View itemView) {
             super(itemView);
             nameTextView = itemView.findViewById(R.id.name);
             durationTextView = itemView.findViewById(R.id.duration);
+            departTextView =  itemView.findViewById(R.id.depart_time1);
+            arrivalTextView = itemView.findViewById(R.id.arrive_time1);
         }
     }
 }

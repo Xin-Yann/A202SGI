@@ -290,5 +290,4 @@
                 android:textSize="16sp" />
         </RelativeLayout>
     </ScrollView>
-
 </LinearLayout>
