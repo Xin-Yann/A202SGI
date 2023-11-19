@@ -246,18 +246,18 @@ public class Select_seat_a extends AppCompatActivity {
                     if (AppData.isReturnTicketAllowed) {
                         Intent returnIntent = new Intent(Select_seat_a.this, Select_return_ticket.class);
 
-
-
                         Intent passDataIntent = getIntent();
                         String trainOrigin = passDataIntent.getStringExtra("search_query");
                         String trainDes = passDataIntent.getStringExtra("search_destination");
                         String trainDate = passDataIntent.getStringExtra("search_date");
+                        String trainArr = passDataIntent.getStringExtra("search_arr");
                         String trainPax = passDataIntent.getStringExtra("search_pax");
 
 
                         returnIntent.putExtra("search_query", trainOrigin);
                         returnIntent.putExtra("search_destination", trainDes);
                         returnIntent.putExtra("search_date", trainDate);
+                        returnIntent.putExtra("search_arr", trainArr);
                         returnIntent.putExtra("search_pax", trainPax);
 
                         startActivity(returnIntent);

@@ -33,10 +33,7 @@ public class Select_return_seat_a extends AppCompatActivity {
     private String trainDate;
     private String trainPax;
     private String departureTime;
-
     private String arrivalTime;
-
-
 
     private FirebaseFirestore db;
 

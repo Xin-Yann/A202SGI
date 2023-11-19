@@ -176,12 +176,13 @@ public class Select_depart_ticket extends AppCompatActivity {
 
     public void toSeat(View view) {
         Intent intent = getIntent();
-
         if (intent.hasExtra("search_query")) {
             String trainOrigin = intent.getStringExtra("search_query");
             String trainDes = intent.getStringExtra("search_destination");
             String trainDate = intent.getStringExtra("search_date");
+            String trainArr = intent.getStringExtra("search_arr");
             String trainPax = intent.getStringExtra("search_pax");
+
 
             String stationName = "";
             String totalDuration = "";
@@ -218,6 +219,7 @@ public class Select_depart_ticket extends AppCompatActivity {
             passDataIntent.putExtra("search_query", trainOrigin);
             passDataIntent.putExtra("search_destination", trainDes);
             passDataIntent.putExtra("search_date", trainDate);
+            passDataIntent.putExtra("search_arr", trainArr);
             passDataIntent.putExtra("search_pax", trainPax);
             passDataIntent.putExtra("departureTime", departureTime);
             passDataIntent.putExtra("arrivalTime", arrivalTime);

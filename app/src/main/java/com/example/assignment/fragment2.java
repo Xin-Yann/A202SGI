@@ -74,6 +74,7 @@ public class fragment2 extends Fragment {
                 // Perform a search based on the train name
                 fetchAndFilterData(trainOrigin, trainDes, trainDate, trainPax);
 
+
                 Intent intent = new Intent(getContext(), Select_depart_ticket.class);
                 intent.putExtra("search_query", trainOrigin);
                 intent.putExtra("search_destination", trainDes);
@@ -107,14 +108,7 @@ public class fragment2 extends Fragment {
 
                             // Datalist is populated, call filterList
                             filterList(trainOrigin, trainDes);
-
-                            // Start the Select_depart_ticket activity
-                            Intent intent = new Intent(getContext(), Select_depart_ticket.class);
-                            intent.putExtra("search_query", trainOrigin);
-                            intent.putExtra("search_destination", trainDes);
-                            intent.putExtra("search_date", trainDate);
-                            intent.putExtra("search_pax", trainPax);
-                            startActivity(intent);
+                            
 
                         } else {
                             Log.e("Fragment1", "Error getting documents: ", task.getException());

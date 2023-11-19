@@ -82,44 +82,6 @@
             android:layout_marginTop="3dp"
             android:background="@drawable/line_7" />
 
-        <TextView
-            android:id="@+id/special_registration"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="55dp"
-            android:layout_marginTop="40dp"
-            android:gravity="top"
-            android:text="Special Registration"
-            android:textColor="#000000"
-            android:textSize="21sp"
-            android:onClick="special_registration"/>
-
-        <ImageView
-            android:id="@+id/line_7two"
-            android:layout_width="308dp"
-            android:layout_height="2dp"
-            android:layout_marginStart="55dp"
-            android:layout_marginTop="3dp"
-            android:background="@drawable/line_7" />
-
-        <TextView
-            android:id="@+id/log_out"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="55dp"
-            android:layout_marginTop="40dp"
-            android:gravity="top"
-            android:text="Log Out"
-            android:textColor="#000000"
-            android:textSize="21sp" />
-
-        <ImageView
-            android:id="@+id/line_7three"
-            android:layout_width="308dp"
-            android:layout_height="2dp"
-            android:layout_marginStart="55dp"
-            android:layout_marginTop="3dp"
-            android:background="@drawable/line_7" />
     </LinearLayout>
 
     <RelativeLayout
@@ -183,7 +145,7 @@
 
 
             <TextView
-                android:id="@+id/home"
+                android:id="@+id/home1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="70dp"

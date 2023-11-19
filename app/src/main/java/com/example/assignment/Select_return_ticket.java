@@ -2,6 +2,7 @@ package com.example.assignment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -50,11 +51,13 @@ public class Select_return_ticket extends AppCompatActivity {
         if (returnIntent.hasExtra("search_query")) {
             String trainOrigin = returnIntent.getStringExtra("search_query");
             String trainDes = returnIntent.getStringExtra("search_destination");
-            String trainDate = returnIntent.getStringExtra("search_date");
+            String trainArr = returnIntent.getStringExtra("search_arr");
             String trainPax = returnIntent.getStringExtra("search_pax");
-            // Now you have the trainName, you can use it as needed.
 
-            // For example, you might want to update UI elements based on the trainName:
+            Log.d("Select_return_ticket", "Received data: Origin=" + trainOrigin + ", Destination=" + trainDes + ", Date=" + trainArr + ", Pax=" + trainPax);
+
+
+            // Update UI with retrieved data
             trainOri = findViewById(R.id.origin);
             trainOri.setText(trainOrigin);
 
@@ -62,7 +65,7 @@ public class Select_return_ticket extends AppCompatActivity {
             trainDestination.setText(trainDes);
 
             trainD = findViewById(R.id.date1);
-            trainD.setText(trainDate);
+            trainD.setText(trainArr);  // Corrected line
 
             trainP = findViewById(R.id.pax);
             trainP.setText("Total: " + trainPax + " Pax");
