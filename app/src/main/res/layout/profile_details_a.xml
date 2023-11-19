@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="0dp"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="15dp">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/account"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="#030F51"
+            android:gravity="center"
+            android:text="Account"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="170dp"
+            tools:layout_editor_absoluteY="16dp" />
+
+        <ImageButton
+            android:id="@+id/profilePage1"
+            android:layout_width="17dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="-35dp"
+            android:backgroundTint="#00FFFFFF"
+            app:srcCompat="@drawable/left_arrow_white"
+            android:onClick="Account"/>
+
+        <ImageView
+            android:id="@+id/account1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="180dp"
+            android:layout_marginTop="55dp"
+            app:srcCompat="@drawable/user" />
+
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="20dp"
+            android:gravity="top"
+            android:text="Username"
+            android:textColor="#000000"
+            android:textSize="21sp" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="-5dp"
+            android:layout_marginTop="25dp"
+            app:srcCompat="@drawable/rectangle_10" />
+
+        <TextView
+            android:id="@+id/my_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="55dp"
+            android:layout_marginTop="-330dp"
+            android:gravity="top"
+            android:text="My Profile"
+            android:textColor="#000000"
+            android:textSize="21sp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="250dp"
+            android:layout_height="56dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="25dp"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:hint="Name"
+            app:hintEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputName"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:editable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:background="#e6e6e6"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+<!--        <TextView-->
+<!--            android:id="@+id/edit1"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:layout_marginStart="320dp"-->
+<!--            android:layout_marginTop="-38dp"-->
+<!--            android:gravity="top"-->
+<!--            android:text="Edit"-->
+<!--            android:textColor="#000000"-->
+<!--            android:textSize="21sp" />-->
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="250dp"
+            android:layout_height="56dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="20dp"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:hint="Email"
+            app:hintEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputEmail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ffffff"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+<!--        <TextView-->
+<!--            android:id="@+id/edit2"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:layout_marginStart="320dp"-->
+<!--            android:layout_marginTop="-38dp"-->
+<!--            android:gravity="top"-->
+<!--            android:text="Edit"-->
+<!--            android:textColor="#000000"-->
+<!--            android:textSize="21sp" />-->
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="250dp"
+            android:layout_height="56dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="20dp"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:hint="Password"
+            app:hintEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputPassword"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ffffff"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+<!--        <TextView-->
+<!--            android:id="@+id/edit3"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:layout_marginStart="320dp"-->
+<!--            android:layout_marginTop="-38dp"-->
+<!--            android:gravity="top"-->
+<!--            android:text="Edit"-->
+<!--            android:textColor="#000000"-->
+<!--            android:textSize="21sp" />-->
+
+        <Button
+            android:id="@+id/saveBtn"
+            android:layout_width="150dp"
+            android:layout_height="48dp"
+            android:backgroundTint="#030F51"
+            android:text="Save"
+            android:layout_marginTop="18dp"
+            android:layout_marginStart="140dp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/footer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#FEFAFD"
+        android:gravity="center_horizontal"
+        android:elevation="50dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:layout_marginLeft="60dp">
+
+            <ImageButton
+                android:id="@+id/image1"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="#ffff"
+                android:contentDescription="Image1"
+                android:onClick="toHomePage"
+                android:padding="5dp"
+                app:srcCompat="@drawable/home"
+                android:layout_marginRight="88dp"
+                android:layout_marginStart="-11dp"
+                android:layout_marginTop="-10dp"/>
+
+            <ImageButton
+                android:id="@+id/image2"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="#ffffff"
+                android:onClick="clickImage2"
+                app:srcCompat="@drawable/ticket"
+                android:layout_marginRight="95dp"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="-10dp"
+                android:contentDescription="My Ticket"/>
+
+            <ImageButton
+                android:id="@+id/image3"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="#ffffff"
+                android:onClick="clickImage3"
+                android:padding="5dp"
+                app:srcCompat="@drawable/account"
+                android:contentDescription="Account"
+                android:layout_marginStart="-15dp"
+                android:layout_marginTop="-10dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal">
+
+
+            <TextView
+                android:id="@+id/home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:text="Home"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:layout_marginRight="62dp"/>
+
+            <TextView
+                android:id="@+id/myTicket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:text="My Ticket"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:layout_marginRight="70dp"
+                android:layout_marginLeft="18dp"/>
+
+            <TextView
+                android:id="@+id/account2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:text="Account"
+                android:textColor="#000000"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

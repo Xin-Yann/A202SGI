@@ -2,4 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <style name="NoUnderlineEditTextStyle" parent="Widget.AppCompat.EditText">
+        <item name="android:backgroundTint">@android:color/transparent</item>
+    </style>
+    <color name="color">#FA9611</color>
+
+
 </resources>

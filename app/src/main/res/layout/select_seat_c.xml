@@ -1,0 +1,814 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="0dp"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="15dp">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="#040F51"
+            android:gravity="center"
+            android:text="Select Depart Seat"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="170dp"
+            tools:layout_editor_absoluteY="16dp" />
+
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="17dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="-35dp"
+            android:background="@drawable/left_chevron"
+            android:contentDescription="back"
+            tools:ignore="TouchTargetSizeCheck"
+            android:onClick="back"/>
+
+        <TextView
+            android:id="@+id/origin"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="70dp"
+            android:paddingEnd="5dp"
+            android:gravity="end"
+            android:text=""
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+
+        <TextView
+            android:id="@+id/depart_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="58dp"
+            android:layout_marginTop="5dp"
+            android:gravity="top"
+            android:text="Depart: time"
+            android:textColor="#A2A2A2"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="142dp"
+            android:layout_marginTop="-70dp"
+            android:gravity="top"
+            android:text=""
+            android:textColor="#000000"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="80dp"
+            android:layout_height="12dp"
+            android:layout_marginStart="105dp"
+            android:layout_marginTop="15dp"
+            app:srcCompat="@drawable/new_moon_blue" />
+
+        <TextView
+            android:id="@+id/line1"
+            android:layout_width="93dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="-19dp"
+            android:gravity="top"
+            android:text="---------------------------"
+            android:textColor="#000000"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="80dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="210dp"
+            android:layout_marginTop="-10dp"
+            app:srcCompat="@drawable/dry_clean" />
+
+        <TextView
+            android:id="@+id/destination"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="269dp"
+            android:layout_marginTop="-22dp"
+            android:gravity="top"
+            android:text=""
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/arrive_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="290dp"
+            android:layout_marginTop="4dp"
+            android:gravity="top"
+            android:text="Arrive: time"
+            android:textColor="#A2A2A2"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="300dp"
+            android:layout_marginTop="10dp"
+            android:gravity="top"
+            android:text=""
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+
+
+
+        <ImageButton
+            android:id="@+id/left_chevron1"
+            android:layout_width="17dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/left_chevron1"
+            android:contentDescription="Left Chevron"
+            tools:ignore="TouchTargetSizeCheck"
+            android:onClick="toCoachB"/>
+
+        <ImageButton
+            android:id="@+id/Coach_a"
+            android:layout_width="50dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="-28dp"
+            android:background="@drawable/minus__grey"
+            android:contentDescription="Rectangle 1"
+            tools:ignore="TouchTargetSizeCheck"
+            android:onClick="toSeat_a"/>
+
+        <ImageButton
+            android:id="@+id/Coach_b"
+            android:layout_width="50dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="120dp"
+            android:layout_marginTop="-35dp"
+            android:background="@drawable/minus__grey"
+            android:contentDescription="Rectangle 2"
+            tools:ignore="TouchTargetSizeCheck"
+            android:onClick="toSeat_b"/>
+
+        <ImageButton
+            android:id="@+id/Coach_c"
+            android:layout_width="50dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="180dp"
+            android:layout_marginTop="-35dp"
+            android:background="@drawable/minus__blue"
+            android:contentDescription="Rectangle 3"
+            tools:ignore="TouchTargetSizeCheck"
+            android:onClick="toSeat_c"/>
+
+        <ImageButton
+            android:id="@+id/Coach_d"
+            android:layout_width="50dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="240dp"
+            android:layout_marginTop="-35dp"
+            android:background="@drawable/minus__grey"
+            android:contentDescription="Rectangle 4"
+            tools:ignore="TouchTargetSizeCheck"
+            android:onClick="toSeat_d"/>
+
+        <ImageButton
+            android:id="@+id/Coach_e"
+            android:layout_width="50dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="300dp"
+            android:layout_marginTop="-35dp"
+            android:background="@drawable/minus__grey"
+            android:contentDescription="Rectangle 5"
+            tools:ignore="TouchTargetSizeCheck"
+            android:onClick="toSeat_e"/>
+
+        <ImageButton
+            android:id="@+id/right_chevron1"
+            android:layout_width="15dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="365dp"
+            android:layout_marginTop="-27dp"
+            android:background="@drawable/right_chevron1"
+            android:contentDescription="Right Chevron"
+            tools:ignore="TouchTargetSizeCheck"
+            android:onClick="toCoachD"/>
+
+        <TextView
+            android:id="@+id/coach_c"
+            android:layout_width="72dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="174dp"
+            android:layout_marginTop="10dp"
+            android:gravity="top"
+            android:text="Coach_C" />
+
+        <View
+            android:id="@+id/available_seat"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="47dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/available" />
+
+        <TextView
+            android:id="@+id/available"
+            android:layout_width="wrap_content"
+            android:layout_height="21dp"
+            android:layout_marginStart="78dp"
+            android:layout_marginTop="-23dp"
+            android:gravity="top"
+            android:text="Available" />
+
+        <View
+            android:id="@+id/premium_seat"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="158dp"
+            android:layout_marginTop="-22dp"
+            android:background="@drawable/premium_seat" />
+
+        <TextView
+            android:id="@+id/premium"
+            android:layout_width="wrap_content"
+            android:layout_height="21dp"
+            android:layout_marginStart="191dp"
+            android:layout_marginTop="-23dp"
+            android:gravity="top"
+            android:text="Premium" />
+
+        <View
+            android:id="@+id/unavailable_seat"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="267dp"
+            android:layout_marginTop="-22dp"
+            android:background="@drawable/unavailable_seat" />
+
+        <TextView
+            android:id="@+id/selected"
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"
+            android:layout_marginStart="298dp"
+            android:layout_marginTop="-23dp"
+            android:gravity="top"
+            android:text="Unavailable" />
+
+        <View
+            android:id="@+id/rectangle_6"
+            android:layout_width="368dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="0dp"
+            android:background="@drawable/line3" />
+
+
+        <TextView
+            android:id="@+id/forward"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="178dp"
+            android:layout_marginTop="-10dp"
+            android:gravity="top"
+            android:text="Forward" />
+
+        <ScrollView
+            android:id="@+id/scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="320dp"
+            android:background="#DEEDF4">
+
+            <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                android:orientation="vertical"
+                android:background="#DEEDF4">
+
+                <TextView
+                    android:id="@+id/one_a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="65dp"
+                    android:layout_marginTop="6dp"
+                    android:gravity="top"
+                    android:text="1A" />
+
+                <ImageButton
+                    android:id="@+id/normal_seat_1a"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="53dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/normal_seat_w"
+                    android:contentDescription="Coach C Seat 1A normal seat"
+                    android:onClick="normalSeatClicked"
+                    android:scaleType="fitCenter"/>
+
+                <TextView
+                    android:id="@+id/one_b"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="124dp"
+                    android:layout_marginTop="-71dp"
+                    android:text="1B"
+                    android:gravity="top" />
+
+                <ImageButton
+                    android:id="@+id/normal_seat_1b"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="112dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/normal_seat_a"
+                    android:contentDescription="Coach C Seat 1B normal seat"
+                    android:onClick="normalSeatClicked"
+                    android:scaleType="fitCenter"/>
+
+                <TextView
+                    android:id="@+id/one_c"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="265dp"
+                    android:layout_marginTop="-71dp"
+                    android:text="1C"
+                    android:gravity="top" />
+
+                <ImageButton
+                    android:id="@+id/normal_seat_1c"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="253dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/normal_seat_a"
+                    android:contentDescription="Coach C Seat 1C normal seat"
+                    android:onClick="normalSeatClicked"
+                    android:scaleType="fitCenter"/>
+
+                <TextView
+                    android:id="@+id/one_d"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="324dp"
+                    android:layout_marginTop="-71dp"
+                    android:text="1D"
+                    android:gravity="top" />
+
+                <ImageButton
+                    android:id="@+id/normal_seat_1d"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="312dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/normal_seat_w"
+                    android:contentDescription="Coach C Seat 1D normal seat"
+                    android:onClick="normalSeatClicked"
+                    android:scaleType="fitCenter"/>
+
+                <TextView
+                    android:id="@+id/two_a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="65dp"
+                    android:layout_marginTop="16dp"
+                    android:gravity="top"
+                    android:text="2A" />
+
+                <ImageButton
+                    android:id="@+id/normal_seat_2a"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="53dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/normal_seat_w"
+                    android:contentDescription="Coach C Seat 2A normal seat"
+                    android:onClick="normalSeatClicked"
+                    android:scaleType="fitCenter"/>
+
+                <TextView
+                    android:id="@+id/two_b"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="124dp"
+                    android:layout_marginTop="-69dp"
+                    android:text="2B"
+                    android:gravity="top" />
+
+                <ImageButton
+                    android:id="@+id/normal_seat_2b"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="112dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/normal_seat_a"
+                    android:contentDescription="Coach C Seat 2B normal seat"
+                    android:onClick="normalSeatClicked"
+                    android:scaleType="fitCenter"/>
+
+                <TextView
+                    android:id="@+id/two_c"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="265dp"
+                    android:layout_marginTop="-69dp"
+                    android:text="2C"
+                    android:gravity="top" />
+
+                <ImageButton
+                    android:id="@+id/normal_seat_2c"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="253dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/normal_seat_a"
+                    android:contentDescription="Coach C Seat 2C normal seat"
+                    android:onClick="normalSeatClicked"
+                    android:scaleType="fitCenter"/>
+
+                <TextView
+                    android:id="@+id/two_d"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="324dp"
+                    android:layout_marginTop="-69dp"
+                    android:text="2D"
+                    android:gravity="top" />
+
+                <ImageButton
+                    android:id="@+id/normal_seat_2d"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="312dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/normal_seat_w"
+                    android:contentDescription="Coach C Seat 2D normal seat"
+                    android:onClick="normalSeatClicked"
+                    android:scaleType="fitCenter"/>
+
+                <TextView
+                    android:id="@+id/three_a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="65dp"
+                    android:layout_marginTop="17dp"
+                    android:gravity="top"
+                    android:text="3A" />
+
+                <ImageButton
+                    android:id="@+id/normal_seat_3a"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="53dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/normal_seat_w"
+                    android:contentDescription="Coach C Seat 3A normal seat"
+                    android:onClick="normalSeatClicked"
+                    android:scaleType="fitCenter"/>
+
+                <TextView
+                    android:id="@+id/three_b"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="124dp"
+                    android:layout_marginTop="-69dp"
+                    android:text="3B"
+                    android:gravity="top" />
+
+                <ImageButton
+                    android:id="@+id/normal_seat_3b"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="112dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/normal_seat_a"
+                    android:contentDescription="Coach C Seat 3B normal seat"
+                    android:onClick="normalSeatClicked"
+                    android:scaleType="fitCenter"/>
+
+                <TextView
+                    android:id="@+id/three_c"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="265dp"
+                    android:layout_marginTop="-69dp"
+                    android:text="3C"
+                    android:gravity="top" />
+
+                <ImageButton
+                    android:id="@+id/normal_seat_3c"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="253dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/normal_seat_a"
+                    android:contentDescription="Coach C Seat 3C normal seat"
+                    android:onClick="normalSeatClicked"
+                    android:scaleType="fitCenter"/>
+
+                <TextView
+                    android:id="@+id/three_d"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="324dp"
+                    android:layout_marginTop="-69dp"
+                    android:text="3D"
+                    android:gravity="top" />
+
+                <ImageButton
+                    android:id="@+id/normal_seat_3d"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="312dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/normal_seat_w"
+                    android:contentDescription="Coach C Seat 3D normal seat"
+                    android:onClick="normalSeatClicked"
+                    android:scaleType="fitCenter"/>
+
+                <TextView
+                    android:id="@+id/four_a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="65dp"
+                    android:layout_marginTop="17dp"
+                    android:gravity="top"
+                    android:text="4A" />
+
+                <ImageButton
+                    android:id="@+id/normal_seat_4a"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="53dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/normal_seat_w"
+                    android:contentDescription="Coach C Seat 4A normal seat"
+                    android:onClick="normalSeatClicked"
+                    android:scaleType="fitCenter"/>
+
+                <TextView
+                    android:id="@+id/four_b"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="124dp"
+                    android:layout_marginTop="-69dp"
+                    android:text="4B"
+                    android:gravity="top" />
+
+                <ImageButton
+                    android:id="@+id/normal_seat_4b"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="112dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/normal_seat_a"
+                    android:contentDescription="Coach C Seat 4B normal seat"
+                    android:onClick="normalSeatClicked"
+                    android:scaleType="fitCenter"/>
+
+                <TextView
+                    android:id="@+id/four_c"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="265dp"
+                    android:layout_marginTop="-69dp"
+                    android:text="4C"
+                    android:gravity="top" />
+
+                <ImageButton
+                    android:id="@+id/normal_seat_4c"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="253dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/normal_seat_a"
+                    android:contentDescription="Coach C Seat 4C normal seat"
+                    android:onClick="normalSeatClicked"
+                    android:scaleType="fitCenter"/>
+
+                <TextView
+                    android:id="@+id/four_d"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="324dp"
+                    android:layout_marginTop="-69dp"
+                    android:text="4D"
+                    android:gravity="top" />
+
+                <ImageButton
+                    android:id="@+id/normal_seat_4d"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="312dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/normal_seat_w"
+                    android:contentDescription="Coach C Seat 4D normal seat"
+                    android:onClick="normalSeatClicked"
+                    android:scaleType="fitCenter"/>
+
+                <TextView
+                    android:id="@+id/five_a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="65dp"
+                    android:layout_marginTop="17dp"
+                    android:gravity="top"
+                    android:text="5A" />
+
+                <ImageButton
+                    android:id="@+id/normal_seat_5a"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="53dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/normal_seat_w"
+                    android:contentDescription="Coach C Seat 5A normal seat"
+                    android:onClick="normalSeatClicked"
+                    android:scaleType="fitCenter"/>
+
+                <TextView
+                    android:id="@+id/five_b"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="124dp"
+                    android:layout_marginTop="-69dp"
+                    android:text="5B"
+                    android:gravity="top" />
+
+                <ImageButton
+                    android:id="@+id/normal_seat_5b"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="112dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/normal_seat_a"
+                    android:contentDescription="Coach C Seat 5B normal seat"
+                    android:onClick="normalSeatClicked"
+                    android:scaleType="fitCenter"/>
+
+                <TextView
+                    android:id="@+id/five_c"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="265dp"
+                    android:layout_marginTop="-69dp"
+                    android:text="5C"
+                    android:gravity="top" />
+
+                <ImageButton
+                    android:id="@+id/normal_seat_5c"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="253dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/normal_seat_a"
+                    android:contentDescription="Coach C Seat 5C normal seat"
+                    android:onClick="normalSeatClicked"
+                    android:scaleType="fitCenter"/>
+
+                <TextView
+                    android:id="@+id/five_d"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="324dp"
+                    android:layout_marginTop="-69dp"
+                    android:text="5D"
+                    android:gravity="top" />
+
+                <ImageButton
+                    android:id="@+id/normal_seat_5d"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="312dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/normal_seat_w"
+                    android:contentDescription="Coach C Seat 5D normal seat"
+                    android:onClick="normalSeatClicked"
+                    android:scaleType="fitCenter"/>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/footer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#FEFAFD"
+        android:gravity="center_horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:layout_marginLeft="60dp">
+
+            <ImageButton
+                android:id="@+id/homePage"
+                android:layout_width="48dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-10dp"
+                android:layout_marginRight="80dp"
+                android:background="#ffff"
+                android:contentDescription="Image1"
+                android:onClick="toHomePage"
+                android:padding="10dp"
+                app:srcCompat="@drawable/home" />
+
+            <ImageButton
+                android:id="@+id/booking_history"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="#ffffff"
+                android:onClick="toBookingHistory"
+                app:srcCompat="@drawable/ticket"
+                android:layout_marginRight="95dp"
+                android:layout_marginLeft="-5dp"
+                android:contentDescription="My Ticket"/>
+
+
+            <ImageButton
+                android:id="@+id/profilePage"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="#ffffff"
+                android:onClick="toAccountPage"
+                android:padding="5dp"
+                android:layout_marginLeft="-12dp"
+                android:contentDescription="Account"
+                app:srcCompat="@drawable/account" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal">
+
+
+            <TextView
+                android:id="@+id/home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:text="Home"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="70dp"/>
+
+            <TextView
+                android:id="@+id/myTicket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:text="My Ticket"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="70dp"
+                android:layout_marginLeft="10dp"/>
+
+            <TextView
+                android:id="@+id/account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:text="Account"
+                android:layout_marginTop="5dp"
+                android:textColor="#000000"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>
