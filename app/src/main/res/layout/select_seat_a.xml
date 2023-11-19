@@ -148,7 +148,8 @@
             android:layout_marginTop="15dp"
             android:background="@drawable/left_chevron1"
             android:contentDescription="Left Chevron"
-            tools:ignore="TouchTargetSizeCheck"/>
+            tools:ignore="TouchTargetSizeCheck"
+            android:onClick="toCoachE"/>
 
         <ImageButton
             android:id="@+id/Coach_a"

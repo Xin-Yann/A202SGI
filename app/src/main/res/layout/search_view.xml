@@ -43,7 +43,6 @@
             android:textColor="#000000"
             android:textSize="17sp"/>
 
-
         <TextView
             android:id="@+id/depart_time1"
             android:layout_width="wrap_content"
@@ -55,42 +54,6 @@
             android:textColor="#A2A2A2"
             android:textSize="12sp" />
 
-       <!-- <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="80dp"
-            android:layout_height="12dp"
-            android:layout_marginStart="85dp"
-            android:layout_marginTop="10dp"
-            app:srcCompat="@drawable/new_moon_blue" />
-
-        <TextView
-            android:id="@+id/line1"
-            android:layout_width="93dp"
-            android:layout_height="15dp"
-            android:layout_marginStart="120dp"
-            android:gravity="top"
-            android:text="-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;"
-            android:textColor="#000000"
-            android:textSize="15sp" />
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="80dp"
-            android:layout_height="15dp"
-            android:layout_marginStart="180dp"
-            android:layout_marginTop="10dp"
-            app:srcCompat="@drawable/dry_clean" />
-
-        <TextView
-            android:id="@+id/name1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="244dp"
-            android:gravity="top"
-            android:text="Destination"
-            android:textColor="#000000"
-            android:textSize="20sp" />-->
-
         <TextView
             android:id="@+id/arrive_time1"
             android:layout_width="wrap_content"
@@ -101,17 +64,5 @@
             android:text="Arrive: time"
             android:textColor="#A2A2A2"
             android:textSize="12sp" />
-
-        <TextView
-            android:id="@+id/price1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="280dp"
-            android:layout_marginTop="60dp"
-            android:gravity="top"
-            android:text="Total: Pax"
-            android:textColor="#000000"
-            android:textSize="14sp" />
     </RelativeLayout>
-
 </androidx.cardview.widget.CardView>
