@@ -35,14 +35,11 @@ public class Select_return_seat_b extends AppCompatActivity {
     private String trainDate;
     private String trainPax;
     private String departureTime;
-
     private String arrivalTime;
-
     private FirebaseFirestore db;
-
     private TextView priceTextView;
-
     private Select_seat select_seat;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,8 +49,6 @@ public class Select_return_seat_b extends AppCompatActivity {
 
         ScrollViewHelper scrollViewHelper = new ScrollViewHelper();
         scrollViewHelper.setOnTouchListener(scrollView, this);
-
-
 
         Select_seat.handleSeatActivity(this);
 
@@ -153,8 +148,6 @@ public class Select_return_seat_b extends AppCompatActivity {
         Select_seat.startNextSeatActivity(this, Select_return_seat_c.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime);
         startActivity(intent);
     }
-
-
 
     /*Footer*/
     public void toHomePage(View view){
@@ -378,8 +371,6 @@ public class Select_return_seat_b extends AppCompatActivity {
     }
 
     private void addSelectedSeat(String seatId) {
-        // Implement your logic to add the selected seat to the list
-        // You can use the selectedSeats list to track selected seats
         selectedSeats.add(seatId);
     }
 

@@ -6,8 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".fragment2">
 
-
-    <!-- TODO: Update blank fragment layout -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -46,8 +44,6 @@
                     android:backgroundTint="@color/white"/>
 
             </com.google.android.material.textfield.TextInputLayout>
-
-
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/inputDes"
@@ -148,7 +144,6 @@
                     android:onClick="toTicket"/>
 
             </com.google.android.material.textfield.TextInputLayout>
-
         </RelativeLayout>
     </RelativeLayout>
     </ScrollView>

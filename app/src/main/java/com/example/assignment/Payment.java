@@ -61,7 +61,6 @@ public class Payment extends AppCompatActivity {
         firestore = FirebaseFirestore.getInstance();
         seatTypeCountMap = new HashMap<>();
 
-        // Fetch seat data from Firestore and display counts
         fetchSeatData();
         displaySeatCounts();
 
@@ -123,7 +122,6 @@ public class Payment extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
-                            // Loop through the documents
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 // Check if the document has a "status" field
                                 if (document.contains("status")) {
@@ -135,7 +133,7 @@ public class Payment extends AppCompatActivity {
                                     }
                                 }
 
-                                // Get specific data (seat_price and seat_type) from each document
+                                // Get seat_price and seat_type
                                 String seatPriceString = document.getString("seat_price");
                                 double seatPrice = Double.parseDouble(seatPriceString);
                                 String seatType = document.getString("seat_type");
@@ -174,10 +172,8 @@ public class Payment extends AppCompatActivity {
     }
 
     private void displayTotalPrices(double totalPremiumPrice, double totalNormalPrice) {
-        // Calculate the order total by summing the premium and normal prices
         double orderTotal = totalPremiumPrice + totalNormalPrice;
 
-        // Display the total prices and order total in TextViews with 2 decimal places
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -204,14 +200,13 @@ public class Payment extends AppCompatActivity {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                // Process seat type counts as needed
+                // Process seat type counts
                 for (Map.Entry<String, Integer> entry : seatTypeCountMap.entrySet()) {
                     String seatType = entry.getKey();
                     int count = entry.getValue();
 
                     // Update TextViews based on seat type
                     if ("premium seat".equals(seatType)) {
-                        // Update the premiumTicketAmount TextView with the count
                         premiumTicketAmount.setText(String.valueOf(count));
                     } else if ("normal seat".equals(seatType)) {
                         normalTicketAmount.setText(String.valueOf(count));
@@ -228,16 +223,13 @@ public class Payment extends AppCompatActivity {
         return user != null ? user.getEmail() : null;
     }
 
-
     public void toPayment3(View view) {
-        // Fetch current user email
         String currentUserEmail = getCurrentUserEmail();
 
         if (currentUserEmail != null) {
-            // Generate the order ID (replace this with your preferred method)
+            // Generate the order ID
             long orderId = generateOrderId();
 
-            // Determine the selected payment method based on the radio button selection
             String paymentMethod;
             int selectedRadioButtonId = radioGroup.getCheckedRadioButtonId();
             if (selectedRadioButtonId == R.id.card) {
@@ -245,28 +237,20 @@ public class Payment extends AppCompatActivity {
             } else if (selectedRadioButtonId == R.id.ewallet) {
                 paymentMethod = "eWallet";
             } else {
-                // Handle the case where no radio button is selected
                 paymentMethod = "Unknown";
             }
-
-            // Store the order data with the selected payment method
             double totalOrderPrice = totalPremiumPrice + totalNormalPrice;
 
-            // Ensure that the createOrder method is called with the correct parameters
             createOrder(currentUserEmail, seatTypeCountMap, totalOrderPrice, paymentMethod, orderId);
 
-            // Navigate to Payment3 activity
             Intent intent = new Intent(this, Payment3.class);
             startActivity(intent);
         } else {
-            // Handle the case where the current user email is null
             Toast.makeText(this, "User email is null", Toast.LENGTH_SHORT).show();
         }
     }
 
-    // Method to generate a unique order ID (you can replace this with your preferred method)
     private long generateOrderId() {
-        // Use a combination of current timestamp and a random number
         return System.currentTimeMillis() + (long) (Math.random() * 1000);
     }
 
@@ -282,17 +266,13 @@ public class Payment extends AppCompatActivity {
                             DocumentSnapshot document = task.getResult();
 
                             if (document.exists()) {
-                                // Get the current counter value
                                 long currentCounter = (long) document.get("counter");
-
                                 // Increment the counter for the next order
                                 updateCounterValue(currentCounter + 1);
                             } else {
-                                // Handle the case where the counter document doesn't exist
                                 Log.e(TAG, "Counter document does not exist");
                             }
                         } else {
-                            // Handle errors
                             Log.e(TAG, "Error getting counter value", task.getException());
                         }
                     }
@@ -319,26 +299,23 @@ public class Payment extends AppCompatActivity {
     }
 
     private void createOrder(String currentUserEmail, Map<String, Integer> seatTypeCountMap, double totalOrderPrice, String paymentMethod, long orderId) {
-        // Use the collection reference directly to add a new document with the provided order ID
         firestore.collection("order")
                 .document(String.valueOf(orderId)) // Use the provided order ID
                 .set(createOrderData(currentUserEmail, seatTypeCountMap, totalOrderPrice, paymentMethod))
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        // The order was created successfully, you can perform further actions if needed
                         Log.d(TAG, "Order created with ID: " + orderId);
 
-                        // Update the counter for the next order
+                        // Update counter for next order
                         updateCounter();
 
-                        // Update the status for each seat in the "departseat" collection
+                        // Update the status for the "departseat" collection
                         updateSeatStatus("departseat", currentUserEmail);
 
-                        // Update the status for each seat in the "returnseat" collection
+                        // Update the status for the "returnseat" collection
                         updateSeatStatus("returnseat", currentUserEmail);
 
-                        // Show a Toast message indicating successful order placement
                         Toast.makeText(Payment.this, "Order placed successfully", Toast.LENGTH_SHORT).show();
                     }
                 })
@@ -361,11 +338,9 @@ public class Payment extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                // Update the status field for each document in the collection
                                 updateStatusForSeat(collectionName, document.getId());
                             }
                         } else {
-                            // Handle errors
                             Log.e(TAG, "Error getting seat data for " + collectionName, task.getException());
                         }
                     }
@@ -385,21 +360,17 @@ public class Payment extends AppCompatActivity {
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        // Handle errors
                         Log.e(TAG, "Error updating seat status for " + collectionName + ", Document ID: " + documentId, e);
                     }
                 });
     }
 
-
-    // Removed the orderId parameter from createOrderData method
     private Map<String, Object> createOrderData(String currentUserEmail, Map<String, Integer> seatTypeCountMap, double totalOrderPrice, String paymentMethod) {
-        // Create a map with the order data
         Map<String, Object> order = new HashMap<>();
         order.put("user_email", currentUserEmail);
         order.put("seat_counts", seatTypeCountMap);
         order.put("total_order_price", totalOrderPrice);
-        order.put("payment_method", paymentMethod); // Add payment method
+        order.put("payment_method", paymentMethod);
 
         return order;
     }

@@ -147,7 +147,7 @@ public class Select_return_seat_e extends AppCompatActivity {
 
     public void toCoachA(View view) {
         Intent intent = new Intent(this, Select_return_seat_a.class);
-        Select_seat.startNextSeatActivity(this, Select_return_seat_a.class, originName, destinationName, totalDuration, trainDate, trainPax);
+        Select_seat.startNextSeatActivity(this, Select_return_seat_a.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime);
         startActivity(intent);
     }
 

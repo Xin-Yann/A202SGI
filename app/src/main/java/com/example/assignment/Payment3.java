@@ -11,22 +11,13 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class Payment3 extends AppCompatActivity {
-
     Button viewYourTicketBtn;
-
     Button backToHomeBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.payment_3);
-    }
-
-    private String getCurrentUserEmail() {
-        FirebaseAuth auth = FirebaseAuth.getInstance();
-        FirebaseUser user = auth.getCurrentUser();
-
-        return user != null ? user.getEmail() : null;
     }
 
     public void toBookingHistory(View view) {
