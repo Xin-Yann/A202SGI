@@ -28,10 +28,10 @@
             <ImageView
                 android:id="@+id/QRcode"
                 android:layout_width="250dp"
-                android:layout_height="250dp"
+                android:layout_height="360dp"
                 android:layout_marginTop="50dp"
                 android:layout_centerHorizontal="true"
-                tools:srcCompat="@tools:sample/avatars" />
+                android:src="@drawable/qrcode" />
         </RelativeLayout>
     </ScrollView>
 </FrameLayout>
