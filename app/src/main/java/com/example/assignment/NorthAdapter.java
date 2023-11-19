@@ -42,11 +42,13 @@ public class NorthAdapter extends RecyclerView.Adapter<NorthAdapter.CardViewHold
         String duration = data.getDuration();
         String departureTime = data.getDepartureTime();
         String arrivalTime = data.getArrivalTime();
+
         holder.nameTextView.setText(routeName);
         holder.durationTextView.setText("Duration: " + duration);
         holder.departTextView.setText(departureTime);
         holder.arrivalTextView.setText(arrivalTime);
     }
+
 
     @Override
     public int getItemCount() {

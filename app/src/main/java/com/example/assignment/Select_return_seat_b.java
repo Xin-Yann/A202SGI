@@ -34,6 +34,9 @@ public class Select_return_seat_b extends AppCompatActivity {
     private String totalDuration;
     private String trainDate;
     private String trainPax;
+    private String departureTime;
+
+    private String arrivalTime;
 
     private FirebaseFirestore db;
 
@@ -84,6 +87,8 @@ public class Select_return_seat_b extends AppCompatActivity {
         totalDuration = preferences.getString("totalDuration", "");
         trainDate = preferences.getString("trainDate", "");
         trainPax = preferences.getString("trainPax", "");
+        departureTime = preferences.getString("departureTime", "");
+        arrivalTime = preferences.getString("arrivalTime", "");
     }
 
     private void updateUI() {
@@ -92,56 +97,60 @@ public class Select_return_seat_b extends AppCompatActivity {
         TextView originTextView = findViewById(R.id.origin);
         TextView destinationTextView = findViewById(R.id.destination);
         TextView durationTextView = findViewById(R.id.duration);
+        TextView departTextView = findViewById(R.id.depart_time);
+        TextView arriveTextView = findViewById(R.id.arrive_time);
 
         originTextView.setText(originName);
         destinationTextView.setText(destinationName);
         durationTextView.setText(totalDuration);
+        departTextView.setText(departureTime);
+        arriveTextView.setText(arrivalTime);
     }
 
     public void toSeat_a(View view) {
         Intent intent = new Intent(this, Select_return_seat_a.class);
         ImageButton toCoach_a = findViewById(R.id.Coach_a);
-        Select_seat.startNextSeatActivity(this, Select_return_seat_a.class, originName, destinationName, totalDuration, trainDate, trainPax);
+        Select_seat.startNextSeatActivity(this, Select_return_seat_a.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime);
         startActivity(intent);
     }
 
     public void toSeat_b(View view) {
         Intent intent = new Intent(this, Select_return_seat_b.class);
         ImageButton toCoach_b = findViewById(R.id.Coach_b);
-        Select_seat.startNextSeatActivity(this, Select_return_seat_b.class, originName, destinationName, totalDuration, trainDate, trainPax);
+        Select_seat.startNextSeatActivity(this, Select_return_seat_b.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime);
         startActivity(intent);
     }
 
     public void toSeat_c(View view) {
         Intent intent = new Intent(this, Select_return_seat_c.class);
         ImageButton toCoach_c = findViewById(R.id.Coach_c);
-        Select_seat.startNextSeatActivity(this, Select_return_seat_c.class, originName, destinationName, totalDuration, trainDate, trainPax);
+        Select_seat.startNextSeatActivity(this, Select_return_seat_c.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime);
         startActivity(intent);
     }
 
     public void toSeat_d(View view) {
         Intent intent = new Intent(this, Select_return_seat_d.class);
         ImageButton toCoach_d = findViewById(R.id.Coach_d);
-        Select_seat.startNextSeatActivity(this, Select_return_seat_d.class, originName, destinationName, totalDuration, trainDate, trainPax);
+        Select_seat.startNextSeatActivity(this, Select_return_seat_d.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime);
         startActivity(intent);
     }
 
     public void toSeat_e(View view) {
         Intent intent = new Intent(this, Select_return_seat_e.class);
         ImageButton toCoach_e = findViewById(R.id.Coach_e);
-        Select_seat.startNextSeatActivity(this, Select_return_seat_e.class, originName, destinationName, totalDuration, trainDate, trainPax);
+        Select_seat.startNextSeatActivity(this, Select_return_seat_e.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime);
         startActivity(intent);
     }
 
     public void toCoachA(View view) {
         Intent intent = new Intent(this, Select_return_seat_a.class);
-        Select_seat.startNextSeatActivity(this, Select_return_seat_a.class, originName, destinationName, totalDuration, trainDate, trainPax);
+        Select_seat.startNextSeatActivity(this, Select_return_seat_a.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime);
         startActivity(intent);
     }
 
     public void toCoachC(View view) {
         Intent intent = new Intent(this, Select_return_seat_c.class);
-        Select_seat.startNextSeatActivity(this, Select_return_seat_c.class, originName, destinationName, totalDuration, trainDate, trainPax);
+        Select_seat.startNextSeatActivity(this, Select_return_seat_c.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime);
         startActivity(intent);
     }
 
@@ -295,6 +304,8 @@ public class Select_return_seat_b extends AppCompatActivity {
         seatData.put("origin_name", originName);
         seatData.put("destination_name", destinationName);
         seatData.put("total_duration", totalDuration);
+        seatData.put("depart_time", departureTime);
+        seatData.put("arrival_time", arrivalTime);
 
         // Save the seat data to the Firestore database
         db.collection("returnseat")

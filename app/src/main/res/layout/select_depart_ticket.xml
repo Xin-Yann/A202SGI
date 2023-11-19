@@ -41,7 +41,7 @@
             android:id="@+id/origin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
+            android:layout_marginStart="40dp"
             android:layout_marginTop="40dp"
             android:gravity="top"
             android:text="Origin"
@@ -176,15 +176,21 @@
             <LinearLayout
                 android:id="@+id/linearLayout7"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_alignParentTop="true"
                 android:background="#DEEDF4"
                 android:orientation="vertical"
                 android:layout_above="@+id/footer"
                 android:elevation="10dp">
 
-                <androidx.recyclerview.widget.RecyclerView
+                <!--<androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/depart"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />-->
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/searchResultsRecyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     />
@@ -212,33 +218,33 @@
             android:orientation="horizontal">
 
             <ImageButton
-                android:id="@+id/image1"
+                android:id="@+id/homePage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="88dp"
                 android:background="#ffff"
                 android:contentDescription="Image1"
-                android:onClick="clickImage1"
+                android:onClick="toHomePage"
                 android:padding="5dp"
                 app:srcCompat="@drawable/home" />
 
             <ImageButton
-                android:id="@+id/image2"
+                android:id="@+id/booking_history"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="95dp"
                 android:background="#ffffff"
-                android:onClick="clickImage2"
+                android:onClick="toBookingHistory"
                 app:srcCompat="@drawable/ticket" />
 
 
             <ImageButton
-                android:id="@+id/image3"
+                android:id="@+id/profilePage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#ffffff"
-                android:onClick="clickImage3"
+                android:onClick="toAccountPage"
                 android:padding="5dp"
                 app:srcCompat="@drawable/account" />
 

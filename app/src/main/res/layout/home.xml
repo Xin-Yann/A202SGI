@@ -58,8 +58,6 @@
                 android:layout_marginBottom="25dp"
                 app:srcCompat="@drawable/logout"/>
 
-          
-
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tablayout"
