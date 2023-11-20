@@ -83,17 +83,17 @@ public class Select_return_ticket extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 datalist.clear(); // Clear the existing data in datalist
 
-                                // Inside the onComplete method of your Firestore query
+
                                 for (QueryDocumentSnapshot document : task.getResult()) {
                                     String stationName = document.getString("name");
                                     String stationDuration = document.getString("diffMin");
 
-                                    // Create a 'North' object and add it to datalist
+
                                     North northStation = new North(stationName, stationDuration);
                                     datalist.add(northStation);
                                 }
 
-                                // Create the unique station pairs and avoid duplicates
+
                                 Set<String> uniquePairs = new HashSet<>();
                                 List<North> uniqueDatalist = new ArrayList<>();
 
@@ -106,7 +106,7 @@ public class Select_return_ticket extends AppCompatActivity {
                                         String reversePair = destination.getName() + " ---------- " + origin.getName();
                                         double totalDuration = 0.0;
 
-                                        // Calculate the sum of diffMin for the elements in the pair
+
                                         for (int k = i; k <= j; k++) {
                                             totalDuration += Double.parseDouble(datalist.get(k).getDuration());
                                         }
@@ -128,7 +128,7 @@ public class Select_return_ticket extends AppCompatActivity {
                                 adapter.notifyDataSetChanged();
                                 retrieveFilteredData(trainOrigin, trainDes);
                             } else {
-                                // Handle the case where the query was not successful
+
                             }
                         }
                     });
@@ -136,7 +136,7 @@ public class Select_return_ticket extends AppCompatActivity {
         }
     }
     private void retrieveFilteredData(String originName, String destinationName) {
-        // Filter original datalist based on the provided information
+
         List<North> filteredDataList = new ArrayList<>();
 
         for (North north : datalist) {
