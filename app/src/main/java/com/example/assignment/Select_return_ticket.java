@@ -106,17 +106,23 @@ public class Select_return_ticket extends AppCompatActivity {
                                         String reversePair = destination.getName() + " ---------- " + origin.getName();
                                         double totalDuration = 0.0;
 
+                                        String initialDepartureTime = "08:00";
+                                        departureTime = calculateArrivalTime(initialDepartureTime, totalDuration);
+
 
                                         for (int k = i; k <= j; k++) {
                                             totalDuration += Double.parseDouble(datalist.get(k).getDuration());
                                         }
 
+                                        arrivalTime = calculateArrivalTime(departureTime, totalDuration);
+                                        String formattedDuration = formattedDuration(totalDuration);
+
                                         // Add both the forward and reverse pairs along with total duration
                                         uniquePairs.add(forwardPair);
                                         uniquePairs.add(reversePair);
 
-                                        uniqueDatalist.add(new North(forwardPair, String.format("%.2f", totalDuration)));
-                                        uniqueDatalist.add(new North(reversePair, String.format("%.2f", totalDuration)));
+                                        uniqueDatalist.add(new North(forwardPair, formattedDuration, departureTime, arrivalTime));
+                                        uniqueDatalist.add(new North(reversePair, formattedDuration, departureTime, arrivalTime));
                                     }
                                 }
 
@@ -135,6 +141,50 @@ public class Select_return_ticket extends AppCompatActivity {
             retrieveFilteredData(trainOrigin, trainDes);
         }
     }
+
+    private String calculateArrivalTime(String initialDepartureTime, double totalDuration) {
+        int initialDepartureMinutes = convertToMinutes(initialDepartureTime);
+
+
+        int totalMinutes = initialDepartureMinutes + (int) totalDuration;
+
+
+        int hours = totalMinutes / 60;
+        int remainingMinutes = totalMinutes % 60;
+
+
+        return String.format("%02d:%02d", hours, remainingMinutes);
+    }
+
+    private String formattedDuration(double totalDuration) {
+
+        int totalMinutes = (int) totalDuration;
+
+        int hours = totalMinutes / 60;
+        int remainingMinutes = totalMinutes % 60;
+
+        if (remainingMinutes > 0) {
+            return String.format("%d hrs %02d mins", hours, remainingMinutes);
+        } else {
+            return String.format("%02d hrs", hours);
+        }
+    }
+
+    private int convertToMinutes(String time) {
+        String[] parts = time.split(":");
+        int hours = Integer.parseInt(parts[0]);
+        int minutes = Integer.parseInt(parts[1]);
+        return hours * 60 + minutes;
+    }
+
+    @NonNull
+    private String convertToTimeFormat(int minutes) {
+        int hours = minutes / 60;
+        int remainingMinutes = minutes % 60;
+
+        return String.format("%02d:%02d", hours, remainingMinutes);
+    }
+
     private void retrieveFilteredData(String originName, String destinationName) {
 
         List<North> filteredDataList = new ArrayList<>();
@@ -176,7 +226,7 @@ public class Select_return_ticket extends AppCompatActivity {
                 saveDataToSharedPreferences(names[0].trim(), names[1].trim(), totalDuration, trainDate, trainArr, trainPax, departureTime, arrivalTime);
 
 
-                startSeatActivity(Select_seat_a.class);
+                startSeatActivity(Select_return_seat_a.class);
             } else if (stationName.contains("----------")) {
                 String[] names = stationName.split("----------");
 

@@ -212,7 +212,7 @@ public class Select_depart_ticket extends AppCompatActivity {
                 saveDataToSharedPreferences(names[0].trim(), names[1].trim(), totalDuration, trainDate, trainPax,departureTime, arrivalTime);
 
                 // Start the return seat activity
-                startSeatActivity(Select_return_seat_a.class);
+                startSeatActivity(Select_seat_a.class);
             }
 
             Intent passDataIntent = new Intent(Select_depart_ticket.this, Select_seat_a.class);
