@@ -38,6 +38,7 @@ public class Select_seat_b extends AppCompatActivity {
     private String departureTime;
 
     private String arrivalTime;
+    private String trainArr;
 
     private FirebaseFirestore db;
 
@@ -112,47 +113,47 @@ public class Select_seat_b extends AppCompatActivity {
     public void toSeat_a(View view){
         Intent intent = new Intent(this, Select_seat_a.class);
         ImageButton toCoach_a = findViewById(R.id.Coach_a);
-        Select_seat.startNextSeatActivity(this, Select_seat_a.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime);
+        Select_seat.startNextSeatActivity(this, Select_seat_a.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime, trainArr);
         startActivity(intent);
     }
 
     public void toSeat_b(View view){
         Intent intent = new Intent(this, Select_seat_b.class);
         ImageButton toCoach_b = findViewById(R.id.Coach_b);
-        Select_seat.startNextSeatActivity(this, Select_seat_b.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime);
+        Select_seat.startNextSeatActivity(this, Select_seat_b.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime, trainArr);
         startActivity(intent);
     }
 
     public void toSeat_c(View view){
         Intent intent = new Intent(this, Select_seat_c.class);
         ImageButton toCoach_c = findViewById(R.id.Coach_c);
-        Select_seat.startNextSeatActivity(this, Select_seat_c.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime);
+        Select_seat.startNextSeatActivity(this, Select_seat_c.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime, trainArr);
         startActivity(intent);
     }
 
     public void toSeat_d(View view){
         Intent intent = new Intent(this, Select_seat_d.class);
         ImageButton toCoach_d = findViewById(R.id.Coach_d);
-        Select_seat.startNextSeatActivity(this, Select_seat_d.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime);
+        Select_seat.startNextSeatActivity(this, Select_seat_d.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime, trainArr);
         startActivity(intent);
     }
 
     public void toSeat_e(View view){
         Intent intent = new Intent(this, Select_seat_e.class);
         ImageButton toCoach_e = findViewById(R.id.Coach_e);
-        Select_seat.startNextSeatActivity(this, Select_seat_e.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime);
+        Select_seat.startNextSeatActivity(this, Select_seat_e.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime, trainArr);
         startActivity(intent);
     }
 
     public void toCoachA(View view) {
         Intent intent = new Intent(this, Select_seat_a.class);
-        Select_seat.startNextSeatActivity(this, Select_seat_a.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime);
+        Select_seat.startNextSeatActivity(this, Select_seat_a.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime, trainArr);
         startActivity(intent);
     }
 
     public void toCoachC(View view) {
         Intent intent = new Intent(this, Select_seat_c.class);
-        Select_seat.startNextSeatActivity(this, Select_seat_c.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime);
+        Select_seat.startNextSeatActivity(this, Select_seat_c.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime, trainArr);
         startActivity(intent);
     }
 
@@ -188,11 +189,11 @@ public class Select_seat_b extends AppCompatActivity {
         } else {
             if (selectedSeats.size() <= Integer.parseInt(trainPax)) {
 
-            normalSeatButton.setImageResource(R.drawable.selected_seat);
+                normalSeatButton.setImageResource(R.drawable.selected_seat);
 
-            addSelectedSeat(seatId);
+                addSelectedSeat(seatId);
 
-            showSeatConfirmationDialog(seatId);
+                showSeatConfirmationDialog(seatId);
             } else {
                 // Maximum number of seats reached, notify the user
                 Toast.makeText(this, "You have already selected the maximum number of seats.", Toast.LENGTH_SHORT).show();
