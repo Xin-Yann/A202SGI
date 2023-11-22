@@ -41,6 +41,8 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.MyViewHo
         holder.seat_no.setText(history.seat_no);
         holder.train_date.setText(history.train_date);
         holder.seat_coach.setText(history.seat_coach);
+        holder.depart_time.setText(history.depart_time);
+        holder.arrival_time.setText(history.arrival_time);
 
     }
 
@@ -51,7 +53,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.MyViewHo
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView destination_name, origin_name, seat_type, seat_no, train_date, seat_coach;
+        TextView destination_name, origin_name, seat_type, seat_no, train_date, seat_coach, depart_time, arrival_time;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -61,6 +63,8 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.MyViewHo
             seat_no = itemView.findViewById(R.id.seatNo);
             train_date = itemView.findViewById(R.id.date);
             seat_coach = itemView.findViewById(R.id.coach);
+            depart_time = itemView.findViewById(R.id.departTime);
+            arrival_time = itemView.findViewById(R.id.arrivalTime);
         }
     }
 
