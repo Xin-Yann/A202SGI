@@ -33,6 +33,9 @@ public class Select_return_ticket extends AppCompatActivity {
     ArrayList<North> datalist;
     NorthAdapter adapter;
     TextView trainOri, trainDestination, trainD, trainP;
+    private String departureTime;
+    private String arrivalTime;
+
 
     private String departureTime;
     private String arrivalTime;
@@ -75,13 +78,13 @@ public class Select_return_ticket extends AppCompatActivity {
             trainP.setText("Total: " + trainPax + " Pax");
 
             fStore.collection("northbound")
-                    .orderBy("id", Query.Direction.ASCENDING)  // Replace "customField" with the field you want to use for ordering
+                    .orderBy("id", Query.Direction.ASCENDING)
                     .get()
                     .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
                             if (task.isSuccessful()) {
-                                datalist.clear(); // Clear the existing data in datalist
+                                datalist.clear();
 
 
                                 for (QueryDocumentSnapshot document : task.getResult()) {
@@ -104,8 +107,8 @@ public class Select_return_ticket extends AppCompatActivity {
 
                                         String forwardPair = origin.getName() + " ----------- " + destination.getName();
                                         String reversePair = destination.getName() + " ---------- " + origin.getName();
-                                        double totalDuration = 0.0;
 
+                                        double totalDuration = 0.0;
                                         String initialDepartureTime = "08:00";
                                         departureTime = calculateArrivalTime(initialDepartureTime, totalDuration);
 
@@ -117,7 +120,9 @@ public class Select_return_ticket extends AppCompatActivity {
                                         arrivalTime = calculateArrivalTime(departureTime, totalDuration);
                                         String formattedDuration = formattedDuration(totalDuration);
 
+
                                         // Add both the forward and reverse pairs along with total duration
+
                                         uniquePairs.add(forwardPair);
                                         uniquePairs.add(reversePair);
 
@@ -127,18 +132,19 @@ public class Select_return_ticket extends AppCompatActivity {
                                 }
 
 
+
                                 datalist.clear();
                                 datalist.addAll(uniqueDatalist);
 
                                 adapter.updateData(datalist);
                                 adapter.notifyDataSetChanged();
+
                                 retrieveFilteredData(trainOrigin, trainDes);
                             } else {
 
                             }
                         }
                     });
-            retrieveFilteredData(trainOrigin, trainDes);
         }
     }
 
