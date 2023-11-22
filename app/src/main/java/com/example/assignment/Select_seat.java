@@ -9,12 +9,13 @@ public class Select_seat {
 
     public static void handleSeatActivity(Activity activity) {
         Intent intent = activity.getIntent();
-        if (intent != null && intent.hasExtra("originName") && intent.hasExtra("destinationName") && intent.hasExtra("totalDuration") && intent.hasExtra("trainDate") && intent.hasExtra("trainPax")) {
+        if (intent != null && intent.hasExtra("originName") && intent.hasExtra("destinationName") && intent.hasExtra("totalDuration") && intent.hasExtra("trainDate") && intent.hasExtra("trainPax") && intent.hasExtra("trainArr")) {
             String originName = intent.getStringExtra("originName");
             String destinationName = intent.getStringExtra("destinationName");
             String totalDuration = intent.getStringExtra("totalDuration");
             String trainDate = intent.getStringExtra("trainDate");
             String trainPax = intent.getStringExtra("trainPax");
+            String trainArr = intent.getStringExtra("trainArr");
             String departureTime = intent.getStringExtra("departureTime");
             String arrivalTime = intent.getStringExtra("arrivalTime");
 
@@ -36,13 +37,14 @@ public class Select_seat {
         }
     }
 
-    public static void startNextSeatActivity(Activity activity, Class<?> nextActivityClass, String originName, String destinationName, String totalDuration, String trainDate, String trainPax, String departureTime, String arrivalTime) {
+    public static void startNextSeatActivity(Activity activity, Class<?> nextActivityClass, String originName, String destinationName, String totalDuration, String trainDate, String trainPax,String trainArr, String departureTime, String arrivalTime) {
         Intent intent = new Intent(activity, nextActivityClass);
         intent.putExtra("originName", originName);
         intent.putExtra("destinationName", destinationName);
         intent.putExtra("totalDuration", totalDuration);
         intent.putExtra("trainDate", trainDate);
         intent.putExtra("trainPax", trainPax);
+        intent.putExtra("trainArr", trainArr);
         intent.putExtra("departureTime", departureTime);
         intent.putExtra("arrivalTime", arrivalTime);
         activity.startActivity(intent);

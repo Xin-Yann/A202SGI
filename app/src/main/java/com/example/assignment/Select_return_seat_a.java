@@ -35,6 +35,8 @@ public class Select_return_seat_a extends AppCompatActivity {
     private String departureTime;
     private String arrivalTime;
 
+    private String trainArr;
+
     private FirebaseFirestore db;
 
     private TextView priceTextView;
@@ -47,7 +49,7 @@ public class Select_return_seat_a extends AppCompatActivity {
         Select_seat.handleSeatActivity(this);
 
         retrieveDataFromSharedPreferences();
-        Log.d("Select_seat_a", "Train Date: " + trainDate + ", Train Pax: " + trainPax);
+        Log.d("Select_return_seat_a", "Train Date: " + trainArr + ", Train Pax: " + trainPax);
 
 
         updateUI();
@@ -82,15 +84,13 @@ public class Select_return_seat_a extends AppCompatActivity {
         originName = preferences.getString("originName", "");
         destinationName = preferences.getString("destinationName", "");
         totalDuration = preferences.getString("totalDuration", "");
-        trainDate = preferences.getString("trainDate", "");
         trainPax = preferences.getString("trainPax", "");
+        trainArr = preferences.getString("trainArr", "");
         departureTime = preferences.getString("departureTime", "");
         arrivalTime = preferences.getString("arrivalTime", "");
     }
 
     private void updateUI() {
-        // Update your UI with originName, destinationName, and totalDuration as needed
-        // For example, you can set the text of TextViews
         TextView originTextView = findViewById(R.id.origin);
         TextView destinationTextView = findViewById(R.id.destination);
         TextView durationTextView = findViewById(R.id.duration);
@@ -107,47 +107,47 @@ public class Select_return_seat_a extends AppCompatActivity {
     public void toSeat_a(View view){
         Intent intent = new Intent(this, Select_return_seat_a.class);
         ImageButton toCoach_a = findViewById(R.id.Coach_a);
-        Select_seat.startNextSeatActivity(this,Select_return_seat_a.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime);
+        Select_seat.startNextSeatActivity(this,Select_return_seat_a.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime, trainArr);
         startActivity(intent);
     }
 
     public void toSeat_b(View view){
         Intent intent = new Intent(this, Select_return_seat_b.class);
         ImageButton toCoach_b = findViewById(R.id.Coach_b);
-        Select_seat.startNextSeatActivity(this, Select_return_seat_b.class, originName, destinationName, totalDuration,trainDate, trainPax, departureTime, arrivalTime);
+        Select_seat.startNextSeatActivity(this, Select_return_seat_b.class, originName, destinationName, totalDuration,trainDate, trainPax, departureTime, arrivalTime, trainArr);
         startActivity(intent);
     }
 
     public void toSeat_c(View view){
         Intent intent = new Intent(this, Select_return_seat_c.class);
         ImageButton toCoach_c = findViewById(R.id.Coach_c);
-        Select_seat.startNextSeatActivity(this, Select_return_seat_c.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime);
+        Select_seat.startNextSeatActivity(this, Select_return_seat_c.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime, trainArr);
         startActivity(intent);
     }
 
     public void toSeat_d(View view){
         Intent intent = new Intent(this, Select_return_seat_d.class);
         ImageButton toCoach_d = findViewById(R.id.Coach_d);
-        Select_seat.startNextSeatActivity(this, Select_return_seat_d.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime);
+        Select_seat.startNextSeatActivity(this, Select_return_seat_d.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime, trainArr);
         startActivity(intent);
     }
 
     public void toSeat_e(View view){
         Intent intent = new Intent(this, Select_return_seat_e.class);
         ImageButton toCoach_e = findViewById(R.id.Coach_e);
-        Select_seat.startNextSeatActivity(this, Select_return_seat_e.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime);
+        Select_seat.startNextSeatActivity(this, Select_return_seat_e.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime, trainArr);
         startActivity(intent);
     }
 
     public void toCoachB(View view) {
         Intent intent = new Intent(this, Select_return_seat_b.class);
-        Select_seat.startNextSeatActivity(this, Select_return_seat_b.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime);
+        Select_seat.startNextSeatActivity(this, Select_return_seat_b.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime, trainArr);
         startActivity(intent);
     }
 
     public void toCoachE(View view) {
         Intent intent = new Intent(this, Select_return_seat_e.class);
-        Select_seat.startNextSeatActivity(this, Select_return_seat_e.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime);
+        Select_seat.startNextSeatActivity(this, Select_return_seat_e.class, originName, destinationName, totalDuration, trainDate, trainPax, departureTime, arrivalTime, trainArr);
         startActivity(intent);
     }
 
@@ -173,6 +173,7 @@ public class Select_return_seat_a extends AppCompatActivity {
     public void premiumSeatClicked(View view) {
         ImageButton normalSeatButton = (ImageButton) view;
         String seatId = normalSeatButton.getContentDescription().toString();
+        Log.d("Select_return_seat_a", "trainPax: " + trainPax);
 
 
         if (isSeatSelected(seatId)) {
@@ -199,7 +200,7 @@ public class Select_return_seat_a extends AppCompatActivity {
 
 
         db.collection("returnseat")
-                .whereEqualTo("train_date", trainDate)
+                .whereEqualTo("train_date", trainArr)
                 .whereEqualTo("seat_id", buttonSeatId)
                 .get()
                 .addOnSuccessListener(queryDocumentSnapshots -> {
@@ -277,7 +278,7 @@ public class Select_return_seat_a extends AppCompatActivity {
         seatData.put("seat_type", seatType);
         seatData.put("seat_no", seatNo);
         seatData.put("seat_coach", seatCoach);
-        seatData.put("train_date", trainDate);
+        seatData.put("train_date", trainArr);
         seatData.put("user_email", getCurrentUserEmail());
         seatData.put("seat_price", seatPrice);
         seatData.put("origin_name", originName);

@@ -1,26 +1,26 @@
 package com.example.assignment;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.example.assignment.AppData;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
-
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -34,10 +34,14 @@ public class Select_return_ticket extends AppCompatActivity {
     NorthAdapter adapter;
     TextView trainOri, trainDestination, trainD, trainP;
 
+    private String departureTime;
+    private String arrivalTime;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.select_return_ticket);
+
 
         fStore = FirebaseFirestore.getInstance();
         recyclerView = findViewById(R.id.return_ticket);
@@ -79,17 +83,17 @@ public class Select_return_ticket extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 datalist.clear(); // Clear the existing data in datalist
 
-                                // Inside the onComplete method of your Firestore query
+
                                 for (QueryDocumentSnapshot document : task.getResult()) {
                                     String stationName = document.getString("name");
                                     String stationDuration = document.getString("diffMin");
 
-                                    // Create a 'North' object and add it to datalist
+
                                     North northStation = new North(stationName, stationDuration);
                                     datalist.add(northStation);
                                 }
 
-                                // Create the unique station pairs and avoid duplicates
+
                                 Set<String> uniquePairs = new HashSet<>();
                                 List<North> uniqueDatalist = new ArrayList<>();
 
@@ -102,38 +106,87 @@ public class Select_return_ticket extends AppCompatActivity {
                                         String reversePair = destination.getName() + " ---------- " + origin.getName();
                                         double totalDuration = 0.0;
 
-                                        // Calculate the sum of diffMin for the elements in the pair
+                                        String initialDepartureTime = "08:00";
+                                        departureTime = calculateArrivalTime(initialDepartureTime, totalDuration);
+
+
                                         for (int k = i; k <= j; k++) {
                                             totalDuration += Double.parseDouble(datalist.get(k).getDuration());
                                         }
+
+                                        arrivalTime = calculateArrivalTime(departureTime, totalDuration);
+                                        String formattedDuration = formattedDuration(totalDuration);
 
                                         // Add both the forward and reverse pairs along with total duration
                                         uniquePairs.add(forwardPair);
                                         uniquePairs.add(reversePair);
 
-                                        uniqueDatalist.add(new North(forwardPair, String.format("%.2f", totalDuration)));
-                                        uniqueDatalist.add(new North(reversePair, String.format("%.2f", totalDuration)));
+                                        uniqueDatalist.add(new North(forwardPair, formattedDuration, departureTime, arrivalTime));
+                                        uniqueDatalist.add(new North(reversePair, formattedDuration, departureTime, arrivalTime));
                                     }
                                 }
 
-                                // Replace datalist with the uniqueDatalist
+
                                 datalist.clear();
                                 datalist.addAll(uniqueDatalist);
 
-                                // Update the adapter with the unique station pairs
                                 adapter.updateData(datalist);
                                 adapter.notifyDataSetChanged();
                                 retrieveFilteredData(trainOrigin, trainDes);
                             } else {
-                                // Handle the case where the query was not successful
+
                             }
                         }
                     });
             retrieveFilteredData(trainOrigin, trainDes);
         }
     }
+
+    private String calculateArrivalTime(String initialDepartureTime, double totalDuration) {
+        int initialDepartureMinutes = convertToMinutes(initialDepartureTime);
+
+
+        int totalMinutes = initialDepartureMinutes + (int) totalDuration;
+
+
+        int hours = totalMinutes / 60;
+        int remainingMinutes = totalMinutes % 60;
+
+
+        return String.format("%02d:%02d", hours, remainingMinutes);
+    }
+
+    private String formattedDuration(double totalDuration) {
+
+        int totalMinutes = (int) totalDuration;
+
+        int hours = totalMinutes / 60;
+        int remainingMinutes = totalMinutes % 60;
+
+        if (remainingMinutes > 0) {
+            return String.format("%d hrs %02d mins", hours, remainingMinutes);
+        } else {
+            return String.format("%02d hrs", hours);
+        }
+    }
+
+    private int convertToMinutes(String time) {
+        String[] parts = time.split(":");
+        int hours = Integer.parseInt(parts[0]);
+        int minutes = Integer.parseInt(parts[1]);
+        return hours * 60 + minutes;
+    }
+
+    @NonNull
+    private String convertToTimeFormat(int minutes) {
+        int hours = minutes / 60;
+        int remainingMinutes = minutes % 60;
+
+        return String.format("%02d:%02d", hours, remainingMinutes);
+    }
+
     private void retrieveFilteredData(String originName, String destinationName) {
-        // Filter original datalist based on the provided information
+
         List<North> filteredDataList = new ArrayList<>();
 
         for (North north : datalist) {
@@ -145,8 +198,75 @@ public class Select_return_ticket extends AppCompatActivity {
         adapter.setFilteredList(filteredDataList);
     }
 
-    public void toSeat(View view){
-        Intent intent = new Intent(Select_return_ticket.this, Select_return_seat_a.class);
+    public void toSeat(View view) {
+        Intent intent = getIntent();
+        if (intent.hasExtra("search_query")) {
+            String trainOrigin = intent.getStringExtra("search_query");
+            String trainDes = intent.getStringExtra("search_destination");
+            String trainDate = intent.getStringExtra("search_date");
+            String trainPax = intent.getStringExtra("search_pax");
+            String trainArr = intent.getStringExtra("search_arr");
+
+            String stationName = "";
+            String totalDuration = "";
+
+            if (view instanceof CardView) {
+                CardView clickedCard = (CardView) view;
+                TextView nameTextView = clickedCard.findViewById(R.id.name);
+                TextView durationTextView = clickedCard.findViewById(R.id.duration);
+
+                stationName = nameTextView.getText().toString();
+                totalDuration = durationTextView.getText().toString();
+            }
+
+            if (stationName.contains("-----------")) {
+                String[] names = stationName.split("-----------");
+
+
+                saveDataToSharedPreferences(names[0].trim(), names[1].trim(), totalDuration, trainDate, trainArr, trainPax, departureTime, arrivalTime);
+
+
+                startSeatActivity(Select_return_seat_a.class);
+            } else if (stationName.contains("----------")) {
+                String[] names = stationName.split("----------");
+
+
+                saveDataToSharedPreferences(names[0].trim(), names[1].trim(), totalDuration, trainDate, trainArr, trainPax, departureTime, arrivalTime);
+
+                startSeatActivity(Select_return_seat_a.class);
+            }
+
+            Intent passDataIntent = new Intent(Select_return_ticket.this, Select_return_seat_a.class);
+            passDataIntent.putExtra("search_query", trainOrigin);
+            passDataIntent.putExtra("search_destination", trainDes);
+            passDataIntent.putExtra("search_date", trainDate);
+            passDataIntent.putExtra("search_pax", trainPax);
+            passDataIntent.putExtra("search_arr", trainArr);
+            passDataIntent.putExtra("departureTime", departureTime);
+            passDataIntent.putExtra("arrivalTime", arrivalTime);
+            startActivity(passDataIntent);
+        }
+    }
+
+    private void saveDataToSharedPreferences(String originName, String destinationName, String totalDuration, String trainDate, String trainArr, String trainPax, String departureTime, String arrivalTime) {
+        Log.d("Select_depart_ticket", "Saving data to SharedPreferences");
+
+        // Save data to SharedPreferences
+        SharedPreferences preferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("originName", originName);
+        editor.putString("destinationName", destinationName);
+        editor.putString("totalDuration", totalDuration);
+        editor.putString("trainDate", trainDate);
+        editor.putString("trainArr", trainArr);
+        editor.putString("trainPax", trainPax);
+        editor.putString("departureTime", departureTime);
+        editor.putString("arrivalTime", arrivalTime);
+        editor.apply();
+    }
+
+    private void startSeatActivity(Class<?> destinationClass) {
+        Intent intent = new Intent(this, destinationClass);
         startActivity(intent);
     }
 
